@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C6FE43AF1C91FB8700F38947 /* PetSitterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetSitterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6FE43AF1C91FB8700F38947 /* WatchDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6FE43B21C91FB8700F38947 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6FE43B41C91FB8700F38947 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6FE43B71C91FB8700F38947 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		C6FE43A61C91FB8700F38947 = {
 			isa = PBXGroup;
 			children = (
-				C6FE43B11C91FB8700F38947 /* PetSitterApp */,
+				C6FE43B11C91FB8700F38947 /* WatchDog */,
 				C6FE43B01C91FB8700F38947 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		C6FE43B01C91FB8700F38947 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6FE43AF1C91FB8700F38947 /* PetSitterApp.app */,
+				C6FE43AF1C91FB8700F38947 /* WatchDog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C6FE43B11C91FB8700F38947 /* PetSitterApp */ = {
+		C6FE43B11C91FB8700F38947 /* WatchDog */ = {
 			isa = PBXGroup;
 			children = (
 				C6FE43B21C91FB8700F38947 /* AppDelegate.swift */,
@@ -61,15 +61,16 @@
 				C6FE43BB1C91FB8700F38947 /* LaunchScreen.storyboard */,
 				C6FE43BE1C91FB8700F38947 /* Info.plist */,
 			);
+			name = WatchDog;
 			path = PetSitterApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6FE43AE1C91FB8700F38947 /* PetSitterApp */ = {
+		C6FE43AE1C91FB8700F38947 /* WatchDog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6FE43C11C91FB8700F38947 /* Build configuration list for PBXNativeTarget "PetSitterApp" */;
+			buildConfigurationList = C6FE43C11C91FB8700F38947 /* Build configuration list for PBXNativeTarget "WatchDog" */;
 			buildPhases = (
 				C6FE43AB1C91FB8700F38947 /* Sources */,
 				C6FE43AC1C91FB8700F38947 /* Frameworks */,
@@ -79,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = PetSitterApp;
+			name = WatchDog;
 			productName = PetSitterApp;
-			productReference = C6FE43AF1C91FB8700F38947 /* PetSitterApp.app */;
+			productReference = C6FE43AF1C91FB8700F38947 /* WatchDog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6FE43AA1C91FB8700F38947 /* Build configuration list for PBXProject "PetSitterApp" */;
+			buildConfigurationList = C6FE43AA1C91FB8700F38947 /* Build configuration list for PBXProject "WatchDog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -111,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6FE43AE1C91FB8700F38947 /* PetSitterApp */,
+				C6FE43AE1C91FB8700F38947 /* WatchDog */,
 			);
 		};
 /* End PBXProject section */
@@ -248,8 +249,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PetSitterApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.PetSitterApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.WatchDog;
+				PRODUCT_NAME = WatchDog;
 			};
 			name = Debug;
 		};
@@ -259,15 +260,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PetSitterApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.PetSitterApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.WatchDog;
+				PRODUCT_NAME = WatchDog;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6FE43AA1C91FB8700F38947 /* Build configuration list for PBXProject "PetSitterApp" */ = {
+		C6FE43AA1C91FB8700F38947 /* Build configuration list for PBXProject "WatchDog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6FE43BF1C91FB8700F38947 /* Debug */,
@@ -276,13 +277,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6FE43C11C91FB8700F38947 /* Build configuration list for PBXNativeTarget "PetSitterApp" */ = {
+		C6FE43C11C91FB8700F38947 /* Build configuration list for PBXNativeTarget "WatchDog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6FE43C21C91FB8700F38947 /* Debug */,
 				C6FE43C31C91FB8700F38947 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

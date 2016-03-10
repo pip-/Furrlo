@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-               BuildableName = "PetSitterApp.app"
-               BlueprintName = "PetSitterApp"
-               ReferencedContainer = "container:PetSitterApp.xcodeproj">
+               BuildableName = "WatchDog.app"
+               BlueprintName = "WatchDog"
+               ReferencedContainer = "container:WatchDog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-            BuildableName = "PetSitterApp.app"
-            BlueprintName = "PetSitterApp"
-            ReferencedContainer = "container:PetSitterApp.xcodeproj">
+            BuildableName = "WatchDog.app"
+            BlueprintName = "WatchDog"
+            ReferencedContainer = "container:WatchDog.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-            BuildableName = "PetSitterApp.app"
-            BlueprintName = "PetSitterApp"
-            ReferencedContainer = "container:PetSitterApp.xcodeproj">
+            BuildableName = "WatchDog.app"
+            BlueprintName = "WatchDog"
+            ReferencedContainer = "container:WatchDog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-            BuildableName = "PetSitterApp.app"
-            BlueprintName = "PetSitterApp"
-            ReferencedContainer = "container:PetSitterApp.xcodeproj">
+            BuildableName = "WatchDog.app"
+            BlueprintName = "WatchDog"
+            ReferencedContainer = "container:WatchDog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
