@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  PetSitterApp
+//  SitStay
 //
-//  Created by Philip Gilbreth on 3/10/16.
-//
+//  Created by Philip Gilbreth on 3/25/16.
+//  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-               BuildableName = "WatchDog.app"
-               BlueprintName = "WatchDog"
-               ReferencedContainer = "container:WatchDog.xcodeproj">
+               BlueprintIdentifier = "C6DA0D251CA62CED00F425B3"
+               BuildableName = "SitStay.app"
+               BlueprintName = "SitStay"
+               ReferencedContainer = "container:SitStay.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-            BuildableName = "WatchDog.app"
-            BlueprintName = "WatchDog"
-            ReferencedContainer = "container:WatchDog.xcodeproj">
+            BlueprintIdentifier = "C6DA0D251CA62CED00F425B3"
+            BuildableName = "SitStay.app"
+            BlueprintName = "SitStay"
+            ReferencedContainer = "container:SitStay.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-            BuildableName = "WatchDog.app"
-            BlueprintName = "WatchDog"
-            ReferencedContainer = "container:WatchDog.xcodeproj">
+            BlueprintIdentifier = "C6DA0D251CA62CED00F425B3"
+            BuildableName = "SitStay.app"
+            BlueprintName = "SitStay"
+            ReferencedContainer = "container:SitStay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6FE43AE1C91FB8700F38947"
-            BuildableName = "WatchDog.app"
-            BlueprintName = "WatchDog"
-            ReferencedContainer = "container:WatchDog.xcodeproj">
+            BlueprintIdentifier = "C6DA0D251CA62CED00F425B3"
+            BuildableName = "SitStay.app"
+            BlueprintName = "SitStay"
+            ReferencedContainer = "container:SitStay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
