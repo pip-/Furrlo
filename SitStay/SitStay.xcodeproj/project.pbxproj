@@ -13,6 +13,8 @@
 		C6DA0D321CA62CED00F425B3 /* SitStay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6DA0D301CA62CED00F425B3 /* SitStay.xcdatamodeld */; };
 		C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D331CA62CED00F425B3 /* Assets.xcassets */; };
 		C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */; };
+		C6DA0D3F1CA62D5100F425B3 /* TripTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D3E1CA62D5100F425B3 /* TripTab.storyboard */; };
+		C6DA0D421CA6350400F425B3 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D411CA6350400F425B3 /* add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		C6DA0D331CA62CED00F425B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6DA0D361CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DA0D381CA62CED00F425B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6DA0D3E1CA62D5100F425B3 /* TripTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TripTab.storyboard; sourceTree = "<group>"; };
+		C6DA0D411CA6350400F425B3 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		C6DA0D281CA62CED00F425B3 /* SitStay */ = {
 			isa = PBXGroup;
 			children = (
+				C6DA0D401CA634E600F425B3 /* img */,
 				C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
@@ -63,8 +68,17 @@
 				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
 				C6DA0D381CA62CED00F425B3 /* Info.plist */,
 				C6DA0D301CA62CED00F425B3 /* SitStay.xcdatamodeld */,
+				C6DA0D3E1CA62D5100F425B3 /* TripTab.storyboard */,
 			);
 			path = SitStay;
+			sourceTree = "<group>";
+		};
+		C6DA0D401CA634E600F425B3 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				C6DA0D411CA6350400F425B3 /* add.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +142,8 @@
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
+				C6DA0D421CA6350400F425B3 /* add.png in Resources */,
+				C6DA0D3F1CA62D5100F425B3 /* TripTab.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
