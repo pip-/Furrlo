@@ -344,50 +344,6 @@
             </objects>
             <point key="canvasLocation" x="1236" y="2591"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="iIh-MW-fb1">
-            <objects>
-                <viewController id="SzV-qh-l6F" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JII-Tj-2Sf"/>
-                        <viewControllerLayoutGuide type="bottom" id="R2w-ua-68U"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cD8-Ki-05V">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52V-GL-yrH">
-                                <rect key="frame" x="47" y="103" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TripCodenbvaiioh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8i-Fh-uqI">
-                                <rect key="frame" x="72" y="144" width="134" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgO-JF-0DK">
-                                <rect key="frame" x="506" y="178" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="52V-GL-yrH" firstAttribute="leading" secondItem="cD8-Ki-05V" secondAttribute="leadingMargin" constant="27" id="MPO-iV-GLX"/>
-                            <constraint firstItem="RgO-JF-0DK" firstAttribute="top" secondItem="C8i-Fh-uqI" secondAttribute="bottom" constant="13" id="iq5-Pq-ppq"/>
-                            <constraint firstItem="C8i-Fh-uqI" firstAttribute="top" secondItem="52V-GL-yrH" secondAttribute="bottom" constant="20" id="mTW-tw-kcq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RgO-JF-0DK" secondAttribute="trailing" constant="25" id="na1-LN-vn7"/>
-                            <constraint firstItem="C8i-Fh-uqI" firstAttribute="leading" secondItem="cD8-Ki-05V" secondAttribute="leadingMargin" constant="52" id="y0K-Lq-zSZ"/>
-                            <constraint firstItem="52V-GL-yrH" firstAttribute="top" secondItem="JII-Tj-2Sf" secondAttribute="bottom" constant="83" id="ydP-0X-cZc"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6oy-Ak-cH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="480" y="2630"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kaz-Kq-Zol">
             <objects>
