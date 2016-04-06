@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BBQ-ij-UnZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BBQ-ij-UnZ">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
         <!--Sitter Contact Info-->
         <scene sceneID="F6R-iT-PRq">
             <objects>
-                <viewController id="NwV-xF-LvI" customClass="Sitter_ContactInfo" customModule="Sitter_PetTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NwV-xF-LvI" customClass="Sitter_ContactInfo" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QfY-Yr-byM"/>
                         <viewControllerLayoutGuide type="bottom" id="Ytf-3s-LET"/>
@@ -95,7 +95,7 @@
         <!--Their Pets-->
         <scene sceneID="v2O-t9-Zbs">
             <objects>
-                <viewController id="tWm-cx-RBq" customClass="Sitter_Pets" customModule="Sitter_PetTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tWm-cx-RBq" customClass="Sitter_Pets" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="LbC-5g-0qS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,7 +107,7 @@
                             <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="lMY-Xh-ngY" customClass="Sitter_Cell" customModule="Sitter_PetTab" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="lMY-Xh-ngY" customClass="Sitter_Cell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="15" y="134" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -157,7 +157,7 @@
         <!--Sitter Pet Info-->
         <scene sceneID="2Pd-ko-Oxl">
             <objects>
-                <viewController id="dud-jn-S4r" customClass="Sitter_PetInfo" customModule="Sitter_PetTab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dud-jn-S4r" customClass="Sitter_PetInfo" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zhw-Qu-Cw8"/>
                         <viewControllerLayoutGuide type="bottom" id="qAF-Zt-8a5"/>
