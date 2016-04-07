@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6778C5A71CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A61CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard */; };
 		C6782D221CA6FCD300A862A5 /* TripTabSitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6782D211CA6FCD300A862A5 /* TripTabSitter.storyboard */; };
-		C6D73BF21CB4B7B0001BC7F2 /* PetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D73BF11CB4B7B0001BC7F2 /* PetView.storyboard */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C001CB4B7DD001BC7F2 /* ContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */; };
@@ -33,7 +32,6 @@
 /* Begin PBXFileReference section */
 		6778C5A61CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SitterToDoListStoryboard.storyboard; sourceTree = "<group>"; };
 		C6782D211CA6FCD300A862A5 /* TripTabSitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TripTabSitter.storyboard; sourceTree = "<group>"; };
-		C6D73BF11CB4B7B0001BC7F2 /* PetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PetView.storyboard; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoOwner.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				C6D73BF81CB4B7DD001BC7F2 /* PetTabSitter.storyboard */,
-				C6D73BF11CB4B7B0001BC7F2 /* PetView.storyboard */,
 				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
 				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
 				C6782D211CA6FCD300A862A5 /* TripTabSitter.storyboard */,
@@ -209,7 +206,6 @@
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
 				C6DA0D421CA6350400F425B3 /* add.png in Resources */,
-				C6D73BF21CB4B7B0001BC7F2 /* PetView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
