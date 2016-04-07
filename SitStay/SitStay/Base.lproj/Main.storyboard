@@ -362,7 +362,7 @@
         <!--Title-->
         <scene sceneID="N71-Kg-JPL">
             <objects>
-                <viewController id="hh8-J6-g0Y" customClass="Owner_ExistingPet" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hh8-J6-g0Y" customClass="ExistingPetOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2P8-Xh-Ytp"/>
                         <viewControllerLayoutGuide type="bottom" id="oa1-eT-FDY"/>
@@ -475,7 +475,7 @@
         <!--Add Pet-->
         <scene sceneID="yT2-bU-95r">
             <objects>
-                <viewController id="gqR-WX-Alb" customClass="Owner_AddPet" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gqR-WX-Alb" customClass="AddPetOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LSL-Kn-qVr"/>
                         <viewControllerLayoutGuide type="bottom" id="wTD-nD-fik"/>
@@ -484,7 +484,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add A Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGp-gW-CP5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add A Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGp-gW-CP5">
                                 <rect key="frame" x="220" y="139" width="340" height="30"/>
                                 <color key="textColor" red="0.017220222510000001" green="0.017220222510000001" blue="0.017220222510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -596,10 +596,10 @@
             </objects>
             <point key="canvasLocation" x="1735" y="-2775"/>
         </scene>
-        <!--Owner Pet Tab-->
+        <!--Pet Tab Owner-->
         <scene sceneID="A8j-ga-6G6">
             <objects>
-                <viewController id="dwr-LF-Hcg" customClass="Owner_PetTab" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dwr-LF-Hcg" customClass="PetTabOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="9ds-O2-Fck">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -611,8 +611,8 @@
                             <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="E4h-xn-Upe" customClass="Owner_CollectionViewCell" customModule="SitStay" customModuleProvider="target">
-                                <rect key="frame" x="15" y="134" width="100" height="100"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="E4h-xn-Upe" customClass="CollectionViewCellOwner" customModule="SitStay" customModuleProvider="target">
+                                <rect key="frame" x="15" y="70" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -640,7 +640,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PWo-FD-sCi">
-                            <rect key="frame" x="0.0" y="64" width="600" height="55"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
                         <connections>
@@ -672,7 +672,7 @@
         <!--Title-->
         <scene sceneID="Hli-Hv-Y3z">
             <objects>
-                <viewController id="WV1-oU-hSj" customClass="Owner_ContactInfo" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WV1-oU-hSj" customClass="ContactInfoOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sZz-8O-daJ"/>
                         <viewControllerLayoutGuide type="bottom" id="2v7-Th-HWn"/>
@@ -751,7 +751,7 @@
         <!--Title-->
         <scene sceneID="dBj-Ee-3UV">
             <objects>
-                <viewController id="lOq-22-M9X" customClass="Owner_EditContactInfo" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lOq-22-M9X" customClass="EditContactInfoOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="58y-27-rcm"/>
                         <viewControllerLayoutGuide type="bottom" id="rM8-1c-hZ9"/>
@@ -839,9 +839,9 @@
         <image name="add.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fJb-8A-dW9"/>
-        <segue reference="HVB-tS-KwQ"/>
+        <segue reference="aEk-xj-5vm"/>
+        <segue reference="94p-cs-nKn"/>
         <segue reference="m2F-xK-kZM"/>
-        <segue reference="ntf-ef-KZI"/>
+        <segue reference="HVB-tS-KwQ"/>
     </inferredMetricsTieBreakers>
 </document>

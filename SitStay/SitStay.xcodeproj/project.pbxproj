@@ -27,6 +27,7 @@
 		C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D331CA62CED00F425B3 /* Assets.xcassets */; };
 		C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */; };
 		C6DA0D421CA6350400F425B3 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D411CA6350400F425B3 /* add.png */; };
+		C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C6DA0D361CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DA0D381CA62CED00F425B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DA0D411CA6350400F425B3 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTabOwner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				C6D73BFB1CB4B7DD001BC7F2 /* PetInfoSitter.swift */,
 				C6D73BFC1CB4B7DD001BC7F2 /* PetsSitter.swift */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
+				C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */,
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,
+				C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */,
 				C6DA0D321CA62CED00F425B3 /* SitStay.xcdatamodeld in Sources */,
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
 				C6D73C071CB4B7DD001BC7F2 /* PetsSitter.swift in Sources */,
