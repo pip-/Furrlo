@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		6778C5A71CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A61CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard */; };
-		C6782D221CA6FCD300A862A5 /* TripTabSitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6782D211CA6FCD300A862A5 /* TripTabSitter.storyboard */; };
-		C6D73BF21CB4B7B0001BC7F2 /* PetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D73BF11CB4B7B0001BC7F2 /* PetView.storyboard */; };
+		6778C5A91CB6D099005FB205 /* Main Sitter Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Main Sitter Storyboard.storyboard */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C001CB4B7DD001BC7F2 /* ContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */; };
 		C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
-		C6D73C031CB4B7DD001BC7F2 /* PetTabSitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D73BF81CB4B7DD001BC7F2 /* PetTabSitter.storyboard */; };
 		C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */; };
 		C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */; };
 		C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BFB1CB4B7DD001BC7F2 /* PetInfoSitter.swift */; };
@@ -32,14 +30,12 @@
 
 /* Begin PBXFileReference section */
 		6778C5A61CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SitterToDoListStoryboard.storyboard; sourceTree = "<group>"; };
-		C6782D211CA6FCD300A862A5 /* TripTabSitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TripTabSitter.storyboard; sourceTree = "<group>"; };
-		C6D73BF11CB4B7B0001BC7F2 /* PetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PetView.storyboard; sourceTree = "<group>"; };
+		6778C5A81CB6D099005FB205 /* Main Sitter Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main Sitter Storyboard.storyboard"; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoOwner.swift; sourceTree = "<group>"; };
 		C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactInfoOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
-		C6D73BF81CB4B7DD001BC7F2 /* PetTabSitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PetTabSitter.storyboard; sourceTree = "<group>"; };
 		C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSitter.swift; sourceTree = "<group>"; };
 		C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoSitter.swift; sourceTree = "<group>"; };
 		C6D73BFB1CB4B7DD001BC7F2 /* PetInfoSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetInfoSitter.swift; sourceTree = "<group>"; };
@@ -70,12 +66,10 @@
 		C6D73C091CB4BA05001BC7F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C6D73BF81CB4B7DD001BC7F2 /* PetTabSitter.storyboard */,
-				C6D73BF11CB4B7B0001BC7F2 /* PetView.storyboard */,
 				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
 				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
-				C6782D211CA6FCD300A862A5 /* TripTabSitter.storyboard */,
 				6778C5A61CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard */,
+				6778C5A81CB6D099005FB205 /* Main Sitter Storyboard.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -203,13 +197,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6778C5A71CB6CC78005FB205 /* SitterToDoListStoryboard.storyboard in Resources */,
-				C6782D221CA6FCD300A862A5 /* TripTabSitter.storyboard in Resources */,
-				C6D73C031CB4B7DD001BC7F2 /* PetTabSitter.storyboard in Resources */,
+				6778C5A91CB6D099005FB205 /* Main Sitter Storyboard.storyboard in Resources */,
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
 				C6DA0D421CA6350400F425B3 /* add.png in Resources */,
-				C6D73BF21CB4B7B0001BC7F2 /* PetView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
