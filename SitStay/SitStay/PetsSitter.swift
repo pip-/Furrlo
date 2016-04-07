@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Sitter_Pets: UIViewController {
+class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var items = ["Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"]
     
@@ -33,7 +33,7 @@ class Sitter_Pets: UIViewController {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! Sitter_Cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CellSitter
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petButton.setTitle(self.items[indexPath.item], forState: .Normal)

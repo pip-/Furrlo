@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Sitter_PetInfo: UIViewController {
+class PetInfoSitter: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

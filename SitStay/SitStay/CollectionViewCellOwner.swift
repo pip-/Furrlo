@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Owner_CollectionViewCell: UICollectionViewCell {
+class CollectionViewCellOwner: UICollectionViewCell {
     
     
     @IBOutlet weak var petButton: UIButton!

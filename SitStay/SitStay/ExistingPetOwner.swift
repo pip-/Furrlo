@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Owner_ExistingPet: UIViewController {
+class ExistingPetOwner: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

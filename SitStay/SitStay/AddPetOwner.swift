@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Owner_AddPet: UIViewController {
+class AddPetOwner: UIViewController {
 
     @IBOutlet weak var petAge: UILabel!
     

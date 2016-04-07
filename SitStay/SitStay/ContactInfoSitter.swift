@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Sitter_ContactInfo: UIViewController {
+class ContactInfoSitter: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

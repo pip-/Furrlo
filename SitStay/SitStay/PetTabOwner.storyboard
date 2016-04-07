@@ -250,10 +250,10 @@
             </objects>
             <point key="canvasLocation" x="495" y="-1381"/>
         </scene>
-        <!--Owner Pet Tab-->
+        <!--Existing Pet Owner-->
         <scene sceneID="fDw-JV-txm">
             <objects>
-                <viewController id="QBn-4S-0bo" customClass="Owner_PetTab" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QBn-4S-0bo" customClass="ExistingPetOwner" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qPe-HU-UpU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -478,9 +478,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9n3-Ea-Xtu"/>
+        <segue reference="BV6-9L-hm2"/>
         <segue reference="y2v-zx-l0G"/>
-        <segue reference="f8J-8N-bFv"/>
-        <segue reference="CLr-jU-lsU"/>
         <segue reference="AS3-H1-gaV"/>
     </inferredMetricsTieBreakers>
 </document>
