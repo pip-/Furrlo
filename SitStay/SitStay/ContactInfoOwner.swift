@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Owner_ContactInfo: UIViewController {
+class ContactInfoOwner: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

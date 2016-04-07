@@ -1,14 +1,15 @@
 //
-//  Sitter_Pets.swift
-//  Sitter_PetTab
+//  PetTabOwner.swift
+//  SitStay
 //
-//  Created by MU IT Program on 3/30/16.
-//  Copyright © 2016 Megan Cochran. All rights reserved.
+//  Created by Philip Gilbreth on 4/6/16.
+//  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class PetsSitter: UIViewController {
+class PetTabOwner: UIViewController {
+
     let reuseIdentifier = "cell"
     var items = ["Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"]
     
@@ -33,7 +34,7 @@ class PetsSitter: UIViewController {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CellSitter
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCellOwner
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petButton.setTitle(self.items[indexPath.item], forState: .Normal)
@@ -55,3 +56,5 @@ class PetsSitter: UIViewController {
     }
     
 }
+
+
