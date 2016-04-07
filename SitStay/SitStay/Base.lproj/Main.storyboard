@@ -367,7 +367,7 @@
                         <viewControllerLayoutGuide type="top" id="2P8-Xh-Ytp"/>
                         <viewControllerLayoutGuide type="bottom" id="oa1-eT-FDY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jA6-6b-Rll" customClass="Owner_CollectionViewCell" customModule="SitStay" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="jA6-6b-Rll" customClass="CollectionViewCellOwner" customModule="SitStay" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -520,12 +520,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is your pet like?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUj-dL-8pG">
-                                <rect key="frame" x="45" y="320" width="510" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What does your pet like to eat?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eiV-6L-Wsf">
                                 <rect key="frame" x="39" y="394" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -542,6 +536,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is your pet like?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUj-dL-8pG">
+                                <rect key="frame" x="45" y="318" width="510" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -839,9 +839,9 @@
         <image name="add.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aEk-xj-5vm"/>
-        <segue reference="94p-cs-nKn"/>
-        <segue reference="m2F-xK-kZM"/>
-        <segue reference="HVB-tS-KwQ"/>
+        <segue reference="ntf-ef-KZI"/>
+        <segue reference="hxu-Zx-kBK"/>
+        <segue reference="1iH-Ug-7Gz"/>
+        <segue reference="ygG-No-uFN"/>
     </inferredMetricsTieBreakers>
 </document>
