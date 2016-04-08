@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6778C5A91CB6D099005FB205 /* Main Sitter Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Main Sitter Storyboard.storyboard */; };
+		6778C5A91CB6D099005FB205 /* MainSitterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C001CB4B7DD001BC7F2 /* ContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */; };
@@ -27,10 +27,11 @@
 		C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */; };
 		C6FAB3FF1CB723E100A331AD /* TripTabOwnerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */; };
 		C6FAB4031CB729C500A331AD /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB4021CB729C500A331AD /* TripCell.swift */; };
+		C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6778C5A81CB6D099005FB205 /* Main Sitter Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main Sitter Storyboard.storyboard"; sourceTree = "<group>"; };
+		6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainSitterStoryboard.storyboard; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoOwner.swift; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTabOwner.swift; sourceTree = "<group>"; };
 		C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabOwnerMain.swift; sourceTree = "<group>"; };
 		C6FAB4021CB729C500A331AD /* TripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
+		C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabSitterMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,7 @@
 			children = (
 				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
 				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
-				6778C5A81CB6D099005FB205 /* Main Sitter Storyboard.storyboard */,
+				6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -91,6 +93,7 @@
 				C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */,
 				C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */,
 				C6FAB4021CB729C500A331AD /* TripCell.swift */,
+				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -199,7 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6778C5A91CB6D099005FB205 /* Main Sitter Storyboard.storyboard in Resources */,
+				6778C5A91CB6D099005FB205 /* MainSitterStoryboard.storyboard in Resources */,
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
@@ -222,6 +225,7 @@
 				C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */,
 				C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */,
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
+				C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,
 				C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */,
 				C6FAB3FF1CB723E100A331AD /* TripTabOwnerMain.swift in Sources */,
