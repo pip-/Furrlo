@@ -43,20 +43,33 @@
         <!--Root View Controller-->
         <scene sceneID="qL9-bo-3r7">
             <objects>
-                <tableViewController id="E9Z-bV-QvL" sceneMemberID="viewController">
+                <tableViewController id="E9Z-bV-QvL" customClass="TripTabOwnerMain" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yYy-Lr-rfz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tripCell" id="mvo-DM-qwd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tripCell" id="mvo-DM-qwd" customClass="TripCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mvo-DM-qwd" id="bvi-fp-tqw">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5d-Uk-GYl">
+                                            <rect key="frame" x="72" y="11" width="79" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="P5d-Uk-GYl" firstAttribute="leading" secondItem="bvi-fp-tqw" secondAttribute="leadingMargin" constant="64" id="6IZ-zi-MFp"/>
+                                        <constraint firstItem="P5d-Uk-GYl" firstAttribute="top" secondItem="bvi-fp-tqw" secondAttribute="topMargin" constant="3" id="h3O-Pr-Puu"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="tripLabel" destination="P5d-Uk-GYl" id="Eqr-5b-fem"/>
                                     <segue destination="WmQ-ed-Nyh" kind="show" id="uvp-hS-7yX"/>
                                 </connections>
                             </tableViewCell>
