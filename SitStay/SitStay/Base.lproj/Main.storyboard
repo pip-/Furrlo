@@ -955,10 +955,10 @@
             </objects>
             <point key="canvasLocation" x="1207" y="1980"/>
         </scene>
-        <!--Owner Settings-->
+        <!--Settings Owner-->
         <scene sceneID="cwQ-0U-fHK">
             <objects>
-                <viewController id="t6q-Me-Xae" customClass="Owner_Settings" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="t6q-Me-Xae" customClass="SettingsOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="11b-Z3-49q"/>
                         <viewControllerLayoutGuide type="bottom" id="mmo-MC-llc"/>
