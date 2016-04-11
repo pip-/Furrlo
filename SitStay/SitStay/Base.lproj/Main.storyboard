@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller Owner-->
         <scene sceneID="Ywb-kf-2OY">
             <objects>
-                <tabBarController id="WLj-7p-njg" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarControllerOwner" id="WLj-7p-njg" customClass="TabBarControllerOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="DaJ-Vq-oE2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -16,8 +16,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="2gA-71-PTw" kind="relationship" relationship="viewControllers" id="CIZ-Xn-6mf"/>
-                        <segue destination="dhF-hY-5uS" kind="relationship" relationship="viewControllers" id="kBW-eL-eDZ"/>
                         <segue destination="MIE-DJ-0H0" kind="relationship" relationship="viewControllers" id="f9b-12-VW3"/>
+                        <segue destination="dhF-hY-5uS" kind="relationship" relationship="viewControllers" id="iLJ-zX-wJC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJX-MK-GWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -365,10 +365,10 @@
             </objects>
             <point key="canvasLocation" x="2484" y="-499"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Controller Pets Owner-->
         <scene sceneID="NWe-Ig-YGe">
             <objects>
-                <navigationController id="dhF-hY-5uS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navControllerPetsOwner" id="dhF-hY-5uS" customClass="NavControllerPetsOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="hoS-ZD-4pz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1IF-mC-Kb8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -967,7 +967,7 @@
         <!--Settings Owner-->
         <scene sceneID="cwQ-0U-fHK">
             <objects>
-                <viewController id="t6q-Me-Xae" customClass="SettingsOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsOwner" id="t6q-Me-Xae" customClass="SettingsOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="11b-Z3-49q"/>
                         <viewControllerLayoutGuide type="bottom" id="mmo-MC-llc"/>

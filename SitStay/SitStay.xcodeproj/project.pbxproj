@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6778C5A91CB6D099005FB205 /* MainSitterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */; };
+		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */; };
@@ -23,6 +23,11 @@
 		C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D331CA62CED00F425B3 /* Assets.xcassets */; };
 		C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */; };
 		C6DA0D421CA6350400F425B3 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D411CA6350400F425B3 /* add.png */; };
+		C6E727691CBC208700E7945B /* SettingsSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E727681CBC208700E7945B /* SettingsSitter.swift */; };
+		C6E7276B1CBC216E00E7945B /* NavControllerPetsOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */; };
+		C6E7276D1CBC21FA00E7945B /* NavControllerPetsSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */; };
+		C6E7276F1CBC24F800E7945B /* TabBarControllerOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */; };
+		C6E727711CBC251F00E7945B /* TabBarControllerSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */; };
 		C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */; };
 		C6FAB3FF1CB723E100A331AD /* TripTabOwnerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */; };
 		C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */; };
@@ -73,7 +78,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainSitterStoryboard.storyboard; sourceTree = "<group>"; };
+		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactInfoOwner.swift; sourceTree = "<group>"; };
@@ -91,6 +96,11 @@
 		C6DA0D361CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6DA0D381CA62CED00F425B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DA0D411CA6350400F425B3 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		C6E727681CBC208700E7945B /* SettingsSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSitter.swift; sourceTree = "<group>"; };
+		C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavControllerPetsOwner.swift; sourceTree = "<group>"; };
+		C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavControllerPetsSitter.swift; sourceTree = "<group>"; };
+		C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerOwner.swift; sourceTree = "<group>"; };
+		C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSitter.swift; sourceTree = "<group>"; };
 		C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTabOwner.swift; sourceTree = "<group>"; };
 		C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabOwnerMain.swift; sourceTree = "<group>"; };
 		C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabSitterMain.swift; sourceTree = "<group>"; };
@@ -156,7 +166,7 @@
 			children = (
 				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
 				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
-				6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */,
+				6778C5A81CB6D099005FB205 /* Sitter.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -178,6 +188,11 @@
 				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
 				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
 				C6FAB45D1CBC076600A331AD /* TripCell.swift */,
+				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
+				C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */,
+				C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */,
+				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
+				C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -209,7 +224,6 @@
 		C6DA0D281CA62CED00F425B3 /* SitStay */ = {
 			isa = PBXGroup;
 			children = (
-				C6FAB4081CBC05DF00A331AD /* Icons */,
 				C6D73C0A1CB4BA1D001BC7F2 /* Controllers */,
 				C6D73C091CB4BA05001BC7F2 /* Views */,
 				C6DA0D401CA634E600F425B3 /* img */,
@@ -224,6 +238,7 @@
 		C6DA0D401CA634E600F425B3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				C6FAB4081CBC05DF00A331AD /* Icons */,
 				C6DA0D411CA6350400F425B3 /* add.png */,
 			);
 			name = img;
@@ -339,7 +354,7 @@
 				C6FAB4521CBC05DF00A331AD /* TOOLBAR.ai in Resources */,
 				C6FAB44C1CBC05DF00A331AD /* Pets icon.ai in Resources */,
 				C6FAB4511CBC05DF00A331AD /* To Do screen.ai in Resources */,
-				6778C5A91CB6D099005FB205 /* MainSitterStoryboard.storyboard in Resources */,
+				6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */,
 				C6FAB43B1CBC05DF00A331AD /* Food icon.png in Resources */,
 				C6FAB4461CBC05DF00A331AD /* meds icon1.ai in Resources */,
 				C6FAB4501CBC05DF00A331AD /* to do icon.png in Resources */,
@@ -406,9 +421,14 @@
 				C6FAB3FF1CB723E100A331AD /* TripTabOwnerMain.swift in Sources */,
 				C6DA0D321CA62CED00F425B3 /* SitStay.xcdatamodeld in Sources */,
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
+				C6E7276F1CBC24F800E7945B /* TabBarControllerOwner.swift in Sources */,
 				C6D73C071CB4B7DD001BC7F2 /* PetsSitter.swift in Sources */,
 				C6DA0D2A1CA62CED00F425B3 /* AppDelegate.swift in Sources */,
 				C6FAB4071CBBFE6900A331AD /* SettingsOwner.swift in Sources */,
+				C6E727711CBC251F00E7945B /* TabBarControllerSitter.swift in Sources */,
+				C6E727691CBC208700E7945B /* SettingsSitter.swift in Sources */,
+				C6E7276D1CBC21FA00E7945B /* NavControllerPetsSitter.swift in Sources */,
+				C6E7276B1CBC216E00E7945B /* NavControllerPetsOwner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SitStay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -531,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SitStay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -1,5 +1,5 @@
 //
-//  SettingsOwner.swift
+//  SettingsSitter.swift
 //  SitStay
 //
 //  Created by MU IT Program on 4/10/16.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableViewOne: UITableView!
     
     var roles = ["Owner", "Sitter"]
-    var selectedRow = 0
+    var selectedRow = 1
     
     
     
@@ -48,10 +48,11 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(tableViewOne: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         self.selectedRow = indexPath.row
-        if(indexPath.row == 1){
+        if(indexPath.row == 0){
             self.changeBoard()
+        } else {
+            tableViewOne.reloadData()
         }
-        tableViewOne.reloadData()
         
         
         /*
@@ -74,8 +75,8 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     func changeBoard(){
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "changingSettings")
-        let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerOwner") as UIViewController
         presentViewController(vc, animated: false, completion: nil)
     }
 }
