@@ -11,9 +11,9 @@ import UIKit
 class TripTabOwnerMain: UITableViewController {
     
     var reuseIdentifier = "tripCell"
-    var lastRowReuseIdentifier = "addTripCell"
+    var noTripsReuseIdentifier = "noTripsCell"
     
-    var tripNames = ["California", "Italy", "Brazil"]
+    var tripNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +39,21 @@ class TripTabOwnerMain: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tripNames.count + 1
+        if(tripNames.count == 0){
+            return 1
+        } else {
+            return tripNames.count
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        if(indexPath.row < tripNames.count){
+        if(tripNames.count == 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier(noTripsReuseIdentifier, forIndexPath: indexPath)
+            
+            return cell
+        }
+        else {
             let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
 
                 // Configure the cell...
@@ -53,10 +61,6 @@ class TripTabOwnerMain: UITableViewController {
         
 
                 return cell
-        }
-        else{
-            let cell = tableView.dequeueReusableCellWithIdentifier(lastRowReuseIdentifier, forIndexPath: indexPath)
-            return cell
         }
     }
  
