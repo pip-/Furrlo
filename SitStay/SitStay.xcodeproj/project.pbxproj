@@ -28,6 +28,7 @@
 		C6FAB3FF1CB723E100A331AD /* TripTabOwnerMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */; };
 		C6FAB4031CB729C500A331AD /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB4021CB729C500A331AD /* TripCell.swift */; };
 		C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */; };
+		C6FAB4071CBBFE6900A331AD /* SettingsOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabOwnerMain.swift; sourceTree = "<group>"; };
 		C6FAB4021CB729C500A331AD /* TripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTabSitterMain.swift; sourceTree = "<group>"; };
+		C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsOwner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */,
 				C6FAB4021CB729C500A331AD /* TripCell.swift */,
 				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
+				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
 				C6D73C071CB4B7DD001BC7F2 /* PetsSitter.swift in Sources */,
 				C6DA0D2A1CA62CED00F425B3 /* AppDelegate.swift in Sources */,
+				C6FAB4071CBBFE6900A331AD /* SettingsOwner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
