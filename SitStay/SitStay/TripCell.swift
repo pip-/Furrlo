@@ -9,7 +9,9 @@
 import UIKit
 
 class TripCell: UITableViewCell {
-
+    
+    
+    
     @IBOutlet weak var tripLabel: UILabel!
     
     func changeLabel(newLabel: String){
@@ -21,11 +23,11 @@ class TripCell: UITableViewCell {
         // Initialization code
         tripLabel.text = "Initializing..."
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
