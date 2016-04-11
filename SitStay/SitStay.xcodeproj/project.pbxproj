@@ -10,7 +10,6 @@
 		6778C5A91CB6D099005FB205 /* MainSitterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
-		C6D73C001CB4B7DD001BC7F2 /* ContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */; };
 		C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
 		C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */; };
@@ -35,7 +34,6 @@
 		6778C5A81CB6D099005FB205 /* MainSitterStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainSitterStoryboard.storyboard; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
-		C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoOwner.swift; sourceTree = "<group>"; };
 		C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactInfoOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSitter.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 			children = (
 				C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */,
 				C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */,
-				C6D73BF51CB4B7DD001BC7F2 /* ContactInfoOwner.swift */,
 				C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */,
 				C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */,
 				C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */,
@@ -221,7 +218,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */,
-				C6D73C001CB4B7DD001BC7F2 /* ContactInfoOwner.swift in Sources */,
 				C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */,
 				C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */,
 				C6FAB4031CB729C500A331AD /* TripCell.swift in Sources */,
