@@ -967,7 +967,7 @@
         <!--Settings Owner-->
         <scene sceneID="cwQ-0U-fHK">
             <objects>
-                <viewController id="t6q-Me-Xae" customClass="SettingsOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsOwner" id="t6q-Me-Xae" customClass="SettingsOwner" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="11b-Z3-49q"/>
                         <viewControllerLayoutGuide type="bottom" id="mmo-MC-llc"/>

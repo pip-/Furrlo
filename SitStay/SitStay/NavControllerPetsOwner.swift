@@ -13,13 +13,13 @@ class NavControllerPetsOwner: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*let changingSettings = NSUserDefaults.standardUserDefaults().boolForKey("changingSettings")
+        let changingSettings = NSUserDefaults.standardUserDefaults().boolForKey("changingSettings")
         if(changingSettings){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let newVC = storyboard.instantiateViewControllerWithIdentifier("SettingsOwner")
+            let newVC = storyboard.instantiateViewControllerWithIdentifier("settingsOwner")
             self.pushViewController(newVC, animated: false)
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "changingSettings")
-        }*/
+        }
     }
 
     override func didReceiveMemoryWarning() {

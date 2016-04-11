@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="1190" y="-208"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Controller Pets Sitter-->
         <scene sceneID="kPR-MN-Np6">
             <objects>
-                <navigationController id="gQU-R0-Ina" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navControllerPetsSitter" id="gQU-R0-Ina" customClass="NavControllerPetsSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="yLH-mH-Qo4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cHO-gY-4HJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -676,7 +676,7 @@
         <!--Settings Sitter-->
         <scene sceneID="wOf-3W-X1x">
             <objects>
-                <viewController id="N59-mh-voC" customClass="SettingsSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsSitter" id="N59-mh-voC" customClass="SettingsSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="shd-H1-A54"/>
                         <viewControllerLayoutGuide type="bottom" id="IMO-Em-3vN"/>
