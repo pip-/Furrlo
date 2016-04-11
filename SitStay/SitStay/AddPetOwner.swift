@@ -25,7 +25,13 @@ class AddPetOwner: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func doneWithPet(sender: AnyObject) {
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
 
+    @IBAction func cancel(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
     /*
     // MARK: - Navigation
 
