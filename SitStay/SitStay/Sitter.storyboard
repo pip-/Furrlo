@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller Sitter-->
         <scene sceneID="bnU-WK-xep">
             <objects>
-                <tabBarController id="V1N-LL-iQp" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarControllerSitter" id="V1N-LL-iQp" customClass="TabBarControllerSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="1ag-ov-DcR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="2556" y="-140"/>
         </scene>
-        <!--Sitter Contact Info-->
+        <!--Contact Info Sitter-->
         <scene sceneID="sw8-D8-MNc">
             <objects>
-                <viewController id="mCE-2G-XUu" customClass="Sitter_ContactInfo" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mCE-2G-XUu" customClass="ContactInfoSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f00-my-zqE"/>
                         <viewControllerLayoutGuide type="bottom" id="xxa-6i-87A"/>
@@ -114,7 +114,7 @@
         <!--Their Pets-->
         <scene sceneID="tNr-TQ-tnp">
             <objects>
-                <viewController id="DpB-Wt-kOQ" customClass="Sitter_Pets" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DpB-Wt-kOQ" customClass="PetsSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Uce-fE-qKb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,7 +126,7 @@
                             <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="6im-NU-GOf" customClass="Sitter_Cell" customModule="SitStay" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="6im-NU-GOf" customClass="CellSitter" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="15" y="134" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -164,11 +164,16 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Their Pets" id="JGp-Tw-Fjo" userLabel="Their Pets">
-                        <barButtonItem key="rightBarButtonItem" title="Contact Info" id="8Q2-nL-A57">
+                        <barButtonItem key="leftBarButtonItem" title="Contact Info" id="8Q2-nL-A57">
                             <connections>
                                 <segue destination="mCE-2G-XUu" kind="show" id="yBV-v1-MbN">
                                     <nil key="action"/>
                                 </segue>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="vE3-df-q2Y">
+                            <connections>
+                                <segue destination="N59-mh-voC" kind="show" id="ZSP-8Y-u7Q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -177,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="3387" y="-140"/>
         </scene>
-        <!--Sitter Pet Info-->
+        <!--Pet Info Sitter-->
         <scene sceneID="lbN-yF-adb">
             <objects>
-                <viewController id="dFp-uM-h91" customClass="Sitter_PetInfo" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dFp-uM-h91" customClass="PetInfoSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DP5-1K-g7c"/>
                         <viewControllerLayoutGuide type="bottom" id="6TQ-nK-cWl"/>
@@ -667,6 +672,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cr-xm-lgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1863" y="1940"/>
+        </scene>
+        <!--Settings Sitter-->
+        <scene sceneID="wOf-3W-X1x">
+            <objects>
+                <viewController id="N59-mh-voC" customClass="SettingsSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="shd-H1-A54"/>
+                        <viewControllerLayoutGuide type="bottom" id="IMO-Em-3vN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c2J-86-NCF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-Wq-2xg">
+                                <rect key="frame" x="152" y="193" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="roleCell" id="jFf-Sc-uR3">
+                                        <rect key="frame" x="0.0" y="92" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jFf-Sc-uR3" id="4VM-lV-sTb">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="N59-mh-voC" id="GVs-CZ-irp"/>
+                                    <outlet property="delegate" destination="N59-mh-voC" id="vDe-f5-CwZ"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awh-7i-UXl">
+                                <rect key="frame" x="78" y="139" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="awh-7i-UXl" firstAttribute="leading" secondItem="c2J-86-NCF" secondAttribute="leadingMargin" constant="15" id="2s9-M3-Yaw"/>
+                            <constraint firstItem="pfY-Wq-2xg" firstAttribute="leading" secondItem="c2J-86-NCF" secondAttribute="leading" id="6Kl-0D-TcV"/>
+                            <constraint firstAttribute="trailing" secondItem="pfY-Wq-2xg" secondAttribute="trailing" id="AeT-gy-tIW"/>
+                            <constraint firstItem="pfY-Wq-2xg" firstAttribute="top" secondItem="shd-H1-A54" secondAttribute="bottom" constant="15" id="DIA-kw-6pm"/>
+                            <constraint firstItem="IMO-Em-3vN" firstAttribute="top" secondItem="pfY-Wq-2xg" secondAttribute="bottom" id="a09-B2-obY"/>
+                            <constraint firstItem="awh-7i-UXl" firstAttribute="top" secondItem="shd-H1-A54" secondAttribute="bottom" constant="50" id="a9h-3j-KTQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableViewOne" destination="pfY-Wq-2xg" id="2ox-Mx-acc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mpo-GV-omV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3561" y="836"/>
         </scene>
     </scenes>
 </document>
