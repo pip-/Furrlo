@@ -33,21 +33,23 @@ class SitterToDoListController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setSelectedView(){
+    func setSelectedView() {
+        
+        containerView1.hidden = true
+        containerView2.hidden = true
+        containerView3.hidden = false
+        
         if (segmentedControl.selectedSegmentIndex == 0){
-            containerView1.hidden = false;
-            containerView2.hidden = true;
-            containerView3.hidden = true;
+            containerView1.hidden = false
+            containerView2.hidden = true
+            containerView3.hidden = true
+            return
         }
         else if (segmentedControl.selectedSegmentIndex == 1){
-            containerView1.hidden = true;
-            containerView2.hidden = false;
-            containerView3.hidden = true;
-        }
-        else (segmentedControl.selectedSegmentIndex == 2){
-            containerView1.hidden = true;
-            containerView2.hidden = true;
-            containerView3.hidden = false;
+            containerView1.hidden = true
+            containerView2.hidden = false
+            containerView3.hidden = true
+            return
         }
     }
 
