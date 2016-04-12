@@ -13,7 +13,7 @@ class TripTabOwnerMain: UITableViewController {
     var reuseIdentifier = "tripCell"
     var noTripsReuseIdentifier = "noTripsCell"
     
-    var tripNames: [String] = []
+    var tripNames: [String] = ["Brazil", "St. Louis"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
