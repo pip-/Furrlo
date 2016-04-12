@@ -484,7 +484,7 @@
         <!--Item-->
         <scene sceneID="lxD-CB-DSW">
             <objects>
-                <viewController id="waY-Zs-Co6" sceneMemberID="viewController">
+                <viewController id="waY-Zs-Co6" customClass="SitterToDoListController" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mra-sE-hKh"/>
                         <viewControllerLayoutGuide type="bottom" id="Vd3-V3-i83"/>
@@ -500,6 +500,9 @@
                                     <segment title="Category"/>
                                     <segment title="Pets"/>
                                 </segments>
+                                <connections>
+                                    <action selector="setSelectedView:" destination="waY-Zs-Co6" eventType="valueChanged" id="BRS-Xb-AMc"/>
+                                </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f9T-jN-UGf">
                                 <rect key="frame" x="0.0" y="118" width="600" height="482"/>
@@ -539,6 +542,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="jAC-Sd-rhV"/>
+                    <connections>
+                        <outlet property="containerView1" destination="f9T-jN-UGf" id="rpM-RT-97Q"/>
+                        <outlet property="containerView2" destination="RP7-4h-OeN" id="ypg-Lf-h6A"/>
+                        <outlet property="containerView3" destination="NSI-vn-9Ji" id="iqr-Ku-Uid"/>
+                        <outlet property="segmentedControl" destination="mEn-SW-aQu" id="QLK-0w-Wqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49z-Jr-xva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -555,7 +564,19 @@
                     <view key="view" contentMode="scaleToFill" id="ABn-QF-YzS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the list container view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKm-70-UBr">
+                                <rect key="frame" x="190" y="30" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OKm-70-UBr" firstAttribute="top" secondItem="pzq-jt-32J" secondAttribute="bottom" constant="30" id="jh5-4q-ejK"/>
+                            <constraint firstItem="OKm-70-UBr" firstAttribute="centerX" secondItem="ABn-QF-YzS" secondAttribute="centerX" id="lWJ-Mu-3kh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wm-TU-BQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -666,7 +687,19 @@
                     <view key="view" contentMode="scaleToFill" id="Ft8-Tb-hRE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the pets container view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOE-hK-FIZ">
+                                <rect key="frame" x="184" y="30" width="232" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UOE-hK-FIZ" firstAttribute="centerX" secondItem="Ft8-Tb-hRE" secondAttribute="centerX" id="LGl-BF-vlN"/>
+                            <constraint firstItem="UOE-hK-FIZ" firstAttribute="top" secondItem="jhI-IF-neV" secondAttribute="bottom" constant="30" id="Plg-qZ-TDY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Cr-xm-lgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
