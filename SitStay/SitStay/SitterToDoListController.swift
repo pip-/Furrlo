@@ -24,7 +24,7 @@ class SitterToDoListController: UIViewController {
         // Do any additional setup after loading the view.
         
         //set selected container view that is to be visible based on the segmented controller
-        setSelectedView(self)
+        //setSelectedView(self)
         
     }
 
@@ -33,25 +33,28 @@ class SitterToDoListController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func setSelectedView(sender: AnyObject) {
+    /*@IBAction func setSelectedView(sender: AnyObject) {
         
-        containerView1.hidden = true
-        containerView2.hidden = true
-        containerView3.hidden = false
+        
         
         if (segmentedControl.selectedSegmentIndex == 0){
-            containerView1.hidden = false
-            containerView2.hidden = true
-            containerView3.hidden = true
-            return
-        }
-        else if (segmentedControl.selectedSegmentIndex == 1){
             containerView1.hidden = true
             containerView2.hidden = false
             containerView3.hidden = true
             return
         }
-    }
+        else if (segmentedControl.selectedSegmentIndex == 1){
+            containerView1.hidden = false
+            containerView2.hidden = true
+            containerView3.hidden = true
+            return
+        }
+        else{
+            containerView1.hidden = true
+            containerView2.hidden = true
+            containerView3.hidden = false
+        }
+    }*/
 
 
     /*

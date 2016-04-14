@@ -21,9 +21,6 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
-        
-        //got rid of empty space above table view
-        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     
