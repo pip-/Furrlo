@@ -38,6 +38,7 @@ class EditContactInfoOwner: UIViewController {
         
         navigationController?.popViewControllerAnimated(true)
     }
+    
     @IBAction func done(sender: AnyObject) {
         navigationController?.popToRootViewControllerAnimated(true)
     }

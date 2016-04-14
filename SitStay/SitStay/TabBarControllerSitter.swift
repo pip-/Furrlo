@@ -1,24 +1,28 @@
 //
-//  Owner_ContactInfo.swift
-//  Pet_Tab
+//  TabBarControllerSitter.swift
+//  SitStay
 //
-//  Created by MU IT Program on 3/29/16.
-//  Copyright © 2016 Megan Cochran. All rights reserved.
+//  Created by Philip Gilbreth on 4/11/16.
+//  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class ContactInfoOwner: UIViewController {
+class TabBarControllerSitter: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Contact Info"
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.selectedIndex = 0
     }
     
 
