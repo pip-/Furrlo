@@ -1,22 +1,26 @@
 //
-//  TabBarControllerOwner.swift
+//  NewTripOwnerController.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/11/16.
+//  Created by Philip Gilbreth on 4/13/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class TabBarControllerOwner: UITabBarController {
+class NewTripOwnerController: UIViewController {
+    
+    enum UIModalTransitionStyle : Int {
+        case CoverVertical = 0
+        case FlipHorizontal
+        case CrossDissolve
+        case PartialCurl
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedIndex = 2
+
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
     }
 
     override func didReceiveMemoryWarning() {
