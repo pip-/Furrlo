@@ -141,7 +141,7 @@
                     <navigationItem key="navigationItem" title="Trips" id="mFz-8h-8yf">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="se3-U0-pAP">
                             <connections>
-                                <segue destination="peg-mY-Z0U" kind="show" id="j98-KX-PAl"/>
+                                <segue destination="Jn3-rA-Wpi" kind="presentation" id="a4f-OQ-KdH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="eGG-dM-gKR"/>
@@ -152,10 +152,26 @@
             </objects>
             <point key="canvasLocation" x="1773" y="-368"/>
         </scene>
-        <!--Title-->
+        <!--Navigation Controller-->
+        <scene sceneID="seZ-uo-2qp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M7e-5l-VCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="Jn3-rA-Wpi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vu6-7L-4c5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="peg-mY-Z0U" kind="relationship" relationship="rootViewController" id="SvX-jL-8KV"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1805" y="309"/>
+        </scene>
+        <!--New Trip-->
         <scene sceneID="416-V1-Ukx">
             <objects>
-                <viewController id="peg-mY-Z0U" sceneMemberID="viewController">
+                <viewController id="peg-mY-Z0U" customClass="NewTripOwnerController" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dMw-uL-Zfu"/>
                         <viewControllerLayoutGuide type="bottom" id="p6F-y2-wrr"/>
@@ -215,9 +231,7 @@
                                 <rect key="frame" x="528" y="302" width="37" height="30"/>
                                 <state key="normal" title="Invite"/>
                                 <connections>
-                                    <segue destination="2XX-Ij-WYG" kind="show" id="P6Z-dQ-Kel">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="2XX-Ij-WYG" kind="show" id="Sb6-7e-JkQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -242,13 +256,20 @@
                             <constraint firstItem="wqm-hC-0w0" firstAttribute="top" secondItem="5sT-Ln-sb0" secondAttribute="bottom" constant="52" id="xa2-cV-aiM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="33d-yl-PJc"/>
+                    <navigationItem key="navigationItem" title="New Trip" id="33d-yl-PJc">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="w4L-Po-uzw">
+                            <connections>
+                                <action selector="cancel:" destination="peg-mY-Z0U" id="kaC-Yf-lQe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="9DX-El-btk"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7I-yQ-scb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2484" y="309"/>
         </scene>
-        <!--View Controller-->
+        <!--Invite A Sitter-->
         <scene sceneID="6JQ-Av-O5n">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEq-TC-v3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,7 +305,7 @@
                                     <constraint firstAttribute="height" constant="1" id="P9Y-pM-LoS"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-9f-c6L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-9f-c6L">
                                 <rect key="frame" x="25" y="281" width="550" height="250"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Once your Sitter accepts your invitation, they will see your pets and to-do lists until the last day of your trip!">
@@ -377,9 +398,13 @@
                             <constraint firstItem="6dc-pc-BUG" firstAttribute="top" secondItem="JTf-Rg-iiQ" secondAttribute="bottom" id="zNI-rg-cfK"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Invite A Sitter" id="SQl-9I-mTd">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="zn7-RA-euE"/>
+                    </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2886" y="1048"/>
+            <point key="canvasLocation" x="2768" y="1098"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="PfX-lZ-k4V">
@@ -953,7 +978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kfD-2K-jjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="591"/>
+            <point key="canvasLocation" x="1131" y="582"/>
         </scene>
         <!--Category-->
         <scene sceneID="S1n-5u-VKt">

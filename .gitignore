@@ -10,3 +10,5 @@ SitStay/SitStay.xcodeproj/project.pbxproj
 SitStay/SitStay.xcodeproj/project.xcworkspace/xcuserdata/pgilbreth.xcuserdatad/UserInterfaceState.xcuserstate
 
 *.xcuserstate
+
+*.xcbkptlist
