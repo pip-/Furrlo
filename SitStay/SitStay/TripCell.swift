@@ -13,6 +13,7 @@ class TripCell: UITableViewCell {
     
     
     @IBOutlet weak var tripLabel: UILabel!
+    //@IBOutlet weak var tripLabel: UILabel!
     
     func changeLabel(newLabel: String){
         tripLabel.text = newLabel
