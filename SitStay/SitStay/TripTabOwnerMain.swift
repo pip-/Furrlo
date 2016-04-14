@@ -13,11 +13,7 @@ class TripTabOwnerMain: UITableViewController {
     var reuseIdentifier = "tripCell"
     var noTripsReuseIdentifier = "noTripsCell"
     
-<<<<<<< HEAD
-    var tripNames: [String] = []
-=======
     var tripNames: [String] = ["Brazil", "St. Louis"]
->>>>>>> master
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +42,7 @@ class TripTabOwnerMain: UITableViewController {
         if(tripNames.count == 0){
             return 1
         } else {
-<<<<<<< HEAD
-            return tripNames.count
-=======
             return tripNames.count + 1
->>>>>>> master
         }
     }
 
@@ -62,21 +54,15 @@ class TripTabOwnerMain: UITableViewController {
             return cell
         }
         else {
-<<<<<<< HEAD
-=======
             if(indexPath.row == 0){
                 let cell = tableView.dequeueReusableCellWithIdentifier("nextCell", forIndexPath: indexPath)
                 return cell
             } else {
->>>>>>> master
             let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
                 // Configure the cell...
                 cell.changeLabel(tripNames[indexPath.row - 1])
                 return cell
-<<<<<<< HEAD
-=======
             }
->>>>>>> master
         }
     }
  
