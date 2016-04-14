@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67DC43341CBC78350018C5E1 /* SitterToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC43331CBC78350018C5E1 /* SitterToDoListController.swift */; };
+<<<<<<< HEAD
+=======
+		C65B074E1CBF332400CDD408 /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B074D1CBF332400CDD408 /* NewTripOwnerController.swift */; };
+		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
+>>>>>>> master
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */; };
@@ -81,6 +86,11 @@
 /* Begin PBXFileReference section */
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67DC43331CBC78350018C5E1 /* SitterToDoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		C65B074D1CBF332400CDD408 /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
+		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
+>>>>>>> master
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactInfoOwner.swift; sourceTree = "<group>"; };
@@ -196,6 +206,10 @@
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
 				C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */,
 				67DC43331CBC78350018C5E1 /* SitterToDoListController.swift */,
+<<<<<<< HEAD
+=======
+				C65B074D1CBF332400CDD408 /* NewTripOwnerController.swift */,
+>>>>>>> master
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -250,6 +264,10 @@
 		C6FAB4081CBC05DF00A331AD /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				C65B074F1CBF3D5F00CDD408 /* chevron.jpg */,
+>>>>>>> master
 				C6FAB4091CBC05DF00A331AD /* cat head.png */,
 				C6FAB40A1CBC05DF00A331AD /* cat profile.jpg */,
 				C6FAB40B1CBC05DF00A331AD /* cat profile.png */,
@@ -394,6 +412,10 @@
 				C6FAB43C1CBC05DF00A331AD /* food icon1.ai in Resources */,
 				C6FAB4371CBC05DF00A331AD /* dog profile.png in Resources */,
 				C6FAB4491CBC05DF00A331AD /* other icon1.ai in Resources */,
+<<<<<<< HEAD
+=======
+				C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */,
+>>>>>>> master
 				C6FAB4431CBC05DF00A331AD /* Logo5.png in Resources */,
 				C6FAB4411CBC05DF00A331AD /* Logo4.ai in Resources */,
 				C6FAB4331CBC05DF00A331AD /* cat head.png in Resources */,
@@ -411,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65B074E1CBF332400CDD408 /* NewTripOwnerController.swift in Sources */,
 				C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */,
 				C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */,
 				C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */,
