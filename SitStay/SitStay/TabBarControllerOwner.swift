@@ -12,19 +12,11 @@ class TabBarControllerOwner: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-
-=======
         self.selectedIndex = 2
->>>>>>> master
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
-<<<<<<< HEAD
-        self.selectedIndex = 2
-=======
->>>>>>> master
     }
 
     override func didReceiveMemoryWarning() {
