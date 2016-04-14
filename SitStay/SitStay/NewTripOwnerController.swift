@@ -28,16 +28,6 @@ class NewTripOwnerController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancel(sender: AnyObject){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerOwner") as! UITabBarController
-        vc.selectedIndex = 0
-        vc.modalTransitionStyle = .CrossDissolve
-        presentViewController(vc, animated: true, completion: nil)
-
-        
-    }
-    
 
     /*
     // MARK: - Navigation
