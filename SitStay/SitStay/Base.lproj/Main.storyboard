@@ -155,7 +155,6 @@
         <!--Navigation Controller-->
         <scene sceneID="seZ-uo-2qp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M7e-5l-VCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Jn3-rA-Wpi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vu6-7L-4c5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -165,6 +164,7 @@
                         <segue destination="peg-mY-Z0U" kind="relationship" relationship="rootViewController" id="SvX-jL-8KV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M7e-5l-VCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1805" y="309"/>
         </scene>
@@ -503,7 +503,6 @@
         <!--Invite A Sitter-->
         <scene sceneID="6JQ-Av-O5n">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fEq-TC-v3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2XX-Ij-WYG" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JTf-Rg-iiQ"/>
@@ -552,7 +551,7 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wzq-E8-HYa">
                                 <rect key="frame" x="0.0" y="167" width="600" height="51"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-Q7-39Z">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-Q7-39Z">
                                         <rect key="frame" x="292" y="15" width="16" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -634,6 +633,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Send" id="zn7-RA-euE"/>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEq-TC-v3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2768" y="1098"/>
         </scene>
@@ -679,11 +679,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vaA-uz-8UV">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaA-uz-8UV">
                                 <rect key="frame" x="35" y="171" width="530" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oPj-Fc-b5N">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPj-Fc-b5N">
                                 <rect key="frame" x="35" y="279" width="530" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1142,7 +1142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-ve-TtG">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZNP-ve-TtG">
                                 <rect key="frame" x="194" y="70" width="212" height="29"/>
                                 <segments>
                                     <segment title="List"/>
