@@ -12,3 +12,9 @@ SitStay/SitStay.xcodeproj/project.xcworkspace/xcuserdata/pgilbreth.xcuserdatad/U
 *.xcuserstate
 
 *.xcbkptlist
+
+*.xcworkspacedata
+
+*.xcscheme
+
+*.plist
