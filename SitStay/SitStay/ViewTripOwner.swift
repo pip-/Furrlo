@@ -32,7 +32,7 @@ class ViewTripOwner: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,6 +50,10 @@ class ViewTripOwner: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
             return cell
         }
+        if(indexPath.section == 3){
+            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath)
+            return cell
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath) as! SimpleCell
         if(indexPath.section == 0){
             if(indexPath.row == 0){
@@ -65,6 +69,7 @@ class ViewTripOwner: UITableViewController {
             cell.changeTitle("To Do Lists")
             cell.changeDetail(exampleContent[2])
         }
+        
 
         return cell
     }
