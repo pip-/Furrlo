@@ -1547,15 +1547,15 @@
                                 <color key="textColor" red="0.2470588235" green="0.66274509800000003" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHW-dI-w3a">
-                                <rect key="frame" x="50" y="288" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZHW-dI-w3a">
+                                <rect key="frame" x="0.0" y="211" width="600" height="1"/>
                                 <color key="backgroundColor" red="0.54351240396499634" green="0.68053871393203735" blue="0.095584012567996979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="fzX-K3-C1J"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTE-6V-qma">
-                                <rect key="frame" x="122" y="431" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTE-6V-qma">
+                                <rect key="frame" x="0.0" y="291" width="600" height="1"/>
                                 <color key="backgroundColor" red="0.54351240396499634" green="0.68053871393203735" blue="0.095584012567996979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="mgj-Rm-41Z"/>
@@ -1595,7 +1595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N6-Lk-A57" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="-1396"/>
+            <point key="canvasLocation" x="2063" y="-1370"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
