@@ -11,8 +11,10 @@ import UIKit
 class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableViewOne: UITableView!
+    @IBOutlet weak var tableView2: UITableView!
     
     var roles = ["Owner", "Sitter"]
+    var contactInfo = ["Phone", "Email"]
     var selectedRow = 0
     
     
@@ -21,14 +23,25 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
+        self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
+        
+        
+
     }
     
     
-    func tableView(tableViewOne: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.roles.count;
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == tableViewOne {
+            return self.roles.count
+        } else {
+        return self.contactInfo.count
+        }
     }
     
-    func tableView(tableViewOne: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        if tableView == tableViewOne {
         let cell:UITableViewCell = self.tableViewOne.dequeueReusableCellWithIdentifier("roleCell")! as UITableViewCell
         
         cell.textLabel?.text = self.roles[indexPath.row]
@@ -37,21 +50,40 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.accessoryType = .Checkmark
         } else {
             cell.accessoryType = .None
+        }; return cell
+        }
+        else{
+            let cell:UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("contactCell")! as UITableViewCell
+            
+            cell.textLabel?.text = self.contactInfo[indexPath.row]
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            
+            
+            return cell
         }
         
-        
-        return cell
+       
     }
-    func numberOfSectionsInTableView(tableViewOne: UITableView) -> Int {
+    
+    
+
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableViewOne: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if tableView == tableViewOne{
         
         self.selectedRow = indexPath.row
         if(indexPath.row == 1){
             self.changeBoard()
         }
         tableViewOne.reloadData()
+        }
+        
         
         
         /*
