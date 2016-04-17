@@ -9,8 +9,7 @@
 import UIKit
 
 class NewTripOwnerController: UITableViewController {
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,10 +20,6 @@ class NewTripOwnerController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func prefersStatusBarHidden() -> Bool {
-        return false
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
