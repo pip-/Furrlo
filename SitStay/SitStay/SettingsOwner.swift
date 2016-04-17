@@ -24,6 +24,8 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
         self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
+        
+        
 
     }
     
@@ -54,6 +56,7 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let cell:UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("contactCell")! as UITableViewCell
             
             cell.textLabel?.text = self.contactInfo[indexPath.row]
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             
             
             return cell
