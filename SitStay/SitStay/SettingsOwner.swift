@@ -24,11 +24,15 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
         self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
+        self.tabBarController?.tabBar.hidden = true
         
         
 
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
+    }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
