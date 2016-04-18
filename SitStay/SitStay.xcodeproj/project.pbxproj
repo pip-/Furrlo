@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
+		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
+		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
 		67DC43341CBC78350018C5E1 /* SitterToDoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC43331CBC78350018C5E1 /* SitterToDoListController.swift */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
 		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
-		C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
 		C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */; };
 		C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */; };
@@ -85,12 +86,13 @@
 
 /* Begin PBXFileReference section */
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
+		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
+		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
 		67DC43331CBC78350018C5E1 /* SitterToDoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListController.swift; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
 		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
-		C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactInfoOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSitter.swift; sourceTree = "<group>"; };
 		C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoSitter.swift; sourceTree = "<group>"; };
@@ -188,7 +190,6 @@
 			children = (
 				C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */,
 				C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */,
-				C6D73BF61CB4B7DD001BC7F2 /* EditContactInfoOwner.swift */,
 				C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */,
 				C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */,
 				C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */,
@@ -199,8 +200,6 @@
 				C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */,
 				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
 				C6FAB45D1CBC076600A331AD /* TripCell.swift */,
-				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
-				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
 				C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */,
 				C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
@@ -210,6 +209,10 @@
 				C6E6027C1CC4340F00D9865A /* ViewTripOwner.swift */,
 				C6E6027E1CC434CF00D9865A /* SimpleCell.swift */,
 				C6E602801CC435A600D9865A /* AddressCell.swift */,
+				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
+				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
+				67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */,
+				67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -431,11 +434,11 @@
 				C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */,
 				C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */,
 				C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */,
-				C6D73C011CB4B7DD001BC7F2 /* EditContactInfoOwner.swift in Sources */,
 				C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */,
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
 				C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,
+				67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */,
 				C6FAB45E1CBC076600A331AD /* TripCell.swift in Sources */,
 				C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */,
 				C6E6027D1CC4340F00D9865A /* ViewTripOwner.swift in Sources */,
@@ -453,6 +456,7 @@
 				C6E7276D1CBC21FA00E7945B /* NavControllerPetsSitter.swift in Sources */,
 				67DC43341CBC78350018C5E1 /* SitterToDoListController.swift in Sources */,
 				C6E7276B1CBC216E00E7945B /* NavControllerPetsOwner.swift in Sources */,
+				67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
