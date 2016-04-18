@@ -21,6 +21,11 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     

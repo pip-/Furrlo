@@ -15,6 +15,7 @@ class PetTabOwner: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "My Pets"
         
         // Do any additional setup after loading the view.
     }

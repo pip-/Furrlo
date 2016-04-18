@@ -1,14 +1,14 @@
 //
-//  Sitter_ContactInfo.swift
-//  Sitter_PetTab
+//  Owner_EditEmail.swift
+//  SitStay
 //
-//  Created by MU IT Program on 3/30/16.
-//  Copyright © 2016 Megan Cochran. All rights reserved.
+//  Created by MU IT Program on 4/17/16.
+//  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class ContactInfoSitter: UIViewController {
+class Owner_EditEmail: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
