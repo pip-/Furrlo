@@ -12,7 +12,7 @@ class TabBarControllerSitter: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.selectedIndex = 1
         
     }
 
@@ -22,7 +22,7 @@ class TabBarControllerSitter: UITabBarController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.selectedIndex = 0
+        //self.selectedIndex = 1
     }
     
 
