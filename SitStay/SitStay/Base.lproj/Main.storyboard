@@ -49,6 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.52941176469999995" green="0.67843137249999996" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="IvA-Xe-BIf">
                             <rect key="frame" x="0.0" y="330" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,10 +105,10 @@
                                     <segue destination="PEq-Bi-JD4" kind="show" id="Kg6-cZ-nFI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="40" reuseIdentifier="noTripsCell" rowHeight="150" id="zCU-2I-kLE" customClass="TripCell" customModule="SitStay" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="40" reuseIdentifier="noTripsCell" focusStyle="custom" rowHeight="150" id="zCU-2I-kLE" customClass="TripCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="180" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zCU-2I-kLE" id="XUj-LX-Mdl">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="zCU-2I-kLE" id="XUj-LX-Mdl">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -125,6 +126,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="HyI-8z-Hrp" firstAttribute="centerX" secondItem="XUj-LX-Mdl" secondAttribute="centerX" id="Wre-s3-VhZ"/>
                                         <constraint firstItem="HyI-8z-Hrp" firstAttribute="centerY" secondItem="XUj-LX-Mdl" secondAttribute="centerY" id="toN-jZ-nA1"/>
