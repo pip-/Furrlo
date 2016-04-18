@@ -82,9 +82,7 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.changeBoard()
         }
         tableViewOne.reloadData()
-        }
-        
-        
+        }         
         
         /*
          if let cell = tableViewOne.cellForRowAtIndexPath(indexPath) {

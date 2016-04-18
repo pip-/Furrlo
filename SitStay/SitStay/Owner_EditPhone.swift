@@ -1,19 +1,17 @@
 //
-//  Owner_EditContactInfo.swift
-//  Pet_Tab
+//  Owner_EditPhone.swift
+//  SitStay
 //
-//  Created by MU IT Program on 3/29/16.
-//  Copyright © 2016 Megan Cochran. All rights reserved.
+//  Created by MU IT Program on 4/17/16.
+//  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class EditContactInfoOwner: UIViewController {
+class Owner_EditPhone: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Edit"
 
         // Do any additional setup after loading the view.
     }
@@ -34,12 +32,4 @@ class EditContactInfoOwner: UIViewController {
     }
     */
 
-    @IBAction func cancel(sender: AnyObject) {
-        
-        navigationController?.popViewControllerAnimated(true)
-    }
-    
-    @IBAction func done(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
-    }
 }
