@@ -25,21 +25,12 @@ class AddPetOwner: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneWithPet(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
-    }
 
-    @IBAction func cancel(sender: AnyObject) {
+    @IBAction func savePet(sender: AnyObject) {
+        
+        //will need to add how to save pet info here
         navigationController?.popViewControllerAnimated(true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
