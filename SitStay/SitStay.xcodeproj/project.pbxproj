@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C946A601CC576DC001FEFF3 /* OwnerToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C946A5F1CC576DC001FEFF3 /* OwnerToDoListTableViewController.swift */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C946A5F1CC576DC001FEFF3 /* OwnerToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OwnerToDoListTableViewController.swift; path = "../../../../Documents/Junior Year/Second Semester/IT Application Development/OwnerToDoList/OwnerToDoList/OwnerToDoListTableViewController.swift"; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */,
 				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
 				C6FAB45D1CBC076600A331AD /* TripCell.swift */,
+				4C946A5F1CC576DC001FEFF3 /* OwnerToDoListTableViewController.swift */,
 				C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */,
 				C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
@@ -457,6 +460,7 @@
 				C6E6027F1CC434CF00D9865A /* SimpleCell.swift in Sources */,
 				C6E727711CBC251F00E7945B /* TabBarControllerSitter.swift in Sources */,
 				C6E727691CBC208700E7945B /* SettingsSitter.swift in Sources */,
+				4C946A601CC576DC001FEFF3 /* OwnerToDoListTableViewController.swift in Sources */,
 				C6E7276D1CBC21FA00E7945B /* NavControllerPetsSitter.swift in Sources */,
 				67DC43341CBC78350018C5E1 /* SitterToDoListController.swift in Sources */,
 				C6E7276B1CBC216E00E7945B /* NavControllerPetsOwner.swift in Sources */,
