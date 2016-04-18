@@ -72,7 +72,7 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         if tableView == tableViewOne{
             
             self.selectedRow = indexPath.row
-            if(indexPath.row == 1){
+            if(indexPath.row == 0){
                 self.changeBoard()
             }
             tableViewOne.reloadData()
