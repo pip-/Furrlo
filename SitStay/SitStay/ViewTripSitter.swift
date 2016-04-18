@@ -1,30 +1,26 @@
 //
-//  TripTabSitterMain.swift
+//  ViewTripSitter.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/7/16.
+//  Created by Philip Gilbreth on 4/17/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class TripTabSitterMain: UITableViewController {
+class ViewTripSitter: UITableViewController {
     
-    var reuseIdentifier = "tripCell"
-    var lastRowReuseIdentifier = "confirmTripCell"
-    
-    var tripNames: [String] = [/*"California", "Italy", "Brazil"*/]
+    let exampleContent = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "Mira, Lola", "Example"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, 0))
+        self.title = exampleContent[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        if(tripNames.count != 0){
-            self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        }
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,47 +32,66 @@ class TripTabSitterMain: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 4
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if(tripNames.count == 0){
+        if(section == 0){
             return 2
+        } else {
+            return 1
         }
-        return tripNames.count + 1
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if(tripNames.count == 0){
+        if(indexPath.section == 1){
+            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
+            return cell
+        }
+        if(indexPath.section == 3){
+            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath)
+            return cell
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath) as! SimpleCell
+        if(indexPath.section == 0){
             if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("noTripCell", forIndexPath: indexPath)
+                cell.changeTitle("Dates")
+                cell.changeDetail(exampleContent[0])
+            } else {
+                cell.changeTitle("Address")
+                cell.changeDetail(exampleContent[1])
                 
-                return cell
             }
         }
+        if(indexPath.section == 2){
+            cell.changeTitle("To Do Lists")
+            cell.changeDetail(exampleContent[2])
+        }
         
-        if(indexPath.row < tripNames.count){
-            let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
-            
-            cell.changeLabel(tripNames[indexPath.row])
-            
-            
-            return cell
-        }
-        else{
-            let cell = tableView.dequeueReusableCellWithIdentifier(lastRowReuseIdentifier, forIndexPath: indexPath)
-            return cell
-        }
+        
+        return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(indexPath.row == 0 && tripNames.count == 0){
-            return 150
-        } else {
-            return 44
+        if(indexPath.section == 0){
+            if(indexPath.row == 1){
+                return 80
+            }
         }
+        if(indexPath.section == 1){
+            return 100
+        }
+        return 60
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
     
     
@@ -88,18 +103,17 @@ class TripTabSitterMain: UITableViewController {
      }
      */
     
-    
+    /*
      // Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
      if editingStyle == .Delete {
      // Delete the row from the data source
      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
      } else if editingStyle == .Insert {
-        //TO-DO
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      }
      }
- 
+     */
     
     /*
      // Override to support rearranging the table view.

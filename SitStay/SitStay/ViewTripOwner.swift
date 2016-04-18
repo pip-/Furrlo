@@ -1,28 +1,26 @@
 //
-//  TripTabOwnerMain.swift
+//  ViewTripOwner.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/7/16.
+//  Created by Philip Gilbreth on 4/17/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
-class TripTabOwnerMain: UITableViewController {
+class ViewTripOwner: UITableViewController {
     
-    var reuseIdentifier = "tripCell"
-    var noTripsReuseIdentifier = "noTripsCell"
-    
-    var tripNames: [String] = ["Brazil", "St. Louis"]
-    
+    let exampleContent = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "Mira, Lola", "Example"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, 0))
+        self.title = exampleContent[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,36 +32,66 @@ class TripTabOwnerMain: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if(tripNames.count == 0){
-            return 1
+        if(section == 0){
+            return 2
         } else {
-            return tripNames.count + 1
+            return 1
         }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if(tripNames.count == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier(noTripsReuseIdentifier, forIndexPath: indexPath)
-            
+        if(indexPath.section == 1){
+            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
             return cell
         }
-        else {
+        if(indexPath.section == 3){
+            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath)
+            return cell
+        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath) as! SimpleCell
+        if(indexPath.section == 0){
             if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("nextCell", forIndexPath: indexPath)
-                return cell
+                cell.changeTitle("Dates")
+                cell.changeDetail(exampleContent[0])
             } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
-                // Configure the cell...
-                cell.changeLabel(tripNames[indexPath.row - 1])
-                return cell
+                cell.changeTitle("Address")
+                cell.changeDetail(exampleContent[1])
+                
             }
         }
+        if(indexPath.section == 2){
+            cell.changeTitle("To Do Lists")
+            cell.changeDetail(exampleContent[2])
+        }
+        
+
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(indexPath.section == 0){
+            if(indexPath.row == 1){
+                return 80
+            }
+        }
+        if(indexPath.section == 1){
+            return 100
+        }
+        return 60
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
  
 
