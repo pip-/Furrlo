@@ -14,22 +14,13 @@ class ViewTripOwner: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let b = UIBarButtonItem(
-            title: "Edit",
-            style: .Plain,
-            target: self,
-            action: #selector(ViewTripOwner.edit)
-        )
-
-        
-        self.navigationItem.rightBarButtonItems = [b]
-        
+        self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, 0))
         self.title = exampleContent[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,14 +92,6 @@ class ViewTripOwner: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
-    }
-    
-    func edit(){
-        print("Editing")
-        let nc = self.navigationController
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip")
-        nc?.pushViewController(vc, animated: true)
     }
  
 
