@@ -13,7 +13,7 @@ class TripTabSitterMain: UITableViewController {
     var reuseIdentifier = "tripCell"
     var lastRowReuseIdentifier = "confirmTripCell"
     
-    var tripNames = ["California", "Italy", "Brazil"]
+    var tripNames: [String] = [/*"California", "Italy", "Brazil"*/]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,9 @@ class TripTabSitterMain: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if(tripNames.count != 0){
+            self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,16 +41,25 @@ class TripTabSitterMain: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if(tripNames.count == 0){
+            return 2
+        }
         return tripNames.count + 1
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if(tripNames.count == 0){
+            if(indexPath.row == 0){
+                let cell = tableView.dequeueReusableCellWithIdentifier("noTripCell", forIndexPath: indexPath)
+                
+                return cell
+            }
+        }
         
         if(indexPath.row < tripNames.count){
             let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
             
-            // Configure the cell...
             cell.changeLabel(tripNames[indexPath.row])
             
             
@@ -57,6 +68,14 @@ class TripTabSitterMain: UITableViewController {
         else{
             let cell = tableView.dequeueReusableCellWithIdentifier(lastRowReuseIdentifier, forIndexPath: indexPath)
             return cell
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(indexPath.row == 0 && tripNames.count == 0){
+            return 150
+        } else {
+            return 44
         }
     }
     
