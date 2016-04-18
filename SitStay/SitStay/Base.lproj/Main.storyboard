@@ -966,13 +966,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="g0j-xG-D7P">
-                        <barButtonItem key="leftBarButtonItem" title="Back to My Pets" id="Wuy-ns-UPh">
-                            <connections>
-                                <segue destination="dwr-LF-Hcg" kind="show" id="94p-cs-nKn">
-                                    <nil key="action"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="KEx-Uh-LYw">
                             <connections>
                                 <segue destination="gqR-WX-Alb" kind="show" id="1iH-Ug-7Gz">
@@ -998,7 +991,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add A Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGp-gW-CP5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add A Name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGp-gW-CP5">
                                 <rect key="frame" x="220" y="139" width="340" height="30"/>
                                 <color key="textColor" red="0.017220222510000001" green="0.017220222510000001" blue="0.017220222510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1086,18 +1079,10 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Pet" id="kaE-qp-OIn">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cf4-qV-JlV">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="X1e-tm-AoH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="GTy-1i-p9Y">
                             <connections>
-                                <segue destination="dwr-LF-Hcg" kind="show" id="8uN-Jd-5ni">
-                                    <nil key="action"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="0eb-hp-3Hv">
-                            <connections>
-                                <segue destination="hh8-J6-g0Y" kind="show" id="ygG-No-uFN">
-                                    <nil key="action"/>
-                                </segue>
+                                <action selector="savePet:" destination="gqR-WX-Alb" id="Uqn-8y-KND"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1594,9 +1579,7 @@
         <image name="trips1.png" width="1400" height="896"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fJb-8A-dW9"/>
-        <segue reference="HVB-tS-KwQ"/>
-        <segue reference="m2F-xK-kZM"/>
+        <segue reference="1iH-Ug-7Gz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.050980392156862744" green="0.60784313725490191" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
 </document>
