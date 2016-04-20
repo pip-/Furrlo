@@ -10,6 +10,11 @@ import UIKit
 
 class NewTripOwnerController: UITableViewController {
     
+    var datePickerSelected: Bool = false
+    var rowSelected: Int = -1
+    var startDate: NSDate = NSDate()
+    var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +43,8 @@ class NewTripOwnerController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if(section == 0){
-            return 2
+            return 3
         }
         else if(section == 1){
             return 1
@@ -48,6 +52,20 @@ class NewTripOwnerController: UITableViewController {
         else {
             return 1
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(indexPath.section == 0){
+            if(indexPath.row == 1){
+                if(datePickerSelected){
+                    return 100
+                } else {
+                    return 0
+                }
+            }
+        }
+        
+        return 50
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -98,11 +116,18 @@ class NewTripOwnerController: UITableViewController {
         
         if(indexPath.section == 0){
             if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("startDate", forIndexPath: indexPath)
+                let cell = tableView.dequeueReusableCellWithIdentifier("startDate", forIndexPath: indexPath) as! SimpleCell
+                cell.changeDetail(dateToString(startDate))
                 return cell
             }
             else if(indexPath.row == 1){
-                let cell = tableView.dequeueReusableCellWithIdentifier("endDate", forIndexPath: indexPath)
+                let cell = tableView.dequeueReusableCellWithIdentifier("calendar", forIndexPath: indexPath)
+
+                return cell
+            }
+            else if(indexPath.row == 2){
+                let cell = tableView.dequeueReusableCellWithIdentifier("endDate", forIndexPath: indexPath) as! SimpleCell
+                cell.changeDetail(dateToString(endDate))
                 return cell
             }
             else {
@@ -138,6 +163,48 @@ class NewTripOwnerController: UITableViewController {
         vc.modalTransitionStyle = .CrossDissolve
         presentViewController(vc, animated: true, completion: nil)
     }
+    
+    enum UITableViewRowAnimation : Int {
+        case Fade
+        case Right
+        case Left
+        case Top
+        case Bottom
+        case None
+        case Middle
+        case Automatic
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 0){
+            datePickerSelected = true
+            if(indexPath.row != 1){
+                rowSelected=indexPath.row
+            }
+        } else{
+            datePickerSelected = false
+            rowSelected = -1
+        }
+        self.tableView.reloadSections(NSIndexSet.init(index: 0), withRowAnimation: .Middle)
+    }
+    
+    func dateToString(date: NSDate) -> String{
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+        return dateFormatter.stringFromDate(date)
+        
+    }
+    
+    
+/*    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 0){
+            if(indexPath.row == 0 || indexPath.row == 2){
+                print("Deselected row")
+                datePickerSelected = false
+                self.tableView.reloadSections(NSIndexSet.init(index: 0), withRowAnimation: .Middle)
+            }
+        }
+    }*/
 
     /*
     // Override to support conditional editing of the table view.

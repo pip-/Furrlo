@@ -597,7 +597,7 @@
                         <color key="sectionIndexColor" red="0.48284774380000001" green="1" blue="0.25882124410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="startDate" id="hBX-fz-zFW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="startDate" id="hBX-fz-zFW" customClass="SimpleCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="94" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hBX-fz-zFW" id="A3a-dR-F9r">
@@ -624,32 +624,41 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="detailLabel" destination="2dW-hr-aSL" id="bdt-6u-hJN"/>
+                                    <outlet property="titleLabel" destination="08j-Cj-4di" id="fBs-0D-ePQ"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calendar" rowHeight="100" id="Y4o-Jt-h1b">
+                            <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calendar" rowHeight="100" id="Y4o-Jt-h1b" customClass="DatePickerCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="138" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4o-Jt-h1b" id="R5E-yK-CPn">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WkF-4E-ZfV">
-                                            <rect key="frame" x="92" y="8" width="394" height="83"/>
-                                            <date key="date" timeIntervalSinceReferenceDate="482376156.326352">
-                                                <!--2016-04-15 01:22:36 +0000-->
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EqM-iI-vN2">
+                                            <rect key="frame" x="8" y="8" width="584" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="d4t-h0-WMw"/>
+                                            </constraints>
+                                            <date key="date" timeIntervalSinceReferenceDate="482877249.79288697">
+                                                <!--2016-04-20 20:34:09 +0000-->
                                             </date>
                                         </datePicker>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="WkF-4E-ZfV" secondAttribute="trailing" constant="106" id="CAC-zc-szV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="WkF-4E-ZfV" secondAttribute="bottom" id="Xys-O8-QKQ"/>
-                                        <constraint firstItem="WkF-4E-ZfV" firstAttribute="top" secondItem="R5E-yK-CPn" secondAttribute="topMargin" id="lPv-va-afd"/>
-                                        <constraint firstItem="WkF-4E-ZfV" firstAttribute="leading" secondItem="R5E-yK-CPn" secondAttribute="leadingMargin" constant="84" id="weF-qq-eFh"/>
+                                        <constraint firstItem="EqM-iI-vN2" firstAttribute="leading" secondItem="R5E-yK-CPn" secondAttribute="leadingMargin" id="OUs-Ng-fkV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EqM-iI-vN2" secondAttribute="trailing" id="SCy-iu-hPO"/>
+                                        <constraint firstItem="EqM-iI-vN2" firstAttribute="top" secondItem="R5E-yK-CPn" secondAttribute="topMargin" id="sNO-oH-8Zn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="datePicker" destination="EqM-iI-vN2" id="z2L-yP-tAB"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="endDate" id="pvT-OL-Kq0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="endDate" id="pvT-OL-Kq0" customClass="SimpleCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="238" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pvT-OL-Kq0" id="ZbX-nQ-RlO">
@@ -676,6 +685,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="detailLabel" destination="2VY-ku-rBa" id="FCI-91-DaW"/>
+                                    <outlet property="titleLabel" destination="MiY-KN-Z3w" id="nxw-tD-sGw"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="150" id="lHv-dR-TeY">
                                 <rect key="frame" x="0.0" y="282" width="600" height="150"/>
