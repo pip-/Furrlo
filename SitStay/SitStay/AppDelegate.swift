@@ -16,7 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let alreadyLaunched = NSUserDefaults.standardUserDefaults().boolForKey("alreadyLaunched")
+        if(!alreadyLaunched){
+            //print("BOOPBOOP!")
+            //Do First Launch stuff
+            
+            //Creating an instance of 'User'-----------------------------------------
+            let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: self.managedObjectContext) as! User
+            //-----------------------------------------------------------------------
+            
+           // let entityDescription = NSEntityDescription.
+            
+            //Modifying values of the created 'User' instance------------------------
+            user.email = "test@email.com"
+            user.userID = Int(arc4random_uniform(800000) + 100000)
+            //-----------------------------------------------------------------------
+            
+            //Saving the changes I made to the instance of 'User'--------------------
+            self.saveContext()
+            //-----------------------------------------------------------------------
+            
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
+        }
         return true
     }
 
@@ -104,6 +126,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
+        }
+    }
+    
+    func getUser() -> User?{
+        do {
+            let fetchedUsers = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "User")) as! [User]
+            if(fetchedUsers.count >= 1){
+                let user = fetchedUsers[0]
+                return user
+            } else {
+                print("Couldn't find user")
+                return nil
+            }
+        } catch {
+            fatalError("Failed to fetch users: \(error)")
         }
     }
 
