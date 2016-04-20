@@ -14,6 +14,8 @@
 		67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
 		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
+		C66FF9C91CC7DEE9004140EC /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9C71CC7DEE9004140EC /* User+CoreDataProperties.swift */; };
+		C66FF9CA1CC7DEE9004140EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9C81CC7DEE9004140EC /* User.swift */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
@@ -94,6 +96,8 @@
 		67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewController.swift; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
 		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
+		C66FF9C71CC7DEE9004140EC /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C66FF9C81CC7DEE9004140EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				C6DA0D301CA62CED00F425B3 /* SitStay.xcdatamodeld */,
+				C66FF9C71CC7DEE9004140EC /* User+CoreDataProperties.swift */,
+				C66FF9C81CC7DEE9004140EC /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -440,10 +446,12 @@
 				C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */,
 				C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */,
 				C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */,
+				C66FF9CA1CC7DEE9004140EC /* User.swift in Sources */,
 				C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */,
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
 				C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,
+				C66FF9C91CC7DEE9004140EC /* User+CoreDataProperties.swift in Sources */,
 				C6D84F7F1CC524990093D7A3 /* ViewTripSitter.swift in Sources */,
 				67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */,
 				C6FAB45E1CBC076600A331AD /* TripCell.swift in Sources */,
