@@ -10,6 +10,7 @@ import UIKit
 
 class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
+    
     var items = ["Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"]
     
     override func viewDidLoad() {
