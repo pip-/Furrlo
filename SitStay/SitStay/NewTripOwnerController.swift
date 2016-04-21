@@ -15,6 +15,10 @@ class NewTripOwnerController: UITableViewController {
     var rowSelected: Int = -1
     var startDate: NSDate = NSDate()
     var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
+    var street: String?
+    var address2: String?
+    var zip: Int?
+    var city: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +50,7 @@ class NewTripOwnerController: UITableViewController {
             return 3
         }
         else if(section == 1){
-            return 1
+            return 5
         }
         else {
             return 1
@@ -64,7 +68,9 @@ class NewTripOwnerController: UITableViewController {
             }
         }
         if(indexPath.section == 1){
-            return 200
+            if(indexPath.row == 4){
+                return 200
+            }
         }
         
         return 50
@@ -100,12 +106,6 @@ class NewTripOwnerController: UITableViewController {
             label2.textColor = UIColor.init(colorLiteralRed: 194/255, green: 201/255, blue: 198/244, alpha: 1.0)
             label2.text = "Where is the sitter taking care of your pet?"
             view.addSubview(label2)
-            let label3 = UILabel(frame: CGRectMake(22, 45, tableView.frame.size.width, 16))
-            label3.font = UIFont.systemFontOfSize(15)
-            label3.textColor = UIColor.init(colorLiteralRed: 194/255, green: 201/255, blue: 198/244, alpha: 1.0)
-            label3.text = "(Street Address, City, ZIP Code)"
-            view.addSubview(label3)
-            
         }
         else if(section == 2){
             label.text = "Which To Do Lists are you using?"
@@ -138,9 +138,43 @@ class NewTripOwnerController: UITableViewController {
             }
         }
         else if(indexPath.section == 1){
-            if(indexPath.row == 0){
+            if(indexPath.row == 4){
                 let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
+                if let add1 = street{
+                    cell.add1 = add1
+                }
+                if let zip = zip{
+                    cell.zip = zip
+                    
+                }
+                if let city = city{
+                    cell.city = city
+                }
+                cell.updateLocation()
                 return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("dateEntryCell", forIndexPath: indexPath) as! DateEntryCell
+                
+                if(indexPath.row == 0){
+                    cell.textField.placeholder = "Address Line 1"
+                    cell.setPTVController(self, type: "street")
+                    return cell
+                }
+                if(indexPath.row == 1){
+                    cell.textField.placeholder = "Address Line 2"
+                    cell.setPTVController(self, type: "add2")
+                    return cell
+                }
+                if(indexPath.row == 2){
+                    cell.textField.placeholder = "Zip Code"
+                    cell.setPTVController(self, type: "zip")
+                    return cell
+                }
+                if(indexPath.row == 3){
+                    cell.textField.placeholder = "City"
+                    cell.setPTVController(self, type: "city")
+                    return cell
+                }
             }
         }
             let cell = tableView.dequeueReusableCellWithIdentifier("tripToDoCell", forIndexPath: indexPath)
@@ -194,6 +228,29 @@ class NewTripOwnerController: UITableViewController {
         dateFormatter.dateFormat = "MM/dd/yy hh:mm"
         return dateFormatter.stringFromDate(date)
     }
+    
+    func addressChanged(){
+        if let a = self.street {
+            if let b = self.address2 {
+                if let c = self.zip {
+                    if let d = self.city{
+                        print("Street: " + a)
+                        print("Address2: " + b)
+                        print("Zip: " + String(c))
+                        print("City: " + d)
+                    }
+                    print("Street: " + a)
+                    print("Address2: " + b)
+                    print("Zip: " + String(c))
+                }
+                print("Street: " + a)
+                print("Address2: " + b)
+            }
+            print("Street: " + a)
+        }
+    }
+    
+    
     
     
 /*    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
