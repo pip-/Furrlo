@@ -10,9 +10,26 @@ import UIKit
 
 class Owner_EditEmail: UIViewController {
 
+    @IBOutlet weak var emailField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let user = appDelegate.getUser(){
+            emailField.text = user.email
+        
+        
+            //Saving New Email------------------------
+            user.email = "email2@test.com"
+            appDelegate.saveContext()
+            //----------------------------------------
+        }
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 
