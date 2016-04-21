@@ -24,17 +24,19 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         checkLocationAuthorizationStatus()
-        if(map.showsUserLocation){
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-        } else {
+        if let add1 = add1{
+            if let city = city{
+                if let zip = zip{
+                    updateLocation()
+                    return
+                }
+            }
+        }
             print("Using Como location")
             let initialLocation = CLLocation(latitude: 38.949941, longitude: -92.330025)
             centerMapOnLocation(initialLocation)
-        }
     }
+    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
