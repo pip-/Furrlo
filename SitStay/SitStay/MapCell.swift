@@ -17,6 +17,9 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
     let regionRadius: CLLocationDistance = 500
     var locationManager = CLLocationManager()
     var chosenLocation: CLLocation? = nil
+    var add1: String?
+    var city: String?
+    var zip: Int?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +54,39 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         map.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func updateLocation(){
+        if let add1 = add1{
+            print("Map has add1")
+            if let city = city{
+                print("Map has city")
+                if let zip = zip{
+                    print("Map has zip")
+                    print("Ready to update map")
+                    let geocoder: CLGeocoder = CLGeocoder()
+                    let location = (add1 + ", " + city + ", " + String(zip))
+                    geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                        if (placemarks?.count > 0) {
+                            let topResult: CLPlacemark = (placemarks?[0])!
+                            let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                            var region: MKCoordinateRegion = self.map.region
+                            
+                            let latitude = (placemark.location?.coordinate.latitude)!
+                            let longitude = (placemark.location?.coordinate.longitude)!
+                            
+                            let foundLocation = CLLocation(latitude: latitude, longitude: longitude)
+                            
+                            //region.span = MKCoordinateSpanMake(0.5, 0.5)
+                            
+                            //self.map.setRegion(region, animated: true)
+                            self.centerMapOnLocation(foundLocation)
+                            self.map.addAnnotation(placemark)
+                        }
+                    })
+                }
+            }
+        }
     }
     
     
