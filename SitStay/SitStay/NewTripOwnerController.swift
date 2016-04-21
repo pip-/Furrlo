@@ -14,10 +14,16 @@ class NewTripOwnerController: UITableViewController {
     var rowSelected: Int = -1
     var startDate: NSDate = NSDate()
     var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
+    var calendarCell: DatePickerCell? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        calendarCell = tableView.dequeueReusableCellWithIdentifier("calendar") as? DatePickerCell
+        let datePicker = calendarCell?.datePicker
+        datePicker.addTarget(self, action: #selector(NewTripOwnerController.datePickerChanged), forControlEvents: UIControlEvents.ValueChanged)
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -175,6 +181,19 @@ class NewTripOwnerController: UITableViewController {
         case Automatic
     }
     
+    func datePickerChanged(){
+        let cell = tableView.dequeueReusableCellWithIdentifier("calendar") as! DatePickerCell
+        let datePicker = cell.datePicker
+        print("Trying to change shit")
+        if(rowSelected == 0){
+            startDate = datePicker.date
+        } else if(rowSelected == 2){
+            endDate = datePicker.date
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.section == 0){
             datePickerSelected = true
@@ -192,7 +211,6 @@ class NewTripOwnerController: UITableViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy hh:mm"
         return dateFormatter.stringFromDate(date)
-        
     }
     
     
