@@ -38,6 +38,7 @@
 		C6D84F7F1CC524990093D7A3 /* ViewTripSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D84F7E1CC524990093D7A3 /* ViewTripSitter.swift */; };
 		C6D9C2D51CC833F000A86097 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9C2D41CC833F000A86097 /* DatePickerCell.swift */; };
 		C6D9C2D71CC85C1400A86097 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D9C2D61CC85C1400A86097 /* MapKit.framework */; };
+		C6D9C2D91CC8669700A86097 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9C2D81CC8669700A86097 /* MapCell.swift */; };
 		C6DA0D2A1CA62CED00F425B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */; };
 		C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */; };
 		C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */; };
@@ -134,6 +135,7 @@
 		C6D84F7E1CC524990093D7A3 /* ViewTripSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTripSitter.swift; sourceTree = "<group>"; };
 		C6D9C2D41CC833F000A86097 /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		C6D9C2D61CC85C1400A86097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C6D9C2D81CC8669700A86097 /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		C6DA0D261CA62CED00F425B3 /* SitStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				C6D84F7E1CC524990093D7A3 /* ViewTripSitter.swift */,
 				67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */,
 				C6D9C2D41CC833F000A86097 /* DatePickerCell.swift */,
+				C6D9C2D81CC8669700A86097 /* MapCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				C6DA0D321CA62CED00F425B3 /* SitStay.xcdatamodeld in Sources */,
 				67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */,
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
+				C6D9C2D91CC8669700A86097 /* MapCell.swift in Sources */,
 				C6E7276F1CBC24F800E7945B /* TabBarControllerOwner.swift in Sources */,
 				C66FF9D81CC7F417004140EC /* Pet.swift in Sources */,
 				C6D73C071CB4B7DD001BC7F2 /* PetsSitter.swift in Sources */,
