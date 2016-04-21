@@ -629,7 +629,7 @@
                                     <outlet property="titleLabel" destination="08j-Cj-4di" id="fBs-0D-ePQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calendar" rowHeight="100" id="Y4o-Jt-h1b" customClass="DatePickerCell" customModule="SitStay" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="calendar" rowHeight="100" id="Y4o-Jt-h1b" customClass="DatePickerCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="138" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4o-Jt-h1b" id="R5E-yK-CPn">
@@ -644,6 +644,9 @@
                                             <date key="date" timeIntervalSinceReferenceDate="482877249.79288697">
                                                 <!--2016-04-20 20:34:09 +0000-->
                                             </date>
+                                            <connections>
+                                                <action selector="updateParentDate:" destination="Y4o-Jt-h1b" eventType="valueChanged" id="i4x-At-FCj"/>
+                                            </connections>
                                         </datePicker>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

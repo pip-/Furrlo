@@ -14,17 +14,10 @@ class NewTripOwnerController: UITableViewController {
     var rowSelected: Int = -1
     var startDate: NSDate = NSDate()
     var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
-    var calendarCell: DatePickerCell? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        calendarCell = tableView.dequeueReusableCellWithIdentifier("calendar") as? DatePickerCell
-        let datePicker = calendarCell?.datePicker
-        datePicker.addTarget(self, action: #selector(NewTripOwnerController.datePickerChanged), forControlEvents: UIControlEvents.ValueChanged)
-        
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -127,8 +120,8 @@ class NewTripOwnerController: UITableViewController {
                 return cell
             }
             else if(indexPath.row == 1){
-                let cell = tableView.dequeueReusableCellWithIdentifier("calendar", forIndexPath: indexPath)
-
+                let cell = tableView.dequeueReusableCellWithIdentifier("calendar", forIndexPath: indexPath) as! DatePickerCell
+                cell.setPTVController(self)
                 return cell
             }
             else if(indexPath.row == 2){
@@ -152,7 +145,6 @@ class NewTripOwnerController: UITableViewController {
         
         //let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         
-        // Configure the cell...
     }
     
     enum UIModalTransitionStyle : Int {
@@ -179,19 +171,6 @@ class NewTripOwnerController: UITableViewController {
         case None
         case Middle
         case Automatic
-    }
-    
-    func datePickerChanged(){
-        let cell = tableView.dequeueReusableCellWithIdentifier("calendar") as! DatePickerCell
-        let datePicker = cell.datePicker
-        print("Trying to change shit")
-        if(rowSelected == 0){
-            startDate = datePicker.date
-        } else if(rowSelected == 2){
-            endDate = datePicker.date
-        }
-        tableView.beginUpdates()
-        tableView.endUpdates()
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
