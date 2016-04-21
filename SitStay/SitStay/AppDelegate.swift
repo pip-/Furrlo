@@ -144,10 +144,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func getTrips() -> [Trip?]{
+    func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
             return fetchedTrips
+        } catch {
+            fatalError("Failed to fetch trips: \(error)")
+        }
+    }
+    
+    func getPets() -> [Pet]?{
+        do {
+            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
+            return fetchedPets
         } catch {
             fatalError("Failed to fetch trips: \(error)")
         }

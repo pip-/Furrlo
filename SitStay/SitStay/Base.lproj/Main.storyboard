@@ -717,7 +717,7 @@
                                     <outlet property="map" destination="eaf-g2-rHF" id="Rw8-cd-eGV"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="tripToDoCell" id="VFv-fI-5JW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="tripToDoCell" id="VFv-fI-5JW" customClass="PetCheckCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="432" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VFv-fI-5JW" id="Ei0-y5-BsM">
@@ -737,6 +737,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="label" destination="GHV-y5-lJb" id="cJV-xJ-cYP"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateEntryCell" id="eCN-3Z-mK9" customClass="DateEntryCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="476" width="600" height="44"/>
@@ -766,6 +769,38 @@
                                 <connections>
                                     <outlet property="textField" destination="0xX-96-HT7" id="lcX-1j-kEg"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noPetsCell" id="qLc-40-ogO" customClass="DateEntryCell" customModule="SitStay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="520" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qLc-40-ogO" id="JHc-rA-peR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R37-mN-DWC">
+                                            <rect key="frame" x="58" y="3" width="200" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="heA-td-iMs"/>
+                                            </constraints>
+                                            <attributedString key="attributedText">
+                                                <fragment content="You will need to add a pet before creating a trip!">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="R37-mN-DWC" firstAttribute="top" secondItem="JHc-rA-peR" secondAttribute="topMargin" constant="-5" id="5A5-wh-5PE"/>
+                                        <constraint firstItem="R37-mN-DWC" firstAttribute="leading" secondItem="JHc-rA-peR" secondAttribute="leadingMargin" constant="50" id="tNp-Ql-UrU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

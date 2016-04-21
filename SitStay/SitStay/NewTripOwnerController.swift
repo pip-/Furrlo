@@ -19,6 +19,7 @@ class NewTripOwnerController: UITableViewController {
     var address2: String?
     var zip: Int?
     var city: String?
+    var pets: [Pet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,12 @@ class NewTripOwnerController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //if let fetchedPets = appDelegate.getPets(){
+        //    pets = fetchedPets
+        //}
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -41,7 +48,6 @@ class NewTripOwnerController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
     }
 
@@ -53,7 +59,11 @@ class NewTripOwnerController: UITableViewController {
             return 5
         }
         else {
-            return 1
+            if(pets.count == 0){
+                return 1
+            } else {
+                return pets.count
+            }
         }
     }
     
@@ -70,6 +80,12 @@ class NewTripOwnerController: UITableViewController {
         if(indexPath.section == 1){
             if(indexPath.row == 4){
                 return 200
+            }
+        }
+        
+        if(indexPath.section == 2){
+            if(pets.count == 0){
+                return 50
             }
         }
         
@@ -108,7 +124,7 @@ class NewTripOwnerController: UITableViewController {
             view.addSubview(label2)
         }
         else if(section == 2){
-            label.text = "Which To Do Lists are you using?"
+            label.text = "Which Pets will be watched?"
         }
         
         return view
@@ -156,6 +172,7 @@ class NewTripOwnerController: UITableViewController {
                 let cell = tableView.dequeueReusableCellWithIdentifier("dateEntryCell", forIndexPath: indexPath) as! DateEntryCell
                 
                 if(indexPath.row == 0){
+                    //print("Section")
                     cell.textField.placeholder = "Address Line 1"
                     cell.setPTVController(self, type: "street")
                     return cell
@@ -177,11 +194,13 @@ class NewTripOwnerController: UITableViewController {
                 }
             }
         }
-            let cell = tableView.dequeueReusableCellWithIdentifier("tripToDoCell", forIndexPath: indexPath)
+        if(pets.count == 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("noPetsCell", forIndexPath: indexPath)
             return cell
-        
-        //let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        
+        }
+            let cell = tableView.dequeueReusableCellWithIdentifier("petCheckCell", forIndexPath: indexPath) as! PetCheckCell
+            cell.setPTVController(self, associatedPet: pets[indexPath.row])
+            return cell
     }
     
     enum UIModalTransitionStyle : Int {
