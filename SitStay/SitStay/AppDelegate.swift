@@ -143,6 +143,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Failed to fetch users: \(error)")
         }
     }
+    
+    func getTrips() -> [Trip?]{
+        do {
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            return fetchedTrips
+        } catch {
+            fatalError("Failed to fetch trips: \(error)")
+        }
+    }
 
 }
 
