@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class NewTripOwnerController: UITableViewController {
     
@@ -14,7 +15,6 @@ class NewTripOwnerController: UITableViewController {
     var rowSelected: Int = -1
     var startDate: NSDate = NSDate()
     var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +62,9 @@ class NewTripOwnerController: UITableViewController {
                     return 0
                 }
             }
+        }
+        if(indexPath.section == 1){
+            return 200
         }
         
         return 50
@@ -136,7 +139,7 @@ class NewTripOwnerController: UITableViewController {
         }
         else if(indexPath.section == 1){
             if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
+                let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
                 return cell
             }
         }

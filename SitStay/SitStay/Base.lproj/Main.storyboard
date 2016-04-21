@@ -693,15 +693,29 @@
                                     <outlet property="titleLabel" destination="MiY-KN-Z3w" id="nxw-tD-sGw"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="150" id="lHv-dR-TeY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="150" id="lHv-dR-TeY" customClass="MapCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="282" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lHv-dR-TeY" id="1Ss-WV-cXD">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-g2-rHF">
+                                            <rect key="frame" x="-2" y="-2" width="604" height="153"/>
+                                        </mapView>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="eaf-g2-rHF" firstAttribute="top" secondItem="1Ss-WV-cXD" secondAttribute="topMargin" constant="-10" id="IdI-FW-S5b"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eaf-g2-rHF" secondAttribute="trailing" constant="-10" id="VcJ-3y-np3"/>
+                                        <constraint firstItem="eaf-g2-rHF" firstAttribute="leading" secondItem="1Ss-WV-cXD" secondAttribute="leadingMargin" constant="-10" id="g6l-gE-Tio"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eaf-g2-rHF" secondAttribute="bottom" constant="-10" id="x9x-ST-bwF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="map" destination="eaf-g2-rHF" id="Rw8-cd-eGV"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="tripToDoCell" id="VFv-fI-5JW">
                                 <rect key="frame" x="0.0" y="432" width="600" height="44"/>
