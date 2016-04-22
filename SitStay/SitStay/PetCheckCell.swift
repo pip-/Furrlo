@@ -48,11 +48,13 @@ class PetCheckCell: UITableViewCell {
                     if let associatedPet = associatedPet{
                         if let index = parentController.chosenPets.indexOf(associatedPet){
                             parentController.chosenPets.removeAtIndex(index)
+                            check = false
                             parentController.checkIfCanSubmit()
                         }
                     }
                 }
             }
+            self.selected = false
         }
     }
 

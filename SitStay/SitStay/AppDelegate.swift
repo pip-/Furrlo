@@ -38,6 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pet.age = 10
             pet.petID = Int(arc4random_uniform(8000000) + 100000)
             
+            pet.name = "Bob"
+            pet.age = 10
+            pet.petID = Int(arc4random_uniform(8000000) + 100001)
+            
+            pet.name = "Samuel"
+            pet.age = 10
+            pet.petID = Int(arc4random_uniform(8000000) + 100002)
+            
             //Saving the changes I made to the instance of 'User'--------------------
             self.saveContext()
             //-----------------------------------------------------------------------
@@ -45,13 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
-        let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
-        
-        pet.name = "Fred" + String(Int(arc4random_uniform(30)))
-        pet.age = 10
-        pet.breed = "Dalmatian"
-        
-        self.saveContext()
         return true
     }
 

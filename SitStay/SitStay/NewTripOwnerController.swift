@@ -214,11 +214,12 @@ class NewTripOwnerController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("petCheckCell", forIndexPath: indexPath) as! PetCheckCell
+            
             cell.setPTVController(self, associatedPet: pets[indexPath.row])
             return cell
             }
         }
-            let cell = tableView.dequeueReusableCellWithIdentifier("dateEntryCell", forIndexPath: indexPath) as! DateEntryCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("tripNameCell", forIndexPath: indexPath) as! TripNameCell
             cell.textField.placeholder = "Trip Name"
             cell.setPTVController(self, type: "tripName")
             return cell
