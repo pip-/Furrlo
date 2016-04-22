@@ -19,11 +19,10 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
     var chosenLocation: CLLocation? = nil
     var add1: String?
     var city: String?
-    var zip: Int?
+    var zip: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        checkLocationAuthorizationStatus()
         if let add1 = add1{
             if let city = city{
                 if let zip = zip{
@@ -32,7 +31,6 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
                 }
             }
         }
-            print("Using Como location")
             let initialLocation = CLLocation(latitude: 38.949941, longitude: -92.330025)
             centerMapOnLocation(initialLocation)
     }
@@ -44,12 +42,6 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
         // Configure the view for the selected state
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last{
-            centerMapOnLocation(location)
-            chosenLocation = location
-        }
-    }
     
     func centerMapOnLocation(location: CLLocation) {
         print(location.coordinate.latitude)
@@ -88,16 +80,6 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
                     })
                 }
             }
-        }
-    }
-    
-    
-    // MARK: - location manager to authorize user location for Maps app
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            map.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
         }
     }
 

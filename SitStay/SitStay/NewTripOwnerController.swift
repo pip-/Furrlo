@@ -17,8 +17,11 @@ class NewTripOwnerController: UITableViewController {
     var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
     var street: String?
     var address2: String?
-    var zip: Int?
+    var zip: String?
     var city: String?
+    var pets: [Pet] = []
+    var chosenPets: [Pet] = []
+    var tripName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,22 @@ class NewTripOwnerController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let fetchedPets = appDelegate.getPets(){
+            //print("Tried to fetch pets!")
+            pets = fetchedPets
+            print("# of pets: " + String(pets.count))
+        }
+        
+        let submitButton = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: #selector(NewTripOwnerController.submit))
+        
+        submitButton.enabled = false
+        
+        self.navigationItem.rightBarButtonItems = [submitButton]
+        
+        self.navigationItem.title = "New Trip"
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -41,8 +60,7 @@ class NewTripOwnerController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,9 +70,14 @@ class NewTripOwnerController: UITableViewController {
         else if(section == 1){
             return 5
         }
-        else {
-            return 1
+        else if(section == 2){
+            if(pets.count == 0){
+                return 1
+            } else {
+                return pets.count
+            }
         }
+        return 1
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -70,6 +93,12 @@ class NewTripOwnerController: UITableViewController {
         if(indexPath.section == 1){
             if(indexPath.row == 4){
                 return 200
+            }
+        }
+        
+        if(indexPath.section == 2){
+            if(pets.count == 0){
+                return 50
             }
         }
         
@@ -108,7 +137,9 @@ class NewTripOwnerController: UITableViewController {
             view.addSubview(label2)
         }
         else if(section == 2){
-            label.text = "Which To Do Lists are you using?"
+            label.text = "Which Pets will be watched?"
+        } else if(section == 3){
+            label.text = "Please Choose a Trip Name"
         }
         
         return view
@@ -152,10 +183,11 @@ class NewTripOwnerController: UITableViewController {
                 }
                 cell.updateLocation()
                 return cell
-            } else {
+            } else{
                 let cell = tableView.dequeueReusableCellWithIdentifier("dateEntryCell", forIndexPath: indexPath) as! DateEntryCell
                 
                 if(indexPath.row == 0){
+                    //print("Section")
                     cell.textField.placeholder = "Address Line 1"
                     cell.setPTVController(self, type: "street")
                     return cell
@@ -176,11 +208,21 @@ class NewTripOwnerController: UITableViewController {
                     return cell
                 }
             }
-        }
-            let cell = tableView.dequeueReusableCellWithIdentifier("tripToDoCell", forIndexPath: indexPath)
+        } else if(indexPath.section == 2){
+        if(pets.count == 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("noPetsCell", forIndexPath: indexPath)
             return cell
-        
-        //let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("petCheckCell", forIndexPath: indexPath) as! PetCheckCell
+            
+            cell.setPTVController(self, associatedPet: pets[indexPath.row])
+            return cell
+            }
+        }
+            let cell = tableView.dequeueReusableCellWithIdentifier("tripNameCell", forIndexPath: indexPath) as! TripNameCell
+            cell.textField.placeholder = "Trip Name"
+            cell.setPTVController(self, type: "tripName")
+            return cell
         
     }
     
@@ -229,24 +271,44 @@ class NewTripOwnerController: UITableViewController {
         return dateFormatter.stringFromDate(date)
     }
     
-    func addressChanged(){
-        if let a = self.street {
-            if let b = self.address2 {
-                if let c = self.zip {
-                    if let d = self.city{
-                        print("Street: " + a)
-                        print("Address2: " + b)
-                        print("Zip: " + String(c))
-                        print("City: " + d)
+    func checkIfCanSubmit(){
+        if let street = street{
+            if(street.characters.count > 0){
+                if let city = city{
+                    if(city.characters.count > 0){
+                        if let zip = zip{
+                            if(zip.characters.count == 5 && checkZip(zip)){
+                                if (chosenPets.count > 0){
+                                    if let tripName = tripName{
+                                        let submitButton = self.navigationItem.rightBarButtonItems![0]
+                                        submitButton.enabled = true
+                                        return
+                                    }
+                                }
+                            }
+                        }
                     }
-                    print("Street: " + a)
-                    print("Address2: " + b)
-                    print("Zip: " + String(c))
                 }
-                print("Street: " + a)
-                print("Address2: " + b)
             }
-            print("Street: " + a)
+        }
+        let submitButton = self.navigationItem.rightBarButtonItems![0]
+        submitButton.enabled = false
+    }
+    
+    func submit(){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!)
+        
+        cancel(self)
+    }
+    
+    func checkZip(str: String) -> Bool{
+        if let num = Int(str) {
+            return true
+        }
+        else {
+            return false
         }
     }
     

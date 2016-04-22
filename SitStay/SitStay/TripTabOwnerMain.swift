@@ -13,10 +13,19 @@ class TripTabOwnerMain: UITableViewController {
     var reuseIdentifier = "tripCell"
     var noTripsReuseIdentifier = "noTripsCell"
     
-    var tripNames: [String] = ["Brazil", "St. Louis"]
+    var tripNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let fetchedTrips = appDelegate.getTrips(){
+            for trip in fetchedTrips{
+                tripNames.append(trip.tripName!)
+                print(trip.tripName!)
+            }
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

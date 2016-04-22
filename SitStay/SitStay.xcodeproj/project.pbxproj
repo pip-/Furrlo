@@ -13,6 +13,8 @@
 		67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */; };
 		67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
+		C6593A571CC978EE007907A3 /* PetCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A561CC978EE007907A3 /* PetCheckCell.swift */; };
+		C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A581CC9C1BA007907A3 /* TripNameCell.swift */; };
 		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
 		C66FF9C91CC7DEE9004140EC /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9C71CC7DEE9004140EC /* User+CoreDataProperties.swift */; };
 		C66FF9CA1CC7DEE9004140EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9C81CC7DEE9004140EC /* User.swift */; };
@@ -111,6 +113,8 @@
 		67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewController.swift; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
+		C6593A561CC978EE007907A3 /* PetCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetCheckCell.swift; sourceTree = "<group>"; };
+		C6593A581CC9C1BA007907A3 /* TripNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripNameCell.swift; sourceTree = "<group>"; };
 		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
 		C66FF9C71CC7DEE9004140EC /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C66FF9C81CC7DEE9004140EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 				C6D9C2D41CC833F000A86097 /* DatePickerCell.swift */,
 				C6D9C2D81CC8669700A86097 /* MapCell.swift */,
 				C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */,
+				C6593A561CC978EE007907A3 /* PetCheckCell.swift */,
+				C6593A581CC9C1BA007907A3 /* TripNameCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
 				C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */,
 				C66FF9DA1CC7F417004140EC /* Water.swift in Sources */,
+				C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */,
 				C66FF9E11CC7F417004140EC /* Exercise+CoreDataProperties.swift in Sources */,
 				C66FF9DD1CC7F417004140EC /* Medication+CoreDataProperties.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,
@@ -536,6 +543,7 @@
 				C6E6027F1CC434CF00D9865A /* SimpleCell.swift in Sources */,
 				C6E727711CBC251F00E7945B /* TabBarControllerSitter.swift in Sources */,
 				67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */,
+				C6593A571CC978EE007907A3 /* PetCheckCell.swift in Sources */,
 				C66FF9D71CC7F417004140EC /* Pet+CoreDataProperties.swift in Sources */,
 				C66FF9DF1CC7F417004140EC /* Food+CoreDataProperties.swift in Sources */,
 				C6E727691CBC208700E7945B /* SettingsSitter.swift in Sources */,
