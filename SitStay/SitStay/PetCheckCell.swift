@@ -16,6 +16,8 @@ class PetCheckCell: UITableViewCell {
     
     var associatedPet: Pet?
     
+    var check: Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,18 +33,23 @@ class PetCheckCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if(selected){
-            accessoryType = UITableViewCellAccessoryType.Checkmark
-            if let parentController = parentController{
-                if let pet = associatedPet{
-                    parentController.pets.append(pet)
+            if(!check){
+                accessoryType = UITableViewCellAccessoryType.Checkmark
+                if let parentController = parentController{
+                    if let pet = associatedPet{
+                        parentController.chosenPets.append(pet)
+                        check = true
+                        parentController.checkIfCanSubmit()
+                    }
                 }
-            }
-        } else {
-            accessoryType = UITableViewCellAccessoryType.None
-            if let parentController = parentController{
-                if let pet = associatedPet{
-                    if let index = parentController.pets.indexOf(pet){
-                        parentController.pets.removeAtIndex(index)
+            } else {
+                accessoryType = UITableViewCellAccessoryType.None
+                if let parentController = parentController{
+                    if let associatedPet = associatedPet{
+                        if let index = parentController.chosenPets.indexOf(associatedPet){
+                            parentController.chosenPets.removeAtIndex(index)
+                            parentController.checkIfCanSubmit()
+                        }
                     }
                 }
             }

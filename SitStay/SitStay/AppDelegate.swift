@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.userID = Int(arc4random_uniform(800000) + 100000)
             //-----------------------------------------------------------------------
             
+            let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
+            
+            pet.name = "Fred"
+            pet.age = 10
+            pet.petID = Int(arc4random_uniform(8000000) + 100000)
+            
             //Saving the changes I made to the instance of 'User'--------------------
             self.saveContext()
             //-----------------------------------------------------------------------
@@ -39,6 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
+        let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
+        
+        pet.name = "Fred" + String(Int(arc4random_uniform(30)))
+        pet.age = 10
+        pet.breed = "Dalmatian"
+        
+        self.saveContext()
         return true
     }
 
@@ -155,11 +168,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func getPets() -> [Pet]?{
         do {
-            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
-            return fetchedPets
+            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet"))
+            if let castPets = fetchedPets as? [Pet]{
+                return castPets
+            } else {
+                return nil
+            }
         } catch {
             fatalError("Failed to fetch trips: \(error)")
         }
+    }
+    
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String){
+        let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
+        
+        trip.startDate = startDate
+        trip.endDate = endDate
+        trip.addr1 = street
+        if let addr2 = addr2{
+            trip.addr2 = addr2
+        }
+        trip.zip = zip
+        trip.city = city
+        trip.tripName = tripName
+        
+        trip.tripID = Int(arc4random_uniform(100000) + 800000)
+        
+        for pet in pets{
+            pet.tripID = trip
+        }
+        
+        self.saveContext()
     }
 
 }

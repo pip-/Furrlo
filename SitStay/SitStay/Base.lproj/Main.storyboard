@@ -717,7 +717,7 @@
                                     <outlet property="map" destination="eaf-g2-rHF" id="Rw8-cd-eGV"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="tripToDoCell" id="VFv-fI-5JW" customClass="PetCheckCell" customModule="SitStay" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="petCheckCell" id="VFv-fI-5JW" customClass="PetCheckCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="432" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VFv-fI-5JW" id="Ei0-y5-BsM">
@@ -770,7 +770,7 @@
                                     <outlet property="textField" destination="0xX-96-HT7" id="lcX-1j-kEg"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noPetsCell" id="qLc-40-ogO" customClass="DateEntryCell" customModule="SitStay" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noPetsCell" id="qLc-40-ogO" customClass="DateEntryCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="520" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qLc-40-ogO" id="JHc-rA-peR">

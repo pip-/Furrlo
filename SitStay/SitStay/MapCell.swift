@@ -19,7 +19,7 @@ class MapCell: UITableViewCell, CLLocationManagerDelegate {
     var chosenLocation: CLLocation? = nil
     var add1: String?
     var city: String?
-    var zip: Int?
+    var zip: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
