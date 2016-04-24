@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let alreadyLaunched = NSUserDefaults.standardUserDefaults().boolForKey("alreadyLaunched")
         if(!alreadyLaunched){
-            //print("BOOPBOOP!")
             //Do First Launch stuff
             
             //Creating an instance of 'User'-----------------------------------------
