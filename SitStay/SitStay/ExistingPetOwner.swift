@@ -9,7 +9,15 @@
 import UIKit
 
 class ExistingPetOwner: UIViewController {
-
+    
+    @IBOutlet weak var petAge: UILabel!
+    @IBOutlet weak var petNameLabel: UILabel!
+    @IBOutlet weak var petSpecies: UILabel!
+    @IBOutlet weak var petBreedLabel: UILabel!
+    @IBOutlet weak var petPersonalityLabel: UILabel!
+    @IBOutlet weak var petFoodLabel: UILabel!
+    @IBOutlet weak var petNotes: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
