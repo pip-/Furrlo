@@ -10,6 +10,8 @@ import UIKit
 
 class ViewTripOwner: UITableViewController {
     
+    let trip: Trip? = nil
+    
     let exampleContent = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "Mira, Lola", "Example"]
     
     override func viewDidLoad() {
@@ -21,6 +23,9 @@ class ViewTripOwner: UITableViewController {
             action: #selector(ViewTripOwner.edit)
         )
         
+        if let trip = trip{
+            //for t in trip.pe
+        }
         
         self.navigationItem.rightBarButtonItems = [b]
         
