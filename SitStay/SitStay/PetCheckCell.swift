@@ -27,6 +27,12 @@ class PetCheckCell: UITableViewCell {
     func setPTVController(vc: NewTripOwnerController, associatedPet: Pet){
         self.parentController = vc
         self.associatedPet = associatedPet
+        if vc.chosenPets.contains(associatedPet){
+            print("DFjasf")
+            self.check = true
+            self.accessoryType = UITableViewCellAccessoryType.Checkmark
+            vc.checkIfCanSubmit()
+        }
         label.text = associatedPet.name
     }
 
