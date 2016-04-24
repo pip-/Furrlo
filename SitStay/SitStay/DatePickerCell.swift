@@ -45,6 +45,7 @@ class DatePickerCell: UITableViewCell {
                 view.endDate = datePicker.date
             }
             view.tableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: 0, inSection: 0), NSIndexPath.init(forRow: 2, inSection: 0)], withRowAnimation: .Fade)
+            view.checkIfCanSubmit()
         }
     }
 }
