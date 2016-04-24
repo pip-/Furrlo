@@ -12,12 +12,16 @@ class PetTabOwner: UIViewController {
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
-    var items = []
+    var items = ["Pet 1"]
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
+    
+    //@IBOutlet weak var petPicture: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Pets"
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -56,6 +60,7 @@ class PetTabOwner: UIViewController {
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petButton.setTitle(self.items[indexPath.item] as? String, forState: .Normal)
+            cell.petImage.image = UIImage(named: "steve_cat.jpg")
         cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
         cell.layer.borderWidth = 1
             cell.layer.cornerRadius = 20
