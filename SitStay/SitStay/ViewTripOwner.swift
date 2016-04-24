@@ -10,9 +10,9 @@ import UIKit
 
 class ViewTripOwner: UITableViewController {
     
-    let trip: Trip? = nil
+    var trip: Trip? = nil
     
-    let exampleContent = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "Mira, Lola", "Example"]
+    var content = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "", "Example"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,16 @@ class ViewTripOwner: UITableViewController {
         )
         
         if let trip = trip{
-            //for t in trip.pe
+            if let set = trip.pets{
+                for pet in set.allObjects as! [Pet]{
+                    content[2] += ", " + pet.name!
+                }
+            }
         }
         
         self.navigationItem.rightBarButtonItems = [b]
         
-        self.title = exampleContent[3]
+        self.title = content[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -72,16 +76,16 @@ class ViewTripOwner: UITableViewController {
         if(indexPath.section == 0){
             if(indexPath.row == 0){
                 cell.changeTitle("Dates")
-                cell.changeDetail(exampleContent[0])
+                cell.changeDetail(content[0])
             } else {
                 cell.changeTitle("Address")
-                cell.changeDetail(exampleContent[1])
+                cell.changeDetail(content[1])
                 
             }
         }
         if(indexPath.section == 2){
             cell.changeTitle("To Do Lists")
-            cell.changeDetail(exampleContent[2])
+            cell.changeDetail(content[2])
         }
         
         

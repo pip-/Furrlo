@@ -2,7 +2,7 @@
 //  Pet+CoreDataProperties.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/23/16.
+//  Created by Philip Gilbreth on 4/24/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

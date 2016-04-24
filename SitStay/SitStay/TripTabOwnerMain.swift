@@ -76,6 +76,7 @@ class TripTabOwnerMain: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
                 // Configure the cell...
                 cell.changeLabel(tripNames[indexPath.row - 1])
+                cell.tripID = tripIds[indexPath.row - 1]
                 return cell
             }
         }
@@ -127,14 +128,20 @@ class TripTabOwnerMain: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let vc = segue.destinationViewController as! ViewTripOwner
+        let s = sender as! TripCell
+        if let tripID = s.tripID{
+            vc.trip = appDelegate.getTripWithID(tripID)
+        }
+        
     }
-    */
+ 
 
 }
