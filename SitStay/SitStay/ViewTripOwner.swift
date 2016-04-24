@@ -139,7 +139,23 @@ class ViewTripOwner: UITableViewController {
         print("Editing")
         let nc = self.navigationController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip") as! NewTripOwnerController
+        vc.street = trip?.addr1
+        vc.address2 = trip?.addr2
+        vc.startDate = (trip?.startDate)!
+        vc.endDate = (trip?.endDate)!
+        vc.city = trip?.city
+        vc.zip = trip?.zip
+        vc.tripName = trip?.tripName
+        vc.tripID = Int((trip?.tripID)!)
+        
+        if let trip = trip{
+            if let set = trip.pets{
+                for pet in set.allObjects as! [Pet]{
+                    vc.chosenPets.append(pet)
+                }
+            }
+        }
         nc?.pushViewController(vc, animated: true)
     }
     

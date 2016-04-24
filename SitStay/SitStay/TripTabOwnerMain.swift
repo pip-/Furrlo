@@ -37,6 +37,18 @@ class TripTabOwnerMain: UITableViewController {
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        tripNames.removeAll()
+        tripIds.removeAll()
+        if let fetchedTrips = appDelegate.getTrips(){
+            for trip in fetchedTrips{
+                tripNames.append(trip.tripName!)
+                tripIds.append(Int(trip.tripID!))
+                print(trip.tripName!)
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

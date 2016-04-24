@@ -26,7 +26,6 @@ class DateEntryCell: UITableViewCell {
     }
     
     @IBAction func changedData(sender: UITextField) {
-        print("CHANGING DATA!")
         //textField.becomeFirstResponder()
         //textField.resignFirstResponder()
         if let vc = parentViewController{
@@ -51,6 +50,27 @@ class DateEntryCell: UITableViewCell {
     func setPTVController(vc: NewTripOwnerController, type: String){
         self.parentViewController = vc
         self.typeEditing = type
+        if(type == "street"){
+            if let street = vc.street{
+                textField.text = street
+            }
+        } else if(type == "add2"){
+            if let add2 = vc.address2{
+                textField.text = add2
+            }
+        } else if(type == "zip"){
+            if let zip = vc.zip{
+                textField.text = zip
+            }
+        } else if(type == "city"){
+            if let city = vc.city{
+                textField.text = city
+            }
+        } else if(type == "tripName"){
+            if let tripName = vc.tripName{
+                textField.text = tripName
+            }
+        }
     }
 
 }
