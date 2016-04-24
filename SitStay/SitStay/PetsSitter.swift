@@ -9,6 +9,7 @@
 import UIKit
 
 class PetsSitter: UIViewController {
+    
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
@@ -52,7 +53,7 @@ class PetsSitter: UIViewController {
             
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            cell.petButton.setTitle(self.items[indexPath.item] , forState: .Normal)
+            cell.petButton.setTitle(self.items[indexPath.item] as! String , forState: .Normal)
             cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
             cell.layer.borderWidth = 1
             cell.layer.cornerRadius = 20
