@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionViewCellOwner: UICollectionViewCell {
     
+    @IBOutlet weak var petImage: UIImageView!
     
     @IBOutlet weak var petButton: UIButton!
     
