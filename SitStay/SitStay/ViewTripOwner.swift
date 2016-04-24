@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewTripOwner: UITableViewController {
     
@@ -88,7 +89,11 @@ class ViewTripOwner: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.section == 1){
-            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
+            cell.city = trip?.city
+            cell.add1 = trip?.addr1
+            cell.zip = trip?.zip
+            cell.updateLocation()
             return cell
         }
         if(indexPath.section == 3){
