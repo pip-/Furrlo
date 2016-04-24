@@ -201,6 +201,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.saveContext()
     }
+    
+    func deleteTrip(tripID: Int) -> Bool{
+        do{
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            for trip in fetchedTrips{
+                if trip.tripID == tripID{
+                    print("Trying to delete trip: " + trip.tripName!)
+                    self.managedObjectContext.deleteObject(trip)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch{
+            print("Could not delete this trip")
+        }
+        return false
+    }
 
 }
 

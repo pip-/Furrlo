@@ -22,11 +22,13 @@ class DateEntryCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
     @IBAction func changedData(sender: UITextField) {
+        print("CHANGING DATA!")
+        //textField.becomeFirstResponder()
+        //textField.resignFirstResponder()
         if let vc = parentViewController{
             if let type = typeEditing{
                 if(type == "street"){
