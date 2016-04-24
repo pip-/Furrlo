@@ -102,7 +102,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="tripLabel" destination="Zmt-Tf-B66" id="NDY-nL-04a"/>
-                                    <segue destination="PEq-Bi-JD4" kind="show" id="Kg6-cZ-nFI"/>
+                                    <segue destination="PEq-Bi-JD4" kind="show" identifier="toViewTrip" id="Kg6-cZ-nFI"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="40" reuseIdentifier="noTripsCell" focusStyle="custom" rowHeight="150" id="zCU-2I-kLE" customClass="TripCell" customModule="SitStay" customModuleProvider="target">
@@ -225,14 +225,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite a sitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-Ea-yD6">
-                                            <rect key="frame" x="469" y="11" width="98" height="21"/>
+                                            <rect key="frame" x="469" y="15" width="98" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.2470588235" green="0.66274509800000003" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5fz-Ea-yD6" firstAttribute="top" secondItem="mBG-Wj-HLW" secondAttribute="topMargin" constant="3" id="dPQ-hd-Uy6"/>
+                                        <constraint firstItem="5fz-Ea-yD6" firstAttribute="top" secondItem="mBG-Wj-HLW" secondAttribute="topMargin" constant="7" id="dPQ-hd-Uy6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>

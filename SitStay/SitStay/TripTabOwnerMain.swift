@@ -135,12 +135,14 @@ class TripTabOwnerMain: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let vc = segue.destinationViewController as! ViewTripOwner
-        let s = sender as! TripCell
-        if let tripID = s.tripID{
-            vc.trip = appDelegate.getTripWithID(tripID)
-        }
         
+        if(segue.identifier == "toViewTrip"){
+            let vc = segue.destinationViewController as! ViewTripOwner
+            let s = sender as! TripCell
+            if let tripID = s.tripID{
+                vc.trip = appDelegate.getTripWithID(tripID)
+            }
+        }
     }
  
 

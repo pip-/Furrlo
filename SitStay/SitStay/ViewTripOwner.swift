@@ -12,7 +12,7 @@ class ViewTripOwner: UITableViewController {
     
     var trip: Trip? = nil
     
-    var content = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "", "Example"]
+    var content = ["", "", "", "Example"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,27 @@ class ViewTripOwner: UITableViewController {
             action: #selector(ViewTripOwner.edit)
         )
         
+        content[0] = dateToString((trip?.startDate)!)
+        content[0] += " - "
+        content[0] += dateToString((trip?.startDate)!)
+        
+        content[1] = (trip?.addr1)!
+        if let addr2 = trip?.addr2{
+            if(addr2 != ""){
+                content[1] += ", " + addr2
+            }
+        }
+        content[1] += ", " + (trip?.city)!
+        content[1] += ", " + (trip?.zip)!
+        
         if let trip = trip{
             if let set = trip.pets{
                 for pet in set.allObjects as! [Pet]{
-                    content[2] += ", " + pet.name!
+                    if(content[2] != ""){
+                        content[2] += ", " + pet.name!
+                    } else {
+                        content[2] = pet.name!
+                    }
                 }
             }
         }
@@ -39,6 +56,12 @@ class ViewTripOwner: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func dateToString(date: NSDate) -> String{
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+        return dateFormatter.stringFromDate(date)
     }
     
     override func didReceiveMemoryWarning() {

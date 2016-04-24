@@ -17,10 +17,7 @@ extension Trip {
     @NSManaged var addr1: String?
     @NSManaged var addr2: String?
     @NSManaged var city: String?
-    @NSManaged var destination: String?
     @NSManaged var endDate: NSDate?
-    @NSManaged var latitude: NSNumber?
-    @NSManaged var longitude: NSNumber?
     @NSManaged var startDate: NSDate?
     @NSManaged var tripID: NSNumber?
     @NSManaged var tripName: String?
