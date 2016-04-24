@@ -1340,9 +1340,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-sa-6wz">
-                                            <rect key="frame" x="27" y="43" width="46" height="30"/>
-                                            <state key="normal" title="Pet"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-sa-6wz">
+                                            <rect key="frame" x="35" y="35" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="YpT-0z-XFc"/>
+                                                <constraint firstAttribute="width" constant="100" id="hMI-KT-EVe"/>
+                                            </constraints>
                                             <connections>
                                                 <segue destination="hh8-J6-g0Y" kind="show" id="m2F-xK-kZM">
                                                     <nil key="action"/>
@@ -1362,8 +1365,8 @@
                                 <constraints>
                                     <constraint firstItem="LhX-fl-S9M" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" id="5dn-Tg-NWD"/>
                                     <constraint firstItem="LhX-fl-S9M" firstAttribute="centerY" secondItem="E4h-xn-Upe" secondAttribute="centerY" id="M3W-Js-brD"/>
-                                    <constraint firstItem="ONG-sa-6wz" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" id="RyK-OS-5fB"/>
-                                    <constraint firstItem="ONG-sa-6wz" firstAttribute="centerY" secondItem="E4h-xn-Upe" secondAttribute="centerY" id="SZn-Is-4r3"/>
+                                    <constraint firstItem="ONG-sa-6wz" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" constant="35" id="RyK-OS-5fB"/>
+                                    <constraint firstItem="ONG-sa-6wz" firstAttribute="centerY" secondItem="E4h-xn-Upe" secondAttribute="centerY" constant="35" id="SZn-Is-4r3"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="petButton" destination="ONG-sa-6wz" id="YDf-gA-3qp"/>
@@ -2318,7 +2321,7 @@
         <image name="trips1.png" width="1400" height="896"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1iH-Ug-7Gz"/>
+        <segue reference="HVB-tS-KwQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.050980392156862744" green="0.60784313725490191" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
 </document>
