@@ -13,6 +13,8 @@
 		67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */; };
 		67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
+		C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0671CCD8327003F176A /* InviteSitterCell.swift */; };
+		C653E06A1CCD890D003F176A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C653E0691CCD890D003F176A /* MessageUI.framework */; };
 		C6593A571CC978EE007907A3 /* PetCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A561CC978EE007907A3 /* PetCheckCell.swift */; };
 		C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A581CC9C1BA007907A3 /* TripNameCell.swift */; };
 		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
@@ -113,6 +115,8 @@
 		67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewController.swift; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
+		C653E0671CCD8327003F176A /* InviteSitterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteSitterCell.swift; sourceTree = "<group>"; };
+		C653E0691CCD890D003F176A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C6593A561CC978EE007907A3 /* PetCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetCheckCell.swift; sourceTree = "<group>"; };
 		C6593A581CC9C1BA007907A3 /* TripNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripNameCell.swift; sourceTree = "<group>"; };
 		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C653E06A1CCD890D003F176A /* MessageUI.framework in Frameworks */,
 				C6D9C2D71CC85C1400A86097 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +270,7 @@
 				C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */,
 				C6593A561CC978EE007907A3 /* PetCheckCell.swift */,
 				C6593A581CC9C1BA007907A3 /* TripNameCell.swift */,
+				C653E0671CCD8327003F176A /* InviteSitterCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 		C6DA0D1D1CA62CED00F425B3 = {
 			isa = PBXGroup;
 			children = (
+				C653E0691CCD890D003F176A /* MessageUI.framework */,
 				C6D9C2D61CC85C1400A86097 /* MapKit.framework */,
 				C6DA0D281CA62CED00F425B3 /* SitStay */,
 				C6DA0D271CA62CED00F425B3 /* Products */,
@@ -535,6 +542,7 @@
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
 				C6D9C2D91CC8669700A86097 /* MapCell.swift in Sources */,
 				C6E7276F1CBC24F800E7945B /* TabBarControllerOwner.swift in Sources */,
+				C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */,
 				C66FF9D81CC7F417004140EC /* Pet.swift in Sources */,
 				C6D73C071CB4B7DD001BC7F2 /* PetsSitter.swift in Sources */,
 				C66FF9D91CC7F417004140EC /* Water+CoreDataProperties.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import MessageUI
 
 class ViewTripOwner: UITableViewController {
     
@@ -97,7 +98,8 @@ class ViewTripOwner: UITableViewController {
             return cell
         }
         if(indexPath.section == 3){
-            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath) as! InviteSitterCell
+            cell.setParentController(self)
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath) as! SimpleCell
