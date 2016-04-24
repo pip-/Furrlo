@@ -30,21 +30,18 @@
         <attribute name="personality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="petID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="tripID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="petID" inverseEntity="Trip" syncable="YES"/>
+        <relationship name="tripID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="pets" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName=".Trip" syncable="YES">
-        <attribute name="addr1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addr1" attributeType="String" syncable="YES"/>
         <attribute name="addr2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="tripID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="tripName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="petID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="tripID" inverseEntity="Pet" syncable="YES"/>
+        <attribute name="city" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" attributeType="Date" syncable="YES"/>
+        <attribute name="startDate" attributeType="Date" syncable="YES"/>
+        <attribute name="tripID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tripName" attributeType="String" syncable="YES"/>
+        <attribute name="zip" attributeType="String" syncable="YES"/>
+        <relationship name="pets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="tripID" inverseEntity="Pet" syncable="YES"/>
         <relationship name="userID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
@@ -65,9 +62,9 @@
         <element name="Exercise" positionX="0" positionY="135" width="128" height="90"/>
         <element name="Food" positionX="-18" positionY="99" width="128" height="150"/>
         <element name="Medication" positionX="18" positionY="144" width="128" height="135"/>
-        <element name="Pet" positionX="-54" positionY="63" width="128" height="165"/>
-        <element name="Trip" positionX="36" positionY="171" width="128" height="240"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="Water" positionX="-36" positionY="90" width="128" height="90"/>
+        <element name="Pet" positionX="-171" positionY="222" width="128" height="165"/>
+        <element name="Trip" positionX="322" positionY="102" width="128" height="193"/>
+        <element name="User" positionX="16" positionY="399" width="128" height="150"/>
+        <element name="Water" positionX="-324" positionY="288" width="128" height="90"/>
     </elements>
 </model>

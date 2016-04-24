@@ -2,7 +2,7 @@
 //  Pet+CoreDataProperties.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/21/16.
+//  Created by Philip Gilbreth on 4/24/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,8 +19,8 @@ extension Pet {
     @NSManaged var name: String?
     @NSManaged var notes: String?
     @NSManaged var personality: String?
-    @NSManaged var type: String?
     @NSManaged var petID: NSNumber?
+    @NSManaged var type: String?
     @NSManaged var tripID: Trip?
 
 }

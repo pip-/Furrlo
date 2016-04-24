@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let alreadyLaunched = NSUserDefaults.standardUserDefaults().boolForKey("alreadyLaunched")
         if(!alreadyLaunched){
-            //print("BOOPBOOP!")
             //Do First Launch stuff
             
             //Creating an instance of 'User'-----------------------------------------
@@ -167,6 +166,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func getTripWithID(tripID: Int) -> Trip?{
+        do {
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            for trip in fetchedTrips{
+                if (trip.tripID == tripID){
+                    return trip
+                }
+            }
+            return nil
+        } catch {
+            //fatalError("Failed to fetch trips: \(error)")
+            print("Could not find this tripID")
+            return nil
+        }
+    }
+    
     func getPets() -> [Pet]?{
         do {
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet"))
@@ -200,6 +215,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.saveContext()
+    }
+    
+    func deleteTrip(tripID: Int) -> Bool{
+        do{
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            for trip in fetchedTrips{
+                if trip.tripID == tripID{
+                    print("Trying to delete trip: " + trip.tripName!)
+                    self.managedObjectContext.deleteObject(trip)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch{
+            print("Could not delete this trip")
+        }
+        return false
     }
 
 }
