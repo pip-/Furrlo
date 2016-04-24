@@ -22,6 +22,7 @@ class NewTripOwnerController: UITableViewController {
     var pets: [Pet] = []
     var chosenPets: [Pet] = []
     var tripName: String?
+    var tripID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -297,7 +298,10 @@ class NewTripOwnerController: UITableViewController {
     
     func submit(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
+        if let tripID = self.tripID{
+            appDelegate.deleteTrip(tripID)
+            appDelegate.saveContext()
+        }
         appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!)
         
         cancel(self)

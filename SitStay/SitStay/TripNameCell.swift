@@ -47,8 +47,12 @@ class TripNameCell: UITableViewCell {
     }
     
     func setPTVController(vc: NewTripOwnerController, type: String){
+        print("bllooooop")
         self.parentViewController = vc
         self.typeEditing = type
+        if let tripName = vc.tripName{
+            textField.text = tripName
+        }
     }
     
 }
