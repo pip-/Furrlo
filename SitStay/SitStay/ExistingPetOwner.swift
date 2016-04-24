@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExistingPetOwner: UIViewController {
+class ExistingPetOwner: UIViewController{
     
     @IBOutlet weak var petAge: UILabel!
     @IBOutlet weak var petNameLabel: UILabel!
@@ -18,14 +18,21 @@ class ExistingPetOwner: UIViewController {
     @IBOutlet weak var petFoodLabel: UILabel!
     @IBOutlet weak var petNotes: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -40,4 +47,6 @@ class ExistingPetOwner: UIViewController {
     }
     */
 
+ 
+    
 }
