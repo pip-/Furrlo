@@ -234,6 +234,7 @@
 				C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */,
 				C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */,
 				C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */,
+				C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */,
 			);
 			name = "Pet Tab Owner";
 			sourceTree = "<group>";
@@ -252,6 +253,7 @@
 		67D299C11CCEBA7500D0D5C3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */,
 				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
 				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
 				67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */,
@@ -340,8 +342,6 @@
 				C653E06E1CCE9414003F176A /* Trip Tab Sitter */,
 				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */,
-				C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */,
-				C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
 				C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */,
