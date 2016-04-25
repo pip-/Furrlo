@@ -24,7 +24,11 @@ class ConfirmTripControllerSitter: UIViewController {
     
     @IBAction func submit(sender: AnyObject) {
         
-        //ToDo, pull trip object where trip.tripID = textField.text
+        //ToDo, pull trip object where trip.tripID = textField.text and all associated pets and to-do lists
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let fetchedPets = appDelegate.getPets()
+        appDelegate.insertNewTrip(NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(30)), endDate: NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(35000)), street: "821 East Walnut Street", zip: "65201", city: "Columbia", addr2: "Apt. 240", pets: fetchedPets!, tripName: "New Zealand", isSitting: true)
+        
     }
 
     /*

@@ -382,7 +382,7 @@
                                 <color key="backgroundColor" red="0.75294117647058822" green="0.98431372549019602" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="tripLabel" destination="P6Z-Kr-AJX" id="W7x-Ij-Fnz"/>
-                                    <segue destination="j5l-dE-Nha" kind="show" id="bp4-A1-k5a"/>
+                                    <segue destination="j5l-dE-Nha" kind="show" identifier="toViewTrip" id="bp4-A1-k5a"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="confirmTripCell" id="hcJ-4K-Kh8">
@@ -462,10 +462,10 @@
             </objects>
             <point key="canvasLocation" x="2491" y="-1732"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirm Trip Controller Sitter-->
         <scene sceneID="00o-kZ-6Xr">
             <objects>
-                <viewController id="lvb-7C-s14" sceneMemberID="viewController">
+                <viewController id="lvb-7C-s14" customClass="ConfirmTripControllerSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QR6-gu-D52"/>
                         <viewControllerLayoutGuide type="bottom" id="z56-PG-Qk4"/>
@@ -498,6 +498,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="submit:" destination="lvb-7C-s14" eventType="touchUpInside" id="nDi-TK-GKE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -514,6 +517,9 @@
                             <constraint firstItem="ab4-u2-cMM" firstAttribute="leading" secondItem="vzX-IO-3M3" secondAttribute="leadingMargin" constant="-20" id="qCx-nr-3ed"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="Ikd-cj-bxf" id="4KW-MK-Gdz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqt-d7-dej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
