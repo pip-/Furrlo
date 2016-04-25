@@ -414,7 +414,7 @@
                                     </segue>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noTripCell" rowHeight="150" id="25D-xp-efv">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noTripsCell" rowHeight="150" id="25D-xp-efv">
                                 <rect key="frame" x="0.0" y="116" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="25D-xp-efv" id="OUq-uB-wew">
@@ -427,7 +427,7 @@
                                                 <constraint firstAttribute="width" constant="300" id="dcV-gr-g09"/>
                                             </constraints>
                                             <attributedString key="attributedText">
-                                                <fragment content="Once you confirm a trip with your Owner's Trip ID, you will see their pets and to-do lists until the last day of the trip!">
+                                                <fragment content="Once you confirm a trip with your Owner's Trip ID, you will see their pets and to-do lists through the last day of the trip!">
                                                     <attributes>
                                                         <color key="NSColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -445,6 +445,34 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nextCell" id="ef8-CS-8z5">
+                                <rect key="frame" x="0.0" y="266" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ef8-CS-8z5" id="Y7a-Yt-xGw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="Md9-1p-hUY">
+                                            <rect key="frame" x="13" y="11" width="36" height="20"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Next">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="Md9-1p-hUY" firstAttribute="leading" secondItem="Y7a-Yt-xGw" secondAttribute="leadingMargin" constant="5" id="aK1-5V-SAN"/>
+                                        <constraint firstItem="Md9-1p-hUY" firstAttribute="top" secondItem="Y7a-Yt-xGw" secondAttribute="topMargin" constant="3" id="tdt-Uj-R7r"/>
+                                    </constraints>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

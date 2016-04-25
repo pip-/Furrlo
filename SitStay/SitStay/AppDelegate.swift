@@ -208,7 +208,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         trip.city = city
         trip.tripName = tripName
         
-        trip.isSitting = isSitting
+        if(isSitting){
+            trip.isSitting = 1
+        }
         
         trip.tripID = Int(arc4random_uniform(100000) + 800000)
         

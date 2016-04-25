@@ -23,13 +23,11 @@ class TripTabOwnerMain: UITableViewController {
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "editing")
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
-                if let isSitting = trip.isSitting{
-                    if(isSitting.boolValue){
+                    if(trip.isSitting!.boolValue == false){
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
                         print(trip.tripName!)
                     }
-                }
             }
         }
         
@@ -47,11 +45,13 @@ class TripTabOwnerMain: UITableViewController {
         tripIds.removeAll()
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
-                tripNames.append(trip.tripName!)
-                tripIds.append(Int(trip.tripID!))
-                print(trip.tripName!)
-            }
+                if(trip.isSitting!.boolValue == false){
+                    tripNames.append(trip.tripName!)
+                    tripIds.append(Int(trip.tripID!))
+                    print(trip.tripName!)
+                }
         }
+    }
     }
 
     override func didReceiveMemoryWarning() {

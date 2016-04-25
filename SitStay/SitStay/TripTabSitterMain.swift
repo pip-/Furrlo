@@ -1,5 +1,5 @@
 //
-//  TripTabOwnerMain.swift
+//  TripTabSitterMain.swift
 //  SitStay
 //
 //  Created by Philip Gilbreth on 4/7/16.
@@ -23,13 +23,11 @@ class TripTabSitterMain: UITableViewController {
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "editing")
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
-                if let isSitting = trip.isSitting{
-                    if(isSitting.boolValue){
+                    if(trip.isSitting!.boolValue == true){
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
                         print(trip.tripName!)
                     }
-                }
             }
         }
         
@@ -46,13 +44,16 @@ class TripTabSitterMain: UITableViewController {
         tripNames.removeAll()
         tripIds.removeAll()
         if let fetchedTrips = appDelegate.getTrips(){
-            for trip in fetchedTrips{
-                tripNames.append(trip.tripName!)
-                tripIds.append(Int(trip.tripID!))
-                print(trip.tripName!)
+                for trip in fetchedTrips{
+                    if(trip.isSitting!.boolValue == true){
+                        tripNames.append(trip.tripName!)
+                        tripIds.append(Int(trip.tripID!))
+                        print(trip.tripName!)
+                    }
             }
         }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,23 +69,23 @@ class TripTabSitterMain: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
+        //let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
         if(tripNames.count == 0){
             return 1
         } else {
-            return tripNames.count + 1
+            return tripNames.count + 2
         }
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
+        //let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
         if(tripNames.count == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier(noTripsReuseIdentifier, forIndexPath: indexPath)
             
             return cell
         }
-        else {
+        else if(indexPath.row < tripNames.count){
             if(indexPath.row == 0){
                 let cell = tableView.dequeueReusableCellWithIdentifier("nextCell", forIndexPath: indexPath)
                 return cell
@@ -95,6 +96,9 @@ class TripTabSitterMain: UITableViewController {
                 cell.tripID = tripIds[indexPath.row - 1]
                 return cell
             }
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("confirmTripCell", forIndexPath: indexPath)
+            return cell
         }
     }
     
@@ -153,7 +157,7 @@ class TripTabSitterMain: UITableViewController {
         // Pass the selected object to the new view controller.
         
         if(segue.identifier == "toViewTrip"){
-            let vc = segue.destinationViewController as! ViewTripOwner
+            let vc = segue.destinationViewController as! ViewTripSitter
             let s = sender as! TripCell
             if let tripID = s.tripID{
                 vc.trip = appDelegate.getTripWithID(tripID)
