@@ -15,6 +15,7 @@
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
 		C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0671CCD8327003F176A /* InviteSitterCell.swift */; };
 		C653E06A1CCD890D003F176A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C653E0691CCD890D003F176A /* MessageUI.framework */; };
+		C653E0711CCE9515003F176A /* ConfirmTripControllerSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0701CCE9515003F176A /* ConfirmTripControllerSitter.swift */; };
 		C6593A571CC978EE007907A3 /* PetCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A561CC978EE007907A3 /* PetCheckCell.swift */; };
 		C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A581CC9C1BA007907A3 /* TripNameCell.swift */; };
 		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
@@ -117,6 +118,7 @@
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
 		C653E0671CCD8327003F176A /* InviteSitterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteSitterCell.swift; sourceTree = "<group>"; };
 		C653E0691CCD890D003F176A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C653E0701CCE9515003F176A /* ConfirmTripControllerSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmTripControllerSitter.swift; sourceTree = "<group>"; };
 		C6593A561CC978EE007907A3 /* PetCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetCheckCell.swift; sourceTree = "<group>"; };
 		C6593A581CC9C1BA007907A3 /* TripNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripNameCell.swift; sourceTree = "<group>"; };
 		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
@@ -256,7 +258,6 @@
 				C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */,
 				C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */,
 				C6E6027C1CC4340F00D9865A /* ViewTripOwner.swift */,
-				C6D84F7E1CC524990093D7A3 /* ViewTripSitter.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -264,9 +265,19 @@
 		C653E06E1CCE9414003F176A /* Trip Tab Sitter */ = {
 			isa = PBXGroup;
 			children = (
-				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
+				C653E06F1CCE94A0003F176A /* View Controllers */,
 			);
 			name = "Trip Tab Sitter";
+			sourceTree = "<group>";
+		};
+		C653E06F1CCE94A0003F176A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6D84F7E1CC524990093D7A3 /* ViewTripSitter.swift */,
+				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
+				C653E0701CCE9515003F176A /* ConfirmTripControllerSitter.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		C6D73C091CB4BA05001BC7F2 /* Views */ = {
@@ -561,6 +572,7 @@
 				C66FF9C91CC7DEE9004140EC /* User+CoreDataProperties.swift in Sources */,
 				C6D84F7F1CC524990093D7A3 /* ViewTripSitter.swift in Sources */,
 				67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */,
+				C653E0711CCE9515003F176A /* ConfirmTripControllerSitter.swift in Sources */,
 				C6FAB45E1CBC076600A331AD /* TripCell.swift in Sources */,
 				C66FF9DE1CC7F417004140EC /* Medication.swift in Sources */,
 				C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */,
