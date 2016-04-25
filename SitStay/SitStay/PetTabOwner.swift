@@ -59,11 +59,14 @@ class PetTabOwner: UIViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCellOwner
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.petButton.setTitle(self.items[indexPath.item] as? String, forState: .Normal)
+        cell.petName.text = self.items[indexPath.item] as? String
             cell.petImage.image = UIImage(named: "cat profile.jpg")
-        cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
-        cell.layer.borderWidth = 1
-            cell.layer.cornerRadius = 50
+            
+        let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
+            
+        cell.backgroundColor = newSwiftColor // make cell more visible in our example project
+        //cell.layer.borderWidth = 1
+          //  cell.layer.cornerRadius = 62.5
         return cell
         }
         
@@ -87,7 +90,7 @@ class PetTabOwner: UIViewController {
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
             
             let cellWidth = 100
-            let cellHeight = 100
+            let cellHeight = 145
             
             return CGSize(width: cellWidth , height: cellHeight)
         }
