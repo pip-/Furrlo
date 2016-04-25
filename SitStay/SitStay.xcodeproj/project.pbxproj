@@ -265,6 +265,7 @@
 		C653E06E1CCE9414003F176A /* Trip Tab Sitter */ = {
 			isa = PBXGroup;
 			children = (
+				C653E0721CCE9962003F176A /* Table Cells */,
 				C653E06F1CCE94A0003F176A /* View Controllers */,
 			);
 			name = "Trip Tab Sitter";
@@ -278,6 +279,13 @@
 				C653E0701CCE9515003F176A /* ConfirmTripControllerSitter.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C653E0721CCE9962003F176A /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Table Cells";
 			sourceTree = "<group>";
 		};
 		C6D73C091CB4BA05001BC7F2 /* Views */ = {

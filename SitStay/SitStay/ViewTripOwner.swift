@@ -52,6 +52,7 @@ class ViewTripOwner: UITableViewController {
         
         self.navigationItem.rightBarButtonItems = [b]
         
+        content[3] = (trip?.tripName)!
         self.title = content[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
