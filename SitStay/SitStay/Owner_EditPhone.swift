@@ -10,6 +10,8 @@ import UIKit
 
 class Owner_EditPhone: UIViewController {
 
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

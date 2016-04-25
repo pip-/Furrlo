@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPetOwner: UIViewController {
+class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     //@IBOutlet weak var petAge: UILabel!
     
@@ -19,11 +19,15 @@ class AddPetOwner: UIViewController {
     @IBOutlet weak var petBreedLabel: UITextField!
     @IBOutlet weak var petNameLabel: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
+    let imagePicker = UIImagePickerController()
+    
     @IBOutlet weak var petAge: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Add Pet"
+        imagePicker.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -64,6 +68,27 @@ class AddPetOwner: UIViewController {
     
 
         navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func loadImage(sender: AnyObject) {
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .ScaleAspectFit
+            imageView.image = pickedImage
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
