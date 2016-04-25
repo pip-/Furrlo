@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import MessageUI
 
 class ViewTripOwner: UITableViewController {
     
@@ -50,6 +52,7 @@ class ViewTripOwner: UITableViewController {
         
         self.navigationItem.rightBarButtonItems = [b]
         
+        content[3] = (trip?.tripName)!
         self.title = content[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -88,11 +91,16 @@ class ViewTripOwner: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.section == 1){
-            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
+            cell.city = trip?.city
+            cell.add1 = trip?.addr1
+            cell.zip = trip?.zip
+            cell.updateLocation()
             return cell
         }
         if(indexPath.section == 3){
-            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath) as! InviteSitterCell
+            cell.setParentController(self)
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath) as! SimpleCell

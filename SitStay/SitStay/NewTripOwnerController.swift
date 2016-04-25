@@ -302,7 +302,7 @@ class NewTripOwnerController: UITableViewController {
             appDelegate.deleteTrip(tripID)
             appDelegate.saveContext()
         }
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!)
+        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
         cancel(self)
     }
