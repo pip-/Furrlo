@@ -382,7 +382,7 @@
                                 <color key="backgroundColor" red="0.75294117647058822" green="0.98431372549019602" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="tripLabel" destination="P6Z-Kr-AJX" id="W7x-Ij-Fnz"/>
-                                    <segue destination="j5l-dE-Nha" kind="show" id="bp4-A1-k5a"/>
+                                    <segue destination="j5l-dE-Nha" kind="show" identifier="toViewTrip" id="bp4-A1-k5a"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="confirmTripCell" id="hcJ-4K-Kh8">
@@ -414,7 +414,7 @@
                                     </segue>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noTripCell" rowHeight="150" id="25D-xp-efv">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="noTripsCell" rowHeight="150" id="25D-xp-efv">
                                 <rect key="frame" x="0.0" y="116" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="25D-xp-efv" id="OUq-uB-wew">
@@ -427,7 +427,7 @@
                                                 <constraint firstAttribute="width" constant="300" id="dcV-gr-g09"/>
                                             </constraints>
                                             <attributedString key="attributedText">
-                                                <fragment content="Once you confirm a trip with your Owner's Trip ID, you will see their pets and to-do lists until the last day of the trip!">
+                                                <fragment content="Once you confirm a trip with your Owner's Trip ID, you will see their pets and to-do lists through the last day of the trip!">
                                                     <attributes>
                                                         <color key="NSColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -446,6 +446,34 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nextCell" id="ef8-CS-8z5">
+                                <rect key="frame" x="0.0" y="266" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ef8-CS-8z5" id="Y7a-Yt-xGw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="Md9-1p-hUY">
+                                            <rect key="frame" x="13" y="11" width="36" height="20"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Next">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="Md9-1p-hUY" firstAttribute="leading" secondItem="Y7a-Yt-xGw" secondAttribute="leadingMargin" constant="5" id="aK1-5V-SAN"/>
+                                        <constraint firstItem="Md9-1p-hUY" firstAttribute="top" secondItem="Y7a-Yt-xGw" secondAttribute="topMargin" constant="3" id="tdt-Uj-R7r"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -462,10 +490,10 @@
             </objects>
             <point key="canvasLocation" x="2491" y="-1732"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirm Trip Controller Sitter-->
         <scene sceneID="00o-kZ-6Xr">
             <objects>
-                <viewController id="lvb-7C-s14" sceneMemberID="viewController">
+                <viewController id="lvb-7C-s14" customClass="ConfirmTripControllerSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QR6-gu-D52"/>
                         <viewControllerLayoutGuide type="bottom" id="z56-PG-Qk4"/>
@@ -498,6 +526,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="submit:" destination="lvb-7C-s14" eventType="touchUpInside" id="nDi-TK-GKE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -514,6 +545,12 @@
                             <constraint firstItem="ab4-u2-cMM" firstAttribute="leading" secondItem="vzX-IO-3M3" secondAttribute="leadingMargin" constant="-20" id="qCx-nr-3ed"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="exI-30-EsJ"/>
+                    </toolbarItems>
+                    <connections>
+                        <outlet property="textField" destination="Ikd-cj-bxf" id="4KW-MK-Gdz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqt-d7-dej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -573,14 +610,28 @@
                                     <outlet property="titleLabel" destination="KbM-Ow-q8l" id="GEg-Lb-vuW"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mapCell" rowHeight="120" id="Nis-C5-lIh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mapCell" rowHeight="120" id="Nis-C5-lIh" customClass="MapCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="130" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nis-C5-lIh" id="GVZ-sF-G8P">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="guO-uG-L6v">
+                                            <rect key="frame" x="-2" y="-2" width="604" height="123"/>
+                                        </mapView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="guO-uG-L6v" secondAttribute="bottom" constant="-10" id="0o4-nY-z0Y"/>
+                                        <constraint firstItem="guO-uG-L6v" firstAttribute="top" secondItem="GVZ-sF-G8P" secondAttribute="topMargin" constant="-10" id="fqx-3j-pwF"/>
+                                        <constraint firstItem="guO-uG-L6v" firstAttribute="leading" secondItem="GVZ-sF-G8P" secondAttribute="leadingMargin" constant="-10" id="ip5-25-rLf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="guO-uG-L6v" secondAttribute="trailing" constant="-10" id="vPf-gc-KEx"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="map" destination="guO-uG-L6v" id="4YT-NI-9CA"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inviteCell" rowHeight="44" id="0Fh-eB-Aef">
                                 <rect key="frame" x="0.0" y="250" width="600" height="44"/>
