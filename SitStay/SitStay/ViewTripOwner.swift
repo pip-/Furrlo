@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewTripOwner: UITableViewController {
     
-    let exampleContent = ["March 4 - March 12", "4910 Smith Street, Columbia, Missouri 65203", "Mira, Lola", "Example"]
+    var trip: Trip? = nil
+    
+    var content = ["", "", "", "Example"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +24,45 @@ class ViewTripOwner: UITableViewController {
             action: #selector(ViewTripOwner.edit)
         )
         
+        content[0] = dateToString((trip?.startDate)!)
+        content[0] += " - "
+        content[0] += dateToString((trip?.startDate)!)
+        
+        content[1] = (trip?.addr1)!
+        if let addr2 = trip?.addr2{
+            if(addr2 != ""){
+                content[1] += ", " + addr2
+            }
+        }
+        content[1] += ", " + (trip?.city)!
+        content[1] += ", " + (trip?.zip)!
+        
+        if let trip = trip{
+            if let set = trip.pets{
+                for pet in set.allObjects as! [Pet]{
+                    if(content[2] != ""){
+                        content[2] += ", " + pet.name!
+                    } else {
+                        content[2] = pet.name!
+                    }
+                }
+            }
+        }
         
         self.navigationItem.rightBarButtonItems = [b]
         
-        self.title = exampleContent[3]
+        self.title = content[3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func dateToString(date: NSDate) -> String{
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+        return dateFormatter.stringFromDate(date)
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,7 +89,11 @@ class ViewTripOwner: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.section == 1){
-            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
+            cell.city = trip?.city
+            cell.add1 = trip?.addr1
+            cell.zip = trip?.zip
+            cell.updateLocation()
             return cell
         }
         if(indexPath.section == 3){
@@ -67,16 +104,16 @@ class ViewTripOwner: UITableViewController {
         if(indexPath.section == 0){
             if(indexPath.row == 0){
                 cell.changeTitle("Dates")
-                cell.changeDetail(exampleContent[0])
+                cell.changeDetail(content[0])
             } else {
                 cell.changeTitle("Address")
-                cell.changeDetail(exampleContent[1])
+                cell.changeDetail(content[1])
                 
             }
         }
         if(indexPath.section == 2){
             cell.changeTitle("To Do Lists")
-            cell.changeDetail(exampleContent[2])
+            cell.changeDetail(content[2])
         }
         
         
@@ -107,7 +144,23 @@ class ViewTripOwner: UITableViewController {
         print("Editing")
         let nc = self.navigationController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip") as! NewTripOwnerController
+        vc.street = trip?.addr1
+        vc.address2 = trip?.addr2
+        vc.startDate = (trip?.startDate)!
+        vc.endDate = (trip?.endDate)!
+        vc.city = trip?.city
+        vc.zip = trip?.zip
+        vc.tripName = trip?.tripName
+        vc.tripID = Int((trip?.tripID)!)
+        
+        if let trip = trip{
+            if let set = trip.pets{
+                for pet in set.allObjects as! [Pet]{
+                    vc.chosenPets.append(pet)
+                }
+            }
+        }
         nc?.pushViewController(vc, animated: true)
     }
     
