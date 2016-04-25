@@ -545,6 +545,9 @@
                             <constraint firstItem="ab4-u2-cMM" firstAttribute="leading" secondItem="vzX-IO-3M3" secondAttribute="leadingMargin" constant="-20" id="qCx-nr-3ed"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="exI-30-EsJ"/>
+                    </toolbarItems>
                     <connections>
                         <outlet property="textField" destination="Ikd-cj-bxf" id="4KW-MK-Gdz"/>
                     </connections>
@@ -607,14 +610,28 @@
                                     <outlet property="titleLabel" destination="KbM-Ow-q8l" id="GEg-Lb-vuW"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mapCell" rowHeight="120" id="Nis-C5-lIh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mapCell" rowHeight="120" id="Nis-C5-lIh" customClass="MapCell" customModule="SitStay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="130" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nis-C5-lIh" id="GVZ-sF-G8P">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="guO-uG-L6v">
+                                            <rect key="frame" x="-2" y="-2" width="604" height="123"/>
+                                        </mapView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="guO-uG-L6v" secondAttribute="bottom" constant="-10" id="0o4-nY-z0Y"/>
+                                        <constraint firstItem="guO-uG-L6v" firstAttribute="top" secondItem="GVZ-sF-G8P" secondAttribute="topMargin" constant="-10" id="fqx-3j-pwF"/>
+                                        <constraint firstItem="guO-uG-L6v" firstAttribute="leading" secondItem="GVZ-sF-G8P" secondAttribute="leadingMargin" constant="-10" id="ip5-25-rLf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="guO-uG-L6v" secondAttribute="trailing" constant="-10" id="vPf-gc-KEx"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.75294117650000003" green="0.98431372549999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="map" destination="guO-uG-L6v" id="4YT-NI-9CA"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inviteCell" rowHeight="44" id="0Fh-eB-Aef">
                                 <rect key="frame" x="0.0" y="250" width="600" height="44"/>

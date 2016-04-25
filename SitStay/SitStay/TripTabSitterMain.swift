@@ -71,34 +71,50 @@ class TripTabSitterMain: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         //let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
         if(tripNames.count == 0){
-            return 1
+            return 2
         } else {
             return tripNames.count + 2
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(tripNames.count == 0){
+            if(indexPath.row == 0){
+                return 200
+            }
+        }
+        return 50
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
         if(tripNames.count == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier(noTripsReuseIdentifier, forIndexPath: indexPath)
-            
-            return cell
-        }
-        else if(indexPath.row < tripNames.count){
             if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("nextCell", forIndexPath: indexPath)
+                let cell = tableView.dequeueReusableCellWithIdentifier(noTripsReuseIdentifier, forIndexPath: indexPath)
+            
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
-                // Configure the cell...
-                cell.changeLabel(tripNames[indexPath.row - 1])
-                cell.tripID = tripIds[indexPath.row - 1]
+                let cell = tableView.dequeueReusableCellWithIdentifier("confirmTripCell", forIndexPath: indexPath)
                 return cell
             }
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("confirmTripCell", forIndexPath: indexPath)
-            return cell
+        }
+        else {
+            if(indexPath.row < tripNames.count + 1){
+                if(indexPath.row == 0){
+                    let cell = tableView.dequeueReusableCellWithIdentifier("nextCell", forIndexPath: indexPath)
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TripCell
+                    // Configure the cell...
+                    cell.changeLabel(tripNames[indexPath.row - 1])
+                    cell.tripID = tripIds[indexPath.row - 1]
+                    return cell
+                }
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("confirmTripCell", forIndexPath: indexPath)
+                return cell
+            }
         }
     }
     
@@ -108,7 +124,7 @@ class TripTabSitterMain: UITableViewController {
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         if(tripNames.count > 0){
-            if(indexPath.row > 0){
+            if(indexPath.row > 0 && indexPath.row <= tripNames.count){
                 return true
             }
         }
