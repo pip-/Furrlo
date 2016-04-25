@@ -63,7 +63,7 @@ class PetTabOwner: UIViewController {
             cell.petImage.image = UIImage(named: "cat profile.jpg")
         cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
         cell.layer.borderWidth = 1
-            cell.layer.cornerRadius = 20
+            cell.layer.cornerRadius = 50
         return cell
         }
         
