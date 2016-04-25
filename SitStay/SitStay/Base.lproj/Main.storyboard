@@ -1365,7 +1365,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="9ds-O2-Fck">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="1" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fel-iN-5DA">
                             <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="50"/>
@@ -1399,18 +1399,27 @@
                                                 <constraint firstAttribute="height" constant="100" id="vdM-EZ-gMO"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kl4-jW-QxR">
+                                            <rect key="frame" x="29" y="40" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="LhX-fl-S9M" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" id="5dn-Tg-NWD"/>
+                                    <constraint firstItem="kl4-jW-QxR" firstAttribute="top" secondItem="LhX-fl-S9M" secondAttribute="bottom" constant="5" id="ETo-8e-CAL"/>
                                     <constraint firstItem="LhX-fl-S9M" firstAttribute="centerY" secondItem="E4h-xn-Upe" secondAttribute="centerY" id="M3W-Js-brD"/>
                                     <constraint firstItem="ONG-sa-6wz" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" constant="35" id="RyK-OS-5fB"/>
                                     <constraint firstItem="ONG-sa-6wz" firstAttribute="centerY" secondItem="E4h-xn-Upe" secondAttribute="centerY" constant="35" id="SZn-Is-4r3"/>
+                                    <constraint firstItem="kl4-jW-QxR" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" id="eUh-qQ-p4I"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="petButton" destination="ONG-sa-6wz" id="YDf-gA-3qp"/>
                                     <outlet property="petImage" destination="LhX-fl-S9M" id="QZ4-nw-KMc"/>
+                                    <outlet property="petName" destination="kl4-jW-QxR" id="0m2-SG-Tnr"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="noPets" id="Brk-d8-QlO">
@@ -2360,7 +2369,7 @@
         <image name="trips1.png" width="1400" height="896"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1iH-Ug-7Gz"/>
+        <segue reference="HVB-tS-KwQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.050980392156862744" green="0.60784313725490191" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
 </document>

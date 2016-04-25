@@ -14,6 +14,7 @@ class CollectionViewCellOwner: UICollectionViewCell {
     
     @IBOutlet weak var petButton: UIButton!
     
+    @IBOutlet weak var petName: UILabel!
     
     
 }
