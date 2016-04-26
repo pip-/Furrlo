@@ -245,11 +245,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         newPet.name = name
-        //newPet.species = species
+        newPet.species = species
         newPet.breed = breed
         newPet.age = age
         newPet.personality = personality
-        //newPet.food = food
+        newPet.food = food
         newPet.notes = notes
         
         newPet.petID = Int(arc4random_uniform(8000000) + 100000)

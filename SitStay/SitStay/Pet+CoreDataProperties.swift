@@ -20,7 +20,8 @@ extension Pet {
     @NSManaged var notes: String?
     @NSManaged var personality: String?
     @NSManaged var petID: NSNumber?
-    @NSManaged var type: String?
+    @NSManaged var species: String?
+    @NSManaged var food: String?
     @NSManaged var tripID: Trip?
 
 }
