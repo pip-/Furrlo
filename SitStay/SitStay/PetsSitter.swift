@@ -13,7 +13,7 @@ class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
-    var items = []
+    var items = ["Steve"]
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     override func viewDidLoad() {
@@ -53,10 +53,14 @@ class PetsSitter: UIViewController {
             
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            cell.petButton.setTitle(self.items[indexPath.item] as! String , forState: .Normal)
-            cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
-            cell.layer.borderWidth = 1
-            cell.layer.cornerRadius = 20
+            cell.petName.text = self.items[indexPath.item] as? String
+            cell.petImage.image = UIImage(named: "cat profile.jpg")
+            
+            let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
+            cell.backgroundColor = newSwiftColor
+            // make cell more visible in our example project
+            //cell.layer.borderWidth = 1
+            //cell.layer.cornerRadius = 20
             return cell
         }
 
@@ -80,7 +84,7 @@ class PetsSitter: UIViewController {
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
             
             let cellWidth = 100
-            let cellHeight = 100
+            let cellHeight = 145
             
             return CGSize(width: cellWidth , height: cellHeight)
         }

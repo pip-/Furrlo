@@ -12,7 +12,7 @@ class PetTabOwner: UIViewController {
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
-    var items = ["Pet 1"]
+    var items = ["Steve"]
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     //@IBOutlet weak var petPicture: UIImageView!
