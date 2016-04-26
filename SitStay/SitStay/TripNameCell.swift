@@ -28,28 +28,14 @@ class TripNameCell: UITableViewCell {
     
     @IBAction func changedData(sender: UITextField) {
         if let vc = parentViewController{
-            if let type = typeEditing{
-                if(type == "street"){
-                    vc.street = sender.text
-                } else if(type == "add2"){
-                    vc.address2 = sender.text
-                } else if(type == "zip"){
-                    vc.zip = sender.text!
-                } else if(type == "city"){
-                    vc.city = sender.text
-                } else if(type == "tripName"){
                     vc.tripName = sender.text
-                }
-            }
             vc.tableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: 4, inSection: 1)], withRowAnimation: .Fade)
             parentViewController?.checkIfCanSubmit()
         }
     }
     
     func setPTVController(vc: NewTripOwnerController, type: String){
-        print("bllooooop")
         self.parentViewController = vc
-        self.typeEditing = type
         if let tripName = vc.tripName{
             textField.text = tripName
         }
