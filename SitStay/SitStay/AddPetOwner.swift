@@ -65,7 +65,20 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
             print("responseString = \(responseString)")
         }
         task.resume()
+        
+        let name = petNameLabel.text
+        let species = petSpecies.text
+        let breed = petBreedLabel.text
+        let stringAge = petAge.text
+            let number = Int(stringAge!)
+            let age = NSNumber(integer:number!)
+        let personality = petPersonalityLabel.text
+        let food = petFoodLabel.text
+        let notes = petNotes.text
     
+        appDelegate.insertNewPet(name!, species: species!, breed: breed!, age: age, personality: personality!, food: food!, notes: notes!)
+        
+        //cancel(self)
 
         navigationController?.popViewControllerAnimated(true)
     }

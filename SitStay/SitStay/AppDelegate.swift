@@ -221,6 +221,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
+    
     func deleteTrip(tripID: Int) -> Bool{
         do{
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
@@ -239,5 +240,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
 
+    
+    func insertNewPet(name: String, species: String, breed: String, age: NSNumber, personality: String, food: String, notes: String ){
+        let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
+        
+        newPet.name = name
+        //newPet.species = species
+        newPet.breed = breed
+        newPet.age = age
+        newPet.personality = personality
+        //newPet.food = food
+        newPet.notes = notes
+        
+        newPet.petID = Int(arc4random_uniform(8000000) + 100000)
+        
+        
+        self.saveContext()
+    }
+
+    
 }
 

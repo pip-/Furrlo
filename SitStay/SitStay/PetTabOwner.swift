@@ -12,7 +12,7 @@ class PetTabOwner: UIViewController {
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
-    var items = ["Steve"]
+    var pets: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     //@IBOutlet weak var petPicture: UIImageView!
@@ -35,10 +35,10 @@ class PetTabOwner: UIViewController {
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if(items.count == 0){
+        if(pets.count == 0){
             return 1
         } else {
-        return self.items.count
+        return self.pets.count
         }
     }
     
@@ -46,7 +46,7 @@ class PetTabOwner: UIViewController {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         
-        if(items.count == 0){
+        if(pets.count == 0){
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(noPetsReuseIdentifier, forIndexPath: indexPath)
             
            
@@ -59,7 +59,7 @@ class PetTabOwner: UIViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCellOwner
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.petName.text = self.items[indexPath.item] as? String
+        cell.petName.text = self.pets[indexPath.item] as? String
             cell.petImage.image = UIImage(named: "cat profile.jpg")
             
         let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
@@ -75,7 +75,7 @@ class PetTabOwner: UIViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        if(items.count == 0){
+        if(pets.count == 0){
         
         //let deviceSize = UIScreen.mainScreen().bounds.size
         //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
