@@ -11,6 +11,7 @@ import UIKit
 class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     //@IBOutlet weak var petAge: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var petSpecies: UITextField!
     @IBOutlet weak var petNotes: UITextField!
@@ -23,11 +24,30 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var petAge: UITextField!
+    
+    
+    var name: String?
+    var species: String?
+    var breed: String?
+    var stringAge: String?
+    var personality: String?
+    var food: String?
+    var notes: String?
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Add Pet"
         imagePicker.delegate = self
+        
+        
+       
+        
+        saveButton.enabled = false
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -35,6 +55,28 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkIfCanSave(){
+        if let name = petNameLabel.text where !name.isEmpty{
+            if let species = petSpecies.text where !species.isEmpty{
+                if let breed = petBreedLabel.text where !breed.isEmpty{
+                    if let personality = petPersonalityLabel.text where !personality.isEmpty{
+                        if let food = petFoodLabel.text where !food.isEmpty{
+                            if let notes = petNotes.text where !notes.isEmpty{
+                                if let stringAge = petAge.text where !stringAge.isEmpty
+                                {
+                                    saveButton.enabled = true
+                                    return
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+      saveButton.enabled = false
     }
 
 
@@ -66,17 +108,11 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
         task.resume()
         
-        let name = petNameLabel.text
-        let species = petSpecies.text
-        let breed = petBreedLabel.text
-        let stringAge = petAge.text
-            let number = Int(stringAge!)
-            let age = NSNumber(integer:number!)
-        let personality = petPersonalityLabel.text
-        let food = petFoodLabel.text
-        let notes = petNotes.text
-    
-        appDelegate.insertNewPet(name!, species: species!, breed: breed!, age: age, personality: personality!, food: food!, notes: notes!)
+       
+        
+        
+        appDelegate.insertNewPet(name!, species: species, breed: breed, age: stringAge, personality: personality, food: food, notes: notes)
+        
         
         //cancel(self)
 

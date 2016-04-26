@@ -1350,6 +1350,7 @@
                         <outlet property="petNotes" destination="A2L-Tt-1ih" id="YhP-vG-eVx"/>
                         <outlet property="petPersonalityLabel" destination="PUj-dL-8pG" id="eaM-vC-wK2"/>
                         <outlet property="petSpecies" destination="EiB-ya-Su9" id="O70-xx-lo7"/>
+                        <outlet property="saveButton" destination="GTy-1i-p9Y" id="oOu-c0-Gj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DN6-bM-t2M" userLabel="First Responder" sceneMemberID="firstResponder"/>

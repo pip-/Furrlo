@@ -34,15 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
             
             pet.name = "Fred"
-            pet.age = 10
+            pet.age = "10"
             pet.petID = Int(arc4random_uniform(8000000) + 100000)
             
             pet.name = "Bob"
-            pet.age = 10
+            pet.age = "10"
             pet.petID = Int(arc4random_uniform(8000000) + 100001)
             
             pet.name = "Samuel"
-            pet.age = 10
+            pet.age = "10"
             pet.petID = Int(arc4random_uniform(8000000) + 100002)
             
             //Saving the changes I made to the instance of 'User'--------------------
@@ -241,7 +241,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String, species: String, breed: String, age: NSNumber, personality: String, food: String, notes: String ){
+    func insertNewPet(name: String, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String? ){
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         newPet.name = name

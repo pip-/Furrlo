@@ -14,7 +14,7 @@ import CoreData
 
 extension Pet {
 
-    @NSManaged var age: NSNumber?
+    @NSManaged var age: String?
     @NSManaged var breed: String?
     @NSManaged var name: String?
     @NSManaged var notes: String?
