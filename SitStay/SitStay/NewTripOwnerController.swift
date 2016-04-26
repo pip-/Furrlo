@@ -302,6 +302,31 @@ class NewTripOwnerController: UITableViewController {
             appDelegate.deleteTrip(tripID)
             appDelegate.saveContext()
         }
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        
+/*DB code below*/
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
+        
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&e=\(tripName!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+        }
+        task.resume()
+/*DB code Above*/
         appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
         cancel(self)
