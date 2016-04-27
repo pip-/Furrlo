@@ -2250,7 +2250,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neH-ma-Tvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834" y="2217"/>
+            <point key="canvasLocation" x="3454" y="2217"/>
         </scene>
         <!--Add a List-->
         <scene sceneID="nbR-gg-cNT">
@@ -2349,7 +2349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yye-SB-bPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="3159"/>
+            <point key="canvasLocation" x="915" y="2307"/>
         </scene>
         <!--Add Task-->
         <scene sceneID="gIi-MY-TMf">
@@ -2440,11 +2440,6 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esw-hd-gWL">
                                             <rect key="frame" x="486" y="10" width="46" height="30"/>
                                             <state key="normal" title="Button"/>
-                                            <connections>
-                                                <segue destination="eNG-SO-H2D" kind="show" id="bex-ql-PLX">
-                                                    <nil key="action"/>
-                                                </segue>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -2520,7 +2515,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hst-GP-vr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650" y="2217"/>
+            <point key="canvasLocation" x="3467" y="2975"/>
         </scene>
         <!--Add a Task-->
         <scene sceneID="9Oe-an-UJE">
@@ -2657,7 +2652,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXi-um-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650" y="3099"/>
+            <point key="canvasLocation" x="1614" y="2319"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xiF-6c-XlT">
@@ -2776,7 +2771,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HGf-xN-D9F"/>
-        <segue reference="qVe-xO-did"/>
         <segue reference="HVB-tS-KwQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.050980392156862744" green="0.60784313725490191" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
