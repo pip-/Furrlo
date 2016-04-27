@@ -13,7 +13,7 @@ class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
-    var items = []
+    var pets: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     override func viewDidLoad() {
@@ -30,16 +30,16 @@ class PetsSitter: UIViewController {
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(items.count == 0){
+        if(pets.count == 0){
         return 1
     } else {
-        return self.items.count
+        return self.pets.count
         }
     }
     
     // make a cell for each cell index path
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if(items.count == 0){
+        if(pets.count == 0){
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(noPetsReuseIdentifier, forIndexPath: indexPath)
             
             
@@ -53,10 +53,14 @@ class PetsSitter: UIViewController {
             
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
-            cell.petButton.setTitle(self.items[indexPath.item] as! String , forState: .Normal)
-            cell.backgroundColor = UIColor.yellowColor() // make cell more visible in our example project
-            cell.layer.borderWidth = 1
-            cell.layer.cornerRadius = 20
+            cell.petName.text = self.pets[indexPath.item] as? String
+            cell.petImage.image = UIImage(named: "cat profile.jpg")
+            
+            let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
+            cell.backgroundColor = newSwiftColor
+            // make cell more visible in our example project
+            //cell.layer.borderWidth = 1
+            //cell.layer.cornerRadius = 20
             return cell
         }
 
@@ -65,7 +69,7 @@ class PetsSitter: UIViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        if(items.count == 0){
+        if(pets.count == 0){
             
             //let deviceSize = UIScreen.mainScreen().bounds.size
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
@@ -80,7 +84,7 @@ class PetsSitter: UIViewController {
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
             
             let cellWidth = 100
-            let cellHeight = 100
+            let cellHeight = 145
             
             return CGSize(width: cellWidth , height: cellHeight)
         }

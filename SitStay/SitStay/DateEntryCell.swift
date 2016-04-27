@@ -42,7 +42,7 @@ class DateEntryCell: UITableViewCell, UITextFieldDelegate {
             if let type = typeEditing{
                 if(type == "street"){
                     vc.street = sender.text
-                } else if(type == "add2"){
+                } else if(type == "address2"){
                     vc.address2 = sender.text
                 } else if(type == "zip"){
                     vc.zip = sender.text!

@@ -195,7 +195,7 @@ class NewTripOwnerController: UITableViewController {
                 }
                 if(indexPath.row == 1){
                     cell.textField.placeholder = "Address Line 2"
-                    cell.setPTVController(self, type: "add2")
+                    cell.setPTVController(self, type: "address2")
                     return cell
                 }
                 if(indexPath.row == 2){
@@ -302,6 +302,55 @@ class NewTripOwnerController: UITableViewController {
             appDelegate.deleteTrip(tripID)
             appDelegate.saveContext()
         }
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        
+/*DB code below*/
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
+        
+        request.HTTPMethod = "POST"
+        if let address2 = address2{
+            print("ADDRESS 2:" + address2)
+            let address = street! + ", " + address2
+        let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        } else {
+            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                if error != nil {
+                    print("error=\(error)")
+                    return
+                }
+                
+                print("response = \(response)")
+                
+                let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("responseString = \(responseString)")
+                
+            }
+            task.resume()
+        }
+/*DB code Above*/
         appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
         cancel(self)
