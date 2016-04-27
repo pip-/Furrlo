@@ -12,7 +12,7 @@ class OwnerToDoTableViewController: UITableViewController{
 
     @IBOutlet var OwnerLists: UITableView!
     
-    var pets : [String] = ["Mira","Tina"]
+    var pets : [String] = ["Mira"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,11 +8,24 @@
 
 import UIKit
 
-class OwnerAddListViewController: UIViewController {
+class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
+    
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var selectionLabel: UILabel!
+    
+    var pets : [String] = ["Mira","Tony","Jade"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
 
+         pickerView.selectRow(2, inComponent: 0, animated: false)
+        selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
+        
+    
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +34,21 @@ class OwnerAddListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pets.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pets[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectionLabel.text = pets[row]
+    }
 
     /*
     // MARK: - Navigation
