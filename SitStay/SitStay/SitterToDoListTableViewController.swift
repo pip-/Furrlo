@@ -17,15 +17,36 @@ class SitterToDoListTableViewController: UITableViewController {
     
     //maybe header colors here
     
+    
+    //var alertController: UIAlertController
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*let alertController = UIAlertController(title: nil, message: <#T##String?#>, preferredStyle: .ActionSheet)
+      
+        
+        let markDone = UIAlertAction(title: "Mark as done", style: .Default, handler: {(action) -> Void in
+            print("marked as done")
+        })
+    
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            
+            (action) -> Void in
+            print("cancel button presses")
+
+        })*/
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +81,9 @@ class SitterToDoListTableViewController: UITableViewController {
         
         return cell
     }
+    
+    
+    
 
 
     /*
