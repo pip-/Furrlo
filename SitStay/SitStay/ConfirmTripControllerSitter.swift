@@ -11,8 +11,10 @@ import UIKit
 class ConfirmTripControllerSitter: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    var values:NSArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 
         // Do any additional setup after loading the view.
     }
@@ -27,6 +29,10 @@ class ConfirmTripControllerSitter: UIViewController {
         //ToDo, pull trip object where trip.tripID = textField.text and all associated pets and to-do lists
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let fetchedPets = appDelegate.getPets()
+        
+        //
+        get()
+        ///
         appDelegate.insertNewTrip(NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(30)), endDate: NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(35000)), street: "821 East Walnut Street", zip: "65201", city: "Columbia", addr2: "Apt. 240", pets: fetchedPets!, tripName: "New Zealand", isSitting: true)
         
         let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
@@ -34,7 +40,37 @@ class ConfirmTripControllerSitter: UIViewController {
         vc.selectedIndex = 0
         vc.modalTransitionStyle = .CrossDissolve
         presentViewController(vc, animated: true, completion: nil)
+        
+        
+    }
     
+    func get(){
+        let tripID:Int? = Int(textField.text!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTrip.php")!)
+        print("TripID:")
+        print(tripID)
+        request.HTTPMethod = "POST"
+        let postString = "a=\(tripID!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            print("TripID")
+            print(tripID)
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+
         
     }
 
