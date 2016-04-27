@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CE2A1821CD045B20027D9F4 /* OwnerToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1811CD045B20027D9F4 /* OwnerToDoTableViewController.swift */; };
+		4CE2A1841CD04D550027D9F4 /* OwnerAddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1831CD04D550027D9F4 /* OwnerAddListViewController.swift */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
@@ -107,6 +109,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CE2A1811CD045B20027D9F4 /* OwnerToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerToDoTableViewController.swift; sourceTree = "<group>"; };
+		4CE2A1831CD04D550027D9F4 /* OwnerAddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddListViewController.swift; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 				C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */,
 				C6593A561CC978EE007907A3 /* PetCheckCell.swift */,
 				C6593A581CC9C1BA007907A3 /* TripNameCell.swift */,
+				4CE2A1811CD045B20027D9F4 /* OwnerToDoTableViewController.swift */,
+				4CE2A1831CD04D550027D9F4 /* OwnerAddListViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE2A1841CD04D550027D9F4 /* OwnerAddListViewController.swift in Sources */,
 				C66FF9E01CC7F417004140EC /* Food.swift in Sources */,
 				C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */,
 				C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */,
@@ -523,6 +530,7 @@
 				C6D84F7F1CC524990093D7A3 /* ViewTripSitter.swift in Sources */,
 				67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */,
 				C6FAB45E1CBC076600A331AD /* TripCell.swift in Sources */,
+				4CE2A1821CD045B20027D9F4 /* OwnerToDoTableViewController.swift in Sources */,
 				C66FF9DE1CC7F417004140EC /* Medication.swift in Sources */,
 				C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */,
 				C6E6027D1CC4340F00D9865A /* ViewTripOwner.swift in Sources */,
