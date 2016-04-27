@@ -11,7 +11,6 @@ import UIKit
 class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     //@IBOutlet weak var petAge: UILabel!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var petSpecies: UITextField!
     @IBOutlet weak var petNotes: UITextField!
