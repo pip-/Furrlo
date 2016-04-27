@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DateEntryCell: UITableViewCell {
+class DateEntryCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     
@@ -17,12 +17,22 @@ class DateEntryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        textField.delegate = self
         // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        changedData(textField)
+        textFieldShouldReturn(textField)
     }
     
     @IBAction func changedData(sender: UITextField) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripNameCell: UITableViewCell {
+class TripNameCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     
