@@ -65,13 +65,13 @@ class NewTripOwnerController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section == 0){
+        if(section == 1){
             return 3
         }
-        else if(section == 1){
+        else if(section == 2){
             return 5
         }
-        else if(section == 2){
+        else if(section == 3){
             if(pets.count == 0){
                 return 1
             } else {
@@ -82,7 +82,7 @@ class NewTripOwnerController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(indexPath.section == 0){
+        if(indexPath.section == 1){
             if(indexPath.row == 1){
                 if(datePickerSelected){
                     return 100
@@ -91,13 +91,13 @@ class NewTripOwnerController: UITableViewController {
                 }
             }
         }
-        if(indexPath.section == 1){
+        if(indexPath.section == 2){
             if(indexPath.row == 4){
                 return 200
             }
         }
         
-        if(indexPath.section == 2){
+        if(indexPath.section == 3){
             if(pets.count == 0){
                 return 50
             }
@@ -107,7 +107,7 @@ class NewTripOwnerController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 1){
+        if (section == 2){
             return 70
         }
         else {
@@ -124,10 +124,10 @@ class NewTripOwnerController: UITableViewController {
         view.addSubview(label)
         view.backgroundColor = UIColor.init(red: 238, green: 255, blue: 247, alpha: 0)
         
-        if(section == 0){
+        if(section == 1){
             label.text = "Dates"
         }
-        else if(section == 1){
+        else if(section == 2){
             view.frame = CGRectMake(0, 0, tableView.frame.size.width, 70)
             label.text = "Address"
             label.frame = CGRectMake(22, 0, tableView.frame.size.width, 15)
@@ -137,9 +137,9 @@ class NewTripOwnerController: UITableViewController {
             label2.text = "Where is the sitter taking care of your pet?"
             view.addSubview(label2)
         }
-        else if(section == 2){
+        else if(section == 3){
             label.text = "Which Pets will be watched?"
-        } else if(section == 3){
+        } else if(section == 0){
             label.text = "Please Choose a Trip Name"
         }
         
@@ -148,7 +148,7 @@ class NewTripOwnerController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if(indexPath.section == 0){
+        if(indexPath.section == 1){
             if(indexPath.row == 0){
                 let cell = tableView.dequeueReusableCellWithIdentifier("startDate", forIndexPath: indexPath) as! SimpleCell
                 cell.changeDetail(dateToString(startDate))
@@ -169,7 +169,7 @@ class NewTripOwnerController: UITableViewController {
                 //return cell
             }
         }
-        else if(indexPath.section == 1){
+        else if(indexPath.section == 2){
             if(indexPath.row == 4){
                 let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
                 if let add1 = street{
@@ -209,7 +209,7 @@ class NewTripOwnerController: UITableViewController {
                     return cell
                 }
             }
-        } else if(indexPath.section == 2){
+        } else if(indexPath.section == 3){
         if(pets.count == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("noPetsCell", forIndexPath: indexPath)
             return cell
