@@ -1173,6 +1173,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="WCB-nT-eNw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GR-ng-4Wf">
                                 <rect key="frame" x="51" y="149" width="86" height="30"/>
@@ -1207,6 +1210,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="qfw-0C-bed"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What is your pet like?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUj-dL-8pG">
                                 <rect key="frame" x="45" y="289" width="510" height="17"/>
@@ -1214,31 +1220,46 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="M5c-3h-dHH"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pet Name" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGp-gW-CP5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pet Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGp-gW-CP5">
                                 <rect key="frame" x="170" y="139" width="390" height="17"/>
                                 <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.017220222510000001" green="0.017220222510000001" blue="0.017220222510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="yN6-j5-u0W"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wM3-SA-svB">
                                 <rect key="frame" x="530" y="190" width="30" height="17"/>
                                 <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="dBk-2H-XvT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Species (cat, dog, etc.)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EiB-ya-Su9">
                                 <rect key="frame" x="170" y="162" width="154" height="17"/>
                                 <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="o9c-Ir-bGW"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What does your pet like to eat?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eiV-6L-Wsf">
                                 <rect key="frame" x="45" y="354" width="510" height="17"/>
                                 <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gqR-WX-Alb" id="EMa-ZA-FSY"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-eu-Yde">
                                 <rect key="frame" x="138" y="158" width="600" height="1"/>
@@ -1334,11 +1355,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Pet" id="kaE-qp-OIn">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="X1e-tm-AoH"/>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="GTy-1i-p9Y">
-                            <connections>
-                                <action selector="savePet:" destination="gqR-WX-Alb" id="Uqn-8y-KND"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1350,7 +1366,6 @@
                         <outlet property="petNotes" destination="A2L-Tt-1ih" id="YhP-vG-eVx"/>
                         <outlet property="petPersonalityLabel" destination="PUj-dL-8pG" id="eaM-vC-wK2"/>
                         <outlet property="petSpecies" destination="EiB-ya-Su9" id="O70-xx-lo7"/>
-                        <outlet property="saveButton" destination="GTy-1i-p9Y" id="oOu-c0-Gj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DN6-bM-t2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
