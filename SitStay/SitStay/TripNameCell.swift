@@ -27,11 +27,17 @@ class TripNameCell: UITableViewCell, UITextFieldDelegate {
     }
     
     @IBAction func changedData(sender: UITextField) {
+        textField.resignFirstResponder()
         if let vc = parentViewController{
                     vc.tripName = sender.text
             vc.tableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: 4, inSection: 1)], withRowAnimation: .Fade)
             parentViewController?.checkIfCanSubmit()
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func setPTVController(vc: NewTripOwnerController, type: String){

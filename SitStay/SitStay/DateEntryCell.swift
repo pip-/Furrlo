@@ -27,6 +27,7 @@ class DateEntryCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
@@ -37,7 +38,7 @@ class DateEntryCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func changedData(sender: UITextField) {
         //textField.becomeFirstResponder()
-        //textField.resignFirstResponder()
+        textField.resignFirstResponder()
         if let vc = parentViewController{
             if let type = typeEditing{
                 if(type == "street"){
