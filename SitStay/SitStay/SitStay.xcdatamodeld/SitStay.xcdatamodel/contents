@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="Exercise" representedClassName=".Exercise" syncable="YES">
-        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="petID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" syncable="YES"/>
-    </entity>
-    <entity name="Food" representedClassName=".Food" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="petID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="pet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" syncable="YES"/>
-    </entity>
-    <entity name="Medication" representedClassName=".Medication" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="petID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" syncable="YES"/>
-    </entity>
     <entity name="Pet" representedClassName=".Pet" syncable="YES">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="breed" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,7 +10,15 @@
         <attribute name="petID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="species" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toDoItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ToDoItem" inverseName="petParent" inverseEntity="ToDoItem" syncable="YES"/>
         <relationship name="tripID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="pets" inverseEntity="Trip" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="petID" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="ToDoItem" representedClassName=".ToDoItem" syncable="YES">
+        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="petParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="toDoItems" inverseEntity="Pet" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName=".Trip" syncable="YES">
         <attribute name="addr1" attributeType="String" syncable="YES"/>
@@ -45,7 +31,7 @@
         <attribute name="tripName" attributeType="String" syncable="YES"/>
         <attribute name="zip" attributeType="String" syncable="YES"/>
         <relationship name="pets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="tripID" inverseEntity="Pet" syncable="YES"/>
-        <relationship name="userID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="userID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="trips" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,20 +39,13 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="petID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" syncable="YES"/>
-    </entity>
-    <entity name="Water" representedClassName=".Water" syncable="YES">
-        <attribute name="complete" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="petID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" syncable="YES"/>
+        <relationship name="petID" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="user" inverseEntity="Pet" syncable="YES"/>
+        <relationship name="trips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trip" inverseName="userID" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="0" positionY="135" width="128" height="90"/>
-        <element name="Food" positionX="-18" positionY="99" width="128" height="150"/>
-        <element name="Medication" positionX="18" positionY="144" width="128" height="135"/>
-        <element name="Pet" positionX="-171" positionY="222" width="128" height="195"/>
+        <element name="Pet" positionX="-171" positionY="222" width="128" height="225"/>
         <element name="Trip" positionX="322" positionY="102" width="128" height="210"/>
-        <element name="User" positionX="16" positionY="399" width="128" height="135"/>
-        <element name="Water" positionX="-324" positionY="288" width="128" height="90"/>
+        <element name="User" positionX="16" positionY="399" width="128" height="150"/>
+        <element name="ToDoItem" positionX="45" positionY="261" width="128" height="105"/>
     </elements>
 </model>
