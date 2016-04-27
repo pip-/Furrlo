@@ -241,7 +241,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String? ){
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String? ){
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         newPet.name = name

@@ -45,7 +45,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         
-        let submitButton = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: #selector(AddPetOwner.savePet))
+        let submitButton = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: #selector(AddPetOwner.submitPet))
         
         
         
@@ -105,8 +105,30 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
             submitButton.enabled = false
         }
     
-    func savePet(sender: AnyObject) {
+    
+    @IBAction func loadImage(sender: AnyObject) {
         
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .ScaleAspectFit
+            imageView.image = pickedImage
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func submitPet() {
         
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -135,40 +157,15 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
         task.resume()
         
-        
-        
-        
-        appDelegate.insertNewPet(name!, species: species, breed: breed, age: stringAge, personality: personality, food: food, notes: notes)
+        appDelegate.insertNewPet(name, species: species, breed: breed, age: stringAge, personality: personality, food: food, notes: notes)
         
         
         //cancel(self)
         
         navigationController?.popViewControllerAnimated(true)
     }
+    
+    
 
-    
-    
-    
-    @IBAction func loadImage(sender: AnyObject) {
-        
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .ScaleAspectFit
-            imageView.image = pickedImage
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     
 }
