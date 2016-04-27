@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DateEntryCell: UITableViewCell {
+class DateEntryCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     
@@ -17,6 +17,7 @@ class DateEntryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        textField.delegate = self
         // Initialization code
     }
 
@@ -25,9 +26,19 @@ class DateEntryCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        changedData(textField)
+        textFieldShouldReturn(textField)
+    }
+    
     @IBAction func changedData(sender: UITextField) {
         //textField.becomeFirstResponder()
-        //textField.resignFirstResponder()
+        textField.resignFirstResponder()
         if let vc = parentViewController{
             if let type = typeEditing{
                 if(type == "street"){
