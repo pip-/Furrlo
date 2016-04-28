@@ -10,12 +10,13 @@ import UIKit
 
 class SitterToDoListTableViewController: UITableViewController {
 
+    //Filler text for task list
+    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exrecise"],["Later Food","Later Water","Later Exercise"]]
-    
+    //Filler text for daily titles
     var dailyTitles = ["Today","Tomorrow","Later"]
     
-    //maybe header colors here
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,9 @@ class SitterToDoListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,24 +39,25 @@ class SitterToDoListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return dailyTitles.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return dailyTaskLists[section].count
     }
 
-    
+    //Configure "data cells" with task text
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
         cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
-
+        
         return cell
     }
     
+    //Configure "header cells" with title text
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! SitterToDoListTableViewCell
         
@@ -60,6 +65,36 @@ class SitterToDoListTableViewController: UITableViewController {
         
         return cell
     }
+    
+    
+    //Add mark as done functionality
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        // Create an option menu as an action sheet
+        let alert = UIAlertController(title: nil, message: "Test", preferredStyle:.ActionSheet)
+        
+        // Add cancel actions to the menu
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        
+        //Add mark as done action to the menu
+        let markDone = UIAlertAction(title: "Mark as done", style: .Default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .Checkmark
+        })
+        alert.addAction(markDone)
+        
+        
+        // Display the menu
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        }
+    
+    
 
 
     /*
