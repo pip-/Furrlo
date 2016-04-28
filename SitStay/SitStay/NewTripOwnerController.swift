@@ -303,7 +303,9 @@ class NewTripOwnerController: UITableViewController {
             appDelegate.saveContext()
         }
         let user = appDelegate.getUser()
-        let userID=user!.userID
+        let userID = user!.userID
+        
+        let tripID = appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
 /*DB code below*/
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
@@ -312,7 +314,7 @@ class NewTripOwnerController: UITableViewController {
         if let address2 = address2{
             print("ADDRESS 2:" + address2)
             let address = street! + ", " + address2
-        let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+        let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(tripID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -331,7 +333,7 @@ class NewTripOwnerController: UITableViewController {
         }
         task.resume()
         } else {
-            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)$ih\(tripID)"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -351,7 +353,6 @@ class NewTripOwnerController: UITableViewController {
             task.resume()
         }
 /*DB code Above*/
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
         cancel(self)
     }
