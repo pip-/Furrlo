@@ -11,7 +11,7 @@ import UIKit
 class SitterToDoListTableViewController: UITableViewController {
 
     //Filler text for task list
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exrecise"],["Later Food","Later Water","Later Exercise"]]
+    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
     //Filler text for daily titles
     var dailyTitles = ["Today","Tomorrow","Later"]

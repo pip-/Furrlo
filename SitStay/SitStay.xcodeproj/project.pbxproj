@@ -215,13 +215,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		674B92A91CD11E5700AC601B /* To Do Sitter */ = {
+		674B92A91CD11E5700AC601B /* To Do Tab Sitter */ = {
 			isa = PBXGroup;
 			children = (
 				67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */,
 				67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */,
 			);
-			name = "To Do Sitter";
+			name = "To Do Tab Sitter";
 			sourceTree = "<group>";
 		};
 		67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */ = {
@@ -333,7 +333,7 @@
 		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				674B92A91CD11E5700AC601B /* To Do Sitter */,
+				674B92A91CD11E5700AC601B /* To Do Tab Sitter */,
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
 				67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */,
 				67D299C11CCEBA7500D0D5C3 /* Settings */,

@@ -87,11 +87,11 @@
             </objects>
             <point key="canvasLocation" x="2010" y="781"/>
         </scene>
-        <!--Item-->
+        <!--To Do-->
         <scene sceneID="ddQ-HC-GYB">
             <objects>
                 <navigationController id="hr2-xj-PkR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vvz-ph-DSK"/>
+                    <tabBarItem key="tabBarItem" title="To Do" id="vvz-ph-DSK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="T28-qF-iZ5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
