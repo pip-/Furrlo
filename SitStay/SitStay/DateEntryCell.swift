@@ -53,7 +53,7 @@ class DateEntryCell: UITableViewCell, UITextFieldDelegate {
                     vc.tripName = sender.text
                 }
             }
-            vc.tableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: 4, inSection: 1)], withRowAnimation: .Fade)
+            vc.tableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: 4, inSection: 2)], withRowAnimation: .Fade)
             parentViewController?.checkIfCanSubmit()
         }
     }
