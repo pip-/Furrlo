@@ -16,7 +16,8 @@
     </entity>
     <entity name="ToDoItem" representedClassName=".ToDoItem" syncable="YES">
         <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instruction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instructionDetail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="petParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="toDoItems" inverseEntity="Pet" syncable="YES"/>
     </entity>
@@ -46,6 +47,6 @@
         <element name="Pet" positionX="-171" positionY="222" width="128" height="225"/>
         <element name="Trip" positionX="322" positionY="102" width="128" height="210"/>
         <element name="User" positionX="16" positionY="399" width="128" height="150"/>
-        <element name="ToDoItem" positionX="45" positionY="261" width="128" height="105"/>
+        <element name="ToDoItem" positionX="45" positionY="261" width="128" height="120"/>
     </elements>
 </model>
