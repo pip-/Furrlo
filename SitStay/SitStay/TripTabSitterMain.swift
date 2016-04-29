@@ -26,7 +26,7 @@ class TripTabSitterMain: UITableViewController {
                     if(trip.isSitting!.boolValue == true){
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
-                        print(trip.tripName!)
+                        
                     }
             }
         }
