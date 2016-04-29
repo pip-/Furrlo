@@ -130,7 +130,9 @@ class TripTabOwnerMain: UITableViewController {
         }    
     }
     func get()
-    {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let user = appDelegate.getUser()
         let userID=user!.userID
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTripFromID.php")!)
@@ -138,7 +140,7 @@ class TripTabOwnerMain: UITableViewController {
         let postString = "a=\(userID!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
             data, response, error in
             
             if error != nil {
@@ -150,13 +152,63 @@ class TripTabOwnerMain: UITableViewController {
             print("userID")
             print(userID!)
             
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")
             
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+            //Convert to String/Drop Garbage------------
+            let s = String(responseString)
+            var parsedJsonString = String(s.characters.dropLast(147))
+            parsedJsonString = String(parsedJsonString.characters.dropFirst())
+            //------------------------------------------
+            
+            
+            //Put into array----------------------------
+                let tripStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+            //------------------------------------------
+                
+            //Parse each string into dictionary---------
+                var tripDicts: [[String: String]] = []
+                for string in tripStrings{
+                    if let dict = string.convertToDictionary(){
+                        tripDicts.append(dict)
+                    }
+                }
+            //-------------------------------------------
+                
+            //Prove that this works----------------------
+                print("PROOF!")
+                for dict in tripDicts{
+                    print(String(dict["tripName"]))
+                }
+            //-------------------------------------------
         }
+        }
+        
         task.resume()
         
         
+    }
+    
+    func rangeFromNSRange(nsRange: NSRange, forString str: String) -> Range<String.Index>? {
+        let fromUTF16 = str.utf16.startIndex.advancedBy(nsRange.location, limit: str.utf16.endIndex)
+        let toUTF16 = fromUTF16.advancedBy(nsRange.length, limit: str.utf16.endIndex)
+        
+        
+        if let from = String.Index(fromUTF16, within: str),
+            let to = String.Index(toUTF16, within: str) {
+            return from ..< to
+        }
+        
+        return nil
     }
  
 
@@ -191,6 +243,24 @@ class TripTabOwnerMain: UITableViewController {
             }
         }
     }
+    
  
 
+}
+
+extension String {
+    func convertToDictionary() -> [String: String]? {
+        let data = self.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            if let dict = json as? [String: String]{
+                return dict
+            }
+            return nil
+        }
+        catch {
+            print(error)
+        }
+        return nil
+    }
 }
