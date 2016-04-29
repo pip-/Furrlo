@@ -20,7 +20,7 @@ class PetTabOwner: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Pets"
-        
+        get()
         
         
         // Do any additional setup after loading the view.
@@ -95,7 +95,36 @@ class PetTabOwner: UIViewController {
             return CGSize(width: cellWidth , height: cellHeight)
         }
     }
-    
+    func get()
+    {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            print("userID")
+            print(userID!)
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        
+        
+    }
+
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
