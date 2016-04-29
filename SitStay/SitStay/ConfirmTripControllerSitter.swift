@@ -35,13 +35,14 @@ class ConfirmTripControllerSitter: UIViewController {
             if (text.characters.count > 0){
                 get()
         }
-        ///
-        //appDelegate.insertNewTrip(NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(30)), endDate: NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(35000)), street: "821 East Walnut Street", zip: "65201", city: "Columbia", addr2: "Apt. 240", pets: fetchedPets!, tripName: "New Zealand", isSitting: true)
         
             let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
             vc.selectedIndex = 0
             vc.modalTransitionStyle = .CrossDissolve
+            let vc2 = storyboard.instantiateViewControllerWithIdentifier("tripTabSitterMain") as! TripTabSitterMain
+            vc2.viewDidLoad()
+            vc2.viewWillAppear(false)
             presentViewController(vc, animated: true, completion: nil)
         }
         
