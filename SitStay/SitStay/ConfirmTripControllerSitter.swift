@@ -27,19 +27,23 @@ class ConfirmTripControllerSitter: UIViewController {
     @IBAction func submit(sender: AnyObject) {
         
         //ToDo, pull trip object where trip.tripID = textField.text and all associated pets and to-do lists
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let fetchedPets = appDelegate.getPets()
+        //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //let fetchedPets = appDelegate.getPets()
         
         //
-        get()
+        if let text = textField.text{
+            if (text.characters.count > 0){
+                get()
+        }
         ///
-        appDelegate.insertNewTrip(NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(30)), endDate: NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(35000)), street: "821 East Walnut Street", zip: "65201", city: "Columbia", addr2: "Apt. 240", pets: fetchedPets!, tripName: "New Zealand", isSitting: true)
+        //appDelegate.insertNewTrip(NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(30)), endDate: NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(35000)), street: "821 East Walnut Street", zip: "65201", city: "Columbia", addr2: "Apt. 240", pets: fetchedPets!, tripName: "New Zealand", isSitting: true)
         
-        let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
-        vc.selectedIndex = 0
-        vc.modalTransitionStyle = .CrossDissolve
-        presentViewController(vc, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
+            vc.selectedIndex = 0
+            vc.modalTransitionStyle = .CrossDissolve
+            presentViewController(vc, animated: true, completion: nil)
+        }
         
         
     }
@@ -47,8 +51,6 @@ class ConfirmTripControllerSitter: UIViewController {
     func get(){
         let tripID:Int? = Int(textField.text!)
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTrip.php")!)
-        print("TripID:")
-        print(tripID)
         request.HTTPMethod = "POST"
         let postString = "a=\(tripID!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -62,8 +64,6 @@ class ConfirmTripControllerSitter: UIViewController {
             }
             
             print("response = \(response)")
-            print("TripID")
-            print(tripID)
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")

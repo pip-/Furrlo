@@ -144,7 +144,6 @@ class ViewTripOwner: UITableViewController {
     }
     
     func edit(){
-        print("Editing")
         let nc = self.navigationController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip") as! NewTripOwnerController
