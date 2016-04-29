@@ -314,7 +314,7 @@ class NewTripOwnerController: UITableViewController {
         if let address2 = address2{
             print("ADDRESS 2:" + address2)
             let address = street! + ", " + address2
-        let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(tripID)"
+        let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -333,7 +333,7 @@ class NewTripOwnerController: UITableViewController {
         }
         task.resume()
         } else {
-            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)$ih\(tripID)"
+            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

@@ -20,8 +20,9 @@ class PetTabOwner: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Pets"
-        get()
-        
+       //UNCOMMENT THE LINE BELOW TO GET ALL PETS RETURNED AS JSON, INTO STRINGS
+        //WHEN A PET IS ADDED, A QUERY IS RUN AND ADDS ALL PETS WITH YOUR USER ID AS PETS IN DATA
+        //get()
         
         // Do any additional setup after loading the view.
     }

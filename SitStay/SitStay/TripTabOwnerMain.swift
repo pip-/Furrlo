@@ -189,6 +189,7 @@ class TripTabOwnerMain: UITableViewController {
                 for dict in tripDicts{
                     print(String(dict["tripName"]))
                     print(String(dict["TripID"]))
+                    
                 }
             //-------------------------------------------
         }
