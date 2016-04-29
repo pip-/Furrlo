@@ -20,6 +20,7 @@ class TripTabOwnerMain: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        get()
         NSUserDefaults.standardUserDefaults().setBool(false, forKey: "editing")
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
@@ -27,6 +28,7 @@ class TripTabOwnerMain: UITableViewController {
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
                         print(trip.tripName!)
+                        
                     }
             }
         }
@@ -126,6 +128,35 @@ class TripTabOwnerMain: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
+    }
+    func get()
+    {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTripFromID.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            print("userID")
+            print(userID!)
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        
+        
     }
  
 
