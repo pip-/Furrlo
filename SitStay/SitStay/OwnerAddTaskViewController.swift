@@ -9,7 +9,7 @@
 
 import UIKit
 
-class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
+class OwnerAddTaskViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
     
     
     @IBOutlet weak var pickerView: UIPickerView!
