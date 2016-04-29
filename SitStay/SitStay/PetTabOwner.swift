@@ -25,15 +25,28 @@ class PetTabOwner: UIViewController {
        //UNCOMMENT THE LINE BELOW TO GET ALL PETS RETURNED AS JSON, INTO STRINGS
         //WHEN A PET IS ADDED, A QUERY IS RUN AND ADDS ALL PETS WITH YOUR USER ID AS PETS IN DATA
        // get()
+        /*if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }*/
+
         
+        
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
             }
         }
+        
 
-        // Do any additional setup after loading the view.
     }
+        
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
