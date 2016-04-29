@@ -33,6 +33,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var food: String?
     var notes: String?
     
+    
 
     
     override func viewDidLoad() {
@@ -153,19 +154,85 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")
+       //////////////////////////////////////////////////////
+            
+            //////Gets All Pets from server with your UserID////////
+            //////Adds ALL pets to pets////////
+            //////Need to make it just one?/////
+            
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
+            request.HTTPMethod = "POST"
+            let postString = "a=\(userID!)"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                if error != nil {
+                    print("error=\(error)")
+                    return
+                }
+                
+                print("response = \(response)")
+                print("userID")
+                print(userID!)
+                
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("responseString = \(responseString)")
+                
+                //Strip Escape Characters-------------------
+                responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+                responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+                //------------------------------------------
+                
+                //Change to easier delimiters---------------
+                responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+                //------------------------------------------
+                if let responseString = responseString{
+                    //Convert to String/Drop Garbage------------
+                    let s = String(responseString)
+                    var parsedJsonString = String(s.characters.dropLast(147))
+                    parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                    //------------------------------------------
+                    
+                    
+                    //Put into array----------------------------
+                    let petStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                    //------------------------------------------
+                    
+                    //Parse each string into dictionary---------
+                    var petDicts: [[String: String]] = []
+                    for string in petStrings{
+                        if let dict = string.convertToDictionary(){
+                            petDicts.append(dict)
+                        }
+                    }
+                    //-------------------------------------------
+                    
+                    //Prove that this works----------------------
+                   // print("PROOF!")
+                    for dict in petDicts{
+                        appDelegate.insertNewPet(dict["PetName"], species: dict["PetType"], breed: dict["PetBreed"], age: dict["PetAge"], personality: dict["PetPersonality"], food: dict["PetFood"], notes: dict["OtherNotes"])
+                        print(String(dict["PetName"]))
+                        print(String(dict["PetID"]))
+                    }
+                    //-------------------------------------------
+                }
+
+            
+                
            
         }
         task.resume()
-        
-        appDelegate.insertNewPet(name, species: species, breed: breed, age: stringAge, personality: personality, food: food, notes: notes)
-        
-        
+
+        }
+ 
         //cancel(self)
-        
+ 
         navigationController?.popViewControllerAnimated(true)
     }
-    
-    
+ 
+ 
 
-    
+ 
 }
