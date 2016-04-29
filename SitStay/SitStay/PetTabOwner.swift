@@ -12,7 +12,9 @@ class PetTabOwner: UIViewController {
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
-    var pets: [String] = ["steve"]
+    var pets: [String] = []
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     //@IBOutlet weak var petPicture: UIImageView!
@@ -22,10 +24,29 @@ class PetTabOwner: UIViewController {
         self.title = "My Pets"
        //UNCOMMENT THE LINE BELOW TO GET ALL PETS RETURNED AS JSON, INTO STRINGS
         //WHEN A PET IS ADDED, A QUERY IS RUN AND ADDS ALL PETS WITH YOUR USER ID AS PETS IN DATA
-        //get()
+       // get()
+        /*if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }*/
+
+        
         
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(animated: Bool) {
+
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
+        
+
+    }
+        
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

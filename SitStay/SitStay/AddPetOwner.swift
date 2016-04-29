@@ -24,7 +24,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBOutlet weak var petAge: UITextField!
     
-    
+    var testString: String?
     var name: String?
     var species: String?
     var breed: String?
@@ -150,16 +150,28 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 return
             }
             
-            print("response = \(response)")
+            print("responseFromAddToDB = \(response)")
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-       //////////////////////////////////////////////////////
-            
+            print("responseStringFromAddToDB = \(responseString)")
+        }
+        task.resume()
+        getPetAddPet()
+        navigationController?.popViewControllerAnimated(true)
+
+       
+    }
+    
             //////Gets All Pets from server with your UserID////////
             //////Adds ALL pets to pets////////
             //////Need to make it just one?/////
-            
+    func getPetAddPet(){
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        testString=petNameLabel.text
+    
             let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
             request.HTTPMethod = "POST"
             let postString = "a=\(userID!)"
@@ -173,12 +185,12 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     return
                 }
                 
-                print("response = \(response)")
+                print("responseFromGetAdd = \(response)")
                 print("userID")
                 print(userID!)
                 
                 var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print("responseString = \(responseString)")
+                print("responseStringFromGetAdd = \(responseString)")
                 
                 //Strip Escape Characters-------------------
                 responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
@@ -211,28 +223,20 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     
                     //Prove that this works----------------------
                    // print("PROOF!")
-                    for dict in petDicts{
-                        appDelegate.insertNewPet(dict["PetName"], species: dict["PetType"], breed: dict["PetBreed"], age: dict["PetAge"], personality: dict["PetPersonality"], food: dict["PetFood"], notes: dict["OtherNotes"])
-                        print(String(dict["PetName"]))
-                        print(String(dict["PetID"]))
-                    }
+                    //for dict in petDicts{
+                        
+                       // print(String(dict["PetName"]))
+                       // print(String(dict["PetID"]))
+                        
+                appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!)
+                    
+                       // print ("pet added")
+                  //  }
                     //-------------------------------------------
                 }
-
-            
-                
-           
         }
+        
         task.resume()
-
-        }
- 
-        //cancel(self)
- 
-        navigationController?.popViewControllerAnimated(true)
-    }
- 
- 
-
- 
+               //cancel(self)
+}
 }
