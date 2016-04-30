@@ -52,8 +52,22 @@ class ExistingPetOwner: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     @IBAction func deletePet(sender: AnyObject) {
-        appDelegate.deletePet(petName!)
-        navigationController?.popViewControllerAnimated(true)
+        
+        let alert = UIAlertController(title: "Delete Pet", message: "Do you want to delete this pet?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
+            (alertAction) -> Void in
+            // handle cancellation of deletion
+            //self.deleteStatusLabel.text = "item deletion cancelled"
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive, handler: {
+            (alertAction) -> Void in
+            // handle deletion here
+            self.appDelegate.deletePet(self.petName!)
+            self.navigationController?.popViewControllerAnimated(true)
+            //self.deleteStatusLabel.text = "item deleted"
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
         
         
     }
