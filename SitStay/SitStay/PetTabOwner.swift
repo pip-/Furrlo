@@ -9,6 +9,7 @@
 import UIKit
 
 class PetTabOwner: UIViewController {
+    
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
@@ -122,10 +123,12 @@ class PetTabOwner: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toPet"){
         let viewController = segue.destinationViewController as! ExistingPetOwner
         if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
             viewController.petName = buttonTitle
-        }
+            }}
     }
     
     
