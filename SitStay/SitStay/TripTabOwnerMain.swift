@@ -188,6 +188,8 @@ class TripTabOwnerMain: UITableViewController {
                 print("PROOF!")
                 for dict in tripDicts{
                     print(String(dict["tripName"]))
+                    print(String(dict["TripID"]))
+                    
                 }
             //-------------------------------------------
         }

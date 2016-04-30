@@ -12,7 +12,9 @@ class PetTabOwner: UIViewController {
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
-    var pets: [String] = ["steve"]
+    var pets: [String] = []
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     //@IBOutlet weak var petPicture: UIImageView!
@@ -20,11 +22,28 @@ class PetTabOwner: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Pets"
-        get()
+               /*if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }*/
+
         
         
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(animated: Bool) {
+
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
+        
+
+    }
+        
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -95,35 +114,8 @@ class PetTabOwner: UIViewController {
             return CGSize(width: cellWidth , height: cellHeight)
         }
     }
-    func get()
-    {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let user = appDelegate.getUser()
-        let userID=user!.userID
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "a=\(userID!)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if error != nil {
-                print("error=\(error)")
-                return
-            }
-            
-            print("response = \(response)")
-            print("userID")
-            print(userID!)
-            
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-            
-        }
-        task.resume()
-        
-        
-    }
+    
+    
 
     // MARK: - UICollectionViewDelegate protocol
     
