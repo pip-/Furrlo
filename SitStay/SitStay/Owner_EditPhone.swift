@@ -8,30 +8,61 @@
 
 import UIKit
 
-class Owner_EditPhone: UIViewController {
-
+class Owner_EditPhone: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var phoneTextField: UITextField!
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        phoneTextField.delegate = self
+        if let user = appDelegate.getUser(){
+            if let phone = user.phone{
+                phoneTextField.text = phone
+                
+            }
+        }
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        if let user = appDelegate.getUser(){
+            if let phone = user.phone{
+                phoneTextField.text = phone
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    */
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        updatePhone()
+        textFieldShouldReturn(textField)
+    }
+
+    @IBAction func editingEnded(sender: AnyObject) {
+        self.resignFirstResponder()
+        updatePhone()
+    }
+    
+    
+    func updatePhone(){
+        if let phone = phoneTextField.text{
+            appDelegate.updateUserPhone(phone)
+            print("Updated phone")
+            
+        }
+        
+    }
 
 }

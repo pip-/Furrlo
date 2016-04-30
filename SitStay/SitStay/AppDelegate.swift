@@ -31,20 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.userID = Int(arc4random_uniform(800000) + 100000)
             //-----------------------------------------------------------------------
             
-            let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
-            
-            pet.name = "Fred"
-            //pet.age = "10"
-            pet.petID = Int(arc4random_uniform(8000000) + 100000)
-            
-            pet.name = "Bob"
-            //pet.age = "10"
-            pet.petID = Int(arc4random_uniform(8000000) + 100001)
-            
-            pet.name = "Samuel"
-            //pet.age = "10"
-            pet.petID = Int(arc4random_uniform(8000000) + 100002)
-            
             //Saving the changes I made to the instance of 'User'--------------------
             self.saveContext()
             //-----------------------------------------------------------------------
@@ -154,6 +140,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         } catch {
             fatalError("Failed to fetch users: \(error)")
+        }
+    }
+    
+    func updateUserEmail(email: String){
+        if let user = getUser(){
+            user.email = email
+            saveContext()
+        }
+    }
+    
+    func updateUserPhone(phone: String){
+        if let user = getUser(){
+            user.phone = phone
+            saveContext()
         }
     }
     
