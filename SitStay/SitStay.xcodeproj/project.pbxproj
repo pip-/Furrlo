@@ -33,6 +33,7 @@
 		C66FF9D81CC7F417004140EC /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CC1CC7F417004140EC /* Pet.swift */; };
 		C66FF9DB1CC7F417004140EC /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */; };
 		C66FF9DC1CC7F417004140EC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D01CC7F417004140EC /* Trip.swift */; };
+		C6D478E51CD52ECA005D221C /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D478E41CD52ECA005D221C /* extensions.swift */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
@@ -136,6 +137,7 @@
 		C66FF9CC1CC7F417004140EC /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C66FF9D01CC7F417004140EC /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		C6D478E41CD52ECA005D221C /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */,
 				4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */,
 				4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */,
+				C6D478E41CD52ECA005D221C /* extensions.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */,
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
 				C6D9C2D91CC8669700A86097 /* MapCell.swift in Sources */,
+				C6D478E51CD52ECA005D221C /* extensions.swift in Sources */,
 				C6E7276F1CBC24F800E7945B /* TabBarControllerOwner.swift in Sources */,
 				C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */,
 				C66FF9D81CC7F417004140EC /* Pet.swift in Sources */,

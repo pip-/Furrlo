@@ -144,24 +144,3 @@ func taskComplete(){
     }
 }
 }
-
-extension String
-{
-    func toDateTime() -> NSDate
-    {
-        //Create Date Formatter
-        let dateFormatter = NSDateFormatter()
-        
-        //dateFormatter.locale = NSLocale(localeIdentifier: "us")
-        
-        //Specify Format of String to Parse
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        //Parse into NSDate
-        let dateFromString : NSDate = dateFormatter.dateFromString(self)!
-        
-        
-        //Return Parsed Date
-        return dateFromString
-    }
-}

@@ -24,6 +24,7 @@ class TripTabOwnerMain: UITableViewController {
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == false){
+                        
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
                         print(trip.tripName!)
@@ -246,21 +247,4 @@ class TripTabOwnerMain: UITableViewController {
     
  
 
-}
-
-extension String {
-    func convertToDictionary() -> [String: String]? {
-        let data = self.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
-            if let dict = json as? [String: String]{
-                return dict
-            }
-            return nil
-        }
-        catch {
-            print(error)
-        }
-        return nil
-    }
 }
