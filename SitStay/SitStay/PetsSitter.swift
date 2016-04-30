@@ -13,11 +13,27 @@ class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
+    
+    
     var pets: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
+    var numSections = 0
+    var tripNames: [String] = []
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let fetchedTrips = appDelegate.getTrips(){
+            for trip in fetchedTrips{
+                if(trip.isSitting!.boolValue == true){
+                    if(tripNames.count > 0){
+                        numSections = tripNames.count
+                    }
+                }
+            }
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -27,6 +43,9 @@ class PetsSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return numSections
+    }
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,6 +109,22 @@ class PetsSitter: UIViewController {
         }
     }
 
+    func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        //1
+        switch kind {
+        //2
+        case UICollectionElementKindSectionHeader:
+            //3
+            let headerView =
+                collectionView.dequeueReusableSupplementaryViewOfKind(kind,withReuseIdentifier: "header",forIndexPath: indexPath)as! supplementaryView
+            headerView.label.text = ""
+            return headerView
+        default:
+            //4
+            assert(false, "Unexpected element kind")
+        }
+    }
+    
     
     // MARK: - UICollectionViewDelegate protocol
     
@@ -98,4 +133,5 @@ class PetsSitter: UIViewController {
         print("You selected cell #\(indexPath.item)!")
     }
     
+       
 }
