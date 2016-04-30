@@ -125,12 +125,12 @@ class ViewTripSitter: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if(indexPath.section == 0){
-            if(indexPath.row == 1){
-                return 80
+            if(indexPath.row == 1 || indexPath.row == 2){
+                return 100
             }
         }
         if(indexPath.section == 1){
-            return 100
+            return 130
         }
         return 60
     }

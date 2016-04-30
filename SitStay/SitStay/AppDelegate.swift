@@ -211,6 +211,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             trip.isSitting = 1
         }
         
+        if let phone = phone {
+            trip.phone = phone
+        }
+        if let email = email {
+            trip.email = email
+        }
+        
         trip.tripID = Int(arc4random_uniform(1000000) + 800000)
         
         
