@@ -27,23 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            // let entityDescription = NSEntityDescription.
             
             //Modifying values of the created 'User' instance------------------------
-            user.email = "test@email.com"
             user.userID = Int(arc4random_uniform(800000) + 100000)
             //-----------------------------------------------------------------------
-            
-            let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
-            
-            pet.name = "Fred"
-            //pet.age = "10"
-            pet.petID = Int(arc4random_uniform(8000000) + 100000)
-            
-            pet.name = "Bob"
-            //pet.age = "10"
-            pet.petID = Int(arc4random_uniform(8000000) + 100001)
-            
-            pet.name = "Samuel"
-            //pet.age = "10"
-            pet.petID = Int(arc4random_uniform(8000000) + 100002)
             
             //Saving the changes I made to the instance of 'User'--------------------
             self.saveContext()
@@ -157,6 +142,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateUserEmail(email: String){
+        if let user = getUser(){
+            user.email = email
+            saveContext()
+        }
+    }
+    
+    func updateUserPhone(phone: String){
+        if let user = getUser(){
+            user.phone = phone
+            saveContext()
+        }
+    }
+    
     func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
@@ -195,7 +194,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool) -> Int{
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?) -> Int{
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -210,6 +209,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(isSitting){
             trip.isSitting = 1
+        }
+        
+        if let phone = phone {
+            trip.phone = phone
+        }
+        if let email = email {
+            trip.email = email
         }
         
         trip.tripID = Int(arc4random_uniform(1000000) + 800000)
@@ -266,7 +272,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
             for pet in fetchedPets{
                 if pet.name == petName{
-                    print("Trying to delete trip: " + pet.name!)
+                    print("Trying to delete pet: " + pet.name!)
                     self.managedObjectContext.deleteObject(pet)
                     self.saveContext()
                     return true
@@ -274,7 +280,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         catch{
-            print("Could not delete this trip")
+            print("Could not delete this pet")
         }
         return false
     }

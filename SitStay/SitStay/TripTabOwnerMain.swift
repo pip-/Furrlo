@@ -21,13 +21,17 @@ class TripTabOwnerMain: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         get()
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "editing")
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == false){
-                        tripNames.append(trip.tripName!)
-                        tripIds.append(Int(trip.tripID!))
-                        print(trip.tripName!)
+                        if(trip.endDate <= NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(3600 * 24 * 2))){
+                            print("Deleting a trip that is too old.")
+                            appDelegate.deleteTrip(Int(trip.tripID!))
+                        } else {
+                            tripNames.append(trip.tripName!)
+                            tripIds.append(Int(trip.tripID!))
+                            print(trip.tripName!)
+                        }
                         
                     }
             }
@@ -54,6 +58,7 @@ class TripTabOwnerMain: UITableViewController {
                 }
         }
     }
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +75,6 @@ class TripTabOwnerMain: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
         if(tripNames.count == 0){
             return 1
         } else {
@@ -80,7 +84,6 @@ class TripTabOwnerMain: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let editing = NSUserDefaults.standardUserDefaults().boolForKey("editing")
         if(tripNames.count == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier(noTripsReuseIdentifier, forIndexPath: indexPath)
             
@@ -248,21 +251,4 @@ class TripTabOwnerMain: UITableViewController {
     
  
 
-}
-
-extension String {
-    func convertToDictionary() -> [String: String]? {
-        let data = self.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
-            if let dict = json as? [String: String]{
-                return dict
-            }
-            return nil
-        }
-        catch {
-            print(error)
-        }
-        return nil
-    }
 }

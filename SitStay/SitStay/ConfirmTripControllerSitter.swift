@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmTripControllerSitter: UIViewController {
+class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     var values:NSArray = []
@@ -25,6 +25,16 @@ class ConfirmTripControllerSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        submit(self)
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        textFieldShouldReturn(textField)
+    }
+    
     @IBAction func submit(sender: AnyObject) {
         
         //ToDo, pull trip object where trip.tripID = textField.text and all associated pets and to-do lists
@@ -35,15 +45,6 @@ class ConfirmTripControllerSitter: UIViewController {
             if (text.characters.count > 0){
                 get()
         }
-        
-            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
-            vc.selectedIndex = 0
-            vc.modalTransitionStyle = .CrossDissolve
-            let vc2 = storyboard.instantiateViewControllerWithIdentifier("tripTabSitterMain") as! TripTabSitterMain
-            vc2.viewDidLoad()
-            vc2.viewWillAppear(false)
-            presentViewController(vc, animated: true, completion: nil)
         }
         
         
@@ -99,28 +100,69 @@ class ConfirmTripControllerSitter: UIViewController {
                 //-------------------------------------------
                 
                 //Insert the new trip----------------------
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
                 for dict in tripDicts{
-                    print(dict)
                     if let startDate =
                         dict["TripStartDate"]?.toDateTime() {
                         if let endDate = dict["TripEndDate"]?.toDateTime(){
-                    if let addr2 = dict["UserAddress2"]{
-                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: addr2, pets: [], tripName: dict["tripName"]!, isSitting: true)
-                    }
-                    else {
-                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true)
-                    }
+        
+                            if let address2 = dict["UserAddress2"] {
+                                if let phone = dict["userPhone"] {
+                                    if let email = dict["userEmail"]{
+                                        
+                                        //APE
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email)
+                                    } else{
+                                        
+                                        //APe
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil)
+                                    }
+                                }
+                                else {
+                                    if let email = dict["userEmail"]{
+                                        
+                                        //ApE
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email)
+                                    } else {
+                                        
+                                        //Ape
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil)
+                                    }
+                                }
+                            } else {
+                                if let phone = dict["userPhone"] {
+                                    if let email = dict["userEmail"] {
+                                        
+                                        //aPE
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email)
+                                    } else {
+                                        
+                                        //aPe
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil)
+                                    }
+                                } else {
+                                    
+                                    //apE
+                                    if let email = dict["userEmail"]{
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email)
+                                    } else {
+                                        
+                                        //ape
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil)
+                                    }
+                                }
+                            
+                            }
                         }
-                    } else {
-                        print("Wrong format")
+                        else {
+                            print("Wrong format")
+                        }
+                            
                     }
-                }
                 //-------------------------------------------
             }
+            }
 
-            
+            self.taskComplete()
         }
         task.resume()
 
@@ -137,25 +179,19 @@ class ConfirmTripControllerSitter: UIViewController {
     }
     */
 
-}
 
-extension String
-{
-    func toDateTime() -> NSDate
-    {
-        //Create Date Formatter
-        let dateFormatter = NSDateFormatter()
-        
-        //dateFormatter.locale = NSLocale(localeIdentifier: "us")
-        
-        //Specify Format of String to Parse
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        //Parse into NSDate
-        let dateFromString : NSDate = dateFormatter.dateFromString(self)!
-        
-        
-        //Return Parsed Date
-        return dateFromString
+
+func taskComplete(){
+    let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
+    vc.selectedIndex = 0
+    vc.modalTransitionStyle = .CrossDissolve
+    let vc2 = storyboard.instantiateViewControllerWithIdentifier("tripTabSitterMain") as! TripTabSitterMain
+    vc2.viewDidLoad()
+    vc2.viewWillAppear(true)
+    
+    NSOperationQueue.mainQueue().addOperationWithBlock{
+        self.presentViewController(vc, animated: true, completion: nil)
     }
+}
 }
