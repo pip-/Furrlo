@@ -100,25 +100,66 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
                 //-------------------------------------------
                 
                 //Insert the new trip----------------------
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
                 for dict in tripDicts{
-                    print(dict)
                     if let startDate =
                         dict["TripStartDate"]?.toDateTime() {
                         if let endDate = dict["TripEndDate"]?.toDateTime(){
-                    if let addr2 = dict["UserAddress2"]{
-                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: addr2, pets: [], tripName: dict["tripName"]!, isSitting: true)
-                    }
-                    else {
-                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true)
-                    }
+        
+                            if let address2 = dict["UserAddress2"] {
+                                if let phone = dict["userPhone"] {
+                                    if let email = dict["userEmail"]{
+                                        
+                                        //APE
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email)
+                                    } else{
+                                        
+                                        //APe
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil)
+                                    }
+                                }
+                                else {
+                                    if let email = dict["userEmail"]{
+                                        
+                                        //ApE
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email)
+                                    } else {
+                                        
+                                        //Ape
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil)
+                                    }
+                                }
+                            } else {
+                                if let phone = dict["userPhone"] {
+                                    if let email = dict["userEmail"] {
+                                        
+                                        //aPE
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email)
+                                    } else {
+                                        
+                                        //aPe
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil)
+                                    }
+                                } else {
+                                    
+                                    //apE
+                                    if let email = dict["userEmail"]{
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email)
+                                    } else {
+                                        
+                                        //ape
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil)
+                                    }
+                                }
+                            
+                            }
                         }
-                    } else {
-                        print("Wrong format")
+                        else {
+                            print("Wrong format")
+                        }
+                            
                     }
-                }
                 //-------------------------------------------
+            }
             }
 
             self.taskComplete()

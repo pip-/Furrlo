@@ -290,15 +290,46 @@ class NewTripOwnerController: UITableViewController {
         let user = appDelegate.getUser()
         let userID = user!.userID
         
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
+        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil)
+        
+    
         
 /*DB code below*/
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
         
+        var postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+    
+        if let address2 = address2 {
+            if let phone = user?.phone {
+                if let email = user?.email{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)&j=\(email)"
+                } else{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)"
+                }
+            }
+            else {
+                if let email = user?.email{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&j=\(email)"
+                } else {
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+                }
+            }
+        } else {
+            if let phone = user?.phone {
+                if let email = user?.email {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)&j=\(email)"
+                } else {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)"
+                }
+            } else {
+                if let email = user?.email {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&j=\(email)"
+                }
+            }
+        }
+        
+        
         request.HTTPMethod = "POST"
-        if let address2 = address2{
-            print("ADDRESS 2:" + address2)
-            let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -316,26 +347,6 @@ class NewTripOwnerController: UITableViewController {
             
         }
         task.resume()
-        } else {
-            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
-            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-            
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-                data, response, error in
-                
-                if error != nil {
-                    print("error=\(error)")
-                    return
-                }
-                
-                print("response = \(response)")
-                
-                let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print("responseString = \(responseString)")
-                
-            }
-            task.resume()
-        }
 /*DB code Above*/
         
         cancel(self)

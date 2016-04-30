@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            // let entityDescription = NSEntityDescription.
             
             //Modifying values of the created 'User' instance------------------------
-            user.email = "test@email.com"
             user.userID = Int(arc4random_uniform(800000) + 100000)
             //-----------------------------------------------------------------------
             
@@ -195,7 +194,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool) -> Int{
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?) -> Int{
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
