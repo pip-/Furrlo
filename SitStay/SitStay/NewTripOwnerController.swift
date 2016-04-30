@@ -303,7 +303,9 @@ class NewTripOwnerController: UITableViewController {
             appDelegate.saveContext()
         }
         let user = appDelegate.getUser()
-        let userID=user!.userID
+        let userID = user!.userID
+        
+        let tripID = appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
 /*DB code below*/
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
@@ -351,7 +353,6 @@ class NewTripOwnerController: UITableViewController {
             task.resume()
         }
 /*DB code Above*/
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
         cancel(self)
     }

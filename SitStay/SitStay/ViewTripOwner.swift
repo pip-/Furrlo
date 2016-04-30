@@ -23,8 +23,9 @@ class ViewTripOwner: UITableViewController {
             style: .Plain,
             target: self,
             action: #selector(ViewTripOwner.edit)
+            
         )
-        
+      
         content[0] = dateToString((trip?.startDate)!)
         content[0] += " - "
         content[0] += dateToString((trip?.startDate)!)
@@ -88,7 +89,6 @@ class ViewTripOwner: UITableViewController {
         }
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(indexPath.section == 1){
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
@@ -144,7 +144,6 @@ class ViewTripOwner: UITableViewController {
     }
     
     func edit(){
-        print("Editing")
         let nc = self.navigationController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip") as! NewTripOwnerController
@@ -168,6 +167,36 @@ class ViewTripOwner: UITableViewController {
     }
     
     
+    func get()
+    {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTripFromID.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            print("userID")
+            print(userID!)
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        
+        
+    }
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

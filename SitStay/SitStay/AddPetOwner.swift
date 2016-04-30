@@ -24,7 +24,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBOutlet weak var petAge: UITextField!
     
-    
+    var testString: String?
     var name: String?
     var species: String?
     var breed: String?
@@ -32,6 +32,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var personality: String?
     var food: String?
     var notes: String?
+    
     
 
     
@@ -138,7 +139,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addPet.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)"
+        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -149,22 +150,93 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 return
             }
             
-            print("response = \(response)")
+            print("responseFromAddToDB = \(response)")
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
+            print("responseStringFromAddToDB = \(responseString)")
         }
         task.resume()
-        
-        appDelegate.insertNewPet(name, species: species, breed: breed, age: stringAge, personality: personality, food: food, notes: notes)
-        
-        
-        //cancel(self)
-        
+        getPetAddPet()
         navigationController?.popViewControllerAnimated(true)
+
+       
     }
     
+            //////Gets All Pets from server with your UserID////////
+            //////Adds ALL pets to pets////////
+            //////Need to make it just one?/////
+    func getPetAddPet(){
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID=user!.userID
+        testString=petNameLabel.text
     
-
-    
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
+            request.HTTPMethod = "POST"
+            let postString = "a=\(userID!)"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                if error != nil {
+                    print("error=\(error)")
+                    return
+                }
+                
+                print("responseFromGetAdd = \(response)")
+                print("userID")
+                print(userID!)
+                
+                var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("responseStringFromGetAdd = \(responseString)")
+                
+                //Strip Escape Characters-------------------
+                responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+                responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+                //------------------------------------------
+                
+                //Change to easier delimiters---------------
+                responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+                //------------------------------------------
+                if let responseString = responseString{
+                    //Convert to String/Drop Garbage------------
+                    let s = String(responseString)
+                    var parsedJsonString = String(s.characters.dropLast(147))
+                    parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                    //------------------------------------------
+                    
+                    
+                    //Put into array----------------------------
+                    let petStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                    //------------------------------------------
+                    
+                    //Parse each string into dictionary---------
+                    var petDicts: [[String: String]] = []
+                    for string in petStrings{
+                        if let dict = string.convertToDictionary(){
+                            petDicts.append(dict)
+                        }
+                    }
+                    //-------------------------------------------
+                    
+                    //Prove that this works----------------------
+                   // print("PROOF!")
+                    //for dict in petDicts{
+                        
+                       // print(String(dict["PetName"]))
+                       // print(String(dict["PetID"]))
+                        
+                appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!)
+                    
+                       // print ("pet added")
+                  //  }
+                    //-------------------------------------------
+                }
+        }
+        
+        task.resume()
+               //cancel(self)
+}
 }

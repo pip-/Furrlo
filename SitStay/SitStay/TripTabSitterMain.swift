@@ -20,13 +20,12 @@ class TripTabSitterMain: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "editing")
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == true){
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
-                        print(trip.tripName!)
+                        
                     }
             }
         }
