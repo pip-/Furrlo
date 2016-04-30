@@ -135,72 +135,7 @@ class PetTabOwner: UIViewController {
     
     
     
-    func get()
-    {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let user = appDelegate.getUser()
-        let userID=user!.userID
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "a=\(userID!)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if error != nil {
-                print("error=\(error)")
-                return
-            }
-            
-            print("response = \(response)")
-            print("userID")
-            print(userID!)
-            
-            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-            
-            //Strip Escape Characters-------------------
-            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
-            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
-            //------------------------------------------
-            
-            //Change to easier delimiters---------------
-            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
-            //------------------------------------------
-            if let responseString = responseString{
-                //Convert to String/Drop Garbage------------
-                let s = String(responseString)
-                var parsedJsonString = String(s.characters.dropLast(147))
-                parsedJsonString = String(parsedJsonString.characters.dropFirst())
-                //------------------------------------------
-                
-                
-                //Put into array----------------------------
-                let tripStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
-                //------------------------------------------
-                
-                //Parse each string into dictionary---------
-                var tripDicts: [[String: String]] = []
-                for string in tripStrings{
-                    if let dict = string.convertToDictionary(){
-                        tripDicts.append(dict)
-                    }
-                }
-                //-------------------------------------------
-                
-                //Prove that this works----------------------
-                print("PROOF!")
-                for dict in tripDicts{
-                    print(String(dict["PetName"]))
-                    print(String(dict["PetID"]))
-                }
-                //-------------------------------------------
-            }
-        }
-        task.resume()
-        
-        
-    }
+    
 
     // MARK: - UICollectionViewDelegate protocol
     
