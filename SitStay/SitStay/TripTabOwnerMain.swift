@@ -24,7 +24,7 @@ class TripTabOwnerMain: UITableViewController {
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == false){
-                        if(trip.endDate >= NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(3600 * 24 * 2))){
+                        if(trip.endDate <= NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(3600 * 24 * 2))){
                             print("Deleting a trip that is too old.")
                             appDelegate.deleteTrip(Int(trip.tripID!))
                         } else {

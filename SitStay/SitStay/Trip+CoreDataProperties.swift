@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/27/16.
+//  Created by Philip Gilbreth on 4/30/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -23,6 +23,8 @@ extension Trip {
     @NSManaged var tripID: NSNumber?
     @NSManaged var tripName: String?
     @NSManaged var zip: String?
+    @NSManaged var phone: String?
+    @NSManaged var email: String?
     @NSManaged var pets: NSSet?
     @NSManaged var userID: User?
 
