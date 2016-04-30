@@ -35,15 +35,6 @@ class ConfirmTripControllerSitter: UIViewController {
             if (text.characters.count > 0){
                 get()
         }
-        
-            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
-            vc.selectedIndex = 0
-            vc.modalTransitionStyle = .CrossDissolve
-            let vc2 = storyboard.instantiateViewControllerWithIdentifier("tripTabSitterMain") as! TripTabSitterMain
-            vc2.viewDidLoad()
-            vc2.viewWillAppear(false)
-            presentViewController(vc, animated: true, completion: nil)
         }
         
         
@@ -120,7 +111,7 @@ class ConfirmTripControllerSitter: UIViewController {
                 //-------------------------------------------
             }
 
-            
+            self.taskComplete()
         }
         task.resume()
 
@@ -137,6 +128,21 @@ class ConfirmTripControllerSitter: UIViewController {
     }
     */
 
+
+
+func taskComplete(){
+    let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter") as! UITabBarController
+    vc.selectedIndex = 0
+    vc.modalTransitionStyle = .CrossDissolve
+    let vc2 = storyboard.instantiateViewControllerWithIdentifier("tripTabSitterMain") as! TripTabSitterMain
+    vc2.viewDidLoad()
+    vc2.viewWillAppear(true)
+    
+    NSOperationQueue.mainQueue().addOperationWithBlock{
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+}
 }
 
 extension String

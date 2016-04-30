@@ -54,6 +54,7 @@ class TripTabOwnerMain: UITableViewController {
                 }
         }
     }
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

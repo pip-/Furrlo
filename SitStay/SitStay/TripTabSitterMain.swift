@@ -40,6 +40,7 @@ class TripTabSitterMain: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        print("Will Appear...")
         tripNames.removeAll()
         tripIds.removeAll()
         if let fetchedTrips = appDelegate.getTrips(){
@@ -51,6 +52,7 @@ class TripTabSitterMain: UITableViewController {
                     }
             }
         }
+        self.tableView.reloadData()
     }
     
     
