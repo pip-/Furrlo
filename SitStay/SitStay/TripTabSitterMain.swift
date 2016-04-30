@@ -23,10 +23,13 @@ class TripTabSitterMain: UITableViewController {
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == true){
+                        if(trip.endDate <= NSDate.init(timeIntervalSinceNow: 3600 * 24 * 2)){
+                            appDelegate.deleteTrip(Int(trip.tripID!))
+                        }else{
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
-                        
-                    }
+                        }
+                }
             }
         }
         

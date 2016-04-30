@@ -24,10 +24,13 @@ class TripTabOwnerMain: UITableViewController {
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == false){
-                        
-                        tripNames.append(trip.tripName!)
-                        tripIds.append(Int(trip.tripID!))
-                        print(trip.tripName!)
+                        if(trip.endDate <= NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(3600 * 24 * 2))){
+                            appDelegate.deleteTrip(Int(trip.tripID!))
+                        } else {
+                            tripNames.append(trip.tripName!)
+                            tripIds.append(Int(trip.tripID!))
+                            print(trip.tripName!)
+                        }
                         
                     }
             }
