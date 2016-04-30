@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmTripControllerSitter: UIViewController {
+class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     var values:NSArray = []
@@ -23,6 +23,16 @@ class ConfirmTripControllerSitter: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        submit(self)
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        textFieldShouldReturn(textField)
     }
     
     @IBAction func submit(sender: AnyObject) {
