@@ -143,6 +143,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateUserEmail(email: String){
+        if let user = getUser(){
+            user.email = email
+            saveContext()
+        }
+    }
+    
     func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
