@@ -103,7 +103,7 @@ class PetsSitter: UIViewController {
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
             
             let cellWidth = 100
-            let cellHeight = 145
+            let cellHeight = 150
             
             return CGSize(width: cellWidth , height: cellHeight)
         }
