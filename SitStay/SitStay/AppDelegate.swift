@@ -266,7 +266,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
             for pet in fetchedPets{
                 if pet.name == petName{
-                    print("Trying to delete trip: " + pet.name!)
+                    print("Trying to delete pet: " + pet.name!)
                     self.managedObjectContext.deleteObject(pet)
                     self.saveContext()
                     return true
@@ -274,7 +274,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         catch{
-            print("Could not delete this trip")
+            print("Could not delete this pet")
         }
         return false
     }
