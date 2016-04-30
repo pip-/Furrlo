@@ -16,6 +16,7 @@ class Owner_EditEmail: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailField.delegate = self
         // Do any additional setup after loading the view.
         if let user = appDelegate.getUser(){
             if let email = user.email{

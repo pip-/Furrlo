@@ -150,6 +150,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateUserPhone(phone: String){
+        if let user = getUser(){
+            user.phone = phone
+            saveContext()
+        }
+    }
+    
     func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]

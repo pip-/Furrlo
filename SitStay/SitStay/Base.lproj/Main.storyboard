@@ -1704,6 +1704,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingEnded:" destination="ndM-rs-ggP" eventType="editingDidEnd" id="EBC-wi-0kB"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1722,7 +1725,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="phoneTextField" destination="Osl-rN-NIE" id="0nh-kU-XWb"/>
+                        <outlet property="phoneTextField" destination="Osl-rN-NIE" id="ZVx-Dt-rDM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Lg-Bj-X7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
