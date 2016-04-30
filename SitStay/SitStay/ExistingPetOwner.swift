@@ -20,11 +20,27 @@ class ExistingPetOwner: UIViewController{
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var petName: String?
     
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                if (pet.name == petName){
+                    petNameLabel.text = petName
+                    petAge.text = pet.age
+                    petSpecies.text = pet.species
+                    petBreedLabel.text = pet.breed
+                    petPersonalityLabel.text = pet.personality
+                    petFoodLabel.text = pet.food
+                    petNotes.text = pet.notes
+                }
+            }
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -35,18 +51,6 @@ class ExistingPetOwner: UIViewController{
         
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
  
     
 }

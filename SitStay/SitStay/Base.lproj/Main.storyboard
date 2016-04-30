@@ -1401,9 +1401,7 @@
                                                 <constraint firstAttribute="width" constant="100" id="hMI-KT-EVe"/>
                                             </constraints>
                                             <connections>
-                                                <segue destination="hh8-J6-g0Y" kind="show" id="m2F-xK-kZM">
-                                                    <nil key="action"/>
-                                                </segue>
+                                                <segue destination="hh8-J6-g0Y" kind="show" id="Gac-Ez-T76"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LhX-fl-S9M">

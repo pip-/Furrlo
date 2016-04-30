@@ -82,7 +82,9 @@ class PetTabOwner: UIViewController {
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
-            cell.petImage.image = UIImage(named: "cat profile.jpg")
+            cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+        cell.petImage.image = UIImage(named: "cat profile.jpg")
+        
             
         let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             
@@ -117,6 +119,18 @@ class PetTabOwner: UIViewController {
             return CGSize(width: cellWidth , height: cellHeight)
         }
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let viewController = segue.destinationViewController as! ExistingPetOwner
+        if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
+            viewController.petName = buttonTitle
+        }
+    }
+    
+    
+    
+    
     func get()
     {   let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let user = appDelegate.getUser()
