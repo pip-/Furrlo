@@ -51,6 +51,12 @@ class ExistingPetOwner: UIViewController{
         
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func deletePet(sender: AnyObject) {
+        appDelegate.deletePet(petName!)
+        navigationController?.popViewControllerAnimated(true)
+        
+        
+    }
  
     
 }

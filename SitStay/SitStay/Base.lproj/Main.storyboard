@@ -1130,11 +1130,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="g0j-xG-D7P">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="KEx-Uh-LYw">
+                        <barButtonItem key="rightBarButtonItem" title="Delete" id="KEx-Uh-LYw">
+                            <color key="tintColor" red="1" green="0.041492548699985976" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="gqR-WX-Alb" kind="show" id="1iH-Ug-7Gz">
-                                    <nil key="action"/>
-                                </segue>
+                                <action selector="deletePet:" destination="hh8-J6-g0Y" id="Y2u-UE-zpd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2886,8 +2885,5 @@
         <image name="Untitled-6.png" width="240" height="223"/>
         <image name="trips1.png" width="1400" height="896"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="HVB-tS-KwQ"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.050980392156862744" green="0.60784313725490191" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
 </document>
