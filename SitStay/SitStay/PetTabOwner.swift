@@ -9,6 +9,8 @@
 import UIKit
 
 class PetTabOwner: UIViewController {
+    
+    @IBOutlet var petCollection: UICollectionView!
 
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
@@ -22,7 +24,10 @@ class PetTabOwner: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Pets"
-               /*if let fetchedPets = appDelegate.getPets(){
+       //UNCOMMENT THE LINE BELOW TO GET ALL PETS RETURNED AS JSON, INTO STRINGS
+        //WHEN A PET IS ADDED, A QUERY IS RUN AND ADDS ALL PETS WITH YOUR USER ID AS PETS IN DATA
+       /*get()
+        if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
             }
@@ -79,7 +84,9 @@ class PetTabOwner: UIViewController {
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
-            cell.petImage.image = UIImage(named: "cat profile.jpg")
+            cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+        cell.petImage.image = UIImage(named: "cat profile.jpg")
+        
             
         let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             
@@ -109,11 +116,24 @@ class PetTabOwner: UIViewController {
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
             
             let cellWidth = 100
-            let cellHeight = 145
+            let cellHeight = 150
             
             return CGSize(width: cellWidth , height: cellHeight)
         }
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toPet"){
+        let viewController = segue.destinationViewController as! ExistingPetOwner
+        if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
+            viewController.petName = buttonTitle
+            }}
+    }
+    
+    
+    
     
     
 

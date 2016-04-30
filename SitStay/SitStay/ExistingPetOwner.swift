@@ -20,11 +20,27 @@ class ExistingPetOwner: UIViewController{
     
     @IBOutlet weak var imageView: UIImageView!
     
-    
+    var petName: String?
+   
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                if (pet.name == petName){
+                    petNameLabel.text = petName
+                    petAge.text = pet.age
+                    petSpecies.text = pet.species
+                    petBreedLabel.text = pet.breed
+                    petPersonalityLabel.text = pet.personality
+                    petFoodLabel.text = pet.food
+                    petNotes.text = pet.notes
+                }
+            }
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -35,18 +51,26 @@ class ExistingPetOwner: UIViewController{
         
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func deletePet(sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Delete Pet", message: "Do you want to delete this pet?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
+            (alertAction) -> Void in
+            // handle cancellation of deletion
+            //self.deleteStatusLabel.text = "item deletion cancelled"
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive, handler: {
+            (alertAction) -> Void in
+            // handle deletion here
+            self.appDelegate.deletePet(self.petName!)
+            self.navigationController?.popViewControllerAnimated(true)
+            //self.deleteStatusLabel.text = "item deleted"
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+        
     }
-    */
-
  
     
 }

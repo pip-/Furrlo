@@ -12,6 +12,7 @@
 		4CE2A1BA1CD363B50027D9F4 /* OwnerAddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */; };
 		4CE2A1BC1CD364D60027D9F4 /* OwnerFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */; };
 		4CE2A1BE1CD3FF240027D9F4 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */; };
+		6700C4301CD446A500FC6AF7 /* supplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6700C42F1CD446A500FC6AF7 /* supplementaryView.swift */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
@@ -114,6 +115,7 @@
 		4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddTaskViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFinishedListViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
+		6700C42F1CD446A500FC6AF7 /* supplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = supplementaryView.swift; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			children = (
 				C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */,
 				C6D73BFC1CB4B7DD001BC7F2 /* PetsSitter.swift */,
+				6700C42F1CD446A500FC6AF7 /* supplementaryView.swift */,
 				C6D73BFB1CB4B7DD001BC7F2 /* PetInfoSitter.swift */,
 				C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */,
 			);
@@ -603,6 +606,7 @@
 				C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */,
 				4CE2A1B61CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift in Sources */,
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
+				6700C4301CD446A500FC6AF7 /* supplementaryView.swift in Sources */,
 				C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */,
 				C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,

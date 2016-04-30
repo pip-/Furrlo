@@ -255,10 +255,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.food = food
         newPet.notes = notes
         
-        newPet.petID = Int(arc4random_uniform(8000000) + 100000)
+        //newPet.petID = Int(arc4random_uniform(8000000) + 100000)
         
         
         self.saveContext()
+    }
+    
+    func deletePet(petName: String) -> Bool{
+        do{
+            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
+            for pet in fetchedPets{
+                if pet.name == petName{
+                    print("Trying to delete trip: " + pet.name!)
+                    self.managedObjectContext.deleteObject(pet)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch{
+            print("Could not delete this trip")
+        }
+        return false
     }
 
     
