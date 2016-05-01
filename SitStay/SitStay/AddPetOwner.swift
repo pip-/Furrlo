@@ -21,6 +21,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBOutlet weak var imageView: UIImageView!
     let imagePicker = UIImagePickerController()
+    //var petPicture: NSData?
     
     @IBOutlet weak var petAge: UITextField!
     
@@ -32,7 +33,6 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var personality: String?
     var food: String?
     var notes: String?
-    
     
 
     
@@ -118,6 +118,10 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .ScaleAspectFit
             imageView.image = pickedImage
+            
+           // let petPicture = UIImageJPEGRepresentation(pickedImage, 1.0)
+            //imageData = UIImageJPEGRepresentation(pickedImage, 1)!
+             //let petImage: UIImage = UIImage(data:imageData,scale:1.0)!
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -139,7 +143,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addPet.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)"
+        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)&i=\(imageView.image!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -171,6 +175,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let user = appDelegate.getUser()
         let userID=user!.userID
         testString=petNameLabel.text
+        
     
             let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
             request.HTTPMethod = "POST"
@@ -227,7 +232,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                         
                        // print(String(dict["PetName"]))
                         //print(String(dict["PetID"]))
-                        
+                    
                     appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!)
                     
                        // print ("pet added")

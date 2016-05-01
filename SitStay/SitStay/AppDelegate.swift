@@ -262,7 +262,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.personality = personality
         newPet.food = food
         newPet.notes = notes
-        //newPet.owner = owner
+        //newPet.picture = picture
         
         //newPet.petID = Int(arc4random_uniform(8000000) + 100000)
         

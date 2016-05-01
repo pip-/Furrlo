@@ -28,6 +28,7 @@ extension Pet {
     @NSManaged var user: User?
     
     
+    //@NSManaged var picture: NSData?
     //@NSManaged var picture:UIImage? = nil
     //@NSManaged var owner: NSNumber?
     
