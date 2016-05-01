@@ -136,6 +136,15 @@ class PetsSitter: UIViewController {
         // configure footer view
         return view
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toPet"){
+            let viewController = segue.destinationViewController as! PetInfoSitter
+            if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
+                viewController.petName = buttonTitle
+            }}
+    }
 
     /*func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         //1
