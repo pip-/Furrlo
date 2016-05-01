@@ -34,8 +34,6 @@ class PetTabOwner: UIViewController {
                 pets.append(pet.name!)
             }
         }*/
-
-        
         
         // Do any additional setup after loading the view.
     }
@@ -47,7 +45,8 @@ class PetTabOwner: UIViewController {
                 petSpecies.append(pet.species!)
             }
         }
-                
+        //self.petCollection.reloadData()
+        //was causing the cells to appear twice
     }
         
     
