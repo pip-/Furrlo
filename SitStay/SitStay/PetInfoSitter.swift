@@ -35,6 +35,7 @@ class PetInfoSitter: UIViewController {
                     petSpecies.text = pet.species
                     petBreedLabel.text = pet.breed
                     petPersonalityLabel.text = pet.personality
+                    print(pet.personality)
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
                     
