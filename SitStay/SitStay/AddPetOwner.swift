@@ -25,6 +25,9 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBOutlet weak var petAge: UITextField!
     
+    var activeTextField: UITextField? = nil
+    let keyboardVerticalSpacing: CGFloat = 30
+    
     var testString: String?
     var name: String?
     var species: String?
@@ -129,6 +132,20 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        activeTextField?.resignFirstResponder()
+        
+        return true
     }
     
     
