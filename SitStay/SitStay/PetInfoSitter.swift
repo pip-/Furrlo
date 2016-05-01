@@ -18,6 +18,7 @@ class PetInfoSitter: UIViewController {
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var petBreedLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
     var petName: String?
     
     
@@ -34,11 +35,25 @@ class PetInfoSitter: UIViewController {
                     petSpecies.text = pet.species
                     petBreedLabel.text = pet.breed
                     petPersonalityLabel.text = pet.personality
+                    print(pet.personality)
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
-                    //imageView = pet.
                     
+                    var lowerCase = petSpecies.text?.lowercaseString
+                    //let lowerCase = pet.species?.lowercaseString
+                    print(lowerCase)
+                    if(lowerCase == "dog"){
+                        imageView.image = UIImage(named: "dog profile.png")
+                        
+                    }
+                    else if(lowerCase == "cat"){
+                        imageView.image = UIImage(named: "cat head.png")
+                        
+                    }
+                    else{
+                        imageView.image = UIImage(named: "Untitled-6.png")                    }
                     
+                    self.title = pet.name
                     
                 }
             }
