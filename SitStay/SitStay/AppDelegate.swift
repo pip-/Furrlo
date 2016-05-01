@@ -181,6 +181,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateTripID(oldID: Int, newID: Int){
+        do{
+        let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+        for trip in fetchedTrips{
+            if (trip.tripID == oldID){
+                trip.tripID = newID
+            }
+        }
+    }
+        catch {
+    //fatalError("Failed to fetch trips: \(error)")
+    print("Could not find this tripID")
+    
+    }
+    }
+
     func getPets() -> [Pet]?{
         do {
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet"))

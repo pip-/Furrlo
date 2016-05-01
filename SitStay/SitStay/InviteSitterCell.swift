@@ -31,39 +31,35 @@ class InviteSitterCell: UITableViewCell, MFMailComposeViewControllerDelegate {
     
     //override func
     @IBAction func sendEmail(sender: AnyObject) {
-        print("Send an email!!")
-        if let vc = vc{
-        //let nc = vc.navigationController
-        let mc = MFMailComposeViewController.init()
-            mc.mailComposeDelegate = self
-            mc.setSubject("Be My Sitter!")
-            mc.setMessageBody("Hi there! Join our club", isHTML: false)
-            vc.presentViewController(mc, animated: true, completion: nil)
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.vc!.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
         }
         
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        switch(result){
-        case MFMailComposeResultCancelled:
-            NSLog("Mail cancelled");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog("Mail saved");
-            break;
-        case MFMailComposeResultSent:
-            NSLog("Mail sent");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog("Mail sent failure: " + String(error));
-            break;
-        default:
-            break;
-        }
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        if let vc = vc{
-            vc.dismissViewControllerAnimated(true, completion: nil)
-        }
+        mailComposerVC.setToRecipients([])
+        mailComposerVC.setSubject("Be My Pet Sitter!")
+        mailComposerVC.setMessageBody("Hello! I am looking forward to having you as my pet sitter! So we can keep in touch, please download Furrlo on the App Store! Then confirm our trip using the Trip ID: id. Thanks!", isHTML: false)
+        
+        return mailComposerVC
     }
-
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
 }

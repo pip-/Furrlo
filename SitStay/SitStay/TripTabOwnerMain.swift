@@ -15,6 +15,7 @@ class TripTabOwnerMain: UITableViewController {
     
     var tripNames: [String] = []
     var tripIds: [Int] = []
+    var trips: [Trip] = []
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -30,6 +31,7 @@ class TripTabOwnerMain: UITableViewController {
                         } else {
                             tripNames.append(trip.tripName!)
                             tripIds.append(Int(trip.tripID!))
+                            trips.append(trip)
                             print(trip.tripName!)
                         }
                         
@@ -49,6 +51,7 @@ class TripTabOwnerMain: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         tripNames.removeAll()
         tripIds.removeAll()
+        get()
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == false){
@@ -152,8 +155,6 @@ class TripTabOwnerMain: UITableViewController {
             }
             
             print("response = \(response)")
-            print("userID")
-            print(userID!)
             
             var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")
