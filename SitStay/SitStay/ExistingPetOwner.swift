@@ -27,6 +27,9 @@ class ExistingPetOwner: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
+
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
@@ -38,6 +41,10 @@ class ExistingPetOwner: UIViewController{
                     petPersonalityLabel.text = pet.personality
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
+                    //imageView = pet.
+                
+                    
+                    
                 }
             }
         }

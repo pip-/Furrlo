@@ -26,5 +26,10 @@ extension Pet {
     @NSManaged var tripID: Trip?
     @NSManaged var toDoItems: NSSet?
     @NSManaged var user: User?
+    
+    
+    //@NSManaged var picture:UIImage? = nil
+    //@NSManaged var owner: NSNumber?
+    
 
 }

@@ -226,9 +226,9 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     //for dict in petDicts{
                         
                        // print(String(dict["PetName"]))
-                       // print(String(dict["PetID"]))
+                        //print(String(dict["PetID"]))
                         
-                appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!)
+                    appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!)
                     
                        // print ("pet added")
                   //  }
