@@ -163,7 +163,7 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
             }
             
             self.appDelegate.insertNewPet("Bob", species: "Dog", breed: "Lab", age: nil, personality: nil, food: nil, notes: nil)
-            self.appDelegate.insertNewPet("Steve", species: "Cat", breed: "Spots", age: <#T##String?#>, personality: <#T##String?#>, food: <#T##String?#>, notes: <#T##String?#>)
+            self.appDelegate.insertNewPet("Steve", species: "Cat", breed: "Spots", age: nil, personality: nil, food: nil, notes: nil)
 
             self.taskComplete()
         }
