@@ -143,7 +143,8 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addPet.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)&i=\(imageView.image!)"
+        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)"
+        //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

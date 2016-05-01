@@ -15,6 +15,8 @@ class PetTabOwner: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     var pets: [String] = []
+    var petSpecies: [String] = []
+
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
@@ -42,6 +44,7 @@ class PetTabOwner: UIViewController {
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
+                petSpecies.append(pet.species!)
             }
         }
         
@@ -82,10 +85,23 @@ class PetTabOwner: UIViewController {
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCellOwner
         
+            
+            
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
         cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
-        cell.petImage.image = UIImage(named: "cat profile.jpg")
+            
+            if (self.petSpecies[indexPath.item] == "Dog" || self.petSpecies[indexPath.item] == "dog"){
+                cell.petImage.image = UIImage(named: "dog profile.png")
+            }
+            else if (self.petSpecies[indexPath.item] == "Cat" || self.petSpecies[indexPath.item] == "cat"){
+                cell.petImage.image = UIImage(named: "cat head.png")
+            }else{
+                cell.petImage.image = UIImage(named: "Untitled-6.png")
+            }
+            
+            
+        //cell.petImage.image = UIImage(named: "cat profile.jpg")
         
             
         let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
