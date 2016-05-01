@@ -180,7 +180,6 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
         task.resume()
         getPetAddPet()
-        navigationController?.popViewControllerAnimated(true)
 
        
     }
@@ -257,10 +256,19 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                        // print ("pet added")
                   //  }
                     //-------------------------------------------
+                    
+                    self.taskComplete()
                 }
         }
         
         task.resume()
                //cancel(self)
-}
+    }
+    
+    func taskComplete(){
+        NSOperationQueue.mainQueue().addOperationWithBlock{
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    }
 }
