@@ -14,7 +14,7 @@ class ViewTripSitter: UITableViewController {
     
     var trip: Trip? = nil
     
-    var content = ["", "", "", "Example"]
+    var content = ["", "", "", "Example", "", ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,14 @@ class ViewTripSitter: UITableViewController {
         content[1] += ", " + (trip?.city)!
         content[1] += ", " + (trip?.zip)!
         content[3] = (trip?.tripName)!
+        
+        if let email = trip?.email{
+            content[4] = email
+        }
+        
+        if let phone = trip?.phone{
+            content[5] = phone
+        }
         
         if let trip = trip{
             if let set = trip.pets{
@@ -74,7 +82,7 @@ class ViewTripSitter: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if(section == 0){
-            return 2
+            return 3
         } else {
             return 1
         }
@@ -96,8 +104,13 @@ class ViewTripSitter: UITableViewController {
                 cell.changeTitle("Dates")
                 cell.changeDetail(content[0])
             } else {
-                cell.changeTitle("Address")
-                cell.changeDetail(content[1])
+                if(indexPath.row == 1){
+                    cell.changeTitle("Address")
+                    cell.changeDetail(content[1])
+                } else {
+                    cell.changeTitle("Contact Info")
+                    cell.changeDetail("Email: " + content[4] + " Phone: " + content[5])
+                }
                 
             }
         }
@@ -112,12 +125,12 @@ class ViewTripSitter: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if(indexPath.section == 0){
-            if(indexPath.row == 1){
-                return 80
+            if(indexPath.row == 1 || indexPath.row == 2){
+                return 100
             }
         }
         if(indexPath.section == 1){
-            return 100
+            return 130
         }
         return 60
     }
@@ -131,7 +144,6 @@ class ViewTripSitter: UITableViewController {
     }
     
     func edit(){
-        print("Editing")
         let nc = self.navigationController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip") as! NewTripOwnerController

@@ -9,10 +9,42 @@
 import UIKit
 
 class PetInfoSitter: UIViewController {
+    
+    @IBOutlet weak var petAge: UILabel!
+    @IBOutlet weak var petSpecies: UILabel!
+    @IBOutlet weak var petPersonalityLabel: UILabel!
+    @IBOutlet weak var petFoodLabel: UILabel!
+    @IBOutlet weak var petNotes: UILabel!
+    @IBOutlet weak var petNameLabel: UILabel!
+    @IBOutlet weak var petBreedLabel: UILabel!
+    
+    var petName: String?
+    
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                if (pet.name == petName){
+                    petNameLabel.text = petName
+                    petAge.text = pet.age
+                    petSpecies.text = pet.species
+                    petBreedLabel.text = pet.breed
+                    petPersonalityLabel.text = pet.personality
+                    petFoodLabel.text = pet.food
+                    petNotes.text = pet.notes
+                    //imageView = pet.
+                    
+                    
+                    
+                }
+            }
+        }
+
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +53,14 @@ class PetInfoSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toPet"){
+            let viewController = segue.destinationViewController as! PetInfoSitter
+            if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
+                viewController.petName = buttonTitle
+            }}
+    }
     /*
     // MARK: - Navigation
 
