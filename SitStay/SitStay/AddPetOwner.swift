@@ -79,15 +79,15 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 if let species = petSpecies.text{
                     if(species.characters.count > 0){
                         if let breed = petBreedLabel.text{
-                            if(breed.characters.count > 0){
+                            if(breed.characters.count >= 0){
                                 if let stringAge = petAge.text{
-                                    if(stringAge.characters.count > 0){
+                                    if(stringAge.characters.count >= 0){
                                         if let personality = petPersonalityLabel.text{
-                                            if(personality.characters.count > 0){
+                                            if(personality.characters.count >= 0){
                                                 if let food = petFoodLabel.text{
-                                                    if(food.characters.count > 0){
+                                                    if(food.characters.count >= 0){
                                                         if let notes = petNotes.text{
-                                                            if(notes.characters.count > 0){
+                                                            if(notes.characters.count >= 0){
                                                             let submitButton = self.navigationItem.rightBarButtonItems![0]
                                                             submitButton.enabled = true
                                                             return
@@ -103,7 +103,8 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                         }
                     }
                 }
-            }}
+            }
+        }
             let submitButton = self.navigationItem.rightBarButtonItems![0]
             submitButton.enabled = false
         }
