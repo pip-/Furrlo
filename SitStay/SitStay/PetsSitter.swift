@@ -16,9 +16,10 @@ class PetsSitter: UIViewController {
     
     
     var pets: [String] = []
+    var petSpecies: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
-    var numSections = 0
+    //var numSections = 0
     var tripNames: [String] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -29,8 +30,17 @@ class PetsSitter: UIViewController {
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
                     if(tripNames.count > 0){
-                        numSections = tripNames.count
+                       // numSections = tripNames.count
                     }
+                }
+            }
+        }
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                if(pet.isSat!.boolValue == true){
+                    pets.append(pet.name!)
+                    petSpecies.append(pet.species!)
                 }
             }
         }
@@ -43,11 +53,11 @@ class PetsSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    /*func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
         
         return numSections
-    }
+    }*/
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -75,9 +85,16 @@ class PetsSitter: UIViewController {
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
-            cell.petImage.image = UIImage(named: "cat profile.jpg")
             cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
             
+            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
+                cell.petImage.image = UIImage(named: "dog profile.png")
+            }
+            else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
+                cell.petImage.image = UIImage(named: "cat head.png")
+            }else{
+                cell.petImage.image = UIImage(named: "Untitled-6.png")
+            }
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
             // make cell more visible in our example project
