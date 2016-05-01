@@ -18,7 +18,7 @@ class PetsSitter: UIViewController {
     var pets: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
-    var numSections = 1
+    var numSections = 0
     var tripNames: [String] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -44,6 +44,8 @@ class PetsSitter: UIViewController {
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
+        
         return numSections
     }
     
@@ -108,6 +110,14 @@ class PetsSitter: UIViewController {
             
             return CGSize(width: cellWidth , height: cellHeight)
         }
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: "footer", forIndexPath: indexPath)
+        // configure footer view
+        return view
     }
 
     /*func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
