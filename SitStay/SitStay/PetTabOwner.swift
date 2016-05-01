@@ -39,13 +39,17 @@ class PetTabOwner: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
 
+        pets.removeAll()
+        petSpecies.removeAll()
+        
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
                 petSpecies.append(pet.species!)
             }
         }
-        //self.petCollection.reloadData()
+        
+        self.petCollection.reloadData()
         //was causing the cells to appear twice
     }
         
