@@ -51,6 +51,8 @@ class ViewTripOwner: UITableViewController {
             }
         }
         
+        print("TRIP ID: " + String(trip?.tripID))
+        
         self.navigationItem.rightBarButtonItems = [b]
         
         content[3] = (trip?.tripName)!
