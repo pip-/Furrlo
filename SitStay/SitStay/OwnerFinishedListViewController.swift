@@ -44,9 +44,9 @@ class OwnerFinishedListViewController: UIViewController,UITableViewDelegate,UITa
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("headercell") as! DayTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("headercell") //as! DayTableViewCell
         
-        cell.textLabel?.text = days[section]
+        cell!.textLabel?.text = days[section]
         
         
         return cell

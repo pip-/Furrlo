@@ -35,9 +35,7 @@ class NewTripOwnerController: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         if let fetchedPets = appDelegate.getPets(){
-            //print("Tried to fetch pets!")
-            pets = fetchedPets
-            print("# of pets: " + String(pets.count))
+            chosenPets = fetchedPets
         }
         
         let submitButton = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: #selector(NewTripOwnerController.submit))
@@ -61,7 +59,7 @@ class NewTripOwnerController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,9 +134,6 @@ class NewTripOwnerController: UITableViewController {
             label2.textColor = UIColor.init(colorLiteralRed: 194/255, green: 201/255, blue: 198/244, alpha: 1.0)
             label2.text = "Where is the sitter taking care of your pet?"
             view.addSubview(label2)
-        }
-        else if(section == 3){
-            label.text = "Which Pets will be watched?"
         } else if(section == 0){
             label.text = "Please Choose a Trip Name"
         }
@@ -209,16 +204,6 @@ class NewTripOwnerController: UITableViewController {
                     return cell
                 }
             }
-        } else if(indexPath.section == 3){
-        if(pets.count == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("noPetsCell", forIndexPath: indexPath)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("petCheckCell", forIndexPath: indexPath) as! PetCheckCell
-            
-            cell.setPTVController(self, associatedPet: pets[indexPath.row])
-            return cell
-            }
         }
             let cell = tableView.dequeueReusableCellWithIdentifier("tripNameCell", forIndexPath: indexPath) as! TripNameCell
             cell.textField.placeholder = "Trip Name"
@@ -254,7 +239,7 @@ class NewTripOwnerController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if(indexPath.section == 0){
+        if(indexPath.section == 1){
             datePickerSelected = true
             if(indexPath.row != 1){
                 rowSelected=indexPath.row
@@ -263,7 +248,7 @@ class NewTripOwnerController: UITableViewController {
             datePickerSelected = false
             rowSelected = -1
         }
-        self.tableView.reloadSections(NSIndexSet.init(index: 0), withRowAnimation: .Middle)
+        self.tableView.reloadSections(NSIndexSet.init(index: 1), withRowAnimation: .Middle)
     }
     
     func dateToString(date: NSDate) -> String{
@@ -303,16 +288,48 @@ class NewTripOwnerController: UITableViewController {
             appDelegate.saveContext()
         }
         let user = appDelegate.getUser()
-        let userID=user!.userID
+        let userID = user!.userID
+        
+        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil)
+        
+    
         
 /*DB code below*/
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
         
+        var postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+    
+        if let address2 = address2 {
+            if let phone = user?.phone {
+                if let email = user?.email{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)&j=\(email)"
+                } else{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)"
+                }
+            }
+            else {
+                if let email = user?.email{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&j=\(email)"
+                } else {
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+                }
+            }
+        } else {
+            if let phone = user?.phone {
+                if let email = user?.email {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)&j=\(email)"
+                } else {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)"
+                }
+            } else {
+                if let email = user?.email {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&j=\(email)"
+                }
+            }
+        }
+        
+        
         request.HTTPMethod = "POST"
-        if let address2 = address2{
-            print("ADDRESS 2:" + address2)
-            let address = street! + ", " + address2
-        let postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -330,28 +347,7 @@ class NewTripOwnerController: UITableViewController {
             
         }
         task.resume()
-        } else {
-            let postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
-            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-            
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-                data, response, error in
-                
-                if error != nil {
-                    print("error=\(error)")
-                    return
-                }
-                
-                print("response = \(response)")
-                
-                let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print("responseString = \(responseString)")
-                
-            }
-            task.resume()
-        }
 /*DB code Above*/
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false)
         
         cancel(self)
     }

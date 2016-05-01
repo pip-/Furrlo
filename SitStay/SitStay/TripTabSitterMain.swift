@@ -20,14 +20,17 @@ class TripTabSitterMain: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "editing")
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == true){
+                        if(trip.endDate <= NSDate.init(timeIntervalSinceNow: 3600 * 24 * 2)){
+                            print("Deleting a trip that is too old.")
+                            appDelegate.deleteTrip(Int(trip.tripID!))
+                        }else{
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
-                        print(trip.tripName!)
-                    }
+                        }
+                }
             }
         }
         
@@ -41,6 +44,7 @@ class TripTabSitterMain: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        print("Will Appear...")
         tripNames.removeAll()
         tripIds.removeAll()
         if let fetchedTrips = appDelegate.getTrips(){
@@ -52,6 +56,7 @@ class TripTabSitterMain: UITableViewController {
                     }
             }
         }
+        self.tableView.reloadData()
     }
     
     
