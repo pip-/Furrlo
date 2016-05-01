@@ -1203,8 +1203,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Do you have anything else that sitter would like to know?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2L-Tt-1ih">
-                                <rect key="frame" x="45" y="408" width="510" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Any other notes?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2L-Tt-1ih">
+                                <rect key="frame" x="45" y="408" width="510" height="55"/>
                                 <color key="backgroundColor" red="0.93738991022109985" green="1" blue="0.96602720022201538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XHL-zf-aUa"/>
@@ -1395,12 +1395,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-sa-6wz">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-sa-6wz">
                                             <rect key="frame" x="35" y="13" width="100" height="145"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="145" id="YpT-0z-XFc"/>
                                                 <constraint firstAttribute="width" constant="100" id="hMI-KT-EVe"/>
                                             </constraints>
+                                            <state key="normal">
+                                                <color key="titleColor" red="0.93738991019999995" green="1" blue="0.96602720019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <segue destination="hh8-J6-g0Y" kind="show" identifier="toPet" id="Gac-Ez-T76"/>
                                             </connections>
@@ -1428,6 +1431,8 @@
                                     <constraint firstItem="ONG-sa-6wz" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" constant="35" id="RyK-OS-5fB"/>
                                     <constraint firstItem="ONG-sa-6wz" firstAttribute="centerY" secondItem="E4h-xn-Upe" secondAttribute="centerY" constant="35" id="SZn-Is-4r3"/>
                                     <constraint firstItem="kl4-jW-QxR" firstAttribute="centerX" secondItem="E4h-xn-Upe" secondAttribute="centerX" id="eUh-qQ-p4I"/>
+                                    <constraint firstItem="ONG-sa-6wz" firstAttribute="width" secondItem="E4h-xn-Upe" secondAttribute="width" id="nbE-EF-9F4"/>
+                                    <constraint firstItem="ONG-sa-6wz" firstAttribute="height" secondItem="E4h-xn-Upe" secondAttribute="height" id="tJC-AJ-nw8"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="petButton" destination="ONG-sa-6wz" id="YDf-gA-3qp"/>

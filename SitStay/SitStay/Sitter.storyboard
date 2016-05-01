@@ -191,7 +191,7 @@
                                                 <constraint firstAttribute="height" constant="145" id="9lX-Or-J0O"/>
                                             </constraints>
                                             <connections>
-                                                <segue destination="dFp-uM-h91" kind="show" id="onv-7Q-pv2">
+                                                <segue destination="dFp-uM-h91" kind="show" identifier="toPet" id="onv-7Q-pv2">
                                                     <nil key="action"/>
                                                 </segue>
                                             </connections>
@@ -287,8 +287,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cat, Orange" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPV-uy-VLi">
-                                <rect key="frame" x="119" y="200" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPV-uy-VLi">
+                                <rect key="frame" x="119" y="200" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -342,6 +342,12 @@
                                     <constraint firstAttribute="height" constant="100" id="qHD-gt-5FD"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeW-yK-ZUQ">
+                                <rect key="frame" x="250" y="200" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.79594925490000001" green="0.96348750009999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -361,6 +367,7 @@
                             <constraint firstItem="Fml-97-c5x" firstAttribute="top" secondItem="DP5-1K-g7c" secondAttribute="bottom" constant="55" id="bEN-KF-Jum"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zhp-ED-u9c" secondAttribute="trailing" constant="15" id="bqQ-R1-yQf"/>
                             <constraint firstItem="QbG-wZ-DSo" firstAttribute="top" secondItem="zhp-ED-u9c" secondAttribute="bottom" constant="10" id="cE9-7t-iJ9"/>
+                            <constraint firstItem="SeW-yK-ZUQ" firstAttribute="leading" secondItem="zPV-uy-VLi" secondAttribute="trailing" constant="5" id="cTd-8A-41M"/>
                             <constraint firstItem="DV6-cH-uHB" firstAttribute="leading" secondItem="dA8-AM-hrb" secondAttribute="leadingMargin" constant="15" id="d5y-BQ-drG"/>
                             <constraint firstItem="dhU-gK-H0e" firstAttribute="leading" secondItem="dA8-AM-hrb" secondAttribute="leadingMargin" constant="15" id="iif-77-J1k"/>
                             <constraint firstItem="zPV-uy-VLi" firstAttribute="leading" secondItem="Fml-97-c5x" secondAttribute="trailing" constant="20" id="lrg-KN-GhZ"/>
@@ -369,6 +376,15 @@
                             <constraint firstItem="1Y5-UG-Dey" firstAttribute="leading" secondItem="Fml-97-c5x" secondAttribute="trailing" constant="20" id="urK-HU-1aX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="petAge" destination="1Y5-UG-Dey" id="Q7a-20-pqg"/>
+                        <outlet property="petBreedLabel" destination="SeW-yK-ZUQ" id="8ce-MA-nzx"/>
+                        <outlet property="petFoodLabel" destination="zhp-ED-u9c" id="Q3Y-N2-HHY"/>
+                        <outlet property="petNameLabel" destination="aUf-sI-evY" id="nBi-tz-edS"/>
+                        <outlet property="petNotes" destination="1qx-aX-uzj" id="bcD-2Q-qi6"/>
+                        <outlet property="petPersonalityLabel" destination="FRb-Ny-2EF" id="RPn-fR-5hS"/>
+                        <outlet property="petSpecies" destination="zPV-uy-VLi" id="ukI-kF-QWj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9v-rk-PML" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

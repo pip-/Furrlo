@@ -18,7 +18,7 @@ class PetsSitter: UIViewController {
     var pets: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
-    var numSections = 0
+    var numSections = 1
     var tripNames: [String] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -74,6 +74,7 @@ class PetsSitter: UIViewController {
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
             cell.petImage.image = UIImage(named: "cat profile.jpg")
+            cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
             
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
@@ -109,7 +110,7 @@ class PetsSitter: UIViewController {
         }
     }
 
-    func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    /*func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         //1
         switch kind {
         //2
@@ -123,7 +124,7 @@ class PetsSitter: UIViewController {
             //4
             assert(false, "Unexpected element kind")
         }
-    }
+    }*/
     
     
     // MARK: - UICollectionViewDelegate protocol
