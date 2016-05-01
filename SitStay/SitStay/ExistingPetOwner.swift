@@ -42,11 +42,14 @@ class ExistingPetOwner: UIViewController{
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
                    
-                    if(pet.species == "Dog" || pet.species == "dog"){
+                    var lowerCase = petSpecies.text?.lowercaseString
+                    //let lowerCase = pet.species?.lowercaseString
+                    print(lowerCase)
+                    if(lowerCase == "dog"){
                         imageView.image = UIImage(named: "dog profile.png")
 
                     }
-                    else if(pet.species == "Cat" || pet.species == "cat"){
+                    else if(lowerCase == "cat"){
                         imageView.image = UIImage(named: "cat head.png")
 
                     }

@@ -47,8 +47,7 @@ class PetTabOwner: UIViewController {
                 petSpecies.append(pet.species!)
             }
         }
-        
-
+                
     }
         
     
@@ -91,10 +90,10 @@ class PetTabOwner: UIViewController {
         cell.petName.text = self.pets[indexPath.item] as? String
         cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
             
-            if (self.petSpecies[indexPath.item] == "Dog" || self.petSpecies[indexPath.item] == "dog"){
+            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
                 cell.petImage.image = UIImage(named: "dog profile.png")
             }
-            else if (self.petSpecies[indexPath.item] == "Cat" || self.petSpecies[indexPath.item] == "cat"){
+            else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
                 cell.petImage.image = UIImage(named: "cat head.png")
             }else{
                 cell.petImage.image = UIImage(named: "Untitled-6.png")
