@@ -21,8 +21,12 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBOutlet weak var imageView: UIImageView!
     let imagePicker = UIImagePickerController()
+    //var petPicture: NSData?
     
     @IBOutlet weak var petAge: UITextField!
+    
+    var activeTextField: UITextField? = nil
+    let keyboardVerticalSpacing: CGFloat = 30
     
     var testString: String?
     var name: String?
@@ -32,7 +36,6 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var personality: String?
     var food: String?
     var notes: String?
-    
     
 
     
@@ -76,15 +79,15 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 if let species = petSpecies.text{
                     if(species.characters.count > 0){
                         if let breed = petBreedLabel.text{
-                            if(breed.characters.count > 0){
+                            if(breed.characters.count >= 0){
                                 if let stringAge = petAge.text{
-                                    if(stringAge.characters.count > 0){
+                                    if(stringAge.characters.count >= 0){
                                         if let personality = petPersonalityLabel.text{
-                                            if(personality.characters.count > 0){
+                                            if(personality.characters.count >= 0){
                                                 if let food = petFoodLabel.text{
-                                                    if(food.characters.count > 0){
+                                                    if(food.characters.count >= 0){
                                                         if let notes = petNotes.text{
-                                                            if(notes.characters.count > 0){
+                                                            if(notes.characters.count >= 0){
                                                             let submitButton = self.navigationItem.rightBarButtonItems![0]
                                                             submitButton.enabled = true
                                                             return
@@ -100,7 +103,8 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                         }
                     }
                 }
-            }}
+            }
+        }
             let submitButton = self.navigationItem.rightBarButtonItems![0]
             submitButton.enabled = false
         }
@@ -118,6 +122,10 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .ScaleAspectFit
             imageView.image = pickedImage
+            
+           // let petPicture = UIImageJPEGRepresentation(pickedImage, 1.0)
+            //imageData = UIImageJPEGRepresentation(pickedImage, 1)!
+             //let petImage: UIImage = UIImage(data:imageData,scale:1.0)!
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -125,6 +133,20 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        activeTextField?.resignFirstResponder()
+        
+        return true
     }
     
     
@@ -140,6 +162,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         
         request.HTTPMethod = "POST"
         let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)"
+        //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -157,7 +180,6 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
         task.resume()
         getPetAddPet()
-        navigationController?.popViewControllerAnimated(true)
 
        
     }
@@ -171,6 +193,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let user = appDelegate.getUser()
         let userID=user!.userID
         testString=petNameLabel.text
+        
     
             let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
             request.HTTPMethod = "POST"
@@ -226,17 +249,26 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     //for dict in petDicts{
                         
                        // print(String(dict["PetName"]))
-                       // print(String(dict["PetID"]))
-                        
-                appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!)
+                        //print(String(dict["PetID"]))
+                    
+                    appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: true)
                     
                        // print ("pet added")
                   //  }
                     //-------------------------------------------
+                    
+                    self.taskComplete()
                 }
         }
         
         task.resume()
                //cancel(self)
-}
+    }
+    
+    func taskComplete(){
+        NSOperationQueue.mainQueue().addOperationWithBlock{
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+    }
 }

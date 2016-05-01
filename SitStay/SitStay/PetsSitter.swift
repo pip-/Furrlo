@@ -13,11 +13,37 @@ class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
+    
+    
     var pets: [String] = []
+    var petSpecies: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
+    
+    //var numSections = 0
+    var tripNames: [String] = []
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let fetchedTrips = appDelegate.getTrips(){
+            for trip in fetchedTrips{
+                if(trip.isSitting!.boolValue == true){
+                    if(tripNames.count > 0){
+                       // numSections = tripNames.count
+                    }
+                }
+            }
+        }
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                if(pet.isSat!.boolValue == true){
+                    pets.append(pet.name!)
+                    petSpecies.append(pet.species!)
+                }
+            }
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -27,6 +53,11 @@ class PetsSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /*func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
+        
+        return numSections
+    }*/
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,8 +85,16 @@ class PetsSitter: UIViewController {
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
-            cell.petImage.image = UIImage(named: "cat profile.jpg")
+            cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
             
+            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
+                cell.petImage.image = UIImage(named: "dog profile.png")
+            }
+            else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
+                cell.petImage.image = UIImage(named: "cat head.png")
+            }else{
+                cell.petImage.image = UIImage(named: "Untitled-6.png")
+            }
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
             // make cell more visible in our example project
@@ -84,12 +123,36 @@ class PetsSitter: UIViewController {
             //let cellSize = sqrt(Double(deviceSize.width * deviceSize.height) / (Double(33)))
             
             let cellWidth = 100
-            let cellHeight = 145
+            let cellHeight = 150
             
             return CGSize(width: cellWidth , height: cellHeight)
         }
     }
+    
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: "footer", forIndexPath: indexPath)
+        // configure footer view
+        return view
+    }
 
+    /*func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        //1
+        switch kind {
+        //2
+        case UICollectionElementKindSectionHeader:
+            //3
+            let headerView =
+                collectionView.dequeueReusableSupplementaryViewOfKind(kind,withReuseIdentifier: "header",forIndexPath: indexPath)as! supplementaryView
+            headerView.label.text = ""
+            return headerView
+        default:
+            //4
+            assert(false, "Unexpected element kind")
+        }
+    }*/
+    
     
     // MARK: - UICollectionViewDelegate protocol
     
@@ -98,4 +161,5 @@ class PetsSitter: UIViewController {
         print("You selected cell #\(indexPath.item)!")
     }
     
+       
 }

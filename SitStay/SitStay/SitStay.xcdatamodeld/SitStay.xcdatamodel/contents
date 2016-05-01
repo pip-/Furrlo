@@ -4,6 +4,7 @@
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="breed" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="food" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSat" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="personality" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,15 +19,19 @@
         <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="instruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="instructionDetail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSat" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="itemID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="petID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="petParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="toDoItems" inverseEntity="Pet" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName=".Trip" syncable="YES">
         <attribute name="addr1" attributeType="String" syncable="YES"/>
         <attribute name="addr2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" attributeType="Date" syncable="YES"/>
         <attribute name="isSitting" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" attributeType="Date" syncable="YES"/>
         <attribute name="tripID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="tripName" attributeType="String" syncable="YES"/>
@@ -38,15 +43,15 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="petID" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pet" inverseName="user" inverseEntity="Pet" syncable="YES"/>
         <relationship name="trips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trip" inverseName="userID" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pet" positionX="-171" positionY="222" width="128" height="225"/>
-        <element name="Trip" positionX="322" positionY="102" width="128" height="210"/>
+        <element name="Pet" positionX="-171" positionY="222" width="128" height="240"/>
+        <element name="ToDoItem" positionX="45" positionY="261" width="128" height="150"/>
+        <element name="Trip" positionX="322" positionY="102" width="128" height="240"/>
         <element name="User" positionX="16" positionY="399" width="128" height="150"/>
-        <element name="ToDoItem" positionX="45" positionY="261" width="128" height="120"/>
     </elements>
 </model>
