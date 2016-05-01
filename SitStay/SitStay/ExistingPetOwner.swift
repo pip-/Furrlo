@@ -27,6 +27,9 @@ class ExistingPetOwner: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
+
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
@@ -38,9 +41,27 @@ class ExistingPetOwner: UIViewController{
                     petPersonalityLabel.text = pet.personality
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
+                   
+                    var lowerCase = petSpecies.text?.lowercaseString
+                    //let lowerCase = pet.species?.lowercaseString
+                    print(lowerCase)
+                    if(lowerCase == "dog"){
+                        imageView.image = UIImage(named: "dog profile.png")
+
+                    }
+                    else if(lowerCase == "cat"){
+                        imageView.image = UIImage(named: "cat head.png")
+
+                    }
+                    else{
+                        imageView.image = UIImage(named: "Untitled-6.png")                    }
+                    
+                 self.title = pet.name   
                 }
+            
             }
         }
+        
         
         // Do any additional setup after loading the view.
     }

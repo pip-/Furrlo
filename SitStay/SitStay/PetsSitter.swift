@@ -44,6 +44,8 @@ class PetsSitter: UIViewController {
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
+        
         return numSections
     }
     
@@ -74,6 +76,7 @@ class PetsSitter: UIViewController {
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
             cell.petImage.image = UIImage(named: "cat profile.jpg")
+            cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
             
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
@@ -108,8 +111,16 @@ class PetsSitter: UIViewController {
             return CGSize(width: cellWidth , height: cellHeight)
         }
     }
+    
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: "footer", forIndexPath: indexPath)
+        // configure footer view
+        return view
+    }
 
-    func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    /*func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         //1
         switch kind {
         //2
@@ -123,7 +134,7 @@ class PetsSitter: UIViewController {
             //4
             assert(false, "Unexpected element kind")
         }
-    }
+    }*/
     
     
     // MARK: - UICollectionViewDelegate protocol
