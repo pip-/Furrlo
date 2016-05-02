@@ -110,7 +110,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
     
     
-    @IBAction func loadImage(sender: AnyObject) {
+   /* @IBAction func loadImage(sender: AnyObject) {
         
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -133,7 +133,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
+    }*/
     
     func textFieldDidBeginEditing(textField: UITextField) {
         activeTextField = textField
