@@ -309,5 +309,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
+    func pickPetPicture(petSpecies: String) -> UIImage{
+        
+        var lowerCase = petSpecies.lowercaseString
+        var image: UIImage
+        
+        if(lowerCase == "dog"){
+            image = UIImage(named:"dog profile.png")!
+            
+        }
+        else if(lowerCase == "cat"){
+            image = UIImage(named:"cat head.png")!
+            
+        }
+        else{
+            image  = UIImage(named:"Untitled-6.png")!
+        }
+        return image
+    }
+    
 }
+
 
