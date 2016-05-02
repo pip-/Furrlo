@@ -13,6 +13,8 @@ class OwnerToDoTableViewController: UITableViewController{
     //@IBOutlet var OwnerLists: UITableView!
     @IBOutlet var OwnerLists: UITableView!
     
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
      var dayTitles = ["Today","Tomorrow","Later"]
