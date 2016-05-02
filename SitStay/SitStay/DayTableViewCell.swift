@@ -10,6 +10,7 @@ import UIKit
 
 class DayTableViewCell: UITableViewCell {
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
