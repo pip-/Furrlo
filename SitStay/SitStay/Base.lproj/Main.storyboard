@@ -2328,7 +2328,7 @@
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="hY2-qL-bmg"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="plain" id="hY2-qL-bmg"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
