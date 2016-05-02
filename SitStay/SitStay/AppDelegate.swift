@@ -196,6 +196,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     }
     }
+    
+    func getToDoItems() -> [ToDoItem]?{
+        do {
+            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            return fetchedToDoItems
+        } catch {
+            fatalError("Failed to fetch To Do Items: \(error)")
+        }
+    }
+    
 
     func getPets() -> [Pet]?{
         do {
@@ -308,15 +318,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
-   func getToDoItem() -> [ToDoItem]?{
-        do {
-            let fetchedToDoItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
-            return fetchedToDoItem
-        } catch {
-            fatalError("Failed to fetch To Do Items: \(error)")
-        }
-    }
-    
+ 
     func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool, petParent: Pet?){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
         

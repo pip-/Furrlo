@@ -19,6 +19,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
      var dayTitles = ["Today","Tomorrow","Later"]
     
+    //var dailyTaskLists: [String] = []
+    //var dayTitles: [String] = []
+    
     var taskDone = true;
     
     //var pets : [String] = ["Mira"]
