@@ -181,6 +181,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateTripID(oldID: Int, newID: Int){
+        do{
+        let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+        for trip in fetchedTrips{
+            if (trip.tripID == oldID){
+                trip.tripID = newID
+            }
+        }
+    }
+        catch {
+    //fatalError("Failed to fetch trips: \(error)")
+    print("Could not find this tripID")
+    
+    }
+    }
+
     func getPets() -> [Pet]?{
         do {
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet"))
@@ -250,7 +266,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?){
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool){
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         
@@ -263,6 +279,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.food = food
         newPet.notes = notes
         //newPet.picture = picture
+        
+        if(isSat){
+            newPet.isSat = 1
+        }
         
         //newPet.petID = Int(arc4random_uniform(8000000) + 100000)
         
