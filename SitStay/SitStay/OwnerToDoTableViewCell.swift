@@ -10,16 +10,24 @@ import UIKit
 
 class OwnerToDoTableViewController: UITableViewController{
     
+    //@IBOutlet var OwnerLists: UITableView!
     @IBOutlet var OwnerLists: UITableView!
     
-    var pets : [String] = ["Mira"]
+    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    
+     var dayTitles = ["Today","Tomorrow","Later"]
+    
+    var taskDone = true;
+    
+    //var pets : [String] = ["Mira"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         OwnerLists.delegate = self
         OwnerLists.dataSource = self
-        
+    
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,22 +39,36 @@ class OwnerToDoTableViewController: UITableViewController{
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return dayTitles.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return pets.count
+        return dailyTaskLists[section].count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
         
-        // Configure the cell...
+        cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         
-        return cell!
+        if (taskDone == true){
+            cell.accessoryType = .Checkmark
+        }
+        
+        return cell
     }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
+        
+        cell.textLabel?.text = dayTitles[section]
+        
+        return cell
+    }
+    
+ 
     
     
     /*
