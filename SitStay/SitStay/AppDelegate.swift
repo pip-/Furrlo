@@ -210,7 +210,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?) -> Int{
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User) -> Int{
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -240,6 +240,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for pet in pets{
             pet.tripID = trip
         }
+        
+        trip.userID = user
         
         self.saveContext()
         

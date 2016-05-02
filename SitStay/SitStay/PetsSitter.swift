@@ -59,10 +59,13 @@ class PetsSitter: UIViewController {
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
                     tripNames.append(trip.tripName!)
+                    print(trip.userID)
+                    print("hello world")
                     if(tripNames.count > 0){
                         if let fetchedPets = appDelegate.getPets(){
                             for pet in fetchedPets{
-                                if(pet.isSat!.boolValue == true){
+                                if(pet.user?.userID == trip.userID?.userID){
+                                    //pet.isSat!.boolValue == true
                                     //var chosenPets: [Pet] = []
                                     //chosenPets = trip.pets?.allObjects as! [Pet]
                                     //print(chosenPets[1])
