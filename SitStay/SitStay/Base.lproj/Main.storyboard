@@ -1973,7 +1973,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neH-ma-Tvl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="961"/>
+            <point key="canvasLocation" x="1698" y="1089"/>
         </scene>
         <!--Add Task-->
         <scene sceneID="gIi-MY-TMf">
@@ -2328,7 +2328,6 @@
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" style="plain" id="hY2-qL-bmg"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -2429,7 +2428,7 @@
                         <viewControllerLayoutGuide type="top" id="j9L-za-gK4"/>
                         <viewControllerLayoutGuide type="bottom" id="TFY-J2-dw1"/>
                     </layoutGuides>
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="Yge-yT-DvP">
+                    <view key="view" contentMode="scaleToFill" id="Yge-yT-DvP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2470,6 +2469,9 @@
                                 <rect key="frame" x="435" y="304" width="85" height="30"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Submit Task"/>
+                                <connections>
+                                    <action selector="taskSubmitted:" destination="3mN-Zl-mQJ" eventType="touchUpInside" id="BSM-wE-EWe"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZJ-zj-3oJ">
                                 <rect key="frame" x="20" y="141" width="560" height="150"/>
@@ -2567,13 +2569,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
                     <connections>
+                        <outlet property="instructionDetailsField" destination="Wq7-Sa-K33" id="zEa-h8-4AY"/>
+                        <outlet property="instructionField" destination="rh3-Oq-jqq" id="Apx-gb-Ej4"/>
                         <outlet property="pickerView" destination="gZJ-zj-3oJ" id="Hdt-5d-VT7"/>
                         <outlet property="selectionLabel" destination="DUe-A1-6c0" id="v4J-pi-div"/>
+                        <outlet property="submitButton" destination="imp-UY-abP" id="ydK-Cn-dCy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iir-lC-hhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="1927"/>
+            <point key="canvasLocation" x="349" y="1685"/>
         </scene>
         <!--Add a Task-->
         <scene sceneID="vC8-bz-PH0">
