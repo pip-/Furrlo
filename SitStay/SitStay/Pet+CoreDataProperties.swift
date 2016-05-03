@@ -2,7 +2,11 @@
 //  Pet+CoreDataProperties.swift
 //  SitStay
 //
+<<<<<<< HEAD
 //  Created by MU IT Program on 5/1/16.
+=======
+//  Created by Philip Gilbreth on 4/24/16.
+>>>>>>> parent of 1000481... Trying to get Owner to work
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,18 +18,28 @@ import CoreData
 
 extension Pet {
 
+<<<<<<< HEAD
     @NSManaged var age: String?
     @NSManaged var breed: String?
     @NSManaged var food: String?
+=======
+    @NSManaged var age: NSNumber?
+    @NSManaged var breed: String?
+>>>>>>> parent of 1000481... Trying to get Owner to work
     @NSManaged var name: String?
     @NSManaged var notes: String?
     @NSManaged var personality: String?
     @NSManaged var petID: NSNumber?
+<<<<<<< HEAD
     @NSManaged var species: String?
     @NSManaged var type: String?
     @NSManaged var isSat: NSNumber?
     @NSManaged var toDoItems: NSSet?
     @NSManaged var tripID: Trip?
     @NSManaged var user: User?
+=======
+    @NSManaged var type: String?
+    @NSManaged var tripID: Trip?
+>>>>>>> parent of 1000481... Trying to get Owner to work
 
 }
