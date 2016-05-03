@@ -21,6 +21,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
     //var dailyTaskLists: [String] = []
     //var dayTitles: [String] = []
+    var toDoItems: [String] = []
+    var toDoItemsDetails: [String] = []
+    var pets: [String] = []
     
     var taskDone = true;
     
@@ -32,6 +35,19 @@ class OwnerToDoTableViewController: UITableViewController{
         OwnerLists.delegate = self
         OwnerLists.dataSource = self
         
+        if let fetchedToDoItems = appDelegate.getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                toDoItems.append(toDoItem.instruction!)
+                toDoItemsDetails.append(toDoItem.instructionDetail!)
+                
+            }
+        }
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
         
     
         if(dailyTaskLists.count > 0){
@@ -49,12 +65,14 @@ class OwnerToDoTableViewController: UITableViewController{
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return dayTitles.count
+        //return dayTitles.count
+        return pets.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return dailyTaskLists[section].count
+        //return toDoItems.count
     }
     
     
@@ -73,7 +91,7 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
         
-        cell.textLabel?.text = dayTitles[section]
+        cell.textLabel?.text = pets[section]
         
         return cell
     }
