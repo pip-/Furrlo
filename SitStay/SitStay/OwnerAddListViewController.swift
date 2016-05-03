@@ -14,7 +14,6 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var selectionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
-    
     @IBOutlet weak var instructionField: UITextField!
     @IBOutlet weak var instructionDetailsField: UITextField!
     
@@ -26,9 +25,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var itemID: NSNumber?
     var petID: NSNumber?
     var isSat: NSNumber?
-    
-    
     var pets : [String] = []
+    var petName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +48,13 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         pickerView.selectRow(2, inComponent: 0, animated: false)
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
         }
+        
+        submitButton.enabled = false
+        
+         instructionField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave(_:)), forControlEvents: UIControlEvents.EditingChanged)
+         instructionDetailsField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave(_:)), forControlEvents: UIControlEvents.EditingChanged)
+            
+        
         
         // Do any additional setup after loading the view.
     }
@@ -94,10 +99,29 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     }
     
     @IBAction func taskSubmitted(sender: AnyObject) {
-        
+        //checkSave()
         
     }
-    
+    func checkSave(textfield: UITextField)
+    {
+        if let petName = selectionLabel.text{
+            if(petName.characters.count > 0){
+                if let instruction = instructionField.text{
+                    if(instruction.characters.count > 0)
+                    {
+                        if let instructionDetails = instructionDetailsField.text{
+                            if(instructionDetails.characters.count > 0){
+                                submitButton.enabled = true
+                                return
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        submitButton.enabled = false
+        
+    }
     
     /*
      // MARK: - Navigation

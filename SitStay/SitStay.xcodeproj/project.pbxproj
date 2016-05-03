@@ -231,10 +231,18 @@
 			isa = PBXGroup;
 			children = (
 				4CE2A1B51CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift */,
-				4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */,
 				4CE2A1B71CD3623C0027D9F4 /* OwnerAddListViewController.swift */,
+				4CE3F5151CD84082009B23FF /* Table Cells */,
 			);
 			name = OwnerToDoList;
+			sourceTree = "<group>";
+		};
+		4CE3F5151CD84082009B23FF /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */,
+			);
+			name = "Table Cells";
 			sourceTree = "<group>";
 		};
 		674B92A91CD11E5700AC601B /* To Do Tab Sitter */ = {
