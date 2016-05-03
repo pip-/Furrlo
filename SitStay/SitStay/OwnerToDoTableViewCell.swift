@@ -31,7 +31,12 @@ class OwnerToDoTableViewController: UITableViewController{
         
         OwnerLists.delegate = self
         OwnerLists.dataSource = self
+        
+        
     
+        if(dailyTaskLists.count > 0){
+            self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        }
 
     }
     
@@ -84,17 +89,24 @@ class OwnerToDoTableViewController: UITableViewController{
      }
      */
     
-    /*
-     // Override to support editing the table view.
+  //Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
      if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // Delete the row from the data source
+        //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
+        
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+            dailyTaskLists.removeAtIndex(indexPath.row - 1)
+            //tripIds.removeAtIndex(indexPath.row - 1)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+     } //else if editingStyle == .Insert {
+        //// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+       // }
+    
+    
+    
+    
     
     /*
      // Override to support rearranging the table view.
