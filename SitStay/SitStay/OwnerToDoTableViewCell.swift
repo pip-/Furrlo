@@ -99,13 +99,13 @@ class OwnerToDoTableViewController: UITableViewController{
  
     
     
-    /*
+    
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
      // Return false if you do not want the specified item to be editable.
      return true
      }
-     */
+
     
   //Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -114,7 +114,11 @@ class OwnerToDoTableViewController: UITableViewController{
         //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
         
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+            //dailyTaskLists.removeAtIndex(indexPath.row - 1)
+        
             dailyTaskLists.removeAtIndex(indexPath.row - 1)
+        
+        
             //tripIds.removeAtIndex(indexPath.row - 1)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }

@@ -29,6 +29,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var petName: String?
     var testString: String?
     
+    let keyboardVerticalSpacing: CGFloat = 30
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,10 +57,11 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
          instructionField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave(_:)), forControlEvents: UIControlEvents.EditingChanged)
          instructionDetailsField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave(_:)), forControlEvents: UIControlEvents.EditingChanged)
         
-        
+        self.hideKeyboardWhenTappedAround()
         
         // Do any additional setup after loading the view.
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -121,7 +124,16 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             }
         }
         submitButton.enabled = false
+    }
+        
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OwnerAddListViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
  /*
     }
     func submitTask(){
@@ -239,7 +251,13 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
+         
+         func taskComplete(){
+         NSOperationQueue.mainQueue().addOperationWithBlock{
+         self.navigationController?.popViewControllerAnimated(true)
+         }
+         
+         }
      */
     
  }
-}
