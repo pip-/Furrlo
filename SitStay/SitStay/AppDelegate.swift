@@ -220,7 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?) -> Int{
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User) -> Int{
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -251,6 +251,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pet.tripID = trip
         }
         
+        trip.userID = user
+        
         self.saveContext()
         
         return Int(trip.tripID!)
@@ -276,7 +278,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool){
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User){
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         
@@ -288,7 +290,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.personality = personality
         newPet.food = food
         newPet.notes = notes
-        //newPet.picture = picture
+        newPet.user = user
         
         if(isSat){
             newPet.isSat = 1
@@ -318,6 +320,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
+<<<<<<< HEAD
  
     func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool, petParent: Pet?){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
@@ -357,5 +360,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     */
+=======
+    func pickPetPicture(petSpecies: String) -> UIImage{
+        
+        var lowerCase = petSpecies.lowercaseString
+        var image: UIImage
+        
+        if(lowerCase == "dog"){
+            image = UIImage(named:"dog profile.png")!
+            
+        }
+        else if(lowerCase == "cat"){
+            image = UIImage(named:"cat head.png")!
+            
+        }
+        else{
+            image  = UIImage(named:"Untitled-6.png")!
+        }
+        return image
+    }
+    
+>>>>>>> master
 }
+
 

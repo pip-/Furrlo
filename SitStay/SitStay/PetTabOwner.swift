@@ -42,10 +42,15 @@ class PetTabOwner: UIViewController {
         pets.removeAll()
         petSpecies.removeAll()
         
+        let user = self.appDelegate.getUser()
+        let myID = user?.userID
+        
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                if(myID == pet.user?.userID){
                 pets.append(pet.name!)
                 petSpecies.append(pet.species!)
+                }
             }
         }
         
@@ -92,25 +97,13 @@ class PetTabOwner: UIViewController {
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
         cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
-            
-            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
-                cell.petImage.image = UIImage(named: "dog profile.png")
-            }
-            else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
-                cell.petImage.image = UIImage(named: "cat head.png")
-            }else{
-                cell.petImage.image = UIImage(named: "Untitled-6.png")
-            }
-            
-            
-        //cell.petImage.image = UIImage(named: "cat profile.jpg")
-        
+        cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
+
             
         let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             
-        cell.backgroundColor = newSwiftColor // make cell more visible in our example project
-        //cell.layer.borderWidth = 1
-          //  cell.layer.cornerRadius = 62.5
+        cell.backgroundColor = newSwiftColor
+      
         return cell
         }
         

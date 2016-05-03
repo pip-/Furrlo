@@ -2,14 +2,14 @@
 //  OwnerFinishedListViewController.swift
 //  SitStay
 //
-//  Created by Michael Mclaughlin on 4/29/16.
+//  Created by Michael Mclaughlin on 4/26/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 
 import UIKit
 
 class OwnerFinishedListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     var tasks = [["Food","Water","Exercise"],["Food","Water"]]
@@ -18,22 +18,22 @@ class OwnerFinishedListViewController: UIViewController,UITableViewDelegate,UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         
         
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+   
     
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return days.count
     }
@@ -44,9 +44,9 @@ class OwnerFinishedListViewController: UIViewController,UITableViewDelegate,UITa
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("headercell") //as! DayTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("headercell") as! DayTableViewCell
         
-        cell!.textLabel?.text = days[section]
+        cell.textLabel?.text = days[section]
         
         
         return cell
@@ -63,12 +63,13 @@ class OwnerFinishedListViewController: UIViewController,UITableViewDelegate,UITa
         return cell!
     }
     /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
