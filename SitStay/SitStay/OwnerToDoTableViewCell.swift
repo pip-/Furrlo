@@ -56,6 +56,28 @@ class OwnerToDoTableViewController: UITableViewController{
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        toDoItems.removeAll()
+        pets.removeAll()
+        
+        if let fetchedToDoItems = appDelegate.getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                toDoItems.append(toDoItem.instruction!)
+                toDoItemsDetails.append(toDoItem.instructionDetail!)
+                
+            }
+        }
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
+        
+        if(dailyTaskLists.count > 0){
+            self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
