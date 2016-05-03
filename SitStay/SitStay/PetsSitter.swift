@@ -15,37 +15,73 @@ class PetsSitter: UIViewController {
     
     
     
+    
     var pets: [String] = []
     var petSpecies: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
-    //var numSections = 0
     var tripNames: [String] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*if let fetchedTrips = appDelegate.getTrips(){
+         for trip in fetchedTrips{
+         if(trip.isSitting!.boolValue == true){
+         tripNames.append(trip.tripName!)
+         
+         }
+         }
+         }
+         
+         if(tripNames.count > 0){
+         if let fetchedPets = appDelegate.getPets(){
+         for pet in fetchedPets{
+         if(pet.isSat!.boolValue == true){
+         pets.append(pet.name!)
+         petSpecies.append(pet.species!)
+         }
+         }
+         }
+         }*/
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        pets.removeAll()
+        petSpecies.removeAll()
+        tripNames.removeAll()
+        
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
+                    tripNames.append(trip.tripName!)
+                    print(trip.userID)
+                    print("hello world")
                     if(tripNames.count > 0){
-                       // numSections = tripNames.count
+                        if let fetchedPets = appDelegate.getPets(){
+                            for pet in fetchedPets{
+                                if(pet.user?.userID == trip.userID?.userID){
+                                    //pet.isSat!.boolValue == true
+                                    //var chosenPets: [Pet] = []
+                                    //chosenPets = trip.pets?.allObjects as! [Pet]
+                                    //print(chosenPets[1])
+                                    pets.append(pet.name!)
+                                    petSpecies.append(pet.species!)
+                                }
+                            }
+                        }
                     }
+                    
                 }
             }
         }
         
-        if let fetchedPets = appDelegate.getPets(){
-            for pet in fetchedPets{
-                if(pet.isSat!.boolValue == true){
-                    pets.append(pet.name!)
-                    petSpecies.append(pet.species!)
-                }
-            }
-        }
         
-        // Do any additional setup after loading the view.
+        self.petCollection.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
