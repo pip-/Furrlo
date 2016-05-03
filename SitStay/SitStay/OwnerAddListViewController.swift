@@ -13,8 +13,20 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var selectionLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    @IBOutlet weak var instructionField: UITextField!
+    @IBOutlet weak var instructionDetailsField: UITextField!
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var complete: NSNumber?
+    var instruction: String?
+    var instructionDetails: String?
+    var itemID: NSNumber?
+    var petID: NSNumber?
+    var isSat: NSNumber?
+    
     
     var pets : [String] = []
     
@@ -31,10 +43,13 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 pets.append(pet.name!)
             }
         }
-        
+
+        if (pets.count == 0){
+            selectionLabel.text = "No pets"
+        } else {
         pickerView.selectRow(2, inComponent: 0, animated: false)
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
-        
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -49,16 +64,40 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pets.count
+        if(pets.count == 0)
+        {
+            return 1
+        }else
+        {
+            return pets.count
+        }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pets[row]
+        if (pets.count == 0)
+        {
+            return "No pets"
+        } else {
+            return pets[row]
+        }
+      //  return pets[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        if(pets.count == 0)
+        {
+            selectionLabel.text = "No pets"
+        } else {
         selectionLabel.text = pets[row]
+        }
     }
+    
+    @IBAction func taskSubmitted(sender: AnyObject) {
+        
+        
+    }
+    
     
     /*
      // MARK: - Navigation
