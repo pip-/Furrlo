@@ -14,13 +14,23 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var selectionLabel: UILabel!
     
-    var pets : [String] = ["Mira","Tony","Jade"]
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var pets : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        pets.removeAll()
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
         
         pickerView.selectRow(2, inComponent: 0, animated: false)
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]

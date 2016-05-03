@@ -196,6 +196,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     }
     }
+    
+    func getToDoItems() -> [ToDoItem]?{
+        do {
+            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            return fetchedToDoItems
+        } catch {
+            fatalError("Failed to fetch To Do Items: \(error)")
+        }
+    }
+    
 
     func getPets() -> [Pet]?{
         do {
@@ -210,7 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User) -> Int{
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?) -> Int{
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -241,8 +251,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pet.tripID = trip
         }
         
-        trip.userID = user
-        
         self.saveContext()
         
         return Int(trip.tripID!)
@@ -268,7 +276,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User){
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool){
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         
@@ -280,7 +288,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.personality = personality
         newPet.food = food
         newPet.notes = notes
-        newPet.user = user
+        //newPet.picture = picture
         
         if(isSat){
             newPet.isSat = 1
@@ -309,27 +317,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-
     
-    func pickPetPicture(petSpecies: String) -> UIImage{
+ 
+    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool, petParent: Pet?){
+        let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
         
-        var lowerCase = petSpecies.lowercaseString
-        var image: UIImage
+        newToDoItem.complete = complete
+        newToDoItem.instruction = instruction
+        newToDoItem.instructionDetail = instructionDetail
+        newToDoItem.itemID = itemID
+        newToDoItem.petID = petID
+        newToDoItem.isSat = isSat
+        newToDoItem.petParent = petParent
         
-        if(lowerCase == "dog"){
-            image = UIImage(named:"dog profile.png")!
-            
+    
+        if(isSat){
+            newToDoItem.isSat = 1
         }
-        else if(lowerCase == "cat"){
-            image = UIImage(named:"cat head.png")!
-            
-        }
-        else{
-            image  = UIImage(named:"Untitled-6.png")!
-        }
-        return image
+
+        self.saveContext()
     }
-    
+ 
+    /*
+    func deleteToDoItem(itemID: NSNumber) -> Bool{
+        do {
+            let fetchedToDoItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest[entityName: "ToDoItem"]) as! [ToDoItem]
+            for toDoItem in fetchedToDoItem{
+                if ToDoItem.itemId == itemID{
+                    print("Trying to delete To Do Item: "+ toDoItem.itemID!)
+                    self.managedObjectContext.deletedObject(toDoItem)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch {
+            print("Could not delete this Task")
+        }
+        return false
+    }
+    */
 }
-
 
