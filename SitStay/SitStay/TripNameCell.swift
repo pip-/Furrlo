@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripNameCell: UITableViewCell {
+class TripNameCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     
@@ -17,6 +17,7 @@ class TripNameCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        textField.delegate = self
         // Initialization code
     }
     
@@ -27,29 +28,25 @@ class TripNameCell: UITableViewCell {
     }
     
     @IBAction func changedData(sender: UITextField) {
+        textField.resignFirstResponder()
         if let vc = parentViewController{
-            if let type = typeEditing{
-                if(type == "street"){
-                    vc.street = sender.text
-                } else if(type == "add2"){
-                    vc.address2 = sender.text
-                } else if(type == "zip"){
-                    vc.zip = sender.text!
-                } else if(type == "city"){
-                    vc.city = sender.text
-                } else if(type == "tripName"){
-                    vc.tripName = sender.text
-                }
-            }
-            vc.tableView.reloadRowsAtIndexPaths([NSIndexPath.init(forRow: 4, inSection: 1)], withRowAnimation: .Fade)
+                vc.tripName = sender.text
             parentViewController?.checkIfCanSubmit()
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        changedData(textField)
+        textFieldShouldReturn(textField)
+    }
+    
     func setPTVController(vc: NewTripOwnerController, type: String){
-        print("bllooooop")
         self.parentViewController = vc
-        self.typeEditing = type
         if let tripName = vc.tripName{
             textField.text = tripName
         }

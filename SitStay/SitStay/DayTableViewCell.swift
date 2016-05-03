@@ -2,7 +2,7 @@
 //  DayTableViewCell.swift
 //  SitStay
 //
-//  Created by Michael Mclaughlin on 4/26/16.
+//  Created by Michael Mclaughlin on 4/29/16.
 //  Copyright © 2016 GroupA. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import UIKit
 
 class DayTableViewCell: UITableViewCell {
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

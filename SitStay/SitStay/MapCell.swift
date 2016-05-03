@@ -13,7 +13,7 @@ import MapKit
 class MapCell: UITableViewCell, CLLocationManagerDelegate {
     
     @IBOutlet weak var map: MKMapView!
-    
+
     let regionRadius: CLLocationDistance = 500
     var locationManager = CLLocationManager()
     var chosenLocation: CLLocation? = nil

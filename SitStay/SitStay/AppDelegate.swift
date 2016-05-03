@@ -27,23 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            // let entityDescription = NSEntityDescription.
             
             //Modifying values of the created 'User' instance------------------------
-            user.email = "test@email.com"
             user.userID = Int(arc4random_uniform(800000) + 100000)
             //-----------------------------------------------------------------------
-            
-            let pet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
-            
-            pet.name = "Fred"
-            pet.age = 10
-            pet.petID = Int(arc4random_uniform(8000000) + 100000)
-            
-            pet.name = "Bob"
-            pet.age = 10
-            pet.petID = Int(arc4random_uniform(8000000) + 100001)
-            
-            pet.name = "Samuel"
-            pet.age = 10
-            pet.petID = Int(arc4random_uniform(8000000) + 100002)
             
             //Saving the changes I made to the instance of 'User'--------------------
             self.saveContext()
@@ -157,6 +142,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateUserEmail(email: String){
+        if let user = getUser(){
+            user.email = email
+            saveContext()
+        }
+    }
+    
+    func updateUserPhone(phone: String){
+        if let user = getUser(){
+            user.phone = phone
+            saveContext()
+        }
+    }
+    
     func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
@@ -182,6 +181,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func updateTripID(oldID: Int, newID: Int){
+        do{
+        let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+        for trip in fetchedTrips{
+            if (trip.tripID == oldID){
+                trip.tripID = newID
+            }
+        }
+    }
+        catch {
+    //fatalError("Failed to fetch trips: \(error)")
+    print("Could not find this tripID")
+    
+    }
+    }
+
     func getPets() -> [Pet]?{
         do {
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet"))
@@ -195,7 +210,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String){
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User) -> Int{
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -208,14 +223,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         trip.city = city
         trip.tripName = tripName
         
-        trip.tripID = Int(arc4random_uniform(100000) + 800000)
+        if(isSitting){
+            trip.isSitting = 1
+        }
+        
+        if let phone = phone {
+            trip.phone = phone
+        }
+        if let email = email {
+            trip.email = email
+        }
+        
+        trip.tripID = Int(arc4random_uniform(1000000) + 800000)
+        
         
         for pet in pets{
             pet.tripID = trip
         }
         
+        trip.userID = user
+        
         self.saveContext()
+        
+        return Int(trip.tripID!)
     }
+    
     
     func deleteTrip(tripID: Int) -> Bool{
         do{
@@ -235,5 +267,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
 
+    
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User){
+        let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
+        
+        
+        
+        newPet.name = name
+        newPet.species = species
+        newPet.breed = breed
+        newPet.age = age
+        newPet.personality = personality
+        newPet.food = food
+        newPet.notes = notes
+        newPet.user = user
+        
+        if(isSat){
+            newPet.isSat = 1
+        }
+        
+        //newPet.petID = Int(arc4random_uniform(8000000) + 100000)
+        
+        
+        self.saveContext()
+    }
+    
+    func deletePet(petName: String) -> Bool{
+        do{
+            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
+            for pet in fetchedPets{
+                if pet.name == petName{
+                    print("Trying to delete pet: " + pet.name!)
+                    self.managedObjectContext.deleteObject(pet)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch{
+            print("Could not delete this pet")
+        }
+        return false
+    }
+
+    
+    func pickPetPicture(petSpecies: String) -> UIImage{
+        
+        var lowerCase = petSpecies.lowercaseString
+        var image: UIImage
+        
+        if(lowerCase == "dog"){
+            image = UIImage(named:"dog profile.png")!
+            
+        }
+        else if(lowerCase == "cat"){
+            image = UIImage(named:"cat head.png")!
+            
+        }
+        else{
+            image  = UIImage(named:"Untitled-6.png")!
+        }
+        return image
+    }
+    
 }
+
 
