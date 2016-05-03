@@ -196,6 +196,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     }
     }
+    
+    func getToDoItems() -> [ToDoItem]?{
+        do {
+            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            return fetchedToDoItems
+        } catch {
+            fatalError("Failed to fetch To Do Items: \(error)")
+        }
+    }
+    
 
     func getPets() -> [Pet]?{
         do {
@@ -309,8 +319,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-
     
+<<<<<<< HEAD
+ 
+    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool, petParent: Pet?){
+        let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
+        
+        newToDoItem.complete = complete
+        newToDoItem.instruction = instruction
+        newToDoItem.instructionDetail = instructionDetail
+        newToDoItem.itemID = itemID
+        newToDoItem.petID = petID
+        newToDoItem.isSat = isSat
+        newToDoItem.petParent = petParent
+        
+    
+        if(isSat){
+            newToDoItem.isSat = 1
+        }
+
+        self.saveContext()
+    }
+ 
+    /*
+    func deleteToDoItem(itemID: NSNumber) -> Bool{
+        do {
+            let fetchedToDoItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest[entityName: "ToDoItem"]) as! [ToDoItem]
+            for toDoItem in fetchedToDoItem{
+                if ToDoItem.itemId == itemID{
+                    print("Trying to delete To Do Item: "+ toDoItem.itemID!)
+                    self.managedObjectContext.deletedObject(toDoItem)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch {
+            print("Could not delete this Task")
+        }
+        return false
+    }
+    */
+=======
     func pickPetPicture(petSpecies: String) -> UIImage{
         
         var lowerCase = petSpecies.lowercaseString
@@ -330,6 +380,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return image
     }
     
+>>>>>>> master
 }
 
 

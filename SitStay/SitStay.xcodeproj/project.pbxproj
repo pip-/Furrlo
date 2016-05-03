@@ -7,22 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CE2A1B61CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1B51CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift */; };
-		4CE2A1B81CD3623C0027D9F4 /* OwnerAddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1B71CD3623C0027D9F4 /* OwnerAddListViewController.swift */; };
-		4CE2A1BA1CD363B50027D9F4 /* OwnerAddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */; };
-		4CE2A1BC1CD364D60027D9F4 /* OwnerFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */; };
-		4CE2A1BE1CD3FF240027D9F4 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */; };
+		4CE2A1821CD045B20027D9F4 /* OwnerToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1811CD045B20027D9F4 /* OwnerToDoTableViewController.swift */; };
+		4CE2A1841CD04D550027D9F4 /* OwnerAddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1831CD04D550027D9F4 /* OwnerAddListViewController.swift */; };
+		4CE2A1861CD0590D0027D9F4 /* OwnerAddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1851CD0590D0027D9F4 /* OwnerAddTaskViewController.swift */; };
+		4CE2A18A1CD0685E0027D9F4 /* OwnerFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1891CD0685E0027D9F4 /* OwnerFinishedListViewController.swift */; };
+		4CE2A18C1CD06E5C0027D9F4 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A18B1CD06E5C0027D9F4 /* DayTableViewCell.swift */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
 		67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */; };
 		67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
-		C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0671CCD8327003F176A /* InviteSitterCell.swift */; };
-		C653E06A1CCD890D003F176A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C653E0691CCD890D003F176A /* MessageUI.framework */; };
-		C653E0711CCE9515003F176A /* ConfirmTripControllerSitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0701CCE9515003F176A /* ConfirmTripControllerSitter.swift */; };
-		C653E0751CD1520C003F176A /* ToDoItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0731CD1520C003F176A /* ToDoItem+CoreDataProperties.swift */; };
-		C653E0761CD1520C003F176A /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0741CD1520C003F176A /* ToDoItem.swift */; };
 		C6593A571CC978EE007907A3 /* PetCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A561CC978EE007907A3 /* PetCheckCell.swift */; };
 		C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6593A581CC9C1BA007907A3 /* TripNameCell.swift */; };
 		C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C65B074F1CBF3D5F00CDD408 /* chevron.jpg */; };
@@ -30,9 +25,16 @@
 		C66FF9CA1CC7DEE9004140EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9C81CC7DEE9004140EC /* User.swift */; };
 		C66FF9D71CC7F417004140EC /* Pet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CB1CC7F417004140EC /* Pet+CoreDataProperties.swift */; };
 		C66FF9D81CC7F417004140EC /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CC1CC7F417004140EC /* Pet.swift */; };
+		C66FF9D91CC7F417004140EC /* Water+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CD1CC7F417004140EC /* Water+CoreDataProperties.swift */; };
+		C66FF9DA1CC7F417004140EC /* Water.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CE1CC7F417004140EC /* Water.swift */; };
 		C66FF9DB1CC7F417004140EC /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */; };
 		C66FF9DC1CC7F417004140EC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D01CC7F417004140EC /* Trip.swift */; };
-		C6D478E51CD52ECA005D221C /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D478E41CD52ECA005D221C /* extensions.swift */; };
+		C66FF9DD1CC7F417004140EC /* Medication+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D11CC7F417004140EC /* Medication+CoreDataProperties.swift */; };
+		C66FF9DE1CC7F417004140EC /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D21CC7F417004140EC /* Medication.swift */; };
+		C66FF9DF1CC7F417004140EC /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D31CC7F417004140EC /* Food+CoreDataProperties.swift */; };
+		C66FF9E01CC7F417004140EC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D41CC7F417004140EC /* Food.swift */; };
+		C66FF9E11CC7F417004140EC /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D51CC7F417004140EC /* Exercise+CoreDataProperties.swift */; };
+		C66FF9E21CC7F417004140EC /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D61CC7F417004140EC /* Exercise.swift */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
@@ -110,22 +112,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4CE2A1B51CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerToDoTableViewCell.swift; sourceTree = "<group>"; };
-		4CE2A1B71CD3623C0027D9F4 /* OwnerAddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddListViewController.swift; sourceTree = "<group>"; };
-		4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddTaskViewController.swift; sourceTree = "<group>"; };
-		4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFinishedListViewController.swift; sourceTree = "<group>"; };
-		4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
+		4CE2A1811CD045B20027D9F4 /* OwnerToDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerToDoTableViewController.swift; sourceTree = "<group>"; };
+		4CE2A1831CD04D550027D9F4 /* OwnerAddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddListViewController.swift; sourceTree = "<group>"; };
+		4CE2A1851CD0590D0027D9F4 /* OwnerAddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddTaskViewController.swift; sourceTree = "<group>"; };
+		4CE2A1891CD0685E0027D9F4 /* OwnerFinishedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFinishedListViewController.swift; sourceTree = "<group>"; };
+		4CE2A18B1CD06E5C0027D9F4 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
 		67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewController.swift; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
-		C653E0671CCD8327003F176A /* InviteSitterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteSitterCell.swift; sourceTree = "<group>"; };
-		C653E0691CCD890D003F176A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		C653E0701CCE9515003F176A /* ConfirmTripControllerSitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmTripControllerSitter.swift; sourceTree = "<group>"; };
-		C653E0731CD1520C003F176A /* ToDoItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C653E0741CD1520C003F176A /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		C6593A561CC978EE007907A3 /* PetCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetCheckCell.swift; sourceTree = "<group>"; };
 		C6593A581CC9C1BA007907A3 /* TripNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripNameCell.swift; sourceTree = "<group>"; };
 		C65B074F1CBF3D5F00CDD408 /* chevron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chevron.jpg; sourceTree = "<group>"; };
@@ -133,9 +130,16 @@
 		C66FF9C81CC7DEE9004140EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C66FF9CB1CC7F417004140EC /* Pet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C66FF9CC1CC7F417004140EC /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		C66FF9CD1CC7F417004140EC /* Water+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Water+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C66FF9CE1CC7F417004140EC /* Water.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Water.swift; sourceTree = "<group>"; };
 		C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C66FF9D01CC7F417004140EC /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
-		C6D478E41CD52ECA005D221C /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		C66FF9D11CC7F417004140EC /* Medication+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Medication+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C66FF9D21CC7F417004140EC /* Medication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
+		C66FF9D31CC7F417004140EC /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C66FF9D41CC7F417004140EC /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		C66FF9D51CC7F417004140EC /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C66FF9D61CC7F417004140EC /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
@@ -219,7 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C653E06A1CCD890D003F176A /* MessageUI.framework in Frameworks */,
 				C6D9C2D71CC85C1400A86097 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,69 +230,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		674B92A91CD11E5700AC601B /* To Do Tab Sitter */ = {
+<<<<<<< HEAD
+		4CE1334F1CD7ED3700A792D5 /* OwnerToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */,
-				67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */,
+				4CE2A1B51CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift */,
+				4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */,
+				4CE2A1B71CD3623C0027D9F4 /* OwnerAddListViewController.swift */,
 			);
-			name = "To Do Tab Sitter";
+			name = OwnerToDoList;
 			sourceTree = "<group>";
 		};
-		67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */ = {
+		674B92A91CD11E5700AC601B /* To Do Tab Sitter */ = {
+=======
+		C6D73C091CB4BA05001BC7F2 /* Views */ = {
+>>>>>>> master
 			isa = PBXGroup;
 			children = (
-				C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */,
-				C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */,
-				C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */,
+				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
+				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
+				6778C5A81CB6D099005FB205 /* Sitter.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */,
 				C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */,
 				C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */,
-			);
-			name = "Pet Tab Owner";
-			sourceTree = "<group>";
-		};
-		67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */ = {
-			isa = PBXGroup;
-			children = (
-				C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */,
-				C6D73BFC1CB4B7DD001BC7F2 /* PetsSitter.swift */,
+				C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */,
 				C6D73BFB1CB4B7DD001BC7F2 /* PetInfoSitter.swift */,
+				C6FAB3F81CB5F1D300A331AD /* PetTabOwner.swift */,
+				C6D73BFC1CB4B7DD001BC7F2 /* PetsSitter.swift */,
 				C6D73BF91CB4B7DD001BC7F2 /* CellSitter.swift */,
-			);
-			name = "Pet Tab Sitter";
-			sourceTree = "<group>";
-		};
-		67D299C11CCEBA7500D0D5C3 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
 				C6D73BFA1CB4B7DD001BC7F2 /* ContactInfoSitter.swift */,
+				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
+				C6FAB3FE1CB723E100A331AD /* TripTabOwnerMain.swift */,
+				C6FAB4041CB7325B00A331AD /* TripTabSitterMain.swift */,
+				C6FAB45D1CBC076600A331AD /* TripCell.swift */,
+				C6E7276A1CBC216E00E7945B /* NavControllerPetsOwner.swift */,
+				C6E7276C1CBC21FA00E7945B /* NavControllerPetsSitter.swift */,
+				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
+				C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */,
+				C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */,
+				C6E6027C1CC4340F00D9865A /* ViewTripOwner.swift */,
+				C6E6027E1CC434CF00D9865A /* SimpleCell.swift */,
+				C6E602801CC435A600D9865A /* AddressCell.swift */,
 				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
 				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
 				67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */,
 				67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
-		C653E06B1CCE933E003F176A /* Trip Tab Owner */ = {
-			isa = PBXGroup;
-			children = (
-				C653E06D1CCE935D003F176A /* View Controllers */,
-				C653E06C1CCE9352003F176A /* Table Cells */,
-			);
-			name = "Trip Tab Owner";
-			sourceTree = "<group>";
-		};
-		C653E06C1CCE9352003F176A /* Table Cells */ = {
-			isa = PBXGroup;
-			children = (
-				C6FAB45D1CBC076600A331AD /* TripCell.swift */,
-				C6E6027E1CC434CF00D9865A /* SimpleCell.swift */,
+				C6D84F7E1CC524990093D7A3 /* ViewTripSitter.swift */,
+				67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */,
 				C6D9C2D41CC833F000A86097 /* DatePickerCell.swift */,
 				C6D9C2D81CC8669700A86097 /* MapCell.swift */,
 				C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */,
 				C6593A561CC978EE007907A3 /* PetCheckCell.swift */,
 				C6593A581CC9C1BA007907A3 /* TripNameCell.swift */,
+<<<<<<< HEAD
 				C6E602801CC435A600D9865A /* AddressCell.swift */,
 				C653E0671CCD8327003F176A /* InviteSitterCell.swift */,
 			);
@@ -345,6 +345,7 @@
 		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CE1334F1CD7ED3700A792D5 /* OwnerToDoList */,
 				674B92A91CD11E5700AC601B /* To Do Tab Sitter */,
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
 				67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */,
@@ -354,12 +355,16 @@
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
 				C6E727701CBC251F00E7945B /* TabBarControllerSitter.swift */,
-				4CE2A1B51CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift */,
-				4CE2A1B71CD3623C0027D9F4 /* OwnerAddListViewController.swift */,
 				4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */,
 				4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */,
-				4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */,
 				C6D478E41CD52ECA005D221C /* extensions.swift */,
+=======
+				4CE2A1811CD045B20027D9F4 /* OwnerToDoTableViewController.swift */,
+				4CE2A1831CD04D550027D9F4 /* OwnerAddListViewController.swift */,
+				4CE2A1851CD0590D0027D9F4 /* OwnerAddTaskViewController.swift */,
+				4CE2A1891CD0685E0027D9F4 /* OwnerFinishedListViewController.swift */,
+				4CE2A18B1CD06E5C0027D9F4 /* DayTableViewCell.swift */,
+>>>>>>> master
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -368,12 +373,18 @@
 			isa = PBXGroup;
 			children = (
 				C6DA0D301CA62CED00F425B3 /* SitStay.xcdatamodeld */,
-				C653E0731CD1520C003F176A /* ToDoItem+CoreDataProperties.swift */,
-				C653E0741CD1520C003F176A /* ToDoItem.swift */,
 				C66FF9CB1CC7F417004140EC /* Pet+CoreDataProperties.swift */,
 				C66FF9CC1CC7F417004140EC /* Pet.swift */,
+				C66FF9CD1CC7F417004140EC /* Water+CoreDataProperties.swift */,
+				C66FF9CE1CC7F417004140EC /* Water.swift */,
 				C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */,
 				C66FF9D01CC7F417004140EC /* Trip.swift */,
+				C66FF9D11CC7F417004140EC /* Medication+CoreDataProperties.swift */,
+				C66FF9D21CC7F417004140EC /* Medication.swift */,
+				C66FF9D31CC7F417004140EC /* Food+CoreDataProperties.swift */,
+				C66FF9D41CC7F417004140EC /* Food.swift */,
+				C66FF9D51CC7F417004140EC /* Exercise+CoreDataProperties.swift */,
+				C66FF9D61CC7F417004140EC /* Exercise.swift */,
 				C66FF9C71CC7DEE9004140EC /* User+CoreDataProperties.swift */,
 				C66FF9C81CC7DEE9004140EC /* User.swift */,
 			);
@@ -383,7 +394,6 @@
 		C6DA0D1D1CA62CED00F425B3 = {
 			isa = PBXGroup;
 			children = (
-				C653E0691CCD890D003F176A /* MessageUI.framework */,
 				C6D9C2D61CC85C1400A86097 /* MapKit.framework */,
 				C6DA0D281CA62CED00F425B3 /* SitStay */,
 				C6DA0D271CA62CED00F425B3 /* Products */,
@@ -592,45 +602,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE2A1BC1CD364D60027D9F4 /* OwnerFinishedListViewController.swift in Sources */,
+				4CE2A1841CD04D550027D9F4 /* OwnerAddListViewController.swift in Sources */,
+				C66FF9E01CC7F417004140EC /* Food.swift in Sources */,
 				C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */,
 				C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */,
 				C6D9C2D51CC833F000A86097 /* DatePickerCell.swift in Sources */,
-				C653E0751CD1520C003F176A /* ToDoItem+CoreDataProperties.swift in Sources */,
 				C6D73C041CB4B7DD001BC7F2 /* CellSitter.swift in Sources */,
 				C6D73C051CB4B7DD001BC7F2 /* ContactInfoSitter.swift in Sources */,
-				4CE2A1BE1CD3FF240027D9F4 /* DayTableViewCell.swift in Sources */,
 				C6D9C2DB1CC9436400A86097 /* DateEntryCell.swift in Sources */,
 				C66FF9CA1CC7DEE9004140EC /* User.swift in Sources */,
 				C66FF9DC1CC7F417004140EC /* Trip.swift in Sources */,
 				C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */,
-				4CE2A1B61CD360EC0027D9F4 /* OwnerToDoTableViewCell.swift in Sources */,
 				C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */,
 				C6FAB4051CB7325B00A331AD /* TripTabSitterMain.swift in Sources */,
+				C66FF9DA1CC7F417004140EC /* Water.swift in Sources */,
 				C6593A591CC9C1BA007907A3 /* TripNameCell.swift in Sources */,
+				C66FF9E11CC7F417004140EC /* Exercise+CoreDataProperties.swift in Sources */,
+				C66FF9DD1CC7F417004140EC /* Medication+CoreDataProperties.swift in Sources */,
 				C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */,
 				C66FF9C91CC7DEE9004140EC /* User+CoreDataProperties.swift in Sources */,
+				4CE2A18C1CD06E5C0027D9F4 /* DayTableViewCell.swift in Sources */,
 				C6D84F7F1CC524990093D7A3 /* ViewTripSitter.swift in Sources */,
 				67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */,
-				C653E0711CCE9515003F176A /* ConfirmTripControllerSitter.swift in Sources */,
-				C653E0761CD1520C003F176A /* ToDoItem.swift in Sources */,
 				C6FAB45E1CBC076600A331AD /* TripCell.swift in Sources */,
+				4CE2A1821CD045B20027D9F4 /* OwnerToDoTableViewController.swift in Sources */,
+				C66FF9DE1CC7F417004140EC /* Medication.swift in Sources */,
 				C6FAB3F91CB5F1D300A331AD /* PetTabOwner.swift in Sources */,
 				C6E6027D1CC4340F00D9865A /* ViewTripOwner.swift in Sources */,
-				4CE2A1BA1CD363B50027D9F4 /* OwnerAddTaskViewController.swift in Sources */,
 				C6E602811CC435A600D9865A /* AddressCell.swift in Sources */,
-				4CE2A1B81CD3623C0027D9F4 /* OwnerAddListViewController.swift in Sources */,
+				C66FF9E21CC7F417004140EC /* Exercise.swift in Sources */,
 				C6FAB3FF1CB723E100A331AD /* TripTabOwnerMain.swift in Sources */,
 				C66FF9DB1CC7F417004140EC /* Trip+CoreDataProperties.swift in Sources */,
 				C6DA0D321CA62CED00F425B3 /* SitStay.xcdatamodeld in Sources */,
 				67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */,
+				4CE2A18A1CD0685E0027D9F4 /* OwnerFinishedListViewController.swift in Sources */,
 				C6D73C061CB4B7DD001BC7F2 /* PetInfoSitter.swift in Sources */,
+				4CE2A1861CD0590D0027D9F4 /* OwnerAddTaskViewController.swift in Sources */,
 				C6D9C2D91CC8669700A86097 /* MapCell.swift in Sources */,
-				C6D478E51CD52ECA005D221C /* extensions.swift in Sources */,
 				C6E7276F1CBC24F800E7945B /* TabBarControllerOwner.swift in Sources */,
-				C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */,
 				C66FF9D81CC7F417004140EC /* Pet.swift in Sources */,
 				C6D73C071CB4B7DD001BC7F2 /* PetsSitter.swift in Sources */,
+				C66FF9D91CC7F417004140EC /* Water+CoreDataProperties.swift in Sources */,
 				C6DA0D2A1CA62CED00F425B3 /* AppDelegate.swift in Sources */,
 				C6FAB4071CBBFE6900A331AD /* SettingsOwner.swift in Sources */,
 				C6E6027F1CC434CF00D9865A /* SimpleCell.swift in Sources */,
@@ -638,6 +650,7 @@
 				67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */,
 				C6593A571CC978EE007907A3 /* PetCheckCell.swift in Sources */,
 				C66FF9D71CC7F417004140EC /* Pet+CoreDataProperties.swift in Sources */,
+				C66FF9DF1CC7F417004140EC /* Food+CoreDataProperties.swift in Sources */,
 				C6E727691CBC208700E7945B /* SettingsSitter.swift in Sources */,
 				C6E7276D1CBC21FA00E7945B /* NavControllerPetsSitter.swift in Sources */,
 				C6E7276B1CBC216E00E7945B /* NavControllerPetsOwner.swift in Sources */,
