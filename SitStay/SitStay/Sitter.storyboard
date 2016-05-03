@@ -251,6 +251,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="petCollection" destination="Uce-fE-qKb" id="wBl-GZ-gKG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pg-sb-z5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

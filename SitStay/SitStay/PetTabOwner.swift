@@ -38,14 +38,19 @@ class PetTabOwner: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-
+        
         pets.removeAll()
         petSpecies.removeAll()
         
+        let user = self.appDelegate.getUser()
+        let myID = user?.userID
+        
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                pets.append(pet.name!)
-                petSpecies.append(pet.species!)
+                if(myID == pet.user?.userID){
+                    pets.append(pet.name!)
+                    petSpecies.append(pet.species!)
+                }
             }
         }
         
