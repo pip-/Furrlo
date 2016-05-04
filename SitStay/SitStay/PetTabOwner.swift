@@ -42,10 +42,15 @@ class PetTabOwner: UIViewController {
         pets.removeAll()
         petSpecies.removeAll()
         
+        let user = self.appDelegate.getUser()
+        let myID = user?.userID
+        
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                if(myID == pet.user?.userID){
                 pets.append(pet.name!)
                 petSpecies.append(pet.species!)
+                }
             }
         }
         
