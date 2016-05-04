@@ -16,11 +16,26 @@ class SitterToDoListTableViewController: UITableViewController {
     //Filler text for daily titles
     var dailyTitles = ["Today","Tomorrow","Later"]
     
+    var pets: [String] = []
+    var petSpecies: [String] = []
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        pets.removeAll()
+        petSpecies.removeAll()
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+                petSpecies.append(pet.species!)
+            }
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,7 +60,7 @@ class SitterToDoListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return dailyTaskLists[section].count
+        return pets.count
     }
 
     //Configure "data cells" with task text
@@ -61,7 +76,11 @@ class SitterToDoListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! SitterToDoListTableViewCell
         
-        cell.textLabel?.text = dailyTitles[section]
+        cell.textLabel?.text = pets [section]
+        
+        print(pets)
+        print(pets.count)
+        
         
         return cell
     }
