@@ -290,7 +290,7 @@ class NewTripOwnerController: UITableViewController {
         let user = appDelegate.getUser()
         let userID = user!.userID
         
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil)
+        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil, user: user!)
         
     
         
