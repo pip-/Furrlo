@@ -9,18 +9,60 @@
 import UIKit
 
 class SitterToDoListTableViewController: UITableViewController {
+    
+    //call AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
+    //create local variables
+    var complete: NSNumber?
+    var instruction: String?
+    var instructionDetails: String? = "test"
+    var itemID: NSNumber?
+    var petID: NSNumber?
+    var isSat: NSNumber?
+    var pets : [String] = []
+    var petName: String?
+    
+    var toDoItems: [String] = []
+    var toDoItemsDetails: [String] = []
+    var toDoItemsComplete: [Int] = []
+    
+    
+    
     //Filler text for task list
     var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
-    //Filler text for daily titles
-    var dailyTitles = ["Today","Tomorrow","Later"]
+    //Filler text for task list subtitle
+    var dailyTaskListDetails = [["test 1.1","test 1.2","test1.3"],["test 2.1","test 2.2","test2.3"]]
     
+    //Filler text for daily titles
+    //var dailyTitles = ["Today","Tomorrow","Later"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        pets.removeAll()
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
+        
+        
+        
+        /*if let fetchedToDoItems = appDelegate.getToDoItems(){
+            for ToDoItem in fetchedToDoItems{
+                if(ToDoItem.isSat?.boolValue == true)
+                toDoItems.append(toDoItem.instruction!)
+                toDoItemsDetails.append(toDoItem.instructionDetail!)
+                toDoItemsComplete.append(Int(toDoItem.complete!))
+                
+            }
+        }*/
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,7 +82,8 @@ class SitterToDoListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return dailyTitles.count
+            return pets.count
+        
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +96,7 @@ class SitterToDoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
         cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        cell.detailTextLabel?.text = dailyTaskListDetails[indexPath.section][indexPath.row]
         
         return cell
     }
@@ -61,7 +105,11 @@ class SitterToDoListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! SitterToDoListTableViewCell
         
-        cell.textLabel?.text = dailyTitles[section]
+        cell.textLabel?.text = pets[section]
+        
+        print(pets)
+        print(pets.count)
+        
         
         return cell
     }
@@ -72,7 +120,7 @@ class SitterToDoListTableViewController: UITableViewController {
         
         
         // Create an option menu as an action sheet
-        let alert = UIAlertController(title: nil, message: "Test", preferredStyle:.ActionSheet)
+        let alert = UIAlertController(title: nil, message: "Do you want to mark this item as done?", preferredStyle:.ActionSheet)
         
         // Add cancel actions to the menu
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -85,6 +133,12 @@ class SitterToDoListTableViewController: UITableViewController {
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell?.accessoryType = .Checkmark
+            
+            //add functionality to save task that have been marked as done
+            print("To do items complete",self.toDoItemsComplete)
+            
+            //toDoItemsComplete = 1
+            
         })
         alert.addAction(markDone)
         
