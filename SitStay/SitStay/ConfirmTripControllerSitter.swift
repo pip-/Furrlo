@@ -26,8 +26,8 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        submit(self)
         textField.resignFirstResponder()
+        submit(self)
         return true
     }
     
@@ -51,6 +51,7 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
     }
     
     func get(){
+        print("Starting to submit...")
         let user = self.appDelegate.getUser()
         let tripID:Int? = Int(textField.text!)
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTrip.php")!)
@@ -58,8 +59,12 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
         let postString = "a=\(tripID!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
+        print("Starting task...")
+        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
+            
+            
             
             if error != nil {
                 print("error=\(error)")
