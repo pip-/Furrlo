@@ -359,6 +359,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.saveContext()
     }
+    
+    func setToDoItemComplete(complete:Bool,toDoItemID: Int){
+      
+        if let toDoItems = getToDoItems(){
+            
+            for toDoItem in toDoItems {
+                if toDoItem.itemID == toDoItemID{
+                    
+                    toDoItem.complete = 1
+                }
+            }
+            
+            
+     
+        }
+        
+        return
+    }
+    
  
     /*
     func deleteToDoItem(itemID: NSNumber) -> Bool{

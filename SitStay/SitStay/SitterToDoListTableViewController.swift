@@ -13,7 +13,7 @@ class SitterToDoListTableViewController: UITableViewController {
     //call AppDelegate
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    //create local variables
+    //create local variables?
     var complete: NSNumber?
     var instruction: String?
     var instructionDetails: String? = "test"
@@ -137,12 +137,12 @@ class SitterToDoListTableViewController: UITableViewController {
             //add functionality to save task that have been marked as done
             print("To do items complete",self.toDoItemsComplete)
             
-            //toDoItemsComplete = 1
+            self.appDelegate.setToDoItemComplete(<#T##complete: Bool##Bool#>, toDoItemID)
             
         })
         alert.addAction(markDone)
         
-        
+
         // Display the menu
         self.presentViewController(alert, animated: true, completion: nil)
         
