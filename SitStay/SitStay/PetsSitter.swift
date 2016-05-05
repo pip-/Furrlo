@@ -13,39 +13,76 @@ class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
+    @IBOutlet var petCollection: UICollectionView!
+    
     
     
     var pets: [String] = []
     var petSpecies: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
-    //var numSections = 0
     var tripNames: [String] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*if let fetchedTrips = appDelegate.getTrips(){
+         for trip in fetchedTrips{
+         if(trip.isSitting!.boolValue == true){
+         tripNames.append(trip.tripName!)
+         
+         }
+         }
+         }
+         
+         if(tripNames.count > 0){
+         if let fetchedPets = appDelegate.getPets(){
+         for pet in fetchedPets{
+         if(pet.isSat!.boolValue == true){
+         pets.append(pet.name!)
+         petSpecies.append(pet.species!)
+         }
+         }
+         }
+         }*/
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        pets.removeAll()
+        petSpecies.removeAll()
+        tripNames.removeAll()
+        
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
+                    tripNames.append(trip.tripName!)
+                    print(trip.userID)
+                    print("hello world")
                     if(tripNames.count > 0){
-                       // numSections = tripNames.count
+                        if let fetchedPets = appDelegate.getPets(){
+                            for pet in fetchedPets{
+                                if(pet.user?.userID == trip.userID?.userID){
+                                    //pet.isSat!.boolValue == true
+                                    //var chosenPets: [Pet] = []
+                                    //chosenPets = trip.pets?.allObjects as! [Pet]
+                                    //print(chosenPets[1])
+                                    pets.append(pet.name!)
+                                    petSpecies.append(pet.species!)
+                                }
+                            }
+                        }
                     }
+                    
                 }
             }
         }
         
-        if let fetchedPets = appDelegate.getPets(){
-            for pet in fetchedPets{
-                if(pet.isSat!.boolValue == true){
-                    pets.append(pet.name!)
-                    petSpecies.append(pet.species!)
-                }
-            }
-        }
         
-        // Do any additional setup after loading the view.
+        self.petCollection.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,11 +90,11 @@ class PetsSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
         
-        return numSections
-    }*/
+        return 1
+    }
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -130,11 +167,20 @@ class PetsSitter: UIViewController {
     }
     
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    /*func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: "footer", forIndexPath: indexPath)
         // configure footer view
         return view
+    }*/
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toPet"){
+            let viewController = segue.destinationViewController as! PetInfoSitter
+            if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
+                viewController.petName = buttonTitle
+            }}
     }
 
     /*func collectionView(collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
