@@ -38,8 +38,9 @@ class PetInfoSitter: UIViewController {
                     print(pet.personality)
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
+                    imageView.image = self.appDelegate.pickPetPicture(petSpecies.text!)
                     
-                    var lowerCase = petSpecies.text?.lowercaseString
+                    /*var lowerCase = petSpecies.text?.lowercaseString
                     //let lowerCase = pet.species?.lowercaseString
                     print(lowerCase)
                     if(lowerCase == "dog"){
@@ -51,7 +52,7 @@ class PetInfoSitter: UIViewController {
                         
                     }
                     else{
-                        imageView.image = UIImage(named: "Untitled-6.png")                    }
+                        imageView.image = UIImage(named: "Untitled-6.png")                    }*/
                     
                     self.title = pet.name
                     
