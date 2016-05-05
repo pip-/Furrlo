@@ -29,6 +29,9 @@ class TripTabSitterMain: UITableViewController {
                         }else{
                         tripNames.append(trip.tripName!)
                         tripIds.append(Int(trip.tripID!))
+                            print("showing trip id")
+                            print(trip.tripID)
+                        
                         }
                 }
             }
