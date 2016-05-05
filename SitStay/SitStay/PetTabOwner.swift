@@ -97,15 +97,16 @@ class PetTabOwner: UIViewController {
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
         cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+        cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
             
-            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
+            /*if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
                 cell.petImage.image = UIImage(named: "dog profile.png")
             }
             else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
                 cell.petImage.image = UIImage(named: "cat head.png")
             }else{
                 cell.petImage.image = UIImage(named: "Untitled-6.png")
-            }
+            }*/
             
             
         //cell.petImage.image = UIImage(named: "cat profile.jpg")
