@@ -249,6 +249,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for pet in pets{
             pet.tripID = trip
+            print("testng trip.tripID")
+            print(trip.tripID)
+            print("testing pet.tripID?.tripID")
+            print(pet.tripID?.tripID)
+          
         }
         
         trip.userID = user
