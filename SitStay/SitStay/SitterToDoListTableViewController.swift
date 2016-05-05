@@ -137,7 +137,7 @@ class SitterToDoListTableViewController: UITableViewController {
             //add functionality to save task that have been marked as done
             print("To do items complete",self.toDoItemsComplete)
             
-            self.appDelegate.setToDoItemComplete(<#T##complete: Bool##Bool#>, toDoItemID)
+            //self.appDelegate.setToDoItemComplete(<#T##complete: Bool##Bool#>, toDoItemID)
             
         })
         alert.addAction(markDone)
