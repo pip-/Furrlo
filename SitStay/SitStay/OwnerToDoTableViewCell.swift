@@ -10,9 +10,24 @@ import UIKit
 
 class OwnerToDoTableViewController: UITableViewController{
     
+    //@IBOutlet var OwnerLists: UITableView!
     @IBOutlet var OwnerLists: UITableView!
     
-    var pets : [String] = ["Mira"]
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    
+     var dayTitles = ["Today","Tomorrow","Later"]
+    
+    //var dailyTaskLists: [String] = []
+    //var dayTitles: [String] = []
+    var toDoItems: [String] = []
+    var toDoItemsDetails: [String] = []
+    var pets: [String] = []
+    
+    var taskDone = true;
+    
+    //var pets : [String] = ["Mira"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +35,49 @@ class OwnerToDoTableViewController: UITableViewController{
         OwnerLists.delegate = self
         OwnerLists.dataSource = self
         
+        if let fetchedToDoItems = appDelegate.getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                toDoItems.append(toDoItem.instruction!)
+                toDoItemsDetails.append(toDoItem.instructionDetail!)
+                
+            }
+        }
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
+        
+    
+        if(dailyTaskLists.count > 0){
+            self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        }
+
     }
     
+    override func viewWillAppear(animated: Bool) {
+        toDoItems.removeAll()
+        pets.removeAll()
+        
+        if let fetchedToDoItems = appDelegate.getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                toDoItems.append(toDoItem.instruction!)
+                toDoItemsDetails.append(toDoItem.instructionDetail!)
+                
+            }
+        }
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                pets.append(pet.name!)
+            }
+        }
+        
+        if(dailyTaskLists.count > 0){
+            self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,43 +87,70 @@ class OwnerToDoTableViewController: UITableViewController{
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        //return dayTitles.count
+        return pets.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return pets.count
+        return dailyTaskLists[section].count
+        //return toDoItems.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
         
-        // Configure the cell...
+        cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         
-        return cell!
+        if (taskDone == true){
+            cell.accessoryType = .Checkmark
+        }
+        
+        return cell
     }
     
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
+        
+        cell.textLabel?.text = pets[section]
+        
+        return cell
+    }
     
-    /*
+ 
+    
+    
+    
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
      // Return false if you do not want the specified item to be editable.
      return true
      }
-     */
+
     
-    /*
-     // Override to support editing the table view.
+  //Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
      if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // Delete the row from the data source
+        //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
+        
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+            //dailyTaskLists.removeAtIndex(indexPath.row - 1)
+        
+            dailyTaskLists.removeAtIndex(indexPath.row - 1)
+        
+        
+            //tripIds.removeAtIndex(indexPath.row - 1)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+     } //else if editingStyle == .Insert {
+        //// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+       // }
+    
+    
+    
+    
     
     /*
      // Override to support rearranging the table view.
