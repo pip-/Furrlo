@@ -245,16 +245,26 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     //-------------------------------------------
                     
                     //Prove that this works----------------------
-                   // print("PROOF!")
+                    //print("PROOF!")
                     //for dict in petDicts{
                         
-                       // print(String(dict["PetName"]))
-                        //print(String(dict["PetID"]))
+                     //   print(String(dict["PetName"]))
+                      //  print(String(dict["PetID"]))
+                        
+                        //let petInt = Int(dict["PetID"]!)
+                        //let petNS = NSNumber(integer: petInt!)
+                   
+                    let myPetDict = petDicts[0]
+                        if let petID = Int(myPetDict["PetID"]!){
+                            appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: true, user: user!, petID: petID )
+                        }
                     
-                    appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: true, user: user!)
+                
+                
                     
+            
                        // print ("pet added")
-                  //  }
+                    //}
                     //-------------------------------------------
                     
                     self.taskComplete()
