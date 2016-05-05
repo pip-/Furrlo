@@ -98,7 +98,7 @@
         <scene sceneID="ddQ-HC-GYB">
             <objects>
                 <navigationController id="hr2-xj-PkR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="To Do" id="vvz-ph-DSK"/>
+                    <tabBarItem key="tabBarItem" title="To Do" image="ToDoIcon" selectedImage="ToDoIconActive" id="vvz-ph-DSK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="T28-qF-iZ5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -115,7 +115,7 @@
         <scene sceneID="kPR-MN-Np6">
             <objects>
                 <navigationController storyboardIdentifier="navControllerPetsSitter" id="gQU-R0-Ina" customClass="NavControllerPetsSitter" customModule="SitStay" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pets" id="yLH-mH-Qo4"/>
+                    <tabBarItem key="tabBarItem" title="Pets" image="PetIcon" selectedImage="PetIconActive" id="yLH-mH-Qo4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cHO-gY-4HJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -394,7 +394,7 @@
         <scene sceneID="C9q-tY-sNX">
             <objects>
                 <navigationController id="CuY-Ox-82t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trips" id="jO1-te-dbR"/>
+                    <tabBarItem key="tabBarItem" title="Trips" image="TripIcon" selectedImage="TripIconActive" id="jO1-te-dbR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oFO-FA-EuJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -958,4 +958,12 @@
             <point key="canvasLocation" x="4289" y="1730"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PetIcon" width="26" height="25"/>
+        <image name="PetIconActive" width="27" height="25"/>
+        <image name="ToDoIcon" width="25" height="25"/>
+        <image name="ToDoIconActive" width="25" height="25"/>
+        <image name="TripIcon" width="31" height="25"/>
+        <image name="TripIconActive" width="31" height="25"/>
+    </resources>
 </document>

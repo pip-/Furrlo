@@ -123,15 +123,16 @@ class PetsSitter: UIViewController {
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
             cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+            cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
             
-            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
+            /*if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
                 cell.petImage.image = UIImage(named: "dog profile.png")
             }
             else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
                 cell.petImage.image = UIImage(named: "cat head.png")
             }else{
                 cell.petImage.image = UIImage(named: "Untitled-6.png")
-            }
+            }*/
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
             // make cell more visible in our example project
