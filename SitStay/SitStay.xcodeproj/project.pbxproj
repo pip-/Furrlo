@@ -12,9 +12,6 @@
 		4CE2A1BA1CD363B50027D9F4 /* OwnerAddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */; };
 		4CE2A1BC1CD364D60027D9F4 /* OwnerFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */; };
 		4CE2A1BE1CD3FF240027D9F4 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */; };
-		675633C91CDBC0A70025662D /* Untitled-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 675633C61CDBC0A70025662D /* Untitled-6.png */; };
-		675633CA1CDBC0A70025662D /* dog profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 675633C71CDBC0A70025662D /* dog profile.png */; };
-		675633CB1CDBC0A70025662D /* cat head.png in Resources */ = {isa = PBXBuildFile; fileRef = 675633C81CDBC0A70025662D /* cat head.png */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
@@ -75,9 +72,6 @@
 		4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddTaskViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFinishedListViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
-		675633C61CDBC0A70025662D /* Untitled-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-6.png"; path = "../../../Downloads/Untitled-6.png"; sourceTree = "<group>"; };
-		675633C71CDBC0A70025662D /* dog profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dog profile.png"; path = "../../../Downloads/dog profile.png"; sourceTree = "<group>"; };
-		675633C81CDBC0A70025662D /* cat head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cat head.png"; path = "../../../Downloads/cat head.png"; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
@@ -351,9 +345,6 @@
 		C6DA0D401CA634E600F425B3 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				675633C61CDBC0A70025662D /* Untitled-6.png */,
-				675633C71CDBC0A70025662D /* dog profile.png */,
-				675633C81CDBC0A70025662D /* cat head.png */,
 				C6DA0D411CA6350400F425B3 /* add.png */,
 			);
 			name = img;
@@ -422,10 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				675633CA1CDBC0A70025662D /* dog profile.png in Resources */,
-				675633CB1CDBC0A70025662D /* cat head.png in Resources */,
 				6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */,
-				675633C91CDBC0A70025662D /* Untitled-6.png in Resources */,
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
