@@ -278,10 +278,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User){
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User, petID: NSNumber){
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
-        
-        
         
         newPet.name = name
         newPet.species = species
@@ -291,14 +289,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.food = food
         newPet.notes = notes
         newPet.user = user
-        //newPet.picture = picture
+        newPet.petID = petID
         
         if(isSat){
             newPet.isSat = 1
         }
-        
-        //newPet.petID = Int(arc4random_uniform(8000000) + 100000)
-        
         
         self.saveContext()
     }
