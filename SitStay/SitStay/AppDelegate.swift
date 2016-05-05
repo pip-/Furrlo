@@ -320,26 +320,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-    
-    func pickPetPicture(petSpecies: String) -> UIImage{
-        
-                var lowerCase = petSpecies.lowercaseString
-                var image: UIImage
-        
-                if(lowerCase == "dog"){
-                        image = UIImage(named:"dog profile.png")!
-                
-                    }
-                else if(lowerCase == "cat"){
-                        image = UIImage(named:"cat head.png")!
-                
-                    }
-                else{
-                        image  = UIImage(named:"Untitled-6.png")!
-                    }
-                return image
-            }
-    
+
  
     func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool, petParent: Pet?){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
