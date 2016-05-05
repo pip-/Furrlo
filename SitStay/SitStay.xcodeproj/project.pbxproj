@@ -33,6 +33,12 @@
 		C66FF9DB1CC7F417004140EC /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */; };
 		C66FF9DC1CC7F417004140EC /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66FF9D01CC7F417004140EC /* Trip.swift */; };
 		C6D478E51CD52ECA005D221C /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D478E41CD52ECA005D221C /* extensions.swift */; };
+		C6D55DA01CDAE686004DC209 /* Pets icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D55D9F1CDAE686004DC209 /* Pets icon.png */; };
+		C6D55DA21CDAE69B004DC209 /* To Do icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D55DA11CDAE69B004DC209 /* To Do icon.png */; };
+		C6D55DA41CDAE6BF004DC209 /* Trips Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D55DA31CDAE6BF004DC209 /* Trips Icon.png */; };
+		C6D55DA61CDAE73B004DC209 /* Trips Icon active.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D55DA51CDAE73B004DC209 /* Trips Icon active.png */; };
+		C6D55DA81CDAE741004DC209 /* To Do icon active.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D55DA71CDAE741004DC209 /* To Do icon active.png */; };
+		C6D55DAA1CDAE747004DC209 /* Pets icon active.png in Resources */ = {isa = PBXBuildFile; fileRef = C6D55DA91CDAE747004DC209 /* Pets icon active.png */; };
 		C6D73BFE1CB4B7DD001BC7F2 /* AddPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */; };
 		C6D73BFF1CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */; };
 		C6D73C021CB4B7DD001BC7F2 /* ExistingPetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */; };
@@ -136,6 +142,12 @@
 		C66FF9CF1CC7F417004140EC /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C66FF9D01CC7F417004140EC /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		C6D478E41CD52ECA005D221C /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		C6D55D9F1CDAE686004DC209 /* Pets icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pets icon.png"; sourceTree = "<group>"; };
+		C6D55DA11CDAE69B004DC209 /* To Do icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "To Do icon.png"; path = "../To Do icon.png"; sourceTree = "<group>"; };
+		C6D55DA31CDAE6BF004DC209 /* Trips Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trips Icon.png"; sourceTree = "<group>"; };
+		C6D55DA51CDAE73B004DC209 /* Trips Icon active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trips Icon active.png"; sourceTree = "<group>"; };
+		C6D55DA71CDAE741004DC209 /* To Do icon active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "To Do icon active.png"; sourceTree = "<group>"; };
+		C6D55DA91CDAE747004DC209 /* Pets icon active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pets icon active.png"; sourceTree = "<group>"; };
 		C6D73BF31CB4B7DD001BC7F2 /* AddPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetOwner.swift; sourceTree = "<group>"; };
 		C6D73BF41CB4B7DD001BC7F2 /* CollectionViewCellOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCellOwner.swift; sourceTree = "<group>"; };
 		C6D73BF71CB4B7DD001BC7F2 /* ExistingPetOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistingPetOwner.swift; sourceTree = "<group>"; };
@@ -440,12 +452,18 @@
 		C6FAB4081CBC05DF00A331AD /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				C6D55D9F1CDAE686004DC209 /* Pets icon.png */,
+				C6D55DA11CDAE69B004DC209 /* To Do icon.png */,
 				C65B074F1CBF3D5F00CDD408 /* chevron.jpg */,
 				C6FAB4091CBC05DF00A331AD /* cat head.png */,
 				C6FAB40A1CBC05DF00A331AD /* cat profile.jpg */,
 				C6FAB40B1CBC05DF00A331AD /* cat profile.png */,
+				C6D55DA31CDAE6BF004DC209 /* Trips Icon.png */,
+				C6D55DA51CDAE73B004DC209 /* Trips Icon active.png */,
 				C6FAB40C1CBC05DF00A331AD /* dog head.png */,
 				C6FAB40D1CBC05DF00A331AD /* dog profile.png */,
+				C6D55DA71CDAE741004DC209 /* To Do icon active.png */,
+				C6D55DA91CDAE747004DC209 /* Pets icon active.png */,
 				C6FAB40E1CBC05DF00A331AD /* exercise icon.png */,
 				C6FAB40F1CBC05DF00A331AD /* exercise icon1.ai */,
 				C6FAB4101CBC05DF00A331AD /* exercise icon1.png */,
@@ -551,6 +569,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6FAB4521CBC05DF00A331AD /* TOOLBAR.ai in Resources */,
+				C6D55DA81CDAE741004DC209 /* To Do icon active.png in Resources */,
+				C6D55DA41CDAE6BF004DC209 /* Trips Icon.png in Resources */,
 				C6FAB44C1CBC05DF00A331AD /* Pets icon.ai in Resources */,
 				C6FAB4511CBC05DF00A331AD /* To Do screen.ai in Resources */,
 				6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */,
@@ -572,7 +592,9 @@
 				C6FAB45C1CBC05DF00A331AD /* water icon1.png in Resources */,
 				C6FAB45B1CBC05DF00A331AD /* water icon1.ai in Resources */,
 				C6FAB44F1CBC05DF00A331AD /* To Do icon.ai in Resources */,
+				C6D55DA21CDAE69B004DC209 /* To Do icon.png in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
+				C6D55DA01CDAE686004DC209 /* Pets icon.png in Resources */,
 				C6FAB4541CBC05DF00A331AD /* Trips Icon.ai in Resources */,
 				C6FAB4591CBC05DF00A331AD /* Untitled-7.png in Resources */,
 				C6FAB45A1CBC05DF00A331AD /* water icon.png in Resources */,
@@ -590,7 +612,9 @@
 				C6FAB43C1CBC05DF00A331AD /* food icon1.ai in Resources */,
 				C6FAB4371CBC05DF00A331AD /* dog profile.png in Resources */,
 				C6FAB4491CBC05DF00A331AD /* other icon1.ai in Resources */,
+				C6D55DA61CDAE73B004DC209 /* Trips Icon active.png in Resources */,
 				C65B07501CBF3D5F00CDD408 /* chevron.jpg in Resources */,
+				C6D55DAA1CDAE747004DC209 /* Pets icon active.png in Resources */,
 				C6FAB4431CBC05DF00A331AD /* Logo5.png in Resources */,
 				C6FAB4411CBC05DF00A331AD /* Logo4.ai in Resources */,
 				C6FAB4331CBC05DF00A331AD /* cat head.png in Resources */,
