@@ -394,7 +394,7 @@
         <scene sceneID="C9q-tY-sNX">
             <objects>
                 <navigationController id="CuY-Ox-82t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trips" id="jO1-te-dbR"/>
+                    <tabBarItem key="tabBarItem" title="Trips" image="TripIcon" selectedImage="TripIconActive" id="jO1-te-dbR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oFO-FA-EuJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -961,5 +961,7 @@
     <resources>
         <image name="PetIcon" width="26" height="25"/>
         <image name="PetIconActive" width="27" height="25"/>
+        <image name="TripIcon" width="31" height="25"/>
+        <image name="TripIconActive" width="31" height="25"/>
     </resources>
 </document>
