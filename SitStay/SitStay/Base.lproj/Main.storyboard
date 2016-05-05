@@ -2802,7 +2802,7 @@
         <scene sceneID="ZcJ-Gg-skb">
             <objects>
                 <navigationController title="To Do" id="VWM-Vq-j2c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="To Do" id="YTi-Ai-JGx"/>
+                    <tabBarItem key="tabBarItem" title="To Do" image="ToDoIcon" selectedImage="ToDoIconActive" id="YTi-Ai-JGx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fAj-yo-TQB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2819,6 +2819,8 @@
     <resources>
         <image name="PetIcon" width="26" height="25"/>
         <image name="PetIconActive" width="27" height="25"/>
+        <image name="ToDoIcon" width="25" height="25"/>
+        <image name="ToDoIconActive" width="25" height="25"/>
         <image name="TripIcon" width="31" height="25"/>
         <image name="TripIconActive" width="31" height="25"/>
     </resources>
