@@ -29,6 +29,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var petName: String?
     var testString: String?
     
+    var petIDs: [Int] = []
+    
     let keyboardVerticalSpacing: CGFloat = 30
     
     override func viewDidLoad() {
@@ -42,9 +44,16 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
+                petIDs.append(pet.petID!.integerValue)
+                
             }
         }
+        
+        
+        //Print petIds pulled from database
+        print(petIDs)
 
+        
         if (pets.count == 0){
             selectionLabel.text = "No pets"
         } else {
@@ -52,10 +61,13 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
         }
         
+        
         submitButton.enabled = false
         
-         instructionField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave(_:)), forControlEvents: UIControlEvents.EditingChanged)
-         instructionDetailsField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
+        instructionField.addTarget(self, action: #selector(self.checkSave), forControlEvents: UIControlEvents.EditingChanged)
+        
+        instructionDetailsField.addTarget(self, action: #selector(OwnerAddListViewController.checkSave), forControlEvents: UIControlEvents.EditingChanged)
         
         self.hideKeyboardWhenTappedAround()
         
@@ -96,23 +108,34 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         
         if(pets.count == 0)
         {
-            selectionLabel.text = "No pets"
+        selectionLabel.text = "No pets"
         } else {
         selectionLabel.text = pets[row]
         }
     }
     
     @IBAction func taskSubmitted(sender: AnyObject) {
+        checkSave()
+        complete = 0;
+        print(complete)
+        let itemID = (arc4random_uniform(800000))
+        print(itemID)
+        let petID = petIDs
+        print(petID)
         //submitTask()
         
     }
-    func checkSave(textfield: UITextField)
+    
+    func checkSave()
     {
         if let petName = selectionLabel.text{
+            print(petName)
             if(petName.characters.count > 0){
+                print(instruction)
                 if let instruction = instructionField.text{
                     if(instruction.characters.count > 0)
                     {
+                        print(instructionDetails)
                         if let instructionDetails = instructionDetailsField.text{
                             if(instructionDetails.characters.count > 0){
                                 submitButton.enabled = true
@@ -134,8 +157,11 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     func dismissKeyboard() {
         view.endEditing(true)
     }
- /*
-    }
+ 
+    
+    
+
+    /*
     func submitTask(){
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -258,6 +284,6 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
          }
          
          }
-     */
-    
+
+    */
  }
