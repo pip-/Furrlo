@@ -97,7 +97,7 @@ class PetTabOwner: UIViewController {
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
         cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
-        cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
+        //cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
         
             
         let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
