@@ -231,7 +231,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User, tripID: Int) -> Int{
+    func tripAlreadyExists(tripID: Int) -> Bool{
+        if let trips = getTrips(){
+            for trip in trips{
+                if(trip.tripID?.integerValue == tripID){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User, tripID: Int){
+        
+        if(tripAlreadyExists(tripID)){
+            return
+        }
         
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
@@ -273,7 +288,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.saveContext()
         
-        return Int(trip.tripID!)
+        //return Int(trip.tripID!)
     }
     
     
