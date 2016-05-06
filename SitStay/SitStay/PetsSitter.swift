@@ -37,60 +37,34 @@ class PetsSitter: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         pets.removeAll()
+        print(pets)
         petSpecies.removeAll()
         tripNames.removeAll()
-        
-        /*if let fetchedTrips = appDelegate.getTrips(){
-            for trip in fetchedTrips{
-                if(trip.isSitting!.boolValue == true){
-                    tripNames.append(trip.tripName!)
-                    print(trip.userID)
-                    print("hello world")
-                    if(tripNames.count > 0){
-                        if let fetchedPets = appDelegate.getPets(){
-                            for pet in fetchedPets{
-                                if(trip.tripID == pet.tripID){
-                                    //pet.isSat!.boolValue == true
-                                    //var chosenPets: [Pet] = []
-                                    //chosenPets = trip.pets?.allObjects as! [Pet]
-                                    //print(chosenPets[1])
-                                    pets.append(pet.name!)
-                                    petSpecies.append(pet.species!)
-                                }
-                            }
-                        }
-                    }
-                    
-                }
-            }
-        }*/
+       
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
                     tripNames.append(trip.tripName!)
                     print("testing trip id 1")
                     print(trip.tripID)
-                    
-                  
-                        if let fetchedPets = appDelegate.getPets(){
-                            for pet in fetchedPets{
-                                //if(pet.tripID?.tripID == trip.tripID){
-                                    
-                                    print("testing pet trip id...")
-                                    print(pet.tripID?.tripID)
-                                    print("testing trip id 2")
-                                    print(trip.tripID)
-                                    pets.append(pet.name!)
-                                    petSpecies.append(pet.species!)
-                                //}
-                            }
+                   
+                }
+                if let fetchedPets = appDelegate.getPets(){
+                    for pet in fetchedPets{
+                        if(pet.isSat?.boolValue == true){
+                            pets.append(pet.name!)
+                            petSpecies.append(pet.species!)
                         }
-                    
-                    
+                    }
                 }
             }
         }
         
+        //if(tripNames.count > 0){
+        
+        //}
+        
+        print(pets)
         self.petCollection.reloadData()
     }
     

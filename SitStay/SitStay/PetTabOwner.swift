@@ -47,7 +47,7 @@ class PetTabOwner: UIViewController {
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                if(myID == pet.user?.userID){
+                if(myID == pet.user?.userID && pet.isSat?.boolValue==false){
                     pets.append(pet.name!)
                     petSpecies.append(pet.species!)
                 }

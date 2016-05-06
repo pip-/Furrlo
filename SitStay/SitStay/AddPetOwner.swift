@@ -110,7 +110,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
     
     
-    @IBAction func loadImage(sender: AnyObject) {
+   /* @IBAction func loadImage(sender: AnyObject) {
         
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -133,7 +133,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
+    }*/
     
     func textFieldDidBeginEditing(textField: UITextField) {
         activeTextField = textField
@@ -256,7 +256,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                    
                     let myPetDict = petDicts[0]
                         if let petID = Int(myPetDict["PetID"]!){
-                            appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: true, user: user!, petID: petID )
+                            appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
                         }
                     
                 
