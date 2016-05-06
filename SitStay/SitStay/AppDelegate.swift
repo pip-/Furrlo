@@ -220,7 +220,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func petAlreadyExists(petID: Int) -> Bool{
+        if let pets = getPets(){
+            for pet in pets{
+                if(pet.petID?.integerValue == petID){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User, tripID: Int) -> Int{
+        
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -285,6 +297,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User, petID: NSNumber){
+        if(petAlreadyExists(petID.integerValue)){
+            return
+        }
+        
+        
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
         
         newPet.name = name
