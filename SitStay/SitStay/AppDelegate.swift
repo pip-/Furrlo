@@ -249,6 +249,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for pet in pets{
             pet.tripID = trip
+            //pet.tripID?.tripID = tripID
             print("testng trip.tripID")
             print(trip.tripID)
             print("testing pet.tripID?.tripID")
@@ -296,8 +297,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.user = user
         newPet.petID = petID
         
+        
         if(isSat){
             newPet.isSat = 1
+        }
+        else{
+            newPet.isSat = 0
         }
         
         self.saveContext()
