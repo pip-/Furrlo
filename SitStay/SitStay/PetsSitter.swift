@@ -27,25 +27,9 @@ class PetsSitter: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*if let fetchedTrips = appDelegate.getTrips(){
-         for trip in fetchedTrips{
-         if(trip.isSitting!.boolValue == true){
-         tripNames.append(trip.tripName!)
+    
          
-         }
-         }
-         }
-         
-         if(tripNames.count > 0){
-         if let fetchedPets = appDelegate.getPets(){
-         for pet in fetchedPets{
-         if(pet.isSat!.boolValue == true){
-         pets.append(pet.name!)
-         petSpecies.append(pet.species!)
-         }
-         }
-         }
-         }*/
+        
         
         // Do any additional setup after loading the view.
     }
@@ -56,7 +40,7 @@ class PetsSitter: UIViewController {
         petSpecies.removeAll()
         tripNames.removeAll()
         
-        if let fetchedTrips = appDelegate.getTrips(){
+        /*if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
                     tripNames.append(trip.tripName!)
@@ -65,7 +49,7 @@ class PetsSitter: UIViewController {
                     if(tripNames.count > 0){
                         if let fetchedPets = appDelegate.getPets(){
                             for pet in fetchedPets{
-                                if(pet.user?.userID == trip.userID?.userID){
+                                if(trip.tripID == pet.tripID){
                                     //pet.isSat!.boolValue == true
                                     //var chosenPets: [Pet] = []
                                     //chosenPets = trip.pets?.allObjects as! [Pet]
@@ -79,8 +63,33 @@ class PetsSitter: UIViewController {
                     
                 }
             }
+        }*/
+        if let fetchedTrips = appDelegate.getTrips(){
+            for trip in fetchedTrips{
+                if(trip.isSitting!.boolValue == true){
+                    tripNames.append(trip.tripName!)
+                    print("testing trip id 1")
+                    print(trip.tripID)
+                    
+                  
+                        if let fetchedPets = appDelegate.getPets(){
+                            for pet in fetchedPets{
+                                //if(pet.tripID?.tripID == trip.tripID){
+                                    
+                                    print("testing pet trip id...")
+                                    print(pet.tripID?.tripID)
+                                    print("testing trip id 2")
+                                    print(trip.tripID)
+                                    pets.append(pet.name!)
+                                    petSpecies.append(pet.species!)
+                                //}
+                            }
+                        }
+                    
+                    
+                }
+            }
         }
-        
         
         self.petCollection.reloadData()
     }
@@ -123,15 +132,16 @@ class PetsSitter: UIViewController {
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
             cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+            cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
             
-            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
+            /*if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
                 cell.petImage.image = UIImage(named: "dog profile.png")
             }
             else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
                 cell.petImage.image = UIImage(named: "cat head.png")
             }else{
                 cell.petImage.image = UIImage(named: "Untitled-6.png")
-            }
+            }*/
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
             // make cell more visible in our example project
