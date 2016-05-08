@@ -110,7 +110,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
     
     
-    @IBAction func loadImage(sender: AnyObject) {
+   /* @IBAction func loadImage(sender: AnyObject) {
         
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -133,7 +133,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
+    }*/
     
     func textFieldDidBeginEditing(textField: UITextField) {
         activeTextField = textField
@@ -245,16 +245,29 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     //-------------------------------------------
                     
                     //Prove that this works----------------------
-                   // print("PROOF!")
+                    //print("PROOF!")
                     //for dict in petDicts{
                         
-                       // print(String(dict["PetName"]))
-                        //print(String(dict["PetID"]))
+                     //   print(String(dict["PetName"]))
+                      //  print(String(dict["PetID"]))
+                        
+                        //let petInt = Int(dict["PetID"]!)
+                        //let petNS = NSNumber(integer: petInt!)
+                   
+                    let myPetDict = petDicts.last
+                        if let petID = Int(myPetDict!["PetID"]!){
+                            appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
+                        }
+                    print("SHOWING PET ID")
+                    print(petDicts.last)
+                    //print(Int(myPetDict["PetID"]!))
                     
-                    appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: true, user: user!)
+                
+                
                     
+            
                        // print ("pet added")
-                  //  }
+                    //}
                     //-------------------------------------------
                     
                     self.taskComplete()

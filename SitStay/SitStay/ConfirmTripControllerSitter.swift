@@ -26,8 +26,8 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        submit(self)
         textField.resignFirstResponder()
+        submit(self)
         return true
     }
     
@@ -51,6 +51,7 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
     }
     
     func get(){
+        print("Starting to submit...")
         let user = self.appDelegate.getUser()
         let tripID:Int? = Int(textField.text!)
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTrip.php")!)
@@ -58,8 +59,12 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
         let postString = "a=\(tripID!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
+        print("Starting task...")
+        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
+            
+            
             
             if error != nil {
                 print("error=\(error)")
@@ -111,22 +116,22 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
                                     if let email = dict["userEmail"]{
                                         
                                         //APE
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email, user: user!, tripID: Int(dict["TripID"]!)!)
                                     } else{
                                         
                                         //APe
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil, user: user!, tripID: Int(dict["TripID"]!)!)
                                     }
                                 }
                                 else {
                                     if let email = dict["userEmail"]{
                                         
                                         //ApE
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email, user: user!, tripID: Int(dict["TripID"]!)!)
                                     } else {
                                         
                                         //Ape
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: address2, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil, user: user!, tripID: Int(dict["TripID"]!)!)
                                     }
                                 }
                             } else {
@@ -134,21 +139,21 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
                                     if let email = dict["userEmail"] {
                                         
                                         //aPE
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: email, user: user!, tripID: Int(dict["TripID"]!)!)
                                     } else {
                                         
                                         //aPe
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: phone, email: nil, user: user!, tripID: Int(dict["TripID"]!)!)
                                     }
                                 } else {
                                     
                                     //apE
                                     if let email = dict["userEmail"]{
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: email, user: user!, tripID: Int(dict["TripID"]!)!)
                                     } else {
                                         
                                         //ape
-                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil, user: user!)
+                                        self.appDelegate.insertNewTrip(startDate, endDate: endDate, street: dict["UserAddress"]!, zip: dict["Zipcode"]!, city: dict["City"]!, addr2: nil, pets: [], tripName: dict["tripName"]!, isSitting: true, phone: nil, email: nil, user: user!, tripID: Int(dict["TripID"]!)!)
                                     }
                                 }
                                 
@@ -159,9 +164,15 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
                         }
                         
                     }
+                    
+                    self.pullPets(Int(dict["UserID"]!)!)
+                    //print("USER ID: " + dict["UserID"]!)
+                    
                     //-------------------------------------------
                 }
             }
+            
+            
             
             /*self.appDelegate.insertNewPet("Bob", species: "Dog", breed: "Lab", age: "11", personality: "loud", food: "dog food", notes: "he barks a lot", isSat: true, user: user)
              self.appDelegate.insertNewPet("Steve", species: "Cat", breed: "Spots", age: nil, personality: "", food: nil, notes: nil, isSat: true,  user: user)*/
@@ -181,6 +192,85 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func pullPets(userID: Int){
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        print("Getting Pets---------------------------------------")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            
+            print("responseString = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                //Convert to String/Drop Garbage------------
+                let s = String(responseString)
+                var parsedJsonString = String(s.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let petStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var petDicts: [[String: String]] = []
+                for string in petStrings{
+                    if let dict = string.convertToDictionary(){
+                        petDicts.append(dict)
+                    }
+                }
+                //-------------------------------------------
+                
+                //Prove that this works----------------------
+                // print("PROOF!")
+                //for dict in petDicts{
+                
+                // print(String(dict["PetName"]))
+                //print(String(dict["PetID"]))
+                
+                let user = self.appDelegate.getUser()
+                for dict in petDicts{
+                    self.appDelegate.insertNewPet(dict["PetName"], species: dict["PetType"], breed: dict["PetBreed"], age: dict["PetAge"], personality: dict["PetPersonality"], food: dict["PetFood"], notes: dict["OtherNotes"], isSat: true, user: user!, petID: Int(dict["PetID"]!)!)
+                }
+                
+                // print ("pet added")
+                //  }
+                //-------------------------------------------
+            
+            print("------------------------------------------------")
+            
+            //self.taskComplete()
+            
+        
+            }
+        }
+        task.resume()
+    }
 
 
 
