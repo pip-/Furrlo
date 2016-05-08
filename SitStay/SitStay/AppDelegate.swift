@@ -276,6 +276,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for pet in pets{
             pet.tripID = trip
+            //pet.tripID?.tripID = tripID
             print("testng trip.tripID")
             print(trip.tripID)
             print("testing pet.tripID?.tripID")
@@ -328,8 +329,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.user = user
         newPet.petID = petID
         
+        
         if(isSat){
             newPet.isSat = 1
+        }
+        else{
+            newPet.isSat = 0
         }
         
         self.saveContext()
@@ -354,7 +359,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
  
-    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool, petParent: Pet?){
+    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
         
         newToDoItem.complete = complete
@@ -363,7 +368,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newToDoItem.itemID = itemID
         newToDoItem.petID = petID
         newToDoItem.isSat = isSat
-        newToDoItem.petParent = petParent
+        //newToDoItem.petParent = petParent
         
     
         if(isSat){
@@ -392,5 +397,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     */
+    
+    func pickPetPicture(petSpecies: String) -> UIImage {
+        let lowercaseSpecies = petSpecies.lowercaseString
+        //var petPicture: UIImage
+        
+        if(lowercaseSpecies == "dog" || lowercaseSpecies == "puppy"){
+            return UIImage(named: "dog icon.png")!
+        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten"){
+            return UIImage(named: "cat icon.png")!
+        } else if(lowercaseSpecies == "bunny" || lowercaseSpecies == "rabbit" || lowercaseSpecies == "bunny rabbit" ){
+            return UIImage(named: "bunny icon.png")!
+        } else if(lowercaseSpecies == "bird" || lowercaseSpecies == "parrot"){
+            return UIImage(named: "BIRD ICON.png")!
+        } else if(lowercaseSpecies == "fish"){
+            return UIImage(named: "fish icon.png")!
+        }
+        
+        return UIImage(named: "Pets icon active.png")!
+    }
 }
 

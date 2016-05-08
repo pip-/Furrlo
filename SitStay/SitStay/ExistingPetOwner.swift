@@ -41,6 +41,7 @@ class ExistingPetOwner: UIViewController{
                     petPersonalityLabel.text = pet.personality
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
+                    imageView.image = self.appDelegate.pickPetPicture(pet.species!)
                     
                  self.title = pet.name
                     print("hello world")
