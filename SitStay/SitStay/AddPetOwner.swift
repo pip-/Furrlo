@@ -256,22 +256,44 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     
                     print("Counting Array Length")
                     print(petDicts.count)
-                    
                    
-                    if let myPetDict = petDicts.last{
-                        if let petID = Int(myPetDict["PetID"]!){
+                    if(petDicts.count == 1){
+                    let myPetDict = petDicts.first
+                    if let petID = Int(myPetDict!["PetID"]!){
+                        appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
+                    }
+                    } else {
+                        let myPetDict = petDicts.last
+                        if let petID = Int(myPetDict!["PetID"]!){
                             appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
                         }
+
                     }
+                    
+                    
+                    //if let myPetDict = petDicts.last
+                     // let myPetDict = petDicts[0]
+                    //{
+                    /*
+                        print(myPetDict)
+                        if let petID = Int(myPetDict["PetID"]!){
+                            appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
+                            
+                            print(Int(myPetDict["PetID"]!))
+                        }*/
+                    //}
+                    
+                    
+                
                     print("SHOWING PET ID")
                     print(petDicts.last)
-                    //print(Int(myPetDict["PetID"]!))
+                    
                     
                 
                 
                     
             
-                       // print ("pet added")
+                        print ("pet added")
                     //}
                     //-------------------------------------------
                     
