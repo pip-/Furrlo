@@ -106,7 +106,7 @@ class PetsSitter: UIViewController {
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
             cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
-            //cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
+            cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
             
             /*if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
                 cell.petImage.image = UIImage(named: "dog profile.png")
