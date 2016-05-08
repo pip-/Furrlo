@@ -21,7 +21,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     
     var complete: NSNumber?
     var instruction: String?
-    var instructionDetails: String?
+    var instructionDetail: String?
     var itemID: NSNumber?
     var petID: NSNumber?
     var isSat: NSNumber?
@@ -122,6 +122,12 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(itemID)
         let petID = petIDs
         print(petID)
+        let PetName = selectionLabel.text
+        print(PetName)
+        let instruction = instructionField.text
+        print(instruction)
+        let instructionDetail = instructionDetailsField.text
+        print(instructionDetail)
         //submitTask()
         
     }
@@ -129,15 +135,15 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     func checkSave()
     {
         if let petName = selectionLabel.text{
-            print(petName)
+            //print(petName)
             if(petName.characters.count > 0){
-                print(instruction)
+                //print(instruction)
                 if let instruction = instructionField.text{
                     if(instruction.characters.count > 0)
                     {
-                        print(instructionDetails)
-                        if let instructionDetails = instructionDetailsField.text{
-                            if(instructionDetails.characters.count > 0){
+                        //print(instructionDetail)
+                        if let instructionDetail = instructionDetailsField.text{
+                            if(instructionDetail.characters.count > 0){
                                 submitButton.enabled = true
                                 return
                             }
@@ -161,7 +167,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     
     
 
-    /*
+    
     func submitTask(){
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -172,7 +178,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addtask.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petSpecies.text!)&b=\(petNameLabel.text!)&c=\(petAge.text!)&d=\(petBreedLabel.text!)&e=\(petPersonalityLabel.text!)&f=\(petNotes.text!)&g=\(userID!)&h=\(petFoodLabel.text!)"
+        let postString = "a=\(complete!)&b=\(instruction!)&c=\(instructionDetail!)&d=\(itemID!)&e=\(petID!)&f=\(isSat!)&g=\(userID!)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
@@ -237,14 +243,14 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 
                 
                 //Put into array----------------------------
-                let petStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                let taskStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
                 //------------------------------------------
                 
                 //Parse each string into dictionary---------
-                var petDicts: [[String: String]] = []
-                for string in petStrings{
+                var taskDicts: [[String: String]] = []
+                for string in taskStrings{
                     if let dict = string.convertToDictionary(){
-                        petDicts.append(dict)
+                        taskDicts.append(dict)
                     }
                 }
                 //-------------------------------------------
@@ -256,7 +262,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 // print(String(dict["PetName"]))
                 //print(String(dict["PetID"]))
                 
-                appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: true)
+                appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
                 
                 // print ("pet added")
                 //  }
@@ -285,5 +291,5 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
          
          }
 
-    */
+    
  }
