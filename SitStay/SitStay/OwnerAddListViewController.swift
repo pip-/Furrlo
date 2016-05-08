@@ -175,10 +175,10 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let userID = user!.userID
  
  
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addtask.php")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTask.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(complete!)&b=\(instruction!)&c=\(instructionDetail!)&d=\(itemID!)&e=\(petID!)&f=\(isSat!)&g=\(userID!)"
+        let postString = "a=\(petID!)&b=\(petName!)&c=\(instruction!)&d=\(instructionDetail!)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
@@ -196,7 +196,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             print("responseStringFromAddToDB = \(responseString)")
         }
         task.resume()
-        getTaskAddTask()
+       // getTaskAddTask()
         
     }
     
