@@ -12,6 +12,12 @@
 		4CE2A1BA1CD363B50027D9F4 /* OwnerAddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */; };
 		4CE2A1BC1CD364D60027D9F4 /* OwnerFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */; };
 		4CE2A1BE1CD3FF240027D9F4 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */; };
+		675CBD691CDED57C00949A82 /* Pets icon active.png in Resources */ = {isa = PBXBuildFile; fileRef = 675CBD631CDED57C00949A82 /* Pets icon active.png */; };
+		675CBD6A1CDED57C00949A82 /* fish icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 675CBD641CDED57C00949A82 /* fish icon.png */; };
+		675CBD6B1CDED57C00949A82 /* dog icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 675CBD651CDED57C00949A82 /* dog icon.png */; };
+		675CBD6C1CDED57C00949A82 /* cat icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 675CBD661CDED57C00949A82 /* cat icon.png */; };
+		675CBD6D1CDED57C00949A82 /* bunny icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 675CBD671CDED57C00949A82 /* bunny icon.png */; };
+		675CBD6E1CDED57C00949A82 /* BIRD ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 675CBD681CDED57C00949A82 /* BIRD ICON.png */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
@@ -72,6 +78,12 @@
 		4CE2A1B91CD363B50027D9F4 /* OwnerAddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerAddTaskViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFinishedListViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
+		675CBD631CDED57C00949A82 /* Pets icon active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pets icon active.png"; sourceTree = "<group>"; };
+		675CBD641CDED57C00949A82 /* fish icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fish icon.png"; sourceTree = "<group>"; };
+		675CBD651CDED57C00949A82 /* dog icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog icon.png"; sourceTree = "<group>"; };
+		675CBD661CDED57C00949A82 /* cat icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat icon.png"; sourceTree = "<group>"; };
+		675CBD671CDED57C00949A82 /* bunny icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bunny icon.png"; sourceTree = "<group>"; };
+		675CBD681CDED57C00949A82 /* BIRD ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BIRD ICON.png"; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
@@ -345,6 +357,12 @@
 		C6DA0D401CA634E600F425B3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				675CBD631CDED57C00949A82 /* Pets icon active.png */,
+				675CBD641CDED57C00949A82 /* fish icon.png */,
+				675CBD651CDED57C00949A82 /* dog icon.png */,
+				675CBD661CDED57C00949A82 /* cat icon.png */,
+				675CBD671CDED57C00949A82 /* bunny icon.png */,
+				675CBD681CDED57C00949A82 /* BIRD ICON.png */,
 				C6DA0D411CA6350400F425B3 /* add.png */,
 			);
 			name = img;
@@ -413,11 +431,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675CBD6E1CDED57C00949A82 /* BIRD ICON.png in Resources */,
 				6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */,
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
+				675CBD6B1CDED57C00949A82 /* dog icon.png in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
+				675CBD6A1CDED57C00949A82 /* fish icon.png in Resources */,
+				675CBD6D1CDED57C00949A82 /* bunny icon.png in Resources */,
+				675CBD691CDED57C00949A82 /* Pets icon active.png in Resources */,
 				C6DA0D421CA6350400F425B3 /* add.png in Resources */,
+				675CBD6C1CDED57C00949A82 /* cat icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

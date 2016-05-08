@@ -397,5 +397,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     */
+    
+    func pickPetPicture(petSpecies: String) -> UIImage {
+        let lowercaseSpecies = petSpecies.lowercaseString
+        //var petPicture: UIImage
+        
+        if(lowercaseSpecies == "dog" || lowercaseSpecies == "puppy"){
+            return UIImage(named: "dog icon.png")!
+        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten"){
+            return UIImage(named: "cat icon.png")!
+        } else if(lowercaseSpecies == "bunny" || lowercaseSpecies == "rabbit" || lowercaseSpecies == "bunny rabbit" ){
+            return UIImage(named: "bunny icon.png")!
+        } else if(lowercaseSpecies == "bird" || lowercaseSpecies == "parrot"){
+            return UIImage(named: "BIRD ICON.png")!
+        } else if(lowercaseSpecies == "fish"){
+            return UIImage(named: "fish icon.png")!
+        }
+        
+        return UIImage(named: "Pets icon active.png")!
+    }
 }
 
