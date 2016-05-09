@@ -24,6 +24,7 @@ class OwnerToDoTableViewController: UITableViewController{
     var toDoItems: [String] = []
     var toDoItemsDetails: [String] = []
     var pets: [String] = []
+    var itemPetIDs: [Int] = []
     
     var taskDone = true;
     
@@ -40,6 +41,7 @@ class OwnerToDoTableViewController: UITableViewController{
                 
                 toDoItems.append(toDoItem.instruction!)
                 toDoItemsDetails.append(toDoItem.instructionDetail!)
+                itemPetIDs.append((toDoItem.petID?.integerValue)!)
                 print(toDoItem.instruction)
                 print(toDoItem.instructionDetail)
                 
@@ -106,6 +108,7 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
+        
         
         cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         //cell.textLabel?.text = toDoItems[indexPath.section][indexPath.row]
