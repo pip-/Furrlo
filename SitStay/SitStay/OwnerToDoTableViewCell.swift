@@ -71,6 +71,7 @@ class OwnerToDoTableViewController: UITableViewController{
                 toDoItemsDetails.append(toDoItem.instructionDetail!)
                 print(toDoItem.instruction)
                 print(toDoItem.instructionDetail)
+                print(toDoItem.petID)
                 
             }
         }
