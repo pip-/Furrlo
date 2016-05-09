@@ -220,7 +220,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?) -> Int{
+    func petAlreadyExists(petID: Int) -> Bool{
+        if let pets = getPets(){
+            for pet in pets{
+                if(pet.petID?.integerValue == petID){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func tripAlreadyExists(tripID: Int) -> Bool{
+        if let trips = getTrips(){
+            for trip in trips{
+                if(trip.tripID?.integerValue == tripID){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User, tripID: Int){
+        
+        if(tripAlreadyExists(tripID)){
+            return
+        }
+        
         let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
         
         trip.startDate = startDate
@@ -244,16 +271,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             trip.email = email
         }
         
-        trip.tripID = Int(arc4random_uniform(1000000) + 800000)
-        
+        //trip.tripID = Int(arc4random_uniform(1000000) + 800000)
+        trip.tripID = tripID
         
         for pet in pets{
             pet.tripID = trip
+            //pet.tripID?.tripID = tripID
+            print("testng trip.tripID")
+            print(trip.tripID)
+            print("testing pet.tripID?.tripID")
+            print(pet.tripID?.tripID)
+          
         }
+        
+        trip.userID = user
         
         self.saveContext()
         
-        return Int(trip.tripID!)
+        //return Int(trip.tripID!)
     }
     
     
@@ -276,10 +311,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool){
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User, petID: NSNumber){
+        if(petAlreadyExists(petID.integerValue)){
+            return
+        }
+        
+        
         let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
-        
-        
         
         newPet.name = name
         newPet.species = species
@@ -288,14 +326,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newPet.personality = personality
         newPet.food = food
         newPet.notes = notes
-        //newPet.picture = picture
+        newPet.user = user
+        newPet.petID = petID
+        
         
         if(isSat){
             newPet.isSat = 1
         }
-        
-        //newPet.petID = Int(arc4random_uniform(8000000) + 100000)
-        
+        else{
+            newPet.isSat = 0
+        }
         
         self.saveContext()
     }
@@ -317,7 +357,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-    
+
  
     func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
@@ -357,5 +397,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     */
+    
+    func pickPetPicture(petSpecies: String) -> UIImage {
+        let lowercaseSpecies = petSpecies.lowercaseString
+        //var petPicture: UIImage
+        
+        if(lowercaseSpecies == "dog" || lowercaseSpecies == "puppy"){
+            return UIImage(named: "dog icon.png")!
+        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten"){
+            return UIImage(named: "cat icon.png")!
+        } else if(lowercaseSpecies == "bunny" || lowercaseSpecies == "rabbit" || lowercaseSpecies == "bunny rabbit" ){
+            return UIImage(named: "bunny icon.png")!
+        } else if(lowercaseSpecies == "bird" || lowercaseSpecies == "parrot"){
+            return UIImage(named: "BIRD ICON.png")!
+        } else if(lowercaseSpecies == "fish"){
+            return UIImage(named: "fish icon.png")!
+        }
+        
+        return UIImage(named: "Pets icon active.png")!
+    }
 }
 

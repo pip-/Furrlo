@@ -282,6 +282,7 @@ class NewTripOwnerController: UITableViewController {
     }
     
     func submit(){
+        print("--------------------------------")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let tripID = self.tripID{
             appDelegate.deleteTrip(tripID)
@@ -290,7 +291,7 @@ class NewTripOwnerController: UITableViewController {
         let user = appDelegate.getUser()
         let userID = user!.userID
         
-        appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil)
+        //appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil, user: user!)
         
     
         
@@ -342,8 +343,59 @@ class NewTripOwnerController: UITableViewController {
             
             print("response = \(response)")
             
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseString = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                let s = String(responseString)
+                
+                //Remove beginning stuff--------------------
+                let junkSeparator: [String] = s.characters.split(";").map(String.init)
+                let jsonStuff = junkSeparator[1]
+                //------------------------------------------
+                
+                //Convert to String/Drop Garbage------------
+                //let s = String(responseString)
+                var parsedJsonString = String(jsonStuff.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let tripStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var tripDicts: [[String: String]] = []
+                for string in tripStrings{
+                    if let dict = string.convertToDictionary(){
+                        tripDicts.append(dict)
+                    }
+                }
+                //-------------------------------------------
+                
+                //Prove that this works----------------------
+                print("PROOF!")
+                let dict = tripDicts[0]
+                    //print(String(dict["tripName"]))
+                    print(String(dict["TripID"]))
+                    
+                    appDelegate.insertNewTrip(self.startDate, endDate: self.endDate, street: self.street!, zip: self.zip!, city: self.city!, addr2: self.address2, pets: self.chosenPets, tripName: self.tripName!, isSitting: false, phone: nil, email: nil, user: user!, tripID: Int(dict["TripID"]!)!
+                )
+                    //appDelegate.updateTripID(<#T##oldID: Int##Int#>, newID: <#T##Int#>)
+                
+                //-------------------------------------------
+            }
+            
+            print("--------------------------------")
             
         }
         task.resume()

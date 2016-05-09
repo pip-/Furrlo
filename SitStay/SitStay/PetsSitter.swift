@@ -13,39 +13,59 @@ class PetsSitter: UIViewController {
     let reuseIdentifier = "cell"
     var noPetsReuseIdentifier = "noPets"
     
+    @IBOutlet var petCollection: UICollectionView!
+    
     
     
     var pets: [String] = []
     var petSpecies: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
-    //var numSections = 0
     var tripNames: [String] = []
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+         
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        pets.removeAll()
+        print(pets)
+        petSpecies.removeAll()
+        tripNames.removeAll()
+       
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == true){
-                    if(tripNames.count > 0){
-                       // numSections = tripNames.count
+                    tripNames.append(trip.tripName!)
+                    print("testing trip id 1")
+                    print(trip.tripID)
+                   
+                }
+                if let fetchedPets = appDelegate.getPets(){
+                    for pet in fetchedPets{
+                        if(pet.isSat?.boolValue == true){
+                            pets.append(pet.name!)
+                            petSpecies.append(pet.species!)
+                        }
                     }
                 }
             }
         }
         
-        if let fetchedPets = appDelegate.getPets(){
-            for pet in fetchedPets{
-                if(pet.isSat!.boolValue == true){
-                    pets.append(pet.name!)
-                    petSpecies.append(pet.species!)
-                }
-            }
-        }
+        //if(tripNames.count > 0){
         
-        // Do any additional setup after loading the view.
+        //}
+        
+        print(pets)
+        self.petCollection.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,11 +73,11 @@ class PetsSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
         
-        return numSections
-    }*/
+        return 1
+    }
     
     // tell the collection view how many cells to make
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,15 +106,16 @@ class PetsSitter: UIViewController {
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
             cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+            cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
             
-            if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
+            /*if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
                 cell.petImage.image = UIImage(named: "dog profile.png")
             }
             else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
                 cell.petImage.image = UIImage(named: "cat head.png")
             }else{
                 cell.petImage.image = UIImage(named: "Untitled-6.png")
-            }
+            }*/
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
             // make cell more visible in our example project
@@ -130,12 +151,12 @@ class PetsSitter: UIViewController {
     }
     
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    /*func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         let view = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter, withReuseIdentifier: "footer", forIndexPath: indexPath)
         // configure footer view
         return view
-    }
+    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
