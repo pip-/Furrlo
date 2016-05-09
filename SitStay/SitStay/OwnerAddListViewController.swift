@@ -128,7 +128,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(instruction)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail)
-        submitTask(petIDs, petName: petName!, instruction: instruction!, instructionDetail: instructionDetail!)
+      //  submitTask(petIDs, petName: petName!, instruction: instruction!, instructionDetail: instructionDetail!)
         
     }
     
