@@ -128,7 +128,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(instruction)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail)
-        //submitTask()
+        submitTask(petIDs, petName: petName!, instruction: instruction!, instructionDetail: instructionDetail!)
         
     }
     
@@ -168,7 +168,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     
 
     
-    func submitTask(){
+    func submitTask( petID: Int, petName: String, instruction:  String, instructionDetail: String){
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let user = appDelegate.getUser()
@@ -178,7 +178,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTask.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petID!)&b=\(petName!)&c=\(instruction!)&d=\(instructionDetail!)"
+        let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
