@@ -28,6 +28,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var pets : [String] = []
     var petName: String?
     var testString: String?
+    var selectedID: Int = 0
     
     var petIDs: [Int] = []
     
@@ -62,7 +63,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
         petID = petIDs[pickerView.selectedRowInComponent(0)]
           print(petID)
-            
+            selectedID = (petID?.integerValue)!
         }
         
         
@@ -117,6 +118,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         selectionLabel.text = pets[row]
         let petID = petIDs[row]
         print(petID)
+        selectedID = petID
         }
         
         
@@ -126,8 +128,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         checkSave()
         complete = 0;
         print(complete)
-        let itemID = (arc4random_uniform(800000))
-        print(itemID)
+        //let itemID = (arc4random_uniform(800000))
+        //print(itemID)
         
         //Gotta Get PetID From server..... figure it out bro
         //let petID
@@ -141,14 +143,14 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(PetName!)
         //let petID = appDelegate.getPetIDwithPetName(petName,userID: userID)
         print((petID?.integerValue)!)
-        print(petID)
-        
+        print("selectedID")
+        print(selectedID)
         let instruction = instructionField.text
         print(instruction!)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail!)
         appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: (petID?.integerValue), isSat: false)
-        submitTask((petID?.integerValue)!, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
+        submitTask(selectedID, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
        
         
     }

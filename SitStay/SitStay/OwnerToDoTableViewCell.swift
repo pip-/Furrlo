@@ -86,6 +86,7 @@ class OwnerToDoTableViewController: UITableViewController{
                 print("Fetched To Do Items in ViewWillAppear")
                 toDoItems.append(ToDoItem.instruction!)
                 toDoItemsDetails.append(ToDoItem.instructionDetail!)
+                itemPetIDs.append((ToDoItem.petID?.integerValue)!)
                 complete.append(ToDoItem.complete!)
                 print(ToDoItem.instruction)
                 print(ToDoItem.instructionDetail)
@@ -136,16 +137,18 @@ class OwnerToDoTableViewController: UITableViewController{
         //print("itemPetIds")
         //print(itemPetIDs)
         //print(itemPetIDs[indexPath.row])
-        //print("ItemPetIDs Section Index path")
+        print("ItemPetIDs Section Index path")
         //print(itemPetIDs[indexPath.section])
-        //print("petIds Section index path")
-        //print(petIds[indexPath.section])
+        print("petIds Section index path")
+        print(petIds[indexPath.section])
         
         
         if (itemPetIDs[indexPath.section] == petIds[indexPath.section]){
         //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         cell.textLabel?.text = toDoItems[indexPath.row]
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+        } else {
+            return cell
         }
         
         if (complete[indexPath.row] == 1){
