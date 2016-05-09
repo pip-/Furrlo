@@ -28,7 +28,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var pets : [String] = []
     var petName: String?
     var testString: String?
-    var selectedID: Int
+    var selectedID: Int = 0
     
     var petIDs: [Int] = []
     
