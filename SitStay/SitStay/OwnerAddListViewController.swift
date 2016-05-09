@@ -128,7 +128,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(instruction)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail)
-        //submitTask()
+        submitTask(petIDs, petName: petName!, instruction: instruction!, instructionDetail: instructionDetail!)
         
     }
     
@@ -168,17 +168,17 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     
 
     
-    func submitTask(){
+    func submitTask( petID: Int, petName: String, instruction:  String, instructionDetail: String){
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let user = appDelegate.getUser()
         let userID = user!.userID
  
  
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addtask.php")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTask.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(complete!)&b=\(instruction!)&c=\(instructionDetail!)&d=\(itemID!)&e=\(petID!)&f=\(isSat!)&g=\(userID!)"
+        let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
@@ -196,7 +196,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             print("responseStringFromAddToDB = \(responseString)")
         }
         task.resume()
-        getTaskAddTask()
+       // getTaskAddTask()
         
     }
     
@@ -262,7 +262,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 // print(String(dict["PetName"]))
                 //print(String(dict["PetID"]))
                 
-                appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: true)
+                appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
                 
                 // print ("pet added")
                 //  }
