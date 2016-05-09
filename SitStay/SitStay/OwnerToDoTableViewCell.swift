@@ -37,6 +37,7 @@ class OwnerToDoTableViewController: UITableViewController{
         
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             for toDoItem in fetchedToDoItems{
+                
                 toDoItems.append(toDoItem.instruction!)
                 toDoItemsDetails.append(toDoItem.instructionDetail!)
                 print(toDoItem.instruction)
@@ -97,15 +98,18 @@ class OwnerToDoTableViewController: UITableViewController{
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dailyTaskLists[section].count
-        //return toDoItems.count
+        //return dailyTaskLists[section].count
+        return toDoItems.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
+    
         
         cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        //cell.textLabel?.text = toDoItems[indexPath.section][indexPath.row]
+        //cell.detailTextLabel?.text = toDoItemsDetails[indexPath.section][indexPath.row]
         
         if (taskDone == true){
             cell.accessoryType = .Checkmark
@@ -143,6 +147,7 @@ class OwnerToDoTableViewController: UITableViewController{
             //dailyTaskLists.removeAtIndex(indexPath.row - 1)
         
             dailyTaskLists.removeAtIndex(indexPath.row - 1)
+            //toDoItems.removeAtIndex(row)
         
         
             //tripIds.removeAtIndex(indexPath.row - 1)
