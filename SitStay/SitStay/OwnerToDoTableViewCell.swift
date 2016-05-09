@@ -25,7 +25,7 @@ class OwnerToDoTableViewController: UITableViewController{
     var toDoItemsDetails: [String] = []
     var pets: [String] = []
     var itemPetIDs: [Int] = []
-    var complete: NSNumber?
+    var complete: [NSNumber] = []
 
     var taskDone = true;
     
@@ -47,9 +47,11 @@ class OwnerToDoTableViewController: UITableViewController{
                 toDoItems.append(ToDoItem.instruction!)
                 toDoItemsDetails.append(ToDoItem.instructionDetail!)
                 itemPetIDs.append((ToDoItem.petID?.integerValue)!)
+                complete.append(ToDoItem.complete!)
                 print(ToDoItem.instruction)
                 print(ToDoItem.instructionDetail)
                 print(ToDoItem.petID)
+                print(ToDoItem.complete!)
                 
             }
         }
@@ -126,11 +128,11 @@ class OwnerToDoTableViewController: UITableViewController{
     
         
         
-        cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
-        //cell.textLabel?.text = toDoItems[indexPath.section][indexPath.row]
-        //cell.detailTextLabel?.text = toDoItemsDetails
+        //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        cell.textLabel?.text = toDoItems[indexPath.row]
+        cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
         
-        if (taskDone == true){
+        if (complete[indexPath.row] == 1){
             cell.accessoryType = .Checkmark
         }
         
