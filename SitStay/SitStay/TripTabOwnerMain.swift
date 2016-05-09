@@ -21,7 +21,7 @@ class TripTabOwnerMain: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        get()
+        //get()
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == false){
@@ -51,7 +51,7 @@ class TripTabOwnerMain: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         tripNames.removeAll()
         tripIds.removeAll()
-        get()
+        //get()
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                 if(trip.isSitting!.boolValue == false){
