@@ -214,6 +214,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             print("responseStringFromAddToDB = \(responseString)")
         }
         task.resume()
+        self.taskComplete()
        // getTaskAddTask()
         
     }
