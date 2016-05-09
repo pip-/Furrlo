@@ -392,6 +392,10 @@ class NewTripOwnerController: UITableViewController {
                 )
                     //appDelegate.updateTripID(<#T##oldID: Int##Int#>, newID: <#T##Int#>)
                 
+                NSOperationQueue.mainQueue().addOperationWithBlock{
+                    self.cancel(self)
+                }
+                
                 //-------------------------------------------
             }
             
@@ -400,8 +404,6 @@ class NewTripOwnerController: UITableViewController {
         }
         task.resume()
 /*DB code Above*/
-        
-        cancel(self)
     }
     
     func checkZip(str: String) -> Bool{
