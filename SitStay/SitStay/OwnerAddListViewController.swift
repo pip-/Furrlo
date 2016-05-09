@@ -28,6 +28,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var pets : [String] = []
     var petName: String?
     var testString: String?
+    var selectedID: Int
     
     var petIDs: [Int] = []
     
@@ -117,6 +118,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         selectionLabel.text = pets[row]
         let petID = petIDs[row]
         print(petID)
+        selectedID = petID
         }
         
         
