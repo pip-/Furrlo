@@ -61,6 +61,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         pickerView.selectRow(2, inComponent: 0, animated: false)
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
         petID = petIDs[pickerView.selectedRowInComponent(0)]
+          print(petID)
             
         }
         
@@ -117,6 +118,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let petID = petIDs[row]
         print(petID)
         }
+        
+        
     }
     
     @IBAction func taskSubmitted(sender: AnyObject) {
@@ -138,6 +141,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(PetName!)
         //let petID = appDelegate.getPetIDwithPetName(petName,userID: userID)
         print((petID?.integerValue)!)
+        print(petID)
+        
         let instruction = instructionField.text
         print(instruction!)
         let instructionDetail = instructionDetailsField.text

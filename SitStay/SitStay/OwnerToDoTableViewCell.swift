@@ -25,9 +25,11 @@ class OwnerToDoTableViewController: UITableViewController{
     var toDoItemsDetails: [String] = []
     var pets: [String] = []
     var itemPetIDs: [Int] = []
-    var complete: NSNumber?
+    var complete: [NSNumber] = []
+    var petIds: [NSNumber] = []
 
     var taskDone = true;
+    
     
     //var pets : [String] = ["Mira"]
     
@@ -47,9 +49,11 @@ class OwnerToDoTableViewController: UITableViewController{
                 toDoItems.append(ToDoItem.instruction!)
                 toDoItemsDetails.append(ToDoItem.instructionDetail!)
                 itemPetIDs.append((ToDoItem.petID?.integerValue)!)
+                complete.append(ToDoItem.complete!)
                 print(ToDoItem.instruction)
                 print(ToDoItem.instructionDetail)
                 print(ToDoItem.petID)
+                print(ToDoItem.complete!)
                 
             }
         }
@@ -58,6 +62,7 @@ class OwnerToDoTableViewController: UITableViewController{
             for pet in fetchedPets{
                 print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
+                petIds.append(pet.petID!)
             }
         }
         
@@ -77,13 +82,15 @@ class OwnerToDoTableViewController: UITableViewController{
         
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("Called GetToDoItems in viewWillAppear")
-            for toDoItem in fetchedToDoItems{
+            for ToDoItem in fetchedToDoItems{
                 print("Fetched To Do Items in ViewWillAppear")
-                toDoItems.append(toDoItem.instruction!)
-                toDoItemsDetails.append(toDoItem.instructionDetail!)
-                print(toDoItem.instruction)
-                print(toDoItem.instructionDetail)
-                print(toDoItem.petID)
+                toDoItems.append(ToDoItem.instruction!)
+                toDoItemsDetails.append(ToDoItem.instructionDetail!)
+                complete.append(ToDoItem.complete!)
+                print(ToDoItem.instruction)
+                print(ToDoItem.instructionDetail)
+                print(ToDoItem.petID)
+                print(ToDoItem.complete!)
                 
             }
         }
@@ -91,6 +98,8 @@ class OwnerToDoTableViewController: UITableViewController{
             for pet in fetchedPets{
                 print("Fetched Pets in ViewWillAppear")
                 pets.append(pet.name!)
+                petIds.append(pet.petID!)
+                
             }
         }
         
@@ -124,21 +133,32 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
+        //print("itemPetIds")
+        //print(itemPetIDs)
+        //print(itemPetIDs[indexPath.row])
+        //print("ItemPetIDs Section Index path")
+        //print(itemPetIDs[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
         
         
-        cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
-        //cell.textLabel?.text = toDoItems[indexPath.section][indexPath.row]
-        //cell.detailTextLabel?.text = toDoItemsDetails
+        if (itemPetIDs[indexPath.section] == petIds[indexPath.section]){
+        //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        cell.textLabel?.text = toDoItems[indexPath.row]
+        cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+        }
         
-        if (taskDone == true){
+        if (complete[indexPath.row] == 1){
             cell.accessoryType = .Checkmark
         }
         
         return cell
-    }
+        }
+    
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
+        
         
         cell.textLabel?.text = pets[section]
         
@@ -163,11 +183,10 @@ class OwnerToDoTableViewController: UITableViewController{
         //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
         
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
-            //dailyTaskLists.removeAtIndex(indexPath.row - 1)
         
-            dailyTaskLists.removeAtIndex(indexPath.row - 1)
-            //toDoItems.removeAtIndex(row)
-        
+        toDoItems.removeAtIndex(indexPath.row)
+        toDoItemsDetails.removeAtIndex(indexPath.row)
+        complete.removeAtIndex(indexPath.row)
         
             //tripIds.removeAtIndex(indexPath.row - 1)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
