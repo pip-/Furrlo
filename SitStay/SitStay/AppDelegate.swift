@@ -378,19 +378,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    func setToDoItemComplete(complete:Bool,toDoItemID: Int){
+    func setToDoItemComplete(complete: Int,toDoItemID: Int){
       
-        if let toDoItems = getToDoItems(){
-            
-            for toDoItem in toDoItems {
+        if let fetchedToDoItems = getToDoItems(){
+            for toDoItem in fetchedToDoItems{
                 if toDoItem.itemID == toDoItemID{
-                    
                     toDoItem.complete = 1
                 }
             }
-            
-            
-     
         }
         
         return
