@@ -24,7 +24,9 @@ class OwnerToDoTableViewController: UITableViewController{
     var toDoItems: [String] = []
     var toDoItemsDetails: [String] = []
     var pets: [String] = []
-    
+    var itemPetIDs: [Int] = []
+    var complete: NSNumber?
+
     var taskDone = true;
     
     //var pets : [String] = ["Mira"]
@@ -34,19 +36,27 @@ class OwnerToDoTableViewController: UITableViewController{
         
         OwnerLists.delegate = self
         OwnerLists.dataSource = self
+
+        print("View Did Load")
+        
         
         if let fetchedToDoItems = appDelegate.getToDoItems(){
-            for toDoItem in fetchedToDoItems{
-                toDoItems.append(toDoItem.instruction!)
-                toDoItemsDetails.append(toDoItem.instructionDetail!)
-                print(toDoItem.instruction)
-                print(toDoItem.instructionDetail)
+            print("called GetToDoItems in ViewDidLoad")
+            for ToDoItem in fetchedToDoItems{
+                print("Fetched To Do Items In ViewDidLoad")
+                toDoItems.append(ToDoItem.instruction!)
+                toDoItemsDetails.append(ToDoItem.instructionDetail!)
+                itemPetIDs.append((ToDoItem.petID?.integerValue)!)
+                print(ToDoItem.instruction)
+                print(ToDoItem.instructionDetail)
+                print(ToDoItem.petID)
                 
             }
         }
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
             }
         }
@@ -55,6 +65,7 @@ class OwnerToDoTableViewController: UITableViewController{
         if(dailyTaskLists.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
+    
 
     }
     
@@ -62,17 +73,23 @@ class OwnerToDoTableViewController: UITableViewController{
         toDoItems.removeAll()
         pets.removeAll()
         
+        print("View Will Appear")
+        
         if let fetchedToDoItems = appDelegate.getToDoItems(){
+            print("Called GetToDoItems in viewWillAppear")
             for toDoItem in fetchedToDoItems{
+                print("Fetched To Do Items in ViewWillAppear")
                 toDoItems.append(toDoItem.instruction!)
                 toDoItemsDetails.append(toDoItem.instructionDetail!)
                 print(toDoItem.instruction)
                 print(toDoItem.instructionDetail)
+                print(toDoItem.petID)
                 
             }
         }
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                print("Fetched Pets in ViewWillAppear")
                 pets.append(pet.name!)
             }
         }
@@ -81,6 +98,7 @@ class OwnerToDoTableViewController: UITableViewController{
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
         
+        self.tableView.reloadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,15 +115,20 @@ class OwnerToDoTableViewController: UITableViewController{
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dailyTaskLists[section].count
-        //return toDoItems.count
+        //return dailyTaskLists[section].count
+        //let toDoItem = pets[section]
+        return toDoItems.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
+    
+        
         
         cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        //cell.textLabel?.text = toDoItems[indexPath.section][indexPath.row]
+        //cell.detailTextLabel?.text = toDoItemsDetails
         
         if (taskDone == true){
             cell.accessoryType = .Checkmark
@@ -143,6 +166,7 @@ class OwnerToDoTableViewController: UITableViewController{
             //dailyTaskLists.removeAtIndex(indexPath.row - 1)
         
             dailyTaskLists.removeAtIndex(indexPath.row - 1)
+            //toDoItems.removeAtIndex(row)
         
         
             //tripIds.removeAtIndex(indexPath.row - 1)
@@ -154,6 +178,83 @@ class OwnerToDoTableViewController: UITableViewController{
     
     
     
+    func getTaskAddTask(){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID = user!.userID
+       // testString = selectionLabel.text
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTask.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("responseFromGetAdd = \(response)")
+            print("userID")
+            print(userID!)
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseStringFromGetAdd = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                //Convert to String/Drop Garbage------------
+                let s = String(responseString)
+                var parsedJsonString = String(s.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let taskStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var taskDicts: [[String: String]] = []
+                for string in taskStrings{
+                    if let dict = string.convertToDictionary(){
+                        taskDicts.append(dict)
+                    }
+                }
+                //-------------------------------------------
+                
+                //Prove that this works----------------------
+                // print("PROOF!")
+                //for dict in petDicts{
+                
+                // print(String(dict["PetName"]))
+                //print(String(dict["PetID"]))
+                
+                //appDelegate.insertNewToDoItem(complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
+                
+                // print ("pet added")
+                //  }
+                //-------------------------------------------
+                
+                //self.taskComplete()
+            }
+        }
+        
+        task.resume()
+        //cancel(self)
+        
+    }
+
     
     
     /*
