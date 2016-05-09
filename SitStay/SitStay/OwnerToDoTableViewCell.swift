@@ -30,6 +30,7 @@ class OwnerToDoTableViewController: UITableViewController{
 
     var taskDone = true;
     
+    
     //var pets : [String] = ["Mira"]
     
     override func viewDidLoad() {
@@ -132,8 +133,16 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
+        //print("itemPetIds")
+        //print(itemPetIDs)
+        //print(itemPetIDs[indexPath.row])
+        //print("ItemPetIDs Section Index path")
+        //print(itemPetIDs[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
         
-        if (itemPetIDs[indexPath.row] == petIds[indexPath.row]){
+        
+        if (itemPetIDs[indexPath.section] == petIds[indexPath.section]){
         //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         cell.textLabel?.text = toDoItems[indexPath.row]
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
@@ -174,11 +183,10 @@ class OwnerToDoTableViewController: UITableViewController{
         //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
         
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
-            //dailyTaskLists.removeAtIndex(indexPath.row - 1)
         
-            dailyTaskLists.removeAtIndex(indexPath.row - 1)
-            //toDoItems.removeAtIndex(row)
-        
+        toDoItems.removeAtIndex(indexPath.row)
+        toDoItemsDetails.removeAtIndex(indexPath.row)
+        complete.removeAtIndex(indexPath.row)
         
             //tripIds.removeAtIndex(indexPath.row - 1)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
