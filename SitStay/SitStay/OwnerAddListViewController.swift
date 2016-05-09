@@ -142,6 +142,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(instruction!)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail!)
+        appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: (petID?.integerValue), isSat: false)
         submitTask((petID?.integerValue)!, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
        
         
@@ -281,7 +282,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 // print(String(dict["PetName"]))
                 //print(String(dict["PetID"]))
                 
-                appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
+                //appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
                 
                 // print ("pet added")
                 //  }

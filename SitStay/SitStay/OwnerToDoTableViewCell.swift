@@ -41,14 +41,15 @@ class OwnerToDoTableViewController: UITableViewController{
         
         
         if let fetchedToDoItems = appDelegate.getToDoItems(){
-            for toDoItem in fetchedToDoItems{
+            print("called GetToDoItems in ViewDidLoad")
+            for ToDoItem in fetchedToDoItems{
                 print("Fetched To Do Items In ViewDidLoad")
-                toDoItems.append(toDoItem.instruction!)
-                toDoItemsDetails.append(toDoItem.instructionDetail!)
-                itemPetIDs.append((toDoItem.petID?.integerValue)!)
-                print(toDoItem.instruction)
-                print(toDoItem.instructionDetail)
-                print(toDoItem.petID)
+                toDoItems.append(ToDoItem.instruction!)
+                toDoItemsDetails.append(ToDoItem.instructionDetail!)
+                itemPetIDs.append((ToDoItem.petID?.integerValue)!)
+                print(ToDoItem.instruction)
+                print(ToDoItem.instructionDetail)
+                print(ToDoItem.petID)
                 
             }
         }
@@ -75,6 +76,7 @@ class OwnerToDoTableViewController: UITableViewController{
         print("View Will Appear")
         
         if let fetchedToDoItems = appDelegate.getToDoItems(){
+            print("Called GetToDoItems in viewWillAppear")
             for toDoItem in fetchedToDoItems{
                 print("Fetched To Do Items in ViewWillAppear")
                 toDoItems.append(toDoItem.instruction!)
@@ -113,9 +115,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dailyTaskLists[section].count
+        //return dailyTaskLists[section].count
         //let toDoItem = pets[section]
-        //return toDoItems.count
+        return toDoItems.count
     }
     
     
