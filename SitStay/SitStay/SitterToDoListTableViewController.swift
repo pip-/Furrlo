@@ -101,20 +101,26 @@ class SitterToDoListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        print(toDoItems)
         return toDoItems.count
+        //return dailyTaskLists.count
+        
     }
 
     //Configure "data cells" with task text
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = toDoItems[indexPath.row]
+        cell.textLabel?.text = toDoItems[indexPath.section]
         
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
         
-        print(toDoItems[indexPath.row])
+        //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        //cell.detailTextLabel?.text = dailyTaskListDetails[indexPath.section][indexPath.row]
+        
+        print(toDoItems[indexPath.section])
         print(toDoItemsDetails[indexPath.row])
+        print("Break")
         
         return cell
     }
@@ -145,6 +151,7 @@ class SitterToDoListTableViewController: UITableViewController {
         
         alert.addAction(cancelAction)
         
+        
         //Add mark as done action to the menu
         let markDone = UIAlertAction(title: "Mark as done", style: .Default, handler: {
             (action:UIAlertAction!) -> Void in
@@ -158,9 +165,22 @@ class SitterToDoListTableViewController: UITableViewController {
             //self.appDelegate.setToDoItemComplete(petisSat, toDoItemID: itemPetIDs)
             
         })
+        
         alert.addAction(markDone)
         
-
+        //Add mark as not done action to the menu
+        let markNotDone = UIAlertAction(title: "Mark as not done", style: .Default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .DisclosureIndicator
+            
+        })
+        
+        alert.addAction(markNotDone)
+        
+        
+    
         // Display the menu
         self.presentViewController(alert, animated: true, completion: nil)
         
