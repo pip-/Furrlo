@@ -248,25 +248,41 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     //print("PROOF!")
                     //for dict in petDicts{
                         
-                     //   print(String(dict["PetName"]))
-                      //  print(String(dict["PetID"]))
+                        //print(String(dict["PetName"]))
+                        //print(String(dict["PetID"]))}
                         
                         //let petInt = Int(dict["PetID"]!)
                         //let petNS = NSNumber(integer: petInt!)
+                    
+                    
+                    print("Counting Array Length")
+                    print(petDicts.count)
+                    print("SHOWING FIRST")
+                    print(petDicts.first)
+                    /*
+                    //print(petDicts[0])
                    
                     let myPetDict = petDicts.last
-                        if let petID = Int(myPetDict!["PetID"]!){
+                    if let petID = Int(myPetDict!["PetID"]!){
+                        appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
+                    }
+                   
+                        print ("pet added")*/
+                    if(petDicts.count == 1){
+                    let myPetDict = petDicts.first
+                    if let petID = Int(myPetDict!["PetID"]!){
+                        appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
+                        }}
+                    else{
+                        if let myPetDict = petDicts.last{
+                        if let petID = Int(myPetDict["PetID"]!){
                             appDelegate.insertNewPet(self.petNameLabel.text!, species: self.petSpecies.text!, breed: self.petBreedLabel.text!, age: self.petAge.text!, personality: self.petPersonalityLabel.text!, food: self.petFoodLabel.text!, notes: self.petNotes.text!, isSat: false, user: user!, petID: petID )
-                        }
-                    print("SHOWING PET ID")
-                    print(petDicts.last)
-                    //print(Int(myPetDict["PetID"]!))
+                            }}
+                    }
                     
-                
-                
+                   
                     
-            
-                       // print ("pet added")
+                    
                     //}
                     //-------------------------------------------
                     
