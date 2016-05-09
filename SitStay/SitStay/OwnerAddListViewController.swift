@@ -142,7 +142,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(instruction!)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail!)
-        submitTask((petID?.integerValue)!, petName: petName!, instruction: instruction!, instructionDetail: instructionDetail!)
+        submitTask((petID?.integerValue)!, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
        
         
     }
@@ -190,8 +190,10 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let user = appDelegate.getUser()
         let userID = user!.userID
  
- 
+        
+        print("Looking for request")
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTask.php")!)
+        
         
         request.HTTPMethod = "POST"
         let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)"
