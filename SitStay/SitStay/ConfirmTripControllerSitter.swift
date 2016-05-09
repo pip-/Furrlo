@@ -258,6 +258,8 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
                     self.appDelegate.insertNewPet(dict["PetName"], species: dict["PetType"], breed: dict["PetBreed"], age: dict["PetAge"], personality: dict["PetPersonality"], food: dict["PetFood"], notes: dict["OtherNotes"], isSat: true, user: user!, petID: Int(dict["PetID"]!)!)
                 }
                 
+                self.taskComplete()
+                
                 // print ("pet added")
                 //  }
                 //-------------------------------------------
