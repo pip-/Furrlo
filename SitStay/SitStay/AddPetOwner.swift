@@ -261,6 +261,8 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     print(petDicts.count)
                     print("SHOWING FIRST")
                     print(petDicts.first)
+                    print("SHOWING MOST RECENT")
+                    print(petDicts.last)
                     /*
                     //print(petDicts[0])
                    
