@@ -155,25 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             saveContext()
         }
     }
-    /*
-    func getPetIDwithPetName(petName: String?, userID: NSNumber?) -> Int{
-        do {
-            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
-            for pet in fetchedPets{
-                if (petName == pet.name && userID == pet.user?.userID){
-                let petID = pet.petID
-                return (petID?.integerValue)!
-                }
-            }
-            
-        } catch {
-            //fatalError("Failed to fetch trips: \(error)")
-            print("Could not find this petID")
-            return 0
-        }
-       return 0
-    }
-    */
+
     func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
