@@ -26,6 +26,7 @@ class OwnerToDoTableViewController: UITableViewController{
     var pets: [String] = []
     var itemPetIDs: [Int] = []
     var complete: [NSNumber] = []
+    var petIds: [NSNumber] = []
 
     var taskDone = true;
     
@@ -60,6 +61,7 @@ class OwnerToDoTableViewController: UITableViewController{
             for pet in fetchedPets{
                 print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
+                petIds.append(pet.petID!)
             }
         }
         
@@ -79,13 +81,15 @@ class OwnerToDoTableViewController: UITableViewController{
         
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("Called GetToDoItems in viewWillAppear")
-            for toDoItem in fetchedToDoItems{
+            for ToDoItem in fetchedToDoItems{
                 print("Fetched To Do Items in ViewWillAppear")
-                toDoItems.append(toDoItem.instruction!)
-                toDoItemsDetails.append(toDoItem.instructionDetail!)
-                print(toDoItem.instruction)
-                print(toDoItem.instructionDetail)
-                print(toDoItem.petID)
+                toDoItems.append(ToDoItem.instruction!)
+                toDoItemsDetails.append(ToDoItem.instructionDetail!)
+                complete.append(ToDoItem.complete!)
+                print(ToDoItem.instruction)
+                print(ToDoItem.instructionDetail)
+                print(ToDoItem.petID)
+                print(ToDoItem.complete!)
                 
             }
         }
@@ -93,6 +97,8 @@ class OwnerToDoTableViewController: UITableViewController{
             for pet in fetchedPets{
                 print("Fetched Pets in ViewWillAppear")
                 pets.append(pet.name!)
+                petIds.append(pet.petID!)
+                
             }
         }
         
@@ -127,20 +133,23 @@ class OwnerToDoTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
         
-        
+        if (itemPetIDs[indexPath.row] == petIds[indexPath.row]){
         //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         cell.textLabel?.text = toDoItems[indexPath.row]
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+        }
         
         if (complete[indexPath.row] == 1){
             cell.accessoryType = .Checkmark
         }
         
         return cell
-    }
+        }
+    
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
+        
         
         cell.textLabel?.text = pets[section]
         
