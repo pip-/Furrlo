@@ -39,6 +39,8 @@ class OwnerToDoTableViewController: UITableViewController{
             for toDoItem in fetchedToDoItems{
                 toDoItems.append(toDoItem.instruction!)
                 toDoItemsDetails.append(toDoItem.instructionDetail!)
+                print(toDoItem.instruction)
+                print(toDoItem.instructionDetail)
                 
             }
         }
@@ -64,6 +66,8 @@ class OwnerToDoTableViewController: UITableViewController{
             for toDoItem in fetchedToDoItems{
                 toDoItems.append(toDoItem.instruction!)
                 toDoItemsDetails.append(toDoItem.instructionDetail!)
+                print(toDoItem.instruction)
+                print(toDoItem.instructionDetail)
                 
             }
         }
