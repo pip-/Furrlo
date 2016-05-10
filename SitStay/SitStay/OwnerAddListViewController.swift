@@ -28,8 +28,10 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var pets : [String] = []
     var petName: String?
     var testString: String?
+    var selectedID: Int = 0
     
     var petIDs: [Int] = []
+    
     
     let keyboardVerticalSpacing: CGFloat = 30
     
@@ -59,6 +61,9 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         } else {
         pickerView.selectRow(2, inComponent: 0, animated: false)
         selectionLabel.text = pets[pickerView.selectedRowInComponent(0)]
+        petID = petIDs[pickerView.selectedRowInComponent(0)]
+          print(petID)
+            selectedID = (petID?.integerValue)!
         }
         
         
@@ -111,24 +116,42 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         selectionLabel.text = "No pets"
         } else {
         selectionLabel.text = pets[row]
+        let petID = petIDs[row]
+        print(petID)
+        selectedID = petID
         }
+        
+        
     }
     
     @IBAction func taskSubmitted(sender: AnyObject) {
         checkSave()
         complete = 0;
         print(complete)
-        let itemID = (arc4random_uniform(800000))
-        print(itemID)
-        let petID = petIDs
-        print(petID)
+        //let itemID = (arc4random_uniform(800000))
+        //print(itemID)
+        
+        //Gotta Get PetID From server..... figure it out bro
+        //let petID
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let user = appDelegate.getUser()
+        let userID = user!.userID
+        
+        
         let PetName = selectionLabel.text
-        print(PetName)
+        print(PetName!)
+        //let petID = appDelegate.getPetIDwithPetName(petName,userID: userID)
+        print((petID?.integerValue)!)
+        print("selectedID")
+        print(selectedID)
         let instruction = instructionField.text
-        print(instruction)
+        print(instruction!)
         let instructionDetail = instructionDetailsField.text
-        print(instructionDetail)
-        submitTask(petIDs, petName: petName!, instruction: instruction!, instructionDetail: instructionDetail!)
+        print(instructionDetail!)
+        appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: (petID?.integerValue), isSat: false)
+        submitTask(selectedID, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
+       
         
     }
     
@@ -166,6 +189,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
  
     
     
+    
 
     
     func submitTask( petID: Int, petName: String, instruction:  String, instructionDetail: String){
@@ -174,8 +198,10 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let user = appDelegate.getUser()
         let userID = user!.userID
  
- 
+        
+        print("Looking for request")
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTask.php")!)
+        
         
         request.HTTPMethod = "POST"
         let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)"
@@ -196,6 +222,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             print("responseStringFromAddToDB = \(responseString)")
         }
         task.resume()
+        self.taskComplete()
        // getTaskAddTask()
         
     }
@@ -262,7 +289,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 // print(String(dict["PetName"]))
                 //print(String(dict["PetID"]))
                 
-                appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
+                //appDelegate.insertNewToDoItem(self.complete!, instruction: self.instruction!, instructionDetail: self.instructionDetail!, itemID: self.itemID!, petID: self.petID!, isSat: false)
                 
                 // print ("pet added")
                 //  }
@@ -283,7 +310,9 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-         
+    
+    
+    
          func taskComplete(){
          NSOperationQueue.mainQueue().addOperationWithBlock{
          self.navigationController?.popViewControllerAnimated(true)
