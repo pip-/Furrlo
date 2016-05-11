@@ -214,6 +214,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func getItemWithID(itemID: Int) ->[ToDoItem]?{
+        do {
+            let fetchedItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            print("fetched Item")
+            return fetchedItem
+            
+        } catch {
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+    }
 
     func getPets() -> [Pet]?{
         do {
