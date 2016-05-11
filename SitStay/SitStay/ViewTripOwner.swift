@@ -18,13 +18,13 @@ class ViewTripOwner: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let b = UIBarButtonItem(
+        /*let b = UIBarButtonItem(
             title: "Edit",
             style: .Plain,
             target: self,
             action: #selector(ViewTripOwner.edit)
             
-        )
+        )*/
       
         content[0] = dateToString((trip?.startDate)!)
         content[0] += " - "
@@ -53,7 +53,7 @@ class ViewTripOwner: UITableViewController {
         
         print("TRIP ID: " + String(trip?.tripID))
         
-        self.navigationItem.rightBarButtonItems = [b]
+        //self.navigationItem.rightBarButtonItems = [b]
         
         content[3] = (trip?.tripName)!
         self.title = content[3]
@@ -145,7 +145,7 @@ class ViewTripOwner: UITableViewController {
         return 0
     }
     
-    func edit(){
+    /*func edit(){
         let nc = self.navigationController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("editTrip") as! NewTripOwnerController
@@ -166,7 +166,7 @@ class ViewTripOwner: UITableViewController {
             }
         }
         nc?.pushViewController(vc, animated: true)
-    }
+    }*/
     
     
     func get()

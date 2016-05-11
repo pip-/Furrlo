@@ -12,6 +12,7 @@ import MessageUI
 class InviteSitterCell: UITableViewCell, MFMailComposeViewControllerDelegate {
 
     var vc: ViewTripOwner? = nil
+    var tripID: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
