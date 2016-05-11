@@ -41,6 +41,7 @@ class PetsSitter: UIViewController {
         print(pets)
         petSpecies.removeAll()
         tripNames.removeAll()
+        petIDs.removeAll()
        
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{

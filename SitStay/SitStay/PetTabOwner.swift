@@ -42,6 +42,7 @@ class PetTabOwner: UIViewController {
         
         pets.removeAll()
         petSpecies.removeAll()
+        petIDs.removeAll()
         
         let user = self.appDelegate.getUser()
         let myID = user?.userID
