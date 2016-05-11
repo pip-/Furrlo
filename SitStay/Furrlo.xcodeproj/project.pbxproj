@@ -13,14 +13,13 @@
 		4CE2A1BC1CD364D60027D9F4 /* OwnerFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */; };
 		4CE2A1BE1CD3FF240027D9F4 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */; };
 		6765D7121CDFE3ED00AF31CB /* Pets icon active.png in Resources */ = {isa = PBXBuildFile; fileRef = 6765D70C1CDFE3ED00AF31CB /* Pets icon active.png */; };
-		6765D7131CDFE3ED00AF31CB /* fish icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6765D70D1CDFE3ED00AF31CB /* fish icon.png */; };
-		6765D7141CDFE3ED00AF31CB /* dog icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6765D70E1CDFE3ED00AF31CB /* dog icon.png */; };
-		6765D7151CDFE3ED00AF31CB /* cat icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6765D70F1CDFE3ED00AF31CB /* cat icon.png */; };
-		6765D7161CDFE3ED00AF31CB /* bunny icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6765D7101CDFE3ED00AF31CB /* bunny icon.png */; };
-		6765D7171CDFE3ED00AF31CB /* BIRD ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 6765D7111CDFE3ED00AF31CB /* BIRD ICON.png */; };
 		6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6778C5A81CB6D099005FB205 /* Sitter.storyboard */; };
 		67B0594C1CC486BF00018A10 /* Owner_EditPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */; };
 		67B0594E1CC486DA00018A10 /* Owner_EditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */; };
+		67C051C21CE12DC800D03860 /* fish1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C051BE1CE12DC800D03860 /* fish1.png */; };
+		67C051C31CE12DC800D03860 /* dog1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C051BF1CE12DC800D03860 /* dog1.png */; };
+		67C051C41CE12DC800D03860 /* bird1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C051C01CE12DC800D03860 /* bird1.png */; };
+		67C051C51CE12DC800D03860 /* cat1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C051C11CE12DC800D03860 /* cat1.png */; };
 		67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */; };
 		67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
@@ -79,14 +78,13 @@
 		4CE2A1BB1CD364D60027D9F4 /* OwnerFinishedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerFinishedListViewController.swift; sourceTree = "<group>"; };
 		4CE2A1BD1CD3FF240027D9F4 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		6765D70C1CDFE3ED00AF31CB /* Pets icon active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pets icon active.png"; sourceTree = "<group>"; };
-		6765D70D1CDFE3ED00AF31CB /* fish icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fish icon.png"; sourceTree = "<group>"; };
-		6765D70E1CDFE3ED00AF31CB /* dog icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dog icon.png"; sourceTree = "<group>"; };
-		6765D70F1CDFE3ED00AF31CB /* cat icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat icon.png"; sourceTree = "<group>"; };
-		6765D7101CDFE3ED00AF31CB /* bunny icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bunny icon.png"; sourceTree = "<group>"; };
-		6765D7111CDFE3ED00AF31CB /* BIRD ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BIRD ICON.png"; sourceTree = "<group>"; };
 		6778C5A81CB6D099005FB205 /* Sitter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sitter.storyboard; sourceTree = "<group>"; };
 		67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner_EditPhone.swift; sourceTree = "<group>"; };
 		67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner_EditEmail.swift; path = ../Owner_EditEmail.swift; sourceTree = "<group>"; };
+		67C051BE1CE12DC800D03860 /* fish1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish1.png; sourceTree = "<group>"; };
+		67C051BF1CE12DC800D03860 /* dog1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog1.png; sourceTree = "<group>"; };
+		67C051C01CE12DC800D03860 /* bird1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird1.png; sourceTree = "<group>"; };
+		67C051C11CE12DC800D03860 /* cat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat1.png; sourceTree = "<group>"; };
 		67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewController.swift; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
@@ -116,7 +114,7 @@
 		C6D9C2D61CC85C1400A86097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C6D9C2D81CC8669700A86097 /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateEntryCell.swift; sourceTree = "<group>"; };
-		C6DA0D261CA62CED00F425B3 /* SitStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6DA0D261CA62CED00F425B3 /* Furrlo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Furrlo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6DA0D2E1CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -289,12 +287,12 @@
 		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				4CE1334F1CD7ED3700A792D5 /* OwnerToDoList */,
 				674B92A91CD11E5700AC601B /* To Do Tab Sitter */,
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
 				67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */,
 				67D299C11CCEBA7500D0D5C3 /* Settings */,
-				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				C653E06E1CCE9414003F176A /* Trip Tab Sitter */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
@@ -335,7 +333,7 @@
 		C6DA0D271CA62CED00F425B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6DA0D261CA62CED00F425B3 /* SitStay.app */,
+				C6DA0D261CA62CED00F425B3 /* Furrlo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,12 +355,11 @@
 		C6DA0D401CA634E600F425B3 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				67C051BE1CE12DC800D03860 /* fish1.png */,
+				67C051BF1CE12DC800D03860 /* dog1.png */,
+				67C051C01CE12DC800D03860 /* bird1.png */,
+				67C051C11CE12DC800D03860 /* cat1.png */,
 				6765D70C1CDFE3ED00AF31CB /* Pets icon active.png */,
-				6765D70D1CDFE3ED00AF31CB /* fish icon.png */,
-				6765D70E1CDFE3ED00AF31CB /* dog icon.png */,
-				6765D70F1CDFE3ED00AF31CB /* cat icon.png */,
-				6765D7101CDFE3ED00AF31CB /* bunny icon.png */,
-				6765D7111CDFE3ED00AF31CB /* BIRD ICON.png */,
 				C6DA0D411CA6350400F425B3 /* add.png */,
 			);
 			name = img;
@@ -371,9 +368,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6DA0D251CA62CED00F425B3 /* SitStay */ = {
+		C6DA0D251CA62CED00F425B3 /* Furrlo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "SitStay" */;
+			buildConfigurationList = C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "Furrlo" */;
 			buildPhases = (
 				C6DA0D221CA62CED00F425B3 /* Sources */,
 				C6DA0D231CA62CED00F425B3 /* Frameworks */,
@@ -383,9 +380,9 @@
 			);
 			dependencies = (
 			);
-			name = SitStay;
+			name = Furrlo;
 			productName = SitStay;
-			productReference = C6DA0D261CA62CED00F425B3 /* SitStay.app */;
+			productReference = C6DA0D261CA62CED00F425B3 /* Furrlo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -409,7 +406,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "SitStay" */;
+			buildConfigurationList = C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "Furrlo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -422,7 +419,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6DA0D251CA62CED00F425B3 /* SitStay */,
+				C6DA0D251CA62CED00F425B3 /* Furrlo */,
 			);
 		};
 /* End PBXProject section */
@@ -432,17 +429,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6765D7171CDFE3ED00AF31CB /* BIRD ICON.png in Resources */,
 				6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */,
+				67C051C21CE12DC800D03860 /* fish1.png in Resources */,
+				67C051C41CE12DC800D03860 /* bird1.png in Resources */,
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
-				6765D7141CDFE3ED00AF31CB /* dog icon.png in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
 				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
-				6765D7131CDFE3ED00AF31CB /* fish icon.png in Resources */,
-				6765D7161CDFE3ED00AF31CB /* bunny icon.png in Resources */,
+				67C051C51CE12DC800D03860 /* cat1.png in Resources */,
 				6765D7121CDFE3ED00AF31CB /* Pets icon active.png in Resources */,
+				67C051C31CE12DC800D03860 /* dog1.png in Resources */,
 				C6DA0D421CA6350400F425B3 /* add.png in Resources */,
-				6765D7151CDFE3ED00AF31CB /* cat icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,8 +614,8 @@
 				INFOPLIST_FILE = SitStay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.SitStay;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.Furrlo;
+				PRODUCT_NAME = Furrlo;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -633,8 +629,8 @@
 				INFOPLIST_FILE = SitStay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.SitStay;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.Furrlo;
+				PRODUCT_NAME = Furrlo;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -642,7 +638,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "SitStay" */ = {
+		C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "Furrlo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6DA0D391CA62CED00F425B3 /* Debug */,
@@ -651,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "SitStay" */ = {
+		C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "Furrlo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6DA0D3C1CA62CED00F425B3 /* Debug */,

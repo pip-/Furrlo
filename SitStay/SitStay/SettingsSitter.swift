@@ -86,6 +86,7 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("You selected cell #\(indexPath.row)!")    }
     func changeBoard(){
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "changingSettings")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isSitter")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerOwner") as UIViewController
         presentViewController(vc, animated: false, completion: nil)

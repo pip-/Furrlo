@@ -37,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
+        if(NSUserDefaults.standardUserDefaults().boolForKey("isSitter")){
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
@@ -378,6 +385,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.saveContext()
     }
+    
+    func setToDoItemComplete(complete: Int,toDoItemID: Int){
+      
+        if let fetchedToDoItems = getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                if toDoItem.itemID == toDoItemID{
+                    toDoItem.complete = 1
+                }
+            }
+        }
+        
+        return
+    }
+    
  
   /*
     func deleteToDoItem(itemID: NSNumber) -> Bool{
@@ -404,15 +425,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //var petPicture: UIImage
         
         if(lowercaseSpecies == "dog" || lowercaseSpecies == "puppy"){
-            return UIImage(named: "dog icon.png")!
-        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten"){
-            return UIImage(named: "cat icon.png")!
-        } else if(lowercaseSpecies == "bunny" || lowercaseSpecies == "rabbit" || lowercaseSpecies == "bunny rabbit" ){
-            return UIImage(named: "bunny icon.png")!
+            return UIImage(named: "dog1.png")!
+        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten" || lowercaseSpecies == "kitty"){
+            return UIImage(named: "cat1.png")!
         } else if(lowercaseSpecies == "bird" || lowercaseSpecies == "parrot"){
-            return UIImage(named: "BIRD ICON.png")!
+            return UIImage(named: "bird1.png")!
         } else if(lowercaseSpecies == "fish"){
-            return UIImage(named: "fish icon.png")!
+            return UIImage(named: "fish1.png")!
         }
         
         return UIImage(named: "Pets icon active.png")!

@@ -14,6 +14,14 @@ class TabBarControllerOwner: UITabBarController {
         super.viewDidLoad()
         self.selectedIndex = 1
         // Do any additional setup after loading the view.
+        
+        if(NSUserDefaults.standardUserDefaults().boolForKey("isSitter")){
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+            presentViewController(vc, animated: false, completion: nil)
+        }
+        
+        self.tabBar.tintColor = UIColor.init(red: 13/255, green: 155/255, blue: 141/255, alpha: 1)
     }
     
     override func viewDidAppear(animated: Bool) {
