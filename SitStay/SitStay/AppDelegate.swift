@@ -367,7 +367,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
  
-    func insertNewToDoItem(complete: NSNumber?, instruction: String?, instructionDetail: String?, petID: NSNumber?, isSat: Bool){
+    func insertNewToDoItem(complete: NSNumber?, instruction: String?, instructionDetail: String?, petID: NSNumber?, isSat: Bool, taskID: NSNumber?){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
         
         newToDoItem.complete = complete
@@ -376,6 +376,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //newToDoItem.itemID = itemID
         newToDoItem.petID = petID
         newToDoItem.isSat = isSat
+        newToDoItem.itemID = taskID
+        
         //newToDoItem.petParent = petParent
         
     
