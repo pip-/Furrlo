@@ -132,46 +132,7 @@
                                                     <attributes>
                                                         <color key="NSColor" red="0.050980392156862744" green="0.60784313725490191" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                            <tabStops>
-                                                                <textTab alignment="left" location="28">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="56">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="84">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="112">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="140">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="168">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="196">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="224">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="252">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="280">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="308">
-                                                                    <options/>
-                                                                </textTab>
-                                                                <textTab alignment="left" location="336">
-                                                                    <options/>
-                                                                </textTab>
-                                                            </tabStops>
-                                                        </paragraphStyle>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -181,8 +142,8 @@
                                     <color key="backgroundColor" red="0.93333333330000001" green="1" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="HyI-8z-Hrp" firstAttribute="centerX" secondItem="XUj-LX-Mdl" secondAttribute="centerX" id="13a-FC-aqb"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="7ne-YI-grG" secondAttribute="trailing" constant="75" id="AZy-9Q-e6T"/>
-                                        <constraint firstItem="7ne-YI-grG" firstAttribute="leading" secondItem="XUj-LX-Mdl" secondAttribute="leadingMargin" constant="75" id="Dja-nD-fp3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7ne-YI-grG" secondAttribute="trailing" constant="55" id="AZy-9Q-e6T"/>
+                                        <constraint firstItem="7ne-YI-grG" firstAttribute="leading" secondItem="XUj-LX-Mdl" secondAttribute="leadingMargin" constant="55" id="Dja-nD-fp3"/>
                                         <constraint firstItem="HyI-8z-Hrp" firstAttribute="centerY" secondItem="XUj-LX-Mdl" secondAttribute="centerY" id="rr0-wK-J2Q"/>
                                         <constraint firstItem="7ne-YI-grG" firstAttribute="top" secondItem="HyI-8z-Hrp" secondAttribute="bottom" constant="5" id="wlq-87-akE"/>
                                     </constraints>
@@ -1473,7 +1434,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="If you are a sitter, you can change this in Settings.                                                            " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6N-ED-5hk">
-                                            <rect key="frame" x="56" y="64" width="381" height="21"/>
+                                            <rect key="frame" x="57" y="64" width="381" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.050980392159999999" green="0.60784313729999995" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
