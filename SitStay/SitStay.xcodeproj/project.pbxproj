@@ -208,6 +208,7 @@
 				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
 				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
 				67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */,
+				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */,
 			);
 			name = Settings;
@@ -292,7 +293,6 @@
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
 				67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */,
 				67D299C11CCEBA7500D0D5C3 /* Settings */,
-				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				C653E06E1CCE9414003F176A /* Trip Tab Sitter */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,

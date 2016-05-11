@@ -37,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
+        if(NSUserDefaults.standardUserDefaults().boolForKey("isSitter")){
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
