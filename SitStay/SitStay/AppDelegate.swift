@@ -155,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             saveContext()
         }
     }
-    
+
     func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
@@ -200,6 +200,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getToDoItems() -> [ToDoItem]?{
         do {
             let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            print("Before REturn FetchedToDoItems")
             return fetchedToDoItems
         } catch {
             fatalError("Failed to fetch To Do Items: \(error)")
@@ -359,13 +360,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
  
-    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, itemID: NSNumber?, petID: NSNumber?, isSat: Bool){
+    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, petID: NSNumber?, isSat: Bool){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
         
         newToDoItem.complete = complete
         newToDoItem.instruction = instruction
         newToDoItem.instructionDetail = instructionDetail
-        newToDoItem.itemID = itemID
+        //newToDoItem.itemID = itemID
         newToDoItem.petID = petID
         newToDoItem.isSat = isSat
         //newToDoItem.petParent = petParent
@@ -378,11 +379,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
  
-    /*
+  /*
     func deleteToDoItem(itemID: NSNumber) -> Bool{
         do {
-            let fetchedToDoItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest[entityName: "ToDoItem"]) as! [ToDoItem]
-            for toDoItem in fetchedToDoItem{
+           let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            for toDoItem in fetchedToDoItems{
                 if ToDoItem.itemId == itemID{
                     print("Trying to delete To Do Item: "+ toDoItem.itemID!)
                     self.managedObjectContext.deletedObject(toDoItem)
@@ -396,22 +397,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+ 
     */
-    
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
         //var petPicture: UIImage
         
         if(lowercaseSpecies == "dog" || lowercaseSpecies == "puppy"){
-            return UIImage(named: "dog icon.png")!
-        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten"){
-            return UIImage(named: "cat icon.png")!
-        } else if(lowercaseSpecies == "bunny" || lowercaseSpecies == "rabbit" || lowercaseSpecies == "bunny rabbit" ){
-            return UIImage(named: "bunny icon.png")!
+            return UIImage(named: "dog1.png")!
+        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten" || lowercaseSpecies == "kitty"){
+            return UIImage(named: "cat1.png")!
         } else if(lowercaseSpecies == "bird" || lowercaseSpecies == "parrot"){
-            return UIImage(named: "BIRD ICON.png")!
+            return UIImage(named: "bird1.png")!
         } else if(lowercaseSpecies == "fish"){
-            return UIImage(named: "fish icon.png")!
+            return UIImage(named: "fish1.png")!
         }
         
         return UIImage(named: "Pets icon active.png")!
