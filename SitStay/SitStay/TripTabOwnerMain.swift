@@ -84,7 +84,15 @@ class TripTabOwnerMain: UITableViewController {
             return tripNames.count + 1
         }
     }
-
+   
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(tripNames.count == 0){
+            if(indexPath.row == 0){
+                return 200
+            }
+        }
+        return 50
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if(tripNames.count == 0){
