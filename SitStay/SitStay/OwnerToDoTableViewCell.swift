@@ -15,9 +15,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
-     var dayTitles = ["Today","Tomorrow","Later"]
+   //  var dayTitles = ["Today","Tomorrow","Later"]
     
     //var dailyTaskLists: [String] = []
     //var dayTitles: [String] = []
@@ -88,7 +88,7 @@ class OwnerToDoTableViewController: UITableViewController{
        */
         
     
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
     
@@ -98,6 +98,10 @@ class OwnerToDoTableViewController: UITableViewController{
     override func viewWillAppear(animated: Bool) {
         toDoItems.removeAll()
         pets.removeAll()
+        itemPetIDs.removeAll()
+        toDoItemTaskIds.removeAll()
+        toDoItemsDetails.removeAll()
+        petIds.removeAll()
         
         print("View Will Appear")
         
@@ -154,7 +158,7 @@ class OwnerToDoTableViewController: UITableViewController{
         */
         
         
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
         
@@ -177,6 +181,9 @@ class OwnerToDoTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         //return dailyTaskLists[section].count
         //let toDoItem = pets[section]
+        
+        print(toDoItemTaskIds)
+        print(itemPetIDs)
         return itemPetIDs[section].count
     }
     
