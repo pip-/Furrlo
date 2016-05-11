@@ -16,7 +16,8 @@ class PetTabOwner: UIViewController {
     var noPetsReuseIdentifier = "noPets"
     var pets: [String] = []
     var petSpecies: [String] = []
-
+    var petIDs: [String] = []
+    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
@@ -41,6 +42,7 @@ class PetTabOwner: UIViewController {
         
         pets.removeAll()
         petSpecies.removeAll()
+        petIDs.removeAll()
         
         let user = self.appDelegate.getUser()
         let myID = user?.userID
@@ -50,6 +52,8 @@ class PetTabOwner: UIViewController {
                 if(myID == pet.user?.userID && pet.isSat?.boolValue==false){
                     pets.append(pet.name!)
                     petSpecies.append(pet.species!)
+                    petIDs.append(pet.petID!.stringValue)
+                    print(pet.petID!.stringValue)
                 }
             }
         }
@@ -96,7 +100,8 @@ class PetTabOwner: UIViewController {
             
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.petName.text = self.pets[indexPath.item] as? String
-        cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+        cell.petButton.setTitle(self.petIDs[indexPath.item], forState: .Normal)
+        //cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
         cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
         
             
@@ -139,7 +144,9 @@ class PetTabOwner: UIViewController {
         if(segue.identifier == "toPet"){
         let viewController = segue.destinationViewController as! ExistingPetOwner
         if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
-            viewController.petName = buttonTitle
+            let intTitle = Int(buttonTitle)
+            viewController.petID = intTitle
+          
             }}
     }
     

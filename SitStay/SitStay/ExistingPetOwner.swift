@@ -27,6 +27,7 @@ class ExistingPetOwner: UIViewController{
     @IBOutlet weak var imageView: UIImageView!
     
     var petName: String?
+    var petID: Int?
    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -39,8 +40,8 @@ class ExistingPetOwner: UIViewController{
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                if (pet.name == petName){
-                    petNameLabel.text = petName
+                if (pet.petID == petID){
+                    petNameLabel.text = pet.name
                     petAge.text = pet.age
                     petSpecies.text = pet.species
                     petBreedLabel.text = pet.breed
