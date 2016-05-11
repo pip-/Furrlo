@@ -19,8 +19,14 @@ class PetInfoSitter: UIViewController {
     @IBOutlet weak var petBreedLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
-    var petName: String?
     
+    @IBOutlet weak var personalityHeader: UILabel!
+    @IBOutlet weak var foodHeader: UILabel!
+    @IBOutlet weak var noteHeader: UILabel!
+    
+    
+    var petName: String?
+    var petID: Int?
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
@@ -29,8 +35,8 @@ class PetInfoSitter: UIViewController {
 
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                if (pet.name == petName){
-                    petNameLabel.text = petName
+                if (pet.petID == petID){
+                    petNameLabel.text = pet.name
                     petAge.text = pet.age
                     petSpecies.text = pet.species
                     petBreedLabel.text = pet.breed
@@ -39,6 +45,20 @@ class PetInfoSitter: UIViewController {
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
                     imageView.image = self.appDelegate.pickPetPicture(petSpecies.text!)
+                    
+                    if(pet.personality?.characters.count == 0){
+                        personalityHeader.text = ""
+                    }
+                    if(pet.food?.characters.count == 0){
+                        foodHeader.text = ""
+                    }
+                    if(pet.notes?.characters.count == 0){
+                        noteHeader.text = ""
+                    }
+                    if(pet.age == "0")
+                    {
+                        petAge.text = ""
+                    }
                     
                     
                     self.title = pet.name
@@ -56,14 +76,14 @@ class PetInfoSitter: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if(segue.identifier == "toPet"){
             let viewController = segue.destinationViewController as! PetInfoSitter
             if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
                 viewController.petName = buttonTitle
             }}
-    }
+    }*/
     /*
     // MARK: - Navigation
 
