@@ -58,8 +58,8 @@ class SitterToDoListTableViewController: UITableViewController {
                     itemPetIDs.append((toDoItem.petID?.integerValue)!)
                     petisSat.append((toDoItem.isSat?.integerValue)!)
                 
-                    print(toDoItem.instruction)
-                    print(toDoItem.instructionDetail)
+                    //print(toDoItem.instruction)
+                    //print(toDoItem.instructionDetail)
                 }
             
             }
@@ -101,7 +101,7 @@ class SitterToDoListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(toDoItems)
+        //print(toDoItems)
         return toDoItems.count
         //return dailyTaskLists.count
         
@@ -111,16 +111,16 @@ class SitterToDoListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = toDoItems[indexPath.section]
+        cell.textLabel?.text = toDoItems[indexPath.row]
         
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
         
         //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         //cell.detailTextLabel?.text = dailyTaskListDetails[indexPath.section][indexPath.row]
         
-        print(toDoItems[indexPath.section])
-        print(toDoItemsDetails[indexPath.row])
-        print("Break")
+        //print(toDoItems[indexPath.section])
+        //print(toDoItemsDetails[indexPath.row])
+        //print("Break")
         
         return cell
     }
@@ -131,8 +131,8 @@ class SitterToDoListTableViewController: UITableViewController {
         
         cell.textLabel?.text = pets[section]
         
-        print(pets)
-        print(pets.count)
+        //print(pets)
+        //print(pets.count)
         
         
         return cell
@@ -160,7 +160,7 @@ class SitterToDoListTableViewController: UITableViewController {
             cell?.accessoryType = .Checkmark
             
             //add functionality to save task that have been marked as done
-            print("To do items complete",self.toDoItemsComplete)
+            //print("To do items complete",self.toDoItemsComplete)
             
             //self.appDelegate.setToDoItemComplete(petisSat, toDoItemID: itemPetIDs)
             
