@@ -19,6 +19,7 @@ class PetsSitter: UIViewController {
     
     var pets: [String] = []
     var petSpecies: [String] = []
+    var petIDs: [String] = []
     //"Pet 1", "Pet 2", "Pet 3", "Pet 4", "Pet 5", "Pet 6"
     
     var tripNames: [String] = []
@@ -40,6 +41,7 @@ class PetsSitter: UIViewController {
         print(pets)
         petSpecies.removeAll()
         tripNames.removeAll()
+        petIDs.removeAll()
        
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
@@ -54,6 +56,7 @@ class PetsSitter: UIViewController {
                         if(pet.isSat?.boolValue == true){
                             pets.append(pet.name!)
                             petSpecies.append(pet.species!)
+                            petIDs.append(pet.petID!.stringValue)
                         }
                     }
                 }
@@ -105,17 +108,10 @@ class PetsSitter: UIViewController {
             
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.petName.text = self.pets[indexPath.item] as? String
-            cell.petButton.setTitle(self.pets[indexPath.item], forState: .Normal)
+            cell.petButton.setTitle(self.petIDs[indexPath.item], forState: .Normal)
             cell.petImage.image = self.appDelegate.pickPetPicture(self.petSpecies[indexPath.item])
             
-            /*if (self.petSpecies[indexPath.item].lowercaseString == "dog"){
-                cell.petImage.image = UIImage(named: "dog profile.png")
-            }
-            else if (self.petSpecies[indexPath.item].lowercaseString == "cat"){
-                cell.petImage.image = UIImage(named: "cat head.png")
-            }else{
-                cell.petImage.image = UIImage(named: "Untitled-6.png")
-            }*/
+        
             let newSwiftColor = UIColor(red: 238, green: 255, blue: 247, alpha: 0.0)
             cell.backgroundColor = newSwiftColor
             // make cell more visible in our example project
@@ -163,7 +159,8 @@ class PetsSitter: UIViewController {
         if(segue.identifier == "toPet"){
             let viewController = segue.destinationViewController as! PetInfoSitter
             if let buttonTitle = (sender as? UIButton)?.titleLabel?.text{
-                viewController.petName = buttonTitle
+                let intTitle = Int(buttonTitle)
+                viewController.petID = intTitle
             }}
     }
 
