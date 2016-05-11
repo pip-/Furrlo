@@ -287,12 +287,12 @@
 		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				4CE1334F1CD7ED3700A792D5 /* OwnerToDoList */,
 				674B92A91CD11E5700AC601B /* To Do Tab Sitter */,
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
 				67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */,
 				67D299C11CCEBA7500D0D5C3 /* Settings */,
-				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				C653E06E1CCE9414003F176A /* Trip Tab Sitter */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
