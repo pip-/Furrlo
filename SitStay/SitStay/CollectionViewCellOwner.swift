@@ -16,5 +16,6 @@ class CollectionViewCellOwner: UICollectionViewCell {
     
     @IBOutlet weak var petName: UILabel!
     
+    @IBOutlet weak var petIDLabel: UILabel!
     
 }

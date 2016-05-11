@@ -22,6 +22,7 @@
 		67C051C51CE12DC800D03860 /* cat1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67C051C11CE12DC800D03860 /* cat1.png */; };
 		67E1750D1CC707EE003BA936 /* SitterToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */; };
 		67E1750F1CC70842003BA936 /* SitterToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */; };
+		67FEB7F91CE3E5AB000D85FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FEB7F81CE3E5AB000D85FC /* Main.storyboard */; };
 		C63CA6CA1CC07FCE00FA1EFD /* NewTripOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */; };
 		C653E0681CCD8327003F176A /* InviteSitterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653E0671CCD8327003F176A /* InviteSitterCell.swift */; };
 		C653E06A1CCD890D003F176A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C653E0691CCD890D003F176A /* MessageUI.framework */; };
@@ -51,7 +52,6 @@
 		C6D9C2DB1CC9436400A86097 /* DateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */; };
 		C6DA0D2A1CA62CED00F425B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */; };
 		C6DA0D2C1CA62CED00F425B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */; };
-		C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */; };
 		C6DA0D321CA62CED00F425B3 /* SitStay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6DA0D301CA62CED00F425B3 /* SitStay.xcdatamodeld */; };
 		C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D331CA62CED00F425B3 /* Assets.xcassets */; };
 		C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */; };
@@ -87,6 +87,7 @@
 		67C051C11CE12DC800D03860 /* cat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat1.png; sourceTree = "<group>"; };
 		67E1750C1CC707EE003BA936 /* SitterToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		67E1750E1CC70842003BA936 /* SitterToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SitterToDoListTableViewController.swift; sourceTree = "<group>"; };
+		67FEB7F81CE3E5AB000D85FC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C63CA6C91CC07FCE00FA1EFD /* NewTripOwnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTripOwnerController.swift; sourceTree = "<group>"; };
 		C653E0671CCD8327003F176A /* InviteSitterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteSitterCell.swift; sourceTree = "<group>"; };
 		C653E0691CCD890D003F176A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -117,7 +118,6 @@
 		C6DA0D261CA62CED00F425B3 /* Furrlo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Furrlo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C6DA0D2E1CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6DA0D311CA62CED00F425B3 /* SitStay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SitStay.xcdatamodel; sourceTree = "<group>"; };
 		C6DA0D331CA62CED00F425B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6DA0D361CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		C6D73C091CB4BA05001BC7F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */,
+				67FEB7F81CE3E5AB000D85FC /* Main.storyboard */,
 				C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */,
 				6778C5A81CB6D099005FB205 /* Sitter.storyboard */,
 			);
@@ -430,11 +430,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6778C5A91CB6D099005FB205 /* Sitter.storyboard in Resources */,
+				67FEB7F91CE3E5AB000D85FC /* Main.storyboard in Resources */,
 				67C051C21CE12DC800D03860 /* fish1.png in Resources */,
 				67C051C41CE12DC800D03860 /* bird1.png in Resources */,
 				C6DA0D371CA62CED00F425B3 /* LaunchScreen.storyboard in Resources */,
 				C6DA0D341CA62CED00F425B3 /* Assets.xcassets in Resources */,
-				C6DA0D2F1CA62CED00F425B3 /* Main.storyboard in Resources */,
 				67C051C51CE12DC800D03860 /* cat1.png in Resources */,
 				6765D7121CDFE3ED00AF31CB /* Pets icon active.png in Resources */,
 				67C051C31CE12DC800D03860 /* dog1.png in Resources */,
@@ -505,14 +505,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C6DA0D2D1CA62CED00F425B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C6DA0D2E1CA62CED00F425B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C6DA0D351CA62CED00F425B3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
