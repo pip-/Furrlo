@@ -96,7 +96,32 @@ class ExistingPetOwner: UIViewController{
         self.presentViewController(alert, animated: true, completion: nil)
         
         
+        let user = appDelegate.getUser()
+        let userID=user!.userID
         
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removePet.php")!)
+        
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)&b=\(self.petName!)"
+        //&i=\(imageView.image?)
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("responseFromAddToDB = \(response)")
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseStringFromAddToDB = \(responseString)")
+            
+        }
+        task.resume()
     }
  
     
