@@ -1156,7 +1156,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="foodHeader" destination="UFS-dq-FmJ" id="m39-Bw-kkm"/>
                         <outlet property="imageView" destination="yMY-h4-whW" id="aaJ-45-lGi"/>
+                        <outlet property="notesHeader" destination="oC5-yG-9Ti" id="lLl-oz-gDF"/>
+                        <outlet property="personailtyHeader" destination="Yq7-Zf-gyr" id="hsZ-M2-lX5"/>
                         <outlet property="petAge" destination="adC-7l-8ph" id="jat-42-TVc"/>
                         <outlet property="petBreedLabel" destination="UPT-jX-BgA" id="wgm-a8-LR0"/>
                         <outlet property="petFoodLabel" destination="y9d-w6-CRe" id="4JC-2f-e9E"/>
