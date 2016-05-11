@@ -37,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
+        if(NSUserDefaults.standardUserDefaults().boolForKey("isSitter")){
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
@@ -378,6 +385,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.saveContext()
     }
+    
+    func setToDoItemComplete(complete: Int,toDoItemID: Int){
+      
+        if let fetchedToDoItems = getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                if toDoItem.itemID == toDoItemID{
+                    toDoItem.complete = 1
+                }
+            }
+        }
+        
+        return
+    }
+    
  
   /*
     func deleteToDoItem(itemID: NSNumber) -> Bool{

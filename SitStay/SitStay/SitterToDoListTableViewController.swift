@@ -13,19 +13,15 @@ class SitterToDoListTableViewController: UITableViewController {
     //call AppDelegate
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    //create local variables
-    var complete: NSNumber?
-    var instruction: String?
-    var instructionDetails: String? = "test"
-    var itemID: NSNumber?
-    var petID: NSNumber?
-    var isSat: NSNumber?
-    var pets : [String] = []
-    var petName: String?
     
+    //local variables to assign to ToDoItem variables
     var toDoItems: [String] = []
     var toDoItemsDetails: [String] = []
     var toDoItemsComplete: [Int] = []
+    var itemPetIDs: [Int] = []
+    var petisSat: [Int] = []
+    
+    var pets : [String] = []
     
     
     
@@ -41,24 +37,41 @@ class SitterToDoListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        pets.removeAll()
-        
+        //assign local variable to Pets variable
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
             }
+            
         }
         
+        
+        //assign local variables to ToDoItem variables
+        if let fetchedToDoItems = appDelegate.getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                //checks animals being displayed are being sat (not sitters own animals)
+                if(toDoItem.isSat!.boolValue == true){
+                    
+                    toDoItems.append(toDoItem.instruction!)
+                    toDoItemsDetails.append(toDoItem.instructionDetail!)
+                    itemPetIDs.append((toDoItem.petID?.integerValue)!)
+                    petisSat.append((toDoItem.isSat?.integerValue)!)
+                
+                    //print(toDoItem.instruction)
+                    //print(toDoItem.instructionDetail)
+                }
+            
+            }
+            
+        }
+        
+    
         
         
         /*if let fetchedToDoItems = appDelegate.getToDoItems(){
             for ToDoItem in fetchedToDoItems{
                 if(ToDoItem.isSat?.boolValue == true)
-                toDoItems.append(toDoItem.instruction!)
-                toDoItemsDetails.append(toDoItem.instructionDetail!)
-                toDoItemsComplete.append(Int(toDoItem.complete!))
                 
             }
         }*/
@@ -68,8 +81,9 @@ class SitterToDoListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
     
+    }
+
     
     
 
@@ -87,16 +101,26 @@ class SitterToDoListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //print(toDoItems)
+        return toDoItems.count
+        //return dailyTaskLists.count
         
-        return dailyTaskLists[section].count
     }
 
     //Configure "data cells" with task text
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
-        cell.detailTextLabel?.text = dailyTaskListDetails[indexPath.section][indexPath.row]
+        cell.textLabel?.text = toDoItems[indexPath.row]
+        
+        cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+        
+        //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+        //cell.detailTextLabel?.text = dailyTaskListDetails[indexPath.section][indexPath.row]
+        
+        //print(toDoItems[indexPath.section])
+        //print(toDoItemsDetails[indexPath.row])
+        //print("Break")
         
         return cell
     }
@@ -107,8 +131,8 @@ class SitterToDoListTableViewController: UITableViewController {
         
         cell.textLabel?.text = pets[section]
         
-        print(pets)
-        print(pets.count)
+        //print(pets)
+        //print(pets.count)
         
         
         return cell
@@ -127,6 +151,7 @@ class SitterToDoListTableViewController: UITableViewController {
         
         alert.addAction(cancelAction)
         
+        
         //Add mark as done action to the menu
         let markDone = UIAlertAction(title: "Mark as done", style: .Default, handler: {
             (action:UIAlertAction!) -> Void in
@@ -135,14 +160,27 @@ class SitterToDoListTableViewController: UITableViewController {
             cell?.accessoryType = .Checkmark
             
             //add functionality to save task that have been marked as done
-            print("To do items complete",self.toDoItemsComplete)
+            //print("To do items complete",self.toDoItemsComplete)
             
-            //toDoItemsComplete = 1
+            //self.appDelegate.setToDoItemComplete(petisSat, toDoItemID: itemPetIDs)
             
         })
+        
         alert.addAction(markDone)
         
+        //Add mark as not done action to the menu
+        let markNotDone = UIAlertAction(title: "Mark as not done", style: .Default, handler: {
+            (action:UIAlertAction!) -> Void in
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .DisclosureIndicator
+            
+        })
         
+        alert.addAction(markNotDone)
+        
+        
+    
         // Display the menu
         self.presentViewController(alert, animated: true, completion: nil)
         

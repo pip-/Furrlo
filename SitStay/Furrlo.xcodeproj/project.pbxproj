@@ -114,7 +114,7 @@
 		C6D9C2D61CC85C1400A86097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C6D9C2D81CC8669700A86097 /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		C6D9C2DA1CC9436400A86097 /* DateEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateEntryCell.swift; sourceTree = "<group>"; };
-		C6DA0D261CA62CED00F425B3 /* SitStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6DA0D261CA62CED00F425B3 /* Furrlo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Furrlo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DA0D291CA62CED00F425B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6DA0D2E1CA62CED00F425B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -287,12 +287,12 @@
 		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				4CE1334F1CD7ED3700A792D5 /* OwnerToDoList */,
 				674B92A91CD11E5700AC601B /* To Do Tab Sitter */,
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
 				67D299BF1CCEBA0000D0D5C3 /* Pet Tab Owner */,
 				67D299C11CCEBA7500D0D5C3 /* Settings */,
-				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				C653E06E1CCE9414003F176A /* Trip Tab Sitter */,
 				C6DA0D2B1CA62CED00F425B3 /* ViewController.swift */,
 				C6E7276E1CBC24F800E7945B /* TabBarControllerOwner.swift */,
@@ -333,7 +333,7 @@
 		C6DA0D271CA62CED00F425B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6DA0D261CA62CED00F425B3 /* SitStay.app */,
+				C6DA0D261CA62CED00F425B3 /* Furrlo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,9 +368,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6DA0D251CA62CED00F425B3 /* SitStay */ = {
+		C6DA0D251CA62CED00F425B3 /* Furrlo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "SitStay" */;
+			buildConfigurationList = C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "Furrlo" */;
 			buildPhases = (
 				C6DA0D221CA62CED00F425B3 /* Sources */,
 				C6DA0D231CA62CED00F425B3 /* Frameworks */,
@@ -380,9 +380,9 @@
 			);
 			dependencies = (
 			);
-			name = SitStay;
+			name = Furrlo;
 			productName = SitStay;
-			productReference = C6DA0D261CA62CED00F425B3 /* SitStay.app */;
+			productReference = C6DA0D261CA62CED00F425B3 /* Furrlo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +406,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "SitStay" */;
+			buildConfigurationList = C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "Furrlo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -419,7 +419,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6DA0D251CA62CED00F425B3 /* SitStay */,
+				C6DA0D251CA62CED00F425B3 /* Furrlo */,
 			);
 		};
 /* End PBXProject section */
@@ -614,8 +614,8 @@
 				INFOPLIST_FILE = SitStay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.SitStay;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.Furrlo;
+				PRODUCT_NAME = Furrlo;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -629,8 +629,8 @@
 				INFOPLIST_FILE = SitStay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.SitStay;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.Furrlo;
+				PRODUCT_NAME = Furrlo;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -638,7 +638,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "SitStay" */ = {
+		C6DA0D211CA62CED00F425B3 /* Build configuration list for PBXProject "Furrlo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6DA0D391CA62CED00F425B3 /* Debug */,
@@ -647,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "SitStay" */ = {
+		C6DA0D3B1CA62CED00F425B3 /* Build configuration list for PBXNativeTarget "Furrlo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6DA0D3C1CA62CED00F425B3 /* Debug */,
