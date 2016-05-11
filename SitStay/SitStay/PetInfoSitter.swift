@@ -55,6 +55,10 @@ class PetInfoSitter: UIViewController {
                     if(pet.notes?.characters.count == 0){
                         noteHeader.text = ""
                     }
+                    if(pet.age == "0")
+                    {
+                        petAge.text = ""
+                    }
                     
                     
                     self.title = pet.name
