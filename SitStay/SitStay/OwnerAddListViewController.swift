@@ -149,7 +149,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         print(instruction!)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail!)
-        appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: (petID?.integerValue), isSat: false)
+        appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: selectedID, isSat: false)
         submitTask(selectedID, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
        
         
@@ -220,7 +220,11 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseStringFromAddToDB = \(responseString)")
+        
         }
+        
+
+        
         task.resume()
         self.taskComplete()
        // getTaskAddTask()

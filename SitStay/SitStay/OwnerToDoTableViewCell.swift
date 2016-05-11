@@ -91,13 +91,13 @@ class OwnerToDoTableViewController: UITableViewController{
                 print(ToDoItem.instruction)
                 print(ToDoItem.instructionDetail)
                 print(ToDoItem.petID)
-                print(ToDoItem.complete!)
+                //print(ToDoItem.complete!)
                 
             }
         }
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                print("Fetched Pets in ViewWillAppear")
+                //print("Fetched Pets in ViewWillAppear")
                 pets.append(pet.name!)
                 petIds.append(pet.petID!)
                 
@@ -137,10 +137,10 @@ class OwnerToDoTableViewController: UITableViewController{
         //print("itemPetIds")
         //print(itemPetIDs)
         //print(itemPetIDs[indexPath.row])
-        print("ItemPetIDs Section Index path")
+        //print("ItemPetIDs Section Index path")
         //print(itemPetIDs[indexPath.section])
-        print("petIds Section index path")
-        print(petIds[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
         
         
         if (itemPetIDs[indexPath.section] == petIds[indexPath.section]){
