@@ -14,7 +14,7 @@ class ViewTripOwner: UITableViewController {
     
     var trip: Trip? = nil
     
-    var content = ["", "", "", "Example"]
+    var content = ["", "", "", "Example", ""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,9 @@ class ViewTripOwner: UITableViewController {
         }
         
         print("TRIP ID: " + String(trip?.tripID))
+        if let tripID = trip?.tripID!{
+            content[4] = String(tripID)
+        }
         
         //self.navigationItem.rightBarButtonItems = [b]
         
@@ -103,6 +106,7 @@ class ViewTripOwner: UITableViewController {
         if(indexPath.section == 3){
             let cell = tableView.dequeueReusableCellWithIdentifier("inviteCell",forIndexPath: indexPath) as! InviteSitterCell
             cell.setParentController(self)
+            cell.tripID = content[4]
             return cell
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath) as! SimpleCell

@@ -12,7 +12,7 @@ import MessageUI
 class InviteSitterCell: UITableViewCell, MFMailComposeViewControllerDelegate {
 
     var vc: ViewTripOwner? = nil
-    var tripID: Int = 0
+    var tripID: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +47,7 @@ class InviteSitterCell: UITableViewCell, MFMailComposeViewControllerDelegate {
         
         mailComposerVC.setToRecipients([])
         mailComposerVC.setSubject("Be My Pet Sitter!")
-        mailComposerVC.setMessageBody("Hello! I am looking forward to having you as my pet sitter! So we can keep in touch, please download Furrlo on the App Store! Then confirm our trip using the Trip ID: id. Thanks!", isHTML: false)
+        mailComposerVC.setMessageBody("Hello! I am looking forward to having you as my pet sitter! So we can keep in touch, please download Furrlo on the App Store! Then confirm our trip using the Trip ID: " + String(self.tripID) + " Thanks!", isHTML: false)
         
         return mailComposerVC
     }
