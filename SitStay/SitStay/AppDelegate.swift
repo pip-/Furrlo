@@ -348,11 +348,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    func deletePet(petName: String) -> Bool{
+    func deletePet(petID: Int) -> Bool{
         do{
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
             for pet in fetchedPets{
-                if pet.name == petName{
+                if pet.petID == petID{
                     print("Trying to delete pet: " + pet.name!)
                     self.managedObjectContext.deleteObject(pet)
                     self.saveContext()
