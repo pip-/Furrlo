@@ -37,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
+        if(NSUserDefaults.standardUserDefaults().boolForKey("isSitter")){
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
@@ -378,12 +385,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.saveContext()
     }
+    
+    func setToDoItemComplete(complete: Int,toDoItemID: Int){
+      
+        if let fetchedToDoItems = getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                if toDoItem.itemID == toDoItemID{
+                    toDoItem.complete = 1
+                }
+            }
+        }
+        
+        return
+    }
+    
  
-    /*
+  /*
     func deleteToDoItem(itemID: NSNumber) -> Bool{
         do {
-            let fetchedToDoItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest[entityName: "ToDoItem"]) as! [ToDoItem]
-            for toDoItem in fetchedToDoItem{
+           let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            for toDoItem in fetchedToDoItems{
                 if ToDoItem.itemId == itemID{
                     print("Trying to delete To Do Item: "+ toDoItem.itemID!)
                     self.managedObjectContext.deletedObject(toDoItem)
@@ -397,8 +418,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+ 
     */
-    
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
         //var petPicture: UIImage
