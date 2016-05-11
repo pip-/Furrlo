@@ -60,6 +60,7 @@ class OwnerToDoTableViewController: UITableViewController{
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                //if (if(pet.isSat?.boolValue == true))
                 print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
                 petIds.append(pet.petID!)
