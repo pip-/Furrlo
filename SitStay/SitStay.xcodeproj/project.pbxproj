@@ -208,7 +208,6 @@
 				C6FAB4061CBBFE6900A331AD /* SettingsOwner.swift */,
 				C6E727681CBC208700E7945B /* SettingsSitter.swift */,
 				67B0594B1CC486BF00018A10 /* Owner_EditPhone.swift */,
-				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				67B0594D1CC486DA00018A10 /* Owner_EditEmail.swift */,
 			);
 			name = Settings;
@@ -288,6 +287,7 @@
 		C6D73C0A1CB4BA1D001BC7F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C653E06B1CCE933E003F176A /* Trip Tab Owner */,
 				4CE1334F1CD7ED3700A792D5 /* OwnerToDoList */,
 				674B92A91CD11E5700AC601B /* To Do Tab Sitter */,
 				67D299C01CCEBA1300D0D5C3 /* Pet Tab Sitter */,
