@@ -22,7 +22,7 @@ class SitterToDoListTableViewController: UITableViewController {
     var petisSat: [Int] = []
     
     var pets : [String] = []
-    
+    var petID: [Int] = []
     
     
     //Filler text for task list
@@ -41,7 +41,11 @@ class SitterToDoListTableViewController: UITableViewController {
         //assign local variable to Pets variable
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                pets.append(pet.name!)
+                if(pet.isSat?.boolValue == true){
+                    pets.append(pet.name!)
+                    petID.append((pet.petID?.integerValue)!)
+                }
+                //print(pets)
             }
             
         }
@@ -112,15 +116,17 @@ class SitterToDoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
         cell.textLabel?.text = toDoItems[indexPath.row]
-        
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
         
         //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
         //cell.detailTextLabel?.text = dailyTaskListDetails[indexPath.section][indexPath.row]
         
-        //print(toDoItems[indexPath.section])
-        //print(toDoItemsDetails[indexPath.row])
-        //print("Break")
+        print(toDoItems[indexPath.section])
+        print(toDoItems[indexPath.row])
+        
+        print(toDoItemsDetails[indexPath.section])
+        print(toDoItemsDetails[indexPath.row])
+        print("Break")
         
         return cell
     }
