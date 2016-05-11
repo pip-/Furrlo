@@ -20,6 +20,7 @@ extension ToDoItem {
     @NSManaged var itemID: NSNumber?
     @NSManaged var petID: NSNumber?
     @NSManaged var isSat: NSNumber?
+    
 //    @NSManaged var petParent: Pet?
 
 }
