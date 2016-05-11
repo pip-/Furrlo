@@ -18,6 +18,12 @@ class ExistingPetOwner: UIViewController{
     @IBOutlet weak var petFoodLabel: UILabel!
     @IBOutlet weak var petNotes: UILabel!
     
+    @IBOutlet weak var personailtyHeader: UILabel!
+    @IBOutlet weak var foodHeader: UILabel!
+    @IBOutlet weak var notesHeader: UILabel!
+    
+    
+    
     @IBOutlet weak var imageView: UIImageView!
     
     var petName: String?
@@ -42,6 +48,17 @@ class ExistingPetOwner: UIViewController{
                     petFoodLabel.text = pet.food
                     petNotes.text = pet.notes
                     imageView.image = self.appDelegate.pickPetPicture(pet.species!)
+                    
+                    if(pet.personality?.characters.count == 0){
+                        personailtyHeader.text = ""
+                    }
+                    if(pet.food?.characters.count == 0){
+                        foodHeader.text = ""
+                    }
+                    if(pet.notes?.characters.count == 0){
+                        notesHeader.text = ""
+                    }
+                    
                     
                  self.title = pet.name
                     print("hello world")
