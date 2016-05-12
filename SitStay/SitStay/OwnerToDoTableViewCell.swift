@@ -94,7 +94,7 @@ class OwnerToDoTableViewController: UITableViewController{
         }
         
        */
-        
+
     
         if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -137,7 +137,9 @@ class OwnerToDoTableViewController: UITableViewController{
                             complete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
                             let selectedTaskID = toDoItem.itemID?.integerValue
+                            print("CHECKING IF COMPLETE!!")
                             getComplete(selectedTaskID!)
+                            print("Get Completed")
                             if (toDoItem.complete! == 1){
                                 print(toDoItemTaskIds[i])
                                 print("Is complete")
@@ -256,7 +258,7 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
         
-        
+       print(toDoItemTaskIds)
         cell.textLabel?.text = pets[section]
         
         return cell
@@ -395,13 +397,15 @@ class OwnerToDoTableViewController: UITableViewController{
 
             let dict = itemDicts.last
             //print(String(dict["tripName"]))
-           // print("complete YO: "+String(dict!["Complete"]))
+           print("complete YO: ")
             var iscomplete = (dict!["Complete"])
             let myInt: Int! = Int(iscomplete!)
                 if(myInt == 1){
                     self.appDelegate.updateIsComplete(selectedTaskID, isComplete: myInt)
                 }
             }
+            
+            print("Checked if complete")
             self.taskComplete()
         }
         
@@ -414,6 +418,7 @@ class OwnerToDoTableViewController: UITableViewController{
     
     func taskComplete(){
         NSOperationQueue.mainQueue().addOperationWithBlock{
+            print("ViewWillAPPear Task Complete")
             self.viewWillAppear(true)
         }
     }
