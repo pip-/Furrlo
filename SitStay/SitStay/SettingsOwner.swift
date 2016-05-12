@@ -26,6 +26,8 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
         self.tabBarController?.tabBar.hidden = true
         
+        self.title = "Settings"
+        
         
 
     }
@@ -108,6 +110,7 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     func changeBoard(){
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "changingSettings")
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isSitter")
         let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
         presentViewController(vc, animated: false, completion: nil)

@@ -7,18 +7,44 @@
 //
 
 import UIKit
+import MapKit
 
 class NewTripOwnerController: UITableViewController {
     
+    var datePickerSelected: Bool = false
+    var rowSelected: Int = -1
+    var startDate: NSDate = NSDate()
+    var endDate: NSDate = NSDate(timeIntervalSinceNow: 900)
+    var street: String?
+    var address2: String?
+    var zip: String?
+    var city: String?
+    var pets: [Pet] = []
+    var chosenPets: [Pet] = []
+    var tripName: String?
+    var tripID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let fetchedPets = appDelegate.getPets(){
+            chosenPets = fetchedPets
+        }
+        
+        let submitButton = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: #selector(NewTripOwnerController.submit))
+        
+        submitButton.enabled = false
+        
+        self.navigationItem.rightBarButtonItems = [submitButton]
+        
+        self.navigationItem.title = "New Trip"
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -33,25 +59,53 @@ class NewTripOwnerController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if(section == 0){
-            return 2
+        if(section == 1){
+            return 3
         }
-        else if(section == 1){
-            return 1
+        else if(section == 2){
+            return 5
         }
-        else {
-            return 1
+        else if(section == 3){
+            if(pets.count == 0){
+                return 1
+            } else {
+                return pets.count
+            }
         }
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if(indexPath.section == 1){
+            if(indexPath.row == 1){
+                if(datePickerSelected){
+                    return 100
+                } else {
+                    return 0
+                }
+            }
+        }
+        if(indexPath.section == 2){
+            if(indexPath.row == 4){
+                return 200
+            }
+        }
+        
+        if(indexPath.section == 3){
+            if(pets.count == 0){
+                return 50
+            }
+        }
+        
+        return 50
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 1){
+        if (section == 2){
             return 70
         }
         else {
@@ -68,10 +122,10 @@ class NewTripOwnerController: UITableViewController {
         view.addSubview(label)
         view.backgroundColor = UIColor.init(red: 238, green: 255, blue: 247, alpha: 0)
         
-        if(section == 0){
+        if(section == 1){
             label.text = "Dates"
         }
-        else if(section == 1){
+        else if(section == 2){
             view.frame = CGRectMake(0, 0, tableView.frame.size.width, 70)
             label.text = "Address"
             label.frame = CGRectMake(22, 0, tableView.frame.size.width, 15)
@@ -80,15 +134,8 @@ class NewTripOwnerController: UITableViewController {
             label2.textColor = UIColor.init(colorLiteralRed: 194/255, green: 201/255, blue: 198/244, alpha: 1.0)
             label2.text = "Where is the sitter taking care of your pet?"
             view.addSubview(label2)
-            let label3 = UILabel(frame: CGRectMake(22, 45, tableView.frame.size.width, 16))
-            label3.font = UIFont.systemFontOfSize(15)
-            label3.textColor = UIColor.init(colorLiteralRed: 194/255, green: 201/255, blue: 198/244, alpha: 1.0)
-            label3.text = "(Street Address, City, ZIP Code)"
-            view.addSubview(label3)
-            
-        }
-        else if(section == 2){
-            label.text = "Which To Do Lists are you using?"
+        } else if(section == 0){
+            label.text = "Please Choose a Trip Name"
         }
         
         return view
@@ -96,13 +143,20 @@ class NewTripOwnerController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if(indexPath.section == 0){
+        if(indexPath.section == 1){
             if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("startDate", forIndexPath: indexPath)
+                let cell = tableView.dequeueReusableCellWithIdentifier("startDate", forIndexPath: indexPath) as! SimpleCell
+                cell.changeDetail(dateToString(startDate))
                 return cell
             }
             else if(indexPath.row == 1){
-                let cell = tableView.dequeueReusableCellWithIdentifier("endDate", forIndexPath: indexPath)
+                let cell = tableView.dequeueReusableCellWithIdentifier("calendar", forIndexPath: indexPath) as! DatePickerCell
+                cell.setPTVController(self)
+                return cell
+            }
+            else if(indexPath.row == 2){
+                let cell = tableView.dequeueReusableCellWithIdentifier("endDate", forIndexPath: indexPath) as! SimpleCell
+                cell.changeDetail(dateToString(endDate))
                 return cell
             }
             else {
@@ -110,18 +164,52 @@ class NewTripOwnerController: UITableViewController {
                 //return cell
             }
         }
-        else if(indexPath.section == 1){
-            if(indexPath.row == 0){
-                let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath)
+        else if(indexPath.section == 2){
+            if(indexPath.row == 4){
+                let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! MapCell
+                if let add1 = street{
+                    cell.add1 = add1
+                }
+                if let zip = zip{
+                    cell.zip = zip
+                    
+                }
+                if let city = city{
+                    cell.city = city
+                }
+                cell.updateLocation()
                 return cell
+            } else{
+                let cell = tableView.dequeueReusableCellWithIdentifier("dateEntryCell", forIndexPath: indexPath) as! DateEntryCell
+                
+                if(indexPath.row == 0){
+                    //print("Section")
+                    cell.textField.placeholder = "Address Line 1"
+                    cell.setPTVController(self, type: "street")
+                    return cell
+                }
+                if(indexPath.row == 1){
+                    cell.textField.placeholder = "Address Line 2"
+                    cell.setPTVController(self, type: "address2")
+                    return cell
+                }
+                if(indexPath.row == 2){
+                    cell.textField.placeholder = "Zip Code"
+                    cell.setPTVController(self, type: "zip")
+                    return cell
+                }
+                if(indexPath.row == 3){
+                    cell.textField.placeholder = "City"
+                    cell.setPTVController(self, type: "city")
+                    return cell
+                }
             }
         }
-            let cell = tableView.dequeueReusableCellWithIdentifier("tripToDoCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("tripNameCell", forIndexPath: indexPath) as! TripNameCell
+            cell.textField.placeholder = "Trip Name"
+            cell.setPTVController(self, type: "tripName")
             return cell
         
-        //let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        
-        // Configure the cell...
     }
     
     enum UIModalTransitionStyle : Int {
@@ -138,6 +226,207 @@ class NewTripOwnerController: UITableViewController {
         vc.modalTransitionStyle = .CrossDissolve
         presentViewController(vc, animated: true, completion: nil)
     }
+    
+    enum UITableViewRowAnimation : Int {
+        case Fade
+        case Right
+        case Left
+        case Top
+        case Bottom
+        case None
+        case Middle
+        case Automatic
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 1){
+            datePickerSelected = true
+            if(indexPath.row != 1){
+                rowSelected=indexPath.row
+            }
+        } else{
+            datePickerSelected = false
+            rowSelected = -1
+        }
+        self.tableView.reloadSections(NSIndexSet.init(index: 1), withRowAnimation: .Middle)
+    }
+    
+    func dateToString(date: NSDate) -> String{
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+        return dateFormatter.stringFromDate(date)
+    }
+    
+    func checkIfCanSubmit(){
+        if let street = street{
+            if(street.characters.count > 0){
+                if let city = city{
+                    if(city.characters.count > 0){
+                        if let zip = zip{
+                            if(zip.characters.count == 5 && checkZip(zip)){
+                                if (chosenPets.count > 0){
+                                    if let tripName = tripName{
+                                        let submitButton = self.navigationItem.rightBarButtonItems![0]
+                                        submitButton.enabled = true
+                                        return
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        let submitButton = self.navigationItem.rightBarButtonItems![0]
+        submitButton.enabled = false
+    }
+    
+    func submit(){
+        print("--------------------------------")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let tripID = self.tripID{
+            appDelegate.deleteTrip(tripID)
+            appDelegate.saveContext()
+        }
+        let user = appDelegate.getUser()
+        let userID = user!.userID
+        
+        //appDelegate.insertNewTrip(startDate, endDate: endDate, street: street!, zip: zip!, city: city!, addr2: address2, pets: chosenPets, tripName: tripName!, isSitting: false, phone: nil, email: nil, user: user!)
+        
+    
+        
+/*DB code below*/
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTrip.php")!)
+        
+        var postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+    
+        if let address2 = address2 {
+            if let phone = user?.phone {
+                if let email = user?.email{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)&j=\(email)"
+                } else{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)"
+                }
+            }
+            else {
+                if let email = user?.email{
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&j=\(email)"
+                } else {
+                    postString = "a=\(userID!)&d=\(street!)&e=\(address2)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)"
+                }
+            }
+        } else {
+            if let phone = user?.phone {
+                if let email = user?.email {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)&j=\(email)"
+                } else {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&i=\(phone)"
+                }
+            } else {
+                if let email = user?.email {
+                    postString = "a=\(userID!)&d=\(street!)&f=\(zip!)&g=\(city!)&b=\(startDate)&c=\(endDate)&h=\(tripName!)&j=\(email)"
+                }
+            }
+        }
+        
+        
+        request.HTTPMethod = "POST"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                let s = String(responseString)
+                
+                //Remove beginning stuff--------------------
+                let junkSeparator: [String] = s.characters.split(";").map(String.init)
+                let jsonStuff = junkSeparator[1]
+                //------------------------------------------
+                
+                //Convert to String/Drop Garbage------------
+                //let s = String(responseString)
+                var parsedJsonString = String(jsonStuff.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let tripStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var tripDicts: [[String: String]] = []
+                for string in tripStrings{
+                    if let dict = string.convertToDictionary(){
+                        tripDicts.append(dict)
+                    }
+                }
+                //-------------------------------------------
+                
+                //Prove that this works----------------------
+                print("PROOF!")
+                let dict = tripDicts[0]
+                    //print(String(dict["tripName"]))
+                    print(String(dict["TripID"]))
+                    
+                    appDelegate.insertNewTrip(self.startDate, endDate: self.endDate, street: self.street!, zip: self.zip!, city: self.city!, addr2: self.address2, pets: self.chosenPets, tripName: self.tripName!, isSitting: false, phone: nil, email: nil, user: user!, tripID: Int(dict["TripID"]!)!
+                )
+                    //appDelegate.updateTripID(<#T##oldID: Int##Int#>, newID: <#T##Int#>)
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock{
+                    self.cancel(self)
+                }
+                
+                //-------------------------------------------
+            }
+            
+            print("--------------------------------")
+            
+        }
+        task.resume()
+/*DB code Above*/
+    }
+    
+    func checkZip(str: String) -> Bool{
+        if let num = Int(str) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    
+    
+    
+/*    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 0){
+            if(indexPath.row == 0 || indexPath.row == 2){
+                print("Deselected row")
+                datePickerSelected = false
+                self.tableView.reloadSections(NSIndexSet.init(index: 0), withRowAnimation: .Middle)
+            }
+        }
+    }*/
 
     /*
     // Override to support conditional editing of the table view.

@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            // let entityDescription = NSEntityDescription.
             
             //Modifying values of the created 'User' instance------------------------
-            user.email = "test@email.com"
             user.userID = Int(arc4random_uniform(800000) + 100000)
             //-----------------------------------------------------------------------
             
@@ -38,6 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "alreadyLaunched")
         }
+        if(NSUserDefaults.standardUserDefaults().boolForKey("isSitter")){
+            let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerSitter")
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
@@ -143,7 +149,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func getTrips() -> [Trip?]{
+    func updateUserEmail(email: String){
+        if let user = getUser(){
+            user.email = email
+            saveContext()
+        }
+    }
+    
+    func updateUserPhone(phone: String){
+        if let user = getUser(){
+            user.phone = phone
+            saveContext()
+        }
+    }
+
+    func getTrips() -> [Trip]?{
         do {
             let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
             return fetchedTrips
@@ -151,6 +171,350 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Failed to fetch trips: \(error)")
         }
     }
+    
+    func getTripWithID(tripID: Int) -> Trip?{
+        do {
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            for trip in fetchedTrips{
+                if (trip.tripID == tripID){
+                    return trip
+                }
+            }
+            return nil
+        } catch {
+            //fatalError("Failed to fetch trips: \(error)")
+            print("Could not find this tripID")
+            return nil
+        }
+    }
+    
+    func deletePetsWithTripID(tripID: Int){
+        let pets = getPets()
+        if let pets = pets{
+            for pet in pets{
+                if pet.tripID == tripID{
+                    deletePet(Int(pet.petID!))
+                }
+            }
+        }
+    }
+    
+    /*func deleteToDoItemWithTripID(tripID: Int){
+        let tasks = getToDoItems()
+        if let tasks = tasks{
+            for task in tasks{
+                if task.tripID == tripID{
+                    deletePet(Int(task.itemID!))
+                }
+            }
+        }
+    }*/
+    
+    func updateTripID(oldID: Int, newID: Int){
+        do{
+        let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+        for trip in fetchedTrips{
+            if (trip.tripID == oldID){
+                trip.tripID = newID
+            }
+        }
+    }
+        catch {
+    //fatalError("Failed to fetch trips: \(error)")
+    print("Could not find this tripID")
+    
+    }
+    }
+    
+    func getToDoItems() -> [ToDoItem]?{
+        do {
+            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            print("Before REturn FetchedToDoItems")
+            return fetchedToDoItems
+        } catch {
+            fatalError("Failed to fetch To Do Items: \(error)")
+        }
+    }
+    
+    func getItemWithID(itemID: Int) ->  ToDoItem? {
+        do {
+            print("Do in getItemWithID")
+            if let fetchedItems = getToDoItems(){
+            for ToDoItem in fetchedItems{
+                print(itemID)
+                print(ToDoItem.itemID?.integerValue)
+                if (itemID == ToDoItem.itemID?.integerValue ){
+                print(ToDoItem)
+                    return ToDoItem
+                }
+            }
+            }
+            
+        } catch {
+            print("Failed to fetch item")
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+        return nil
+    }
 
+    func getPets() -> [Pet]?{
+        do {
+            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet"))
+            if let castPets = fetchedPets as? [Pet]{
+                return castPets
+            } else {
+                return nil
+            }
+        } catch {
+            fatalError("Failed to fetch trips: \(error)")
+        }
+    }
+    
+    func petAlreadyExists(petID: Int) -> Bool{
+        if let pets = getPets(){
+            for pet in pets{
+                if(pet.petID?.integerValue == petID){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func tripAlreadyExists(tripID: Int) -> Bool{
+        if let trips = getTrips(){
+            for trip in trips{
+                if(trip.tripID?.integerValue == tripID){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func insertNewTrip(startDate: NSDate, endDate: NSDate, street: String, zip: String, city: String, addr2: String?, pets: [Pet], tripName: String, isSitting: Bool, phone: String?, email: String?, user: User, tripID: Int){
+        
+        if(tripAlreadyExists(tripID)){
+            return
+        }
+        
+        let trip = NSEntityDescription.insertNewObjectForEntityForName("Trip", inManagedObjectContext: self.managedObjectContext) as! Trip
+        
+        trip.startDate = startDate
+        trip.endDate = endDate
+        trip.addr1 = street
+        if let addr2 = addr2{
+            trip.addr2 = addr2
+        }
+        trip.zip = zip
+        trip.city = city
+        trip.tripName = tripName
+        
+        if(isSitting){
+            trip.isSitting = 1
+        }
+        
+        if let phone = phone {
+            trip.phone = phone
+        }
+        if let email = email {
+            trip.email = email
+        }
+        
+        //trip.tripID = Int(arc4random_uniform(1000000) + 800000)
+        trip.tripID = tripID
+        
+        for pet in pets{
+            pet.tripID = trip
+            //pet.tripID?.tripID = tripID
+            print("testng trip.tripID")
+            print(trip.tripID)
+            print("testing pet.tripID?.tripID")
+            print(pet.tripID?.tripID)
+          
+        }
+        
+        trip.userID = user
+        
+        self.saveContext()
+        
+        //return Int(trip.tripID!)
+    }
+    
+    
+    func deleteTrip(tripID: Int) -> Bool{
+        do{
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            for trip in fetchedTrips{
+                if trip.tripID == tripID{
+                    print("Trying to delete trip: " + trip.tripName!)
+                    self.managedObjectContext.deleteObject(trip)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch{
+            print("Could not delete this trip")
+        }
+        return false
+    }
+    
+    func deleteToDoItem(taskID: Int) -> Bool{
+        do{
+            let fetchedTasks = getToDoItems()
+            if let fetchedTasks = fetchedTasks{
+            for task in fetchedTasks{
+                if task.itemID == taskID{
+                    //print("Trying to delete trip: " + trip.tripName!)
+                    self.managedObjectContext.deleteObject(task)
+                    self.saveContext()
+                    return true
+                }
+                }
+            }
+        }
+        return false
+    }
+
+    
+    func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User, petID: NSNumber){
+        if(petAlreadyExists(petID.integerValue)){
+            return
+        }
+        
+        
+        let newPet = NSEntityDescription.insertNewObjectForEntityForName("Pet", inManagedObjectContext: self.managedObjectContext) as! Pet
+        
+        newPet.name = name
+        newPet.species = species
+        newPet.breed = breed
+        newPet.age = age
+        newPet.personality = personality
+        newPet.food = food
+        newPet.notes = notes
+        newPet.user = user
+        newPet.petID = petID
+        
+        
+        if(isSat){
+            newPet.isSat = 1
+        }
+        else{
+            newPet.isSat = 0
+        }
+        
+        self.saveContext()
+    }
+    
+    func deletePet(petID: Int) -> Bool{
+        do{
+            let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
+            for pet in fetchedPets{
+                if pet.petID == petID{
+                    print("Trying to delete pet: " + pet.name!)
+                    self.managedObjectContext.deleteObject(pet)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch{
+            print("Could not delete this pet")
+        }
+        return false
+    }
+
+ 
+    func insertNewToDoItem(complete: NSNumber?, instruction: String?, instructionDetail: String?, petID: NSNumber?, isSat: Bool, taskID: NSNumber?){
+        let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
+        
+        newToDoItem.complete = complete
+        newToDoItem.instruction = instruction
+        newToDoItem.instructionDetail = instructionDetail
+        //newToDoItem.itemID = itemID
+        newToDoItem.petID = petID
+        newToDoItem.isSat = isSat
+        newToDoItem.itemID = taskID
+        
+        //newToDoItem.petParent = petParent
+        
+    
+        if(isSat){
+            newToDoItem.isSat = 1
+        }
+
+        self.saveContext()
+    }
+    
+    func setToDoItemComplete(complete: Int,toDoItemID: Int){
+      
+        if let fetchedToDoItems = getToDoItems(){
+            for toDoItem in fetchedToDoItems{
+                if toDoItem.itemID == toDoItemID{
+                    toDoItem.complete = complete
+                }
+            }
+        }
+        self.saveContext()
+        
+        return
+    }
+    
+    
+    
+    func updateIsComplete(TaskID: Int,isComplete: Int){
+        do {
+            print("Do in getItemWithID")
+            if let fetchedItems = getToDoItems(){
+                for ToDoItem in fetchedItems{
+                    if ToDoItem.itemID == TaskID{
+                        ToDoItem.complete = 1
+                    }
+                }
+            }
+            
+        } catch {
+            print("Failed to fetch item")
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+        
+    }
+  /*
+    func deleteToDoItem(itemID: Int) -> Bool{
+        do {
+           let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            for toDoItem in fetchedToDoItems{
+                if toDoItem.itemID == itemID{
+                    print("Trying to delete To Do Item: ")
+                    //self.managedObjectContext.deletedObject(toDoItem)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch {
+            print("Could not delete this Task")
+        }
+        return false
+    }
+ */
+    
+    func pickPetPicture(petSpecies: String) -> UIImage {
+        let lowercaseSpecies = petSpecies.lowercaseString
+        //var petPicture: UIImage
+        
+        if(lowercaseSpecies == "dog" || lowercaseSpecies == "puppy"){
+            return UIImage(named: "dog1.png")!
+        } else if(lowercaseSpecies == "cat" || lowercaseSpecies == "kitten" || lowercaseSpecies == "kitty"){
+            return UIImage(named: "cat1.png")!
+        } else if(lowercaseSpecies == "bird" || lowercaseSpecies == "parrot"){
+            return UIImage(named: "bird1.png")!
+        } else if(lowercaseSpecies == "fish"){
+            return UIImage(named: "fish1.png")!
+        }
+        
+        return UIImage(named: "Pets icon active.png")!
+    }
 }
 

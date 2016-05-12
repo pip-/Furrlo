@@ -10,7 +10,7 @@ import UIKit
 
 class TripCell: UITableViewCell {
     
-    
+    var tripID: Int? = nil
     
     @IBOutlet weak var tripLabel: UILabel!
     //@IBOutlet weak var tripLabel: UILabel!

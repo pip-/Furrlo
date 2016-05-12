@@ -14,7 +14,6 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView2: UITableView!
     
     var roles = ["Owner", "Sitter"]
-    var contactInfo = ["Phone", "Email"]
     var selectedRow = 1
     
     
@@ -23,7 +22,6 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
-        self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
         self.tabBarController?.tabBar.hidden = true
     }
     
@@ -36,12 +34,11 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         if tableView == tableViewOne {
             return self.roles.count
         } else {
-            return self.contactInfo.count
+            return 0
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if tableView == tableViewOne {
             let cell:UITableViewCell = self.tableViewOne.dequeueReusableCellWithIdentifier("roleCell")! as UITableViewCell
             
             cell.textLabel?.text = self.roles[indexPath.row]
@@ -50,17 +47,9 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.accessoryType = .Checkmark
             } else {
                 cell.accessoryType = .None
-            }; return cell
-        }
-        else{
-            let cell:UITableViewCell = self.tableView2.dequeueReusableCellWithIdentifier("contactCell")! as UITableViewCell
-            
-            cell.textLabel?.text = self.contactInfo[indexPath.row]
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            
-            
+            }
             return cell
-        }
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -97,6 +86,7 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("You selected cell #\(indexPath.row)!")    }
     func changeBoard(){
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "changingSettings")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isSitter")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarControllerOwner") as UIViewController
         presentViewController(vc, animated: false, completion: nil)
