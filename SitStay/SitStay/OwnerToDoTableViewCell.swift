@@ -15,9 +15,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
-     var dayTitles = ["Today","Tomorrow","Later"]
+   //  var dayTitles = ["Today","Tomorrow","Later"]
     
     //var dailyTaskLists: [String] = []
     //var dayTitles: [String] = []
@@ -88,7 +88,7 @@ class OwnerToDoTableViewController: UITableViewController{
        */
         
     
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
     
@@ -98,6 +98,10 @@ class OwnerToDoTableViewController: UITableViewController{
     override func viewWillAppear(animated: Bool) {
         toDoItems.removeAll()
         pets.removeAll()
+        itemPetIDs.removeAll()
+        toDoItemTaskIds.removeAll()
+        toDoItemsDetails.removeAll()
+        petIds.removeAll()
         
         print("View Will Appear")
         
@@ -154,7 +158,7 @@ class OwnerToDoTableViewController: UITableViewController{
         */
         
         
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
         
@@ -177,6 +181,9 @@ class OwnerToDoTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         //return dailyTaskLists[section].count
         //let toDoItem = pets[section]
+        
+        //print(toDoItemTaskIds)
+        //print(itemPetIDs)
         return itemPetIDs[section].count
     }
     
@@ -185,30 +192,41 @@ class OwnerToDoTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
         //print("itemPetIds")
-        //print(itemPetIDs)
+        //print("itemPetIds at index path row")
         //print(itemPetIDs[indexPath.row])
-        //print("ItemPetIDs Section Index path")
-        //print(itemPetIDs[indexPath.section])
         //print("petIds Section index path")
         //print(petIds[indexPath.section])
+        print(toDoItems[indexPath.row])
        
        var selectedID = itemPetIDs[indexPath.section][indexPath.row]
-        
+        //print("Selected ID")
+        //print(selectedID)
         var i = 0
         
+        print(toDoItems)
+        print("itemPetIds[i]")
+        print(itemPetIDs[i])
+        //print(toDoItems[indexPath.row])
+        print("petIds Section index path")
+        print(petIds[indexPath.section])
+       
+        if let fetchedToDoItem = appDelegate.getItemWithID(selectedID){
         
-        
-        
-        //cell.textLabel?.text = toDoItem[indexPath.row]
-       // cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
-        
-        
+            
+        cell.textLabel?.text = toDoItems[indexPath.row]
+        cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+      
+
+        i += 1
         if (complete[indexPath.row] == 1){
             cell.accessoryType = .Checkmark
         }
+            }
         
+            
         return cell
-        }
+            }
+    
     
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
