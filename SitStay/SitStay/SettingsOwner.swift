@@ -26,6 +26,8 @@ class SettingsOwner: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.tableView2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
         self.tabBarController?.tabBar.hidden = true
         
+        self.title = "Settings"
+        
         
 
     }

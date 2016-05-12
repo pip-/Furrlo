@@ -214,6 +214,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func getItemWithID(itemID: Int) ->[ToDoItem]?{
+        do {
+            let fetchedItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            print("fetched Item")
+            return fetchedItem
+            
+        } catch {
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+    }
 
     func getPets() -> [Pet]?{
         do {
@@ -348,11 +358,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    func deletePet(petName: String) -> Bool{
+    func deletePet(petID: Int) -> Bool{
         do{
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
             for pet in fetchedPets{
-                if pet.name == petName{
+                if pet.petID == petID{
                     print("Trying to delete pet: " + pet.name!)
                     self.managedObjectContext.deleteObject(pet)
                     self.saveContext()
@@ -367,7 +377,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
  
-    func insertNewToDoItem(complete: NSNumber, instruction: String?, instructionDetail: String?, petID: NSNumber?, isSat: Bool){
+    func insertNewToDoItem(complete: NSNumber?, instruction: String?, instructionDetail: String?, petID: NSNumber?, isSat: Bool, taskID: NSNumber?){
         let newToDoItem = NSEntityDescription.insertNewObjectForEntityForName("ToDoItem", inManagedObjectContext: self.managedObjectContext) as! ToDoItem;
         
         newToDoItem.complete = complete
@@ -376,6 +386,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //newToDoItem.itemID = itemID
         newToDoItem.petID = petID
         newToDoItem.isSat = isSat
+        newToDoItem.itemID = taskID
+        
         //newToDoItem.petParent = petParent
         
     

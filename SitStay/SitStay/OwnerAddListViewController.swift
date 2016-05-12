@@ -127,7 +127,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     @IBAction func taskSubmitted(sender: AnyObject) {
         checkSave()
         complete = 0;
-        print(complete)
+        //print(complete)
         //let itemID = (arc4random_uniform(800000))
         //print(itemID)
         
@@ -140,16 +140,16 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         
         
         let PetName = selectionLabel.text
-        print(PetName!)
+        //print(PetName!)
         //let petID = appDelegate.getPetIDwithPetName(petName,userID: userID)
-        print((petID?.integerValue)!)
-        print("selectedID")
-        print(selectedID)
+       // print((petID?.integerValue)!)
+        //print("selectedID")
+        //print(selectedID)
         let instruction = instructionField.text
         print(instruction!)
         let instructionDetail = instructionDetailsField.text
         print(instructionDetail!)
-        appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: (petID?.integerValue), isSat: false)
+       // appDelegate.insertNewToDoItem(0, instruction: instruction!, instructionDetail: instructionDetail!, petID: selectedID, isSat: false)
         submitTask(selectedID, petName: PetName!, instruction: instruction!, instructionDetail: instructionDetail!)
        
         
@@ -200,7 +200,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
  
         
         print("Looking for request")
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTask.php")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/addTaskreturn.php")!)
         
         
         request.HTTPMethod = "POST"
@@ -218,11 +218,63 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             
             print("responseFromAddToDB = \(response)")
             
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("responseStringFromAddToDB = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                let s = String(responseString)
+                
+                //Remove beginning stuff--------------------
+                let junkSeparator: [String] = s.characters.split(";").map(String.init)
+                let jsonStuff = junkSeparator[1]
+                //------------------------------------------
+                
+                //Convert to String/Drop Garbage------------
+                //let s = String(responseString)
+                var parsedJsonString = String(jsonStuff.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let itemStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var itemDicts: [[String: String]] = []
+                for string in itemStrings{
+                    if let dict = string.convertToDictionary(){
+                        itemDicts.append(dict)
+                    }
+                }
+                //-------------------------------------------
+                
+                //Prove that this works----------------------
+                print("PROOF!")
+                let dict = itemDicts.last
+                //print(String(dict["tripName"]))
+                print("ITEM ID YO: "+String(dict!["TaskID"]))
+                var selectedItemID = (dict!["TaskID"])
+                let myInt: Int? = Int(selectedItemID!)
+                
+                appDelegate.insertNewToDoItem(0, instruction: instruction, instructionDetail: instructionDetail, petID: self.selectedID, isSat: false, taskID: myInt)
+                
+                self.taskComplete()
+        
         }
+        }
+
+        
         task.resume()
-        self.taskComplete()
+        //self.taskComplete()
        // getTaskAddTask()
         
     }
@@ -231,11 +283,11 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let user = appDelegate.getUser()
         let userID = user!.userID
-        testString = selectionLabel.text
+        //testString = selectionLabel.text
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getPetFromUserID.php")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTaskOwner.php")!)
         request.HTTPMethod = "POST"
-        let postString = "a=\(userID!)"
+        let postString = "a=\(userID!),b=\(selectedID),c=\(instruction!)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

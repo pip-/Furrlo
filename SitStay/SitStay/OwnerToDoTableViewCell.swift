@@ -15,18 +15,19 @@ class OwnerToDoTableViewController: UITableViewController{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
-     var dayTitles = ["Today","Tomorrow","Later"]
+   //  var dayTitles = ["Today","Tomorrow","Later"]
     
     //var dailyTaskLists: [String] = []
     //var dayTitles: [String] = []
     var toDoItems: [String] = []
     var toDoItemsDetails: [String] = []
     var pets: [String] = []
-    var itemPetIDs: [Int] = []
+    var itemPetIDs: [[Int]] = [[]]
     var complete: [NSNumber] = []
     var petIds: [NSNumber] = []
+    var toDoItemTaskIds: [[Int]] = [[]]
 
     var taskDone = true;
     
@@ -41,7 +42,33 @@ class OwnerToDoTableViewController: UITableViewController{
 
         print("View Did Load")
         
+        var i = 0
         
+         if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                //print("Fetched Pets in ViewDidLoad")
+                pets.append(pet.name!)
+                petIds.append(pet.petID!)
+                itemPetIDs.append([])
+                toDoItemTaskIds.append([])
+                if let fetchedToDoItems = appDelegate.getToDoItems(){
+                    for toDoItem in fetchedToDoItems{
+                        if toDoItem.petID == pet.petID{
+                            itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
+                            toDoItems.append(toDoItem.instruction!)
+                            toDoItemsDetails.append(toDoItem.instructionDetail!)
+                            complete.append(toDoItem.complete!)
+                            toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                        }
+                    }
+                }
+                i += 1
+            }
+        }
+        
+    
+        
+        /*
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("called GetToDoItems in ViewDidLoad")
             for ToDoItem in fetchedToDoItems{
@@ -50,24 +77,18 @@ class OwnerToDoTableViewController: UITableViewController{
                 toDoItemsDetails.append(ToDoItem.instructionDetail!)
                 itemPetIDs.append((ToDoItem.petID?.integerValue)!)
                 complete.append(ToDoItem.complete!)
-                print(ToDoItem.instruction)
-                print(ToDoItem.instructionDetail)
-                print(ToDoItem.petID)
-                print(ToDoItem.complete!)
+                //print(ToDoItem.instruction)
+                //print(ToDoItem.instructionDetail)
+                //print(ToDoItem.petID)
+                //print(ToDoItem.complete!)
                 
             }
         }
         
-        if let fetchedPets = appDelegate.getPets(){
-            for pet in fetchedPets{
-                print("Fetched Pets in ViewDidLoad")
-                pets.append(pet.name!)
-                petIds.append(pet.petID!)
-            }
-        }
+       */
         
     
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
     
@@ -77,9 +98,40 @@ class OwnerToDoTableViewController: UITableViewController{
     override func viewWillAppear(animated: Bool) {
         toDoItems.removeAll()
         pets.removeAll()
+        itemPetIDs.removeAll()
+        toDoItemTaskIds.removeAll()
+        toDoItemsDetails.removeAll()
+        petIds.removeAll()
         
         print("View Will Appear")
         
+        
+        
+        var i = 0
+        
+        if let fetchedPets = appDelegate.getPets(){
+            for pet in fetchedPets{
+                //print("Fetched Pets in ViewDidLoad")
+                pets.append(pet.name!)
+                petIds.append(pet.petID!)
+                itemPetIDs.append([])
+                toDoItemTaskIds.append([])
+                if let fetchedToDoItems = appDelegate.getToDoItems(){
+                    for toDoItem in fetchedToDoItems{
+                        if toDoItem.petID == pet.petID{
+                            itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
+                            toDoItems.append(toDoItem.instruction!)
+                            toDoItemsDetails.append(toDoItem.instructionDetail!)
+                            complete.append(toDoItem.complete!)
+                            toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                        }
+                    }
+                }
+                i += 1
+            }
+        }
+        
+        /*
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("Called GetToDoItems in viewWillAppear")
             for ToDoItem in fetchedToDoItems{
@@ -91,20 +143,22 @@ class OwnerToDoTableViewController: UITableViewController{
                 print(ToDoItem.instruction)
                 print(ToDoItem.instructionDetail)
                 print(ToDoItem.petID)
-                print(ToDoItem.complete!)
+                //print(ToDoItem.complete!)
                 
             }
         }
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
-                print("Fetched Pets in ViewWillAppear")
+                //print("Fetched Pets in ViewWillAppear")
                 pets.append(pet.name!)
                 petIds.append(pet.petID!)
                 
             }
         }
+        */
         
-        if(dailyTaskLists.count > 0){
+        
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
         
@@ -127,7 +181,10 @@ class OwnerToDoTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         //return dailyTaskLists[section].count
         //let toDoItem = pets[section]
-        return toDoItems.count
+        
+        //print(toDoItemTaskIds)
+        //print(itemPetIDs)
+        return itemPetIDs[section].count
     }
     
     
@@ -135,28 +192,41 @@ class OwnerToDoTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
         //print("itemPetIds")
-        //print(itemPetIDs)
+        //print("itemPetIds at index path row")
         //print(itemPetIDs[indexPath.row])
-        print("ItemPetIDs Section Index path")
-        //print(itemPetIDs[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
+        print(toDoItems[indexPath.row])
+       
+       var selectedID = itemPetIDs[indexPath.section][indexPath.row]
+        //print("Selected ID")
+        //print(selectedID)
+        var i = 0
+        
+        print(toDoItems)
+        print("itemPetIds[i]")
+        print(itemPetIDs[i])
+        //print(toDoItems[indexPath.row])
         print("petIds Section index path")
         print(petIds[indexPath.section])
+       
+        if let fetchedToDoItem = appDelegate.getItemWithID(selectedID){
         
-        
-        if (itemPetIDs[indexPath.section] == petIds[indexPath.section]){
-        //cell.textLabel?.text = dailyTaskLists[indexPath.section][indexPath.row]
+            
         cell.textLabel?.text = toDoItems[indexPath.row]
         cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
-        } else {
-            return cell
-        }
-        
+      
+
+        i += 1
         if (complete[indexPath.row] == 1){
             cell.accessoryType = .Checkmark
         }
+            }
         
+            
         return cell
-        }
+            }
+    
     
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -199,6 +269,8 @@ class OwnerToDoTableViewController: UITableViewController{
        // }
     
     
+    
+
     
     func getTaskAddTask(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
