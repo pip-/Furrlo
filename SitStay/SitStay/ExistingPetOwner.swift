@@ -64,6 +64,7 @@ class ExistingPetOwner: UIViewController{
                  self.title = pet.name
                     print("hello world")
                     print(pet.petID!)
+                    
                 }
             
             }
@@ -90,14 +91,39 @@ class ExistingPetOwner: UIViewController{
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive, handler: {
             (alertAction) -> Void in
             // handle deletion here
-            self.appDelegate.deletePet(self.petName!)
+            self.appDelegate.deletePet(self.petID!)
             self.navigationController?.popViewControllerAnimated(true)
             //self.deleteStatusLabel.text = "item deleted"
         }))
         self.presentViewController(alert, animated: true, completion: nil)
         
         
+        let user = appDelegate.getUser()
+        let userID=user!.userID
         
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removePet.php")!)
+        
+        request.HTTPMethod = "POST"
+        let postString = "a=\(userID!)&b=\(self.petID!)"
+        //&i=\(imageView.image?)
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("responseFromAddToDB = \(response)")
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseStringFromAddToDB = \(responseString)")
+            
+        }
+        task.resume()
     }
  
     

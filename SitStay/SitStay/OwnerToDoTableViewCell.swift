@@ -184,7 +184,7 @@ class OwnerToDoTableViewController: UITableViewController{
         
         //print(toDoItemTaskIds)
         //print(itemPetIDs)
-        return itemPetIDs[section].count
+        return toDoItemTaskIds[section].count
     }
     
     
@@ -196,20 +196,20 @@ class OwnerToDoTableViewController: UITableViewController{
         //print(itemPetIDs[indexPath.row])
         //print("petIds Section index path")
         //print(petIds[indexPath.section])
-        print(toDoItems[indexPath.row])
+        //print(toDoItems[indexPath.row])
        
        var selectedID = itemPetIDs[indexPath.section][indexPath.row]
         var selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
         //print("Selected ID")
         //print(selectedID)
-        var i = 0
+        //var i = 0
         
-        print(toDoItems)
-        print("itemPetIds[i]")
-        print(itemPetIDs[i])
+       // print(toDoItems)
+        //print("itemPetIds[i]")
+        //print(itemPetIDs[i])
         //print(toDoItems[indexPath.row])
-        print("petIds Section index path")
-        print(petIds[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
        
         if let fetchedToDoItem = appDelegate.getItemWithID(selectedTaskID){
         
@@ -253,20 +253,65 @@ class OwnerToDoTableViewController: UITableViewController{
     
   //Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
+     
     // Delete the row from the data source
         //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
         
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+        let selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
+           // appDelegate.deleteToDoItem(selectedTaskID)
         
-        toDoItems.removeAtIndex(indexPath.row)
-        toDoItemsDetails.removeAtIndex(indexPath.row)
-        complete.removeAtIndex(indexPath.row)
+        //toDoItems.removeAtIndex(indexPath.row)
+        //toDoItemsDetails.removeAtIndex(indexPath.row)
+        //complete.removeAtIndex(indexPath.row)
         
             //tripIds.removeAtIndex(indexPath.row - 1)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        
+        
+
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            if(appDelegate.deleteToDoItem(toDoItemTaskIds[indexPath.section][indexPath.row])){
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+                toDoItems.removeAtIndex(indexPath.row )
+                //let itemID=toDoItemTaskIds[indexPath.row-1]
+                toDoItemTaskIds[indexPath.section].removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+             viewWillAppear(true)
+                
+            }
+                ///////DB Delete///////////
+                /*
+                let user = appDelegate.getUser()
+                let userID=user!.userID
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removeTask.php")!)
+                
+                request.HTTPMethod = "POST"
+                let postString = "a=\(userID!)&b=\(selectedTaskID)"
+                //&i=\(imageView.image?)
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil {
+                        print("error=\(error)")
+                        return
+                    }
+                    
+                    print("responseFromAddToDB = \(response)")
+                    
+                    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("responseStringFromAddToDB = \(responseString)")
+                    
+                }
+                task.resume()
+*/
         }
-     } //else if editingStyle == .Insert {
+    }
+     //else if editingStyle == .Insert {
         //// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
        // }
     

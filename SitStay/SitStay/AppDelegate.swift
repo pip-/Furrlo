@@ -188,6 +188,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func deletePetsWithTripID(tripID: Int){
+        let pets = getPets()
+        if let pets = pets{
+            for pet in pets{
+                if pet.tripID == tripID{
+                    deletePet(Int(pet.petID!))
+                }
+            }
+        }
+    }
+    
+    /*func deleteToDoItemWithTripID(tripID: Int){
+        let tasks = getToDoItems()
+        if let tasks = tasks{
+            for task in tasks{
+                if task.tripID == tripID{
+                    deletePet(Int(task.itemID!))
+                }
+            }
+        }
+    }*/
+    
     func updateTripID(oldID: Int, newID: Int){
         do{
         let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
@@ -337,6 +359,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+    
+    func deleteToDoItem(taskID: Int) -> Bool{
+        do{
+            let fetchedTasks = getToDoItems()
+            if let fetchedTasks = fetchedTasks{
+            for task in fetchedTasks{
+                if task.itemID == taskID{
+                    //print("Trying to delete trip: " + trip.tripName!)
+                    self.managedObjectContext.deleteObject(task)
+                    self.saveContext()
+                    return true
+                }
+                }
+            }
+        }
+        return false
+    }
 
     
     func insertNewPet(name: String?, species: String?, breed: String?, age: String?, personality: String?, food: String?, notes: String?, isSat: Bool, user: User, petID: NSNumber){
@@ -368,11 +407,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    func deletePet(petName: String) -> Bool{
+    func deletePet(petID: Int) -> Bool{
         do{
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
             for pet in fetchedPets{
-                if pet.name == petName{
+                if pet.petID == petID{
                     print("Trying to delete pet: " + pet.name!)
                     self.managedObjectContext.deleteObject(pet)
                     self.saveContext()
@@ -422,7 +461,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
  
-  
+  /*
     func deleteToDoItem(itemID: Int) -> Bool{
         do {
            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
@@ -440,7 +479,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
- 
+ */
     
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
