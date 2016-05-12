@@ -98,14 +98,14 @@ class ExistingPetOwner: UIViewController{
         self.presentViewController(alert, animated: true, completion: nil)
         
         
-       /* let user = appDelegate.getUser()
+        let user = appDelegate.getUser()
         let userID=user!.userID
         
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removePet.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(userID!)&b=\(self.petName!)&c=\(self.petName!)"
+        let postString = "a=\(userID!)&b=\(self.petID!)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
@@ -123,7 +123,7 @@ class ExistingPetOwner: UIViewController{
             print("responseStringFromAddToDB = \(responseString)")
             
         }
-        task.resume()*/
+        task.resume()
     }
  
     

@@ -136,8 +136,40 @@ class TripTabOwnerMain: UITableViewController {
             if(appDelegate.deleteTrip(tripIds[indexPath.row - 1])){
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
                 tripNames.removeAtIndex(indexPath.row - 1)
+                let tripID=tripIds[indexPath.row-1]
                 tripIds.removeAtIndex(indexPath.row - 1)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                ///////DB Delete///////////
+                
+                let user = appDelegate.getUser()
+                let userID=user!.userID
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removeTrip.php")!)
+                
+                request.HTTPMethod = "POST"
+                let postString = "a=\(userID!)&b=\(tripID)"
+                //&i=\(imageView.image?)
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil {
+                        print("error=\(error)")
+                        return
+                    }
+                    
+                    print("responseFromAddToDB = \(response)")
+                    
+                    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("responseStringFromAddToDB = \(responseString)")
+                    
+                }
+                task.resume()
+
+                
+                ///////////////////////////
             }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
