@@ -27,6 +27,8 @@ class SitterToDoListTableViewController: UITableViewController {
     var toDoItemTaskIds: [[Int]] = [[]]
     var selectedID: Int = 0
     var selectedTaskID: Int = 0
+    var checkedStatus: [Int] = []
+    //var tripCount = 0
     
     //Filler text for task list
     //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
@@ -54,10 +56,11 @@ class SitterToDoListTableViewController: UITableViewController {
                 
                 itemPetIDs.append([])
                 toDoItemTaskIds.append([])
+            
                 if let fetchedToDoItems = appDelegate.getToDoItems(){
                     for toDoItem in fetchedToDoItems{
                         if toDoItem.petID == pet.petID{
-                            
+                           // checkedStatus.append(toDoItem.complete?.integerValue)
                             itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
                             toDoItems.append(toDoItem.instruction!)
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
@@ -72,6 +75,9 @@ class SitterToDoListTableViewController: UITableViewController {
                 }
                 i += 1
             }
+           
+            
+            
             print ("About to print pets")
             print (pets)
             print ("About to print petID")
@@ -132,6 +138,9 @@ class SitterToDoListTableViewController: UITableViewController {
     //END VIEW DID LOAD
     }
 
+    override func viewWillAppear(animated: Bool) {
+    
+    }
     
     
 
