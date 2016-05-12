@@ -236,15 +236,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func getItemWithID(itemID: Int) ->[ToDoItem]?{
+    func getItemWithID(itemID: Int) ->  ToDoItem? {
         do {
-            let fetchedItem = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
-            print("fetched Item")
-            return fetchedItem
+            print("Do in getItemWithID")
+            if let fetchedItems = getToDoItems(){
+            for ToDoItem in fetchedItems{
+                print(itemID)
+                print(ToDoItem.itemID?.integerValue)
+                if (itemID == ToDoItem.itemID?.integerValue ){
+                print(ToDoItem)
+                    return ToDoItem
+                }
+            }
+            }
             
         } catch {
+            print("Failed to fetch item")
             fatalError("Failed to fetch To Do items: \(error)")
         }
+        return nil
     }
 
     func getPets() -> [Pet]?{
@@ -451,14 +461,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
  
-  /*
-    func deleteToDoItem(itemID: NSNumber) -> Bool{
+  
+    func deleteToDoItem(itemID: Int) -> Bool{
         do {
            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
             for toDoItem in fetchedToDoItems{
-                if ToDoItem.itemId == itemID{
-                    print("Trying to delete To Do Item: "+ toDoItem.itemID!)
-                    self.managedObjectContext.deletedObject(toDoItem)
+                if toDoItem.itemID == itemID{
+                    print("Trying to delete To Do Item: ")
+                    //self.managedObjectContext.deletedObject(toDoItem)
                     self.saveContext()
                     return true
                 }
@@ -470,7 +480,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
  
-    */
+    
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
         //var petPicture: UIImage
