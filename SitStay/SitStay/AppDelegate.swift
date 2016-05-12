@@ -452,7 +452,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let fetchedToDoItems = getToDoItems(){
             for toDoItem in fetchedToDoItems{
                 if toDoItem.itemID == toDoItemID{
-                    toDoItem.complete = 1
+                    toDoItem.complete = complete
                 }
             }
         }

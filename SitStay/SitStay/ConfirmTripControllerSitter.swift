@@ -256,6 +256,7 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
                 let user = self.appDelegate.getUser()
                 for dict in petDicts{
                     self.appDelegate.insertNewPet(dict["PetName"], species: dict["PetType"], breed: dict["PetBreed"], age: dict["PetAge"], personality: dict["PetPersonality"], food: dict["PetFood"], notes: dict["OtherNotes"], isSat: true, user: user!, petID: Int(dict["PetID"]!)!)
+                    self.pullTasks(Int(dict["PetID"]!)!)
                 }
                 
                 self.taskComplete()
@@ -267,7 +268,6 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
             print("------------------------------------------------")
             
             //self.taskComplete()
-            
         
             }
         }
@@ -275,6 +275,99 @@ class ConfirmTripControllerSitter: UIViewController, UITextFieldDelegate {
     }
 
 
+    func pullTasks(petID : NSNumber){
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTaskFromPetID.php")!)
+        request.HTTPMethod = "POST"
+        let tripID:Int? = Int(textField.text!)
+        if let tripID = tripID{
+        print("printing petID")
+        print(petID)
+        print("printing tripID")
+        print(tripID)
+        let postString = "a=\(petID)&b=\(tripID)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        print("Getting Pets---------------------------------------")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            
+            print("responseString = \(responseString)")
+            
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                //Convert to String/Drop Garbage------------
+                let s = String(responseString)
+                var parsedJsonString = String(s.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let taskStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var taskDicts: [[String: String]] = []
+                for string in taskStrings{
+                    print("TASK STRING: " + string)
+                    if let dict = string.convertToDictionary(){
+                        taskDicts.append(dict)
+                    }
+                }
+                //-------------------------------------------
+                
+                //Prove that this works----------------------
+                // print("PROOF!")
+                //for dict in petDicts{
+                
+                // print(String(dict["PetName"]))
+                //print(String(dict["PetID"]))
+                
+                // for dict in taskDicts{
+                //self.appDelegate.insertNewPet(dict["PetName"], species: dict["PetType"], breed: dict["PetBreed"], age: dict["PetAge"], personality: dict["PetPersonality"], food: dict["PetFood"], notes: dict["OtherNotes"], isSat: true, user: user!, petID: Int(dict["PetID"]!)!)
+                for dict in taskDicts{
+                    print("TASKNAME: " + dict["TaskName"]!)
+                    
+                    self.appDelegate.insertNewToDoItem(Int(dict["Complete"]!), instruction: dict["TaskName"], instructionDetail: dict["Detail"], petID: Int(dict["PetID"]!)
+                        , isSat: true, taskID: Int(dict["TaskID"]!))
+                }
+                
+                
+                
+                // print ("pet added")
+                //  }
+                //-------------------------------------------
+                
+                print("------------------------------------------------")
+                
+                //self.taskComplete()
+                
+            }
+            }
+            task.resume()
+        }
+    }
+    
 
 func taskComplete(){
     let storyboard = UIStoryboard(name: "Sitter", bundle: nil)
