@@ -28,9 +28,10 @@ class OwnerToDoTableViewController: UITableViewController{
     var complete: [NSNumber] = []
     var petIds: [NSNumber] = []
     var toDoItemTaskIds: [[Int]] = [[]]
-
+   // var selectedTaskID: Int
     var taskDone = true;
     
+    var tripCount = 0
     
     //var pets : [String] = ["Mira"]
     
@@ -59,6 +60,13 @@ class OwnerToDoTableViewController: UITableViewController{
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
                             complete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                            let selectedTaskID = toDoItem.itemID?.integerValue
+                            getComplete(selectedTaskID!)
+                            if (toDoItem.complete! == 1){
+                                print(toDoItemTaskIds[i])
+                                print("Is complete")
+                                //cell.accessoryType = .Checkmark
+                            }
                         }
                     }
                 }
@@ -86,7 +94,7 @@ class OwnerToDoTableViewController: UITableViewController{
         }
         
        */
-        
+
     
         if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -102,11 +110,12 @@ class OwnerToDoTableViewController: UITableViewController{
         toDoItemTaskIds.removeAll()
         toDoItemsDetails.removeAll()
         petIds.removeAll()
+        tripCount = 0
         
         print("View Will Appear")
         
-        
-        
+    
+    
         var i = 0
         
         if let fetchedPets = appDelegate.getPets(){
@@ -114,6 +123,9 @@ class OwnerToDoTableViewController: UITableViewController{
                 //print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
                 petIds.append(pet.petID!)
+                if(pet.tripID != nil){
+                    tripCount++
+                }
                 itemPetIDs.append([])
                 toDoItemTaskIds.append([])
                 if let fetchedToDoItems = appDelegate.getToDoItems(){
@@ -124,6 +136,14 @@ class OwnerToDoTableViewController: UITableViewController{
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
                             complete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                            let selectedTaskID = toDoItem.itemID?.integerValue
+                            print("CHECKING IF COMPLETE!!")
+                            getComplete(selectedTaskID!)
+                            print("Get Completed")
+                            if (toDoItem.complete! == 1){
+                                print(toDoItemTaskIds[i])
+                                print("Is complete")
+                            }
                         }
                     }
                 }
@@ -131,6 +151,10 @@ class OwnerToDoTableViewController: UITableViewController{
             }
         }
         
+     
+        
+        
+    
         /*
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("Called GetToDoItems in viewWillAppear")
@@ -234,7 +258,7 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
         
-        
+       print(toDoItemTaskIds)
         cell.textLabel?.text = pets[section]
         
         return cell
@@ -281,15 +305,15 @@ class OwnerToDoTableViewController: UITableViewController{
                 
             }
                 ///////DB Delete///////////
-                /*
-                let user = appDelegate.getUser()
-                let userID=user!.userID
+            
+                //let user = appDelegate.getUser()
+                //let userID=user!.userID
                 
                 
                 let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removeTask.php")!)
                 
                 request.HTTPMethod = "POST"
-                let postString = "a=\(userID!)&b=\(selectedTaskID)"
+                let postString = "a=\(selectedTaskID)"
                 //&i=\(imageView.image?)
                 request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
                 
@@ -308,16 +332,96 @@ class OwnerToDoTableViewController: UITableViewController{
                     
                 }
                 task.resume()
-*/
+
         }
     }
      //else if editingStyle == .Insert {
         //// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
        // }
     
-    
-    
+    func getComplete(selectedTaskID: Int){
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTaskComplete.php")!)
 
+        request.HTTPMethod = "POST"
+        let postString = "a=\(selectedTaskID)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("responseFromAddToDB = \(response)")
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseStringFromAddToDB = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                let s = String(responseString)
+                
+                //Remove beginning stuff--------------------
+                //let junkSeparator: [String] = s.characters.split(";").map(String.init)
+                //let jsonStuff = junkSeparator[1]
+                //------------------------------------------
+                
+                //Convert to String/Drop Garbage------------
+                //let s = String(responseString)
+                var parsedJsonString = String(s.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let itemStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var itemDicts: [[String: String]] = []
+                for string in itemStrings{
+                    if let dict = string.convertToDictionary(){
+                        itemDicts.append(dict)
+                    }
+                }
+            
+
+            let dict = itemDicts.last
+            //print(String(dict["tripName"]))
+           print("complete YO: ")
+            var iscomplete = (dict!["Complete"])
+            let myInt: Int! = Int(iscomplete!)
+                if(myInt == 1){
+                    self.appDelegate.updateIsComplete(selectedTaskID, isComplete: myInt)
+                }
+            }
+            
+            print("Checked if complete")
+            self.taskComplete()
+        }
+        
+        task.resume()
+        //return x
+    
+      
+    // x
+    }
+    
+    func taskComplete(){
+        NSOperationQueue.mainQueue().addOperationWithBlock{
+            print("ViewWillAPPear Task Complete")
+            self.viewWillAppear(true)
+        }
+    }
     
     func getTaskAddTask(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -396,6 +500,28 @@ class OwnerToDoTableViewController: UITableViewController{
         
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toAddTask"){
+
+                if(tripCount == 0){
+                    let alert = UIAlertController(title: "Oops!", message: "Please create a trip before adding tasks", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
+                        (alertAction) -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }else{
+                    
+                    let viewController = segue.destinationViewController as! OwnerAddListViewController
+                 
+                 
+                }
+
+                
+            }}
+    }
     
     
     /*
@@ -421,4 +547,3 @@ class OwnerToDoTableViewController: UITableViewController{
      }
      */
     
-}
