@@ -271,7 +271,7 @@ class AddPetOwner: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 
                 
                 // if(petDicts.count == 1){
-                let myPetDict = petDicts.first
+                let myPetDict = petDicts.last
                 print("PRINT FIRST PET 1")
                 if let petID = Int(myPetDict!["PetID"]!){
                     print("PRINT FIRST PET 2")

@@ -23,6 +23,7 @@ class SettingsSitter: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.tableViewOne.registerClass(UITableViewCell.self, forCellReuseIdentifier: "roleCell")
         self.tabBarController?.tabBar.hidden = true
+        self.title = "Settings"
     }
     
     override func viewWillDisappear(animated: Bool) {
