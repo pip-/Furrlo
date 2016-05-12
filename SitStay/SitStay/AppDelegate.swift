@@ -188,27 +188,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func deletePetsWithTripID(tripID: Int){
+    func deletePetsAndToDoItemsWithTripID(tripID: Int){
         let pets = getPets()
         if let pets = pets{
             for pet in pets{
                 if pet.tripID == tripID{
+                    deleteToDoItemWithPetID(Int(pet.petID!))
                     deletePet(Int(pet.petID!))
                 }
             }
         }
     }
     
-    /*func deleteToDoItemWithTripID(tripID: Int){
+    func deleteToDoItemWithPetID(petID: Int){
         let tasks = getToDoItems()
         if let tasks = tasks{
             for task in tasks{
-                if task.tripID == tripID{
-                    deletePet(Int(task.itemID!))
+                if task.petID == petID{
+                    deleteToDoItem(Int(task.itemID!))
                 }
             }
         }
-    }*/
+    }
     
     func updateTripID(oldID: Int, newID: Int){
         do{

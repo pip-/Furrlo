@@ -263,6 +263,7 @@ class NewTripOwnerController: UITableViewController {
                 if let city = city{
                     if(city.characters.count > 0){
                         if let zip = zip{
+                            if(startDate < endDate){
                             if(zip.characters.count == 5 && checkZip(zip)){
                                 if (chosenPets.count > 0){
                                     if let tripName = tripName{
@@ -271,6 +272,7 @@ class NewTripOwnerController: UITableViewController {
                                         return
                                     }
                                 }
+                            }
                             }
                         }
                     }
