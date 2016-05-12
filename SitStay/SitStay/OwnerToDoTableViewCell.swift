@@ -145,7 +145,7 @@ class OwnerToDoTableViewController: UITableViewController{
         }
         
         
-        
+    
         /*
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("Called GetToDoItems in viewWillAppear")
@@ -362,13 +362,13 @@ class OwnerToDoTableViewController: UITableViewController{
                 let s = String(responseString)
                 
                 //Remove beginning stuff--------------------
-                let junkSeparator: [String] = s.characters.split(";").map(String.init)
-                let jsonStuff = junkSeparator[1]
+                //let junkSeparator: [String] = s.characters.split(";").map(String.init)
+                //let jsonStuff = junkSeparator[1]
                 //------------------------------------------
                 
                 //Convert to String/Drop Garbage------------
                 //let s = String(responseString)
-                var parsedJsonString = String(jsonStuff.characters.dropLast(147))
+                var parsedJsonString = String(s.characters.dropLast(147))
                 parsedJsonString = String(parsedJsonString.characters.dropFirst())
                 //------------------------------------------
                 
@@ -388,18 +388,27 @@ class OwnerToDoTableViewController: UITableViewController{
 
             let dict = itemDicts.last
             //print(String(dict["tripName"]))
-            print("complete YO: "+String(dict!["Complete"]))
+           // print("complete YO: "+String(dict!["Complete"]))
             var iscomplete = (dict!["Complete"])
             let myInt: Int! = Int(iscomplete!)
                 if(myInt == 1){
                     self.appDelegate.updateIsComplete(selectedTaskID, isComplete: myInt)
                 }
             }
-        //task.resume()
+            self.taskComplete()
+        }
+        
+        task.resume()
         //return x
-    }
+    
       
     // x
+    }
+    
+    func taskComplete(){
+        NSOperationQueue.mainQueue().addOperationWithBlock{
+            self.viewWillAppear(true)
+        }
     }
     
     func getTaskAddTask(){
