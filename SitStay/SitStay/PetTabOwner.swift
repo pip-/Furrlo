@@ -2,8 +2,8 @@
 //  PetTabOwner.swift
 //  SitStay
 //
-//  Created by Philip Gilbreth on 4/6/16.
-//  Copyright © 2016 GroupA. All rights reserved.
+//  Created by MU IT Program on 3/30/16.
+//  Copyright © 2016 Megan Cochran. All rights reserved.
 //
 
 import UIKit
