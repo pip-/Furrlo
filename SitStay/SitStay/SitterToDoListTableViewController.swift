@@ -17,7 +17,7 @@ class SitterToDoListTableViewController: UITableViewController {
     //local variables to assign to ToDoItem variables
     var toDoItems: [String] = []
     var toDoItemsDetails: [String] = []
-    var toDoItemsComplete: [NSNumber] = []
+    var toDoItemsComplete: NSNumber?
     var itemPetIDs: [[Int]] = [[]]
     var petisSat: [Int] = []
     
@@ -25,13 +25,14 @@ class SitterToDoListTableViewController: UITableViewController {
     var petID: [NSNumber] = []
     
     var toDoItemTaskIds: [[Int]] = [[]]
-    
+    var selectedID: Int = 0
+    var selectedTaskID: Int = 0
     
     //Filler text for task list
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
     //Filler text for task list subtitle
-    var dailyTaskListDetails = [["test 1.1","test 1.2","test1.3"],["test 2.1","test 2.2","test2.3"]]
+    //var dailyTaskListDetails = [["test 1.1","test 1.2","test1.3"],["test 2.1","test 2.2","test2.3"]]
     
     //Filler text for daily titles
     //var dailyTitles = ["Today","Tomorrow","Later"]
@@ -46,23 +47,36 @@ class SitterToDoListTableViewController: UITableViewController {
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 //print("Fetched Pets in ViewDidLoad")
+                
                 pets.append(pet.name!)
                 petID.append(pet.petID!)
+                let selectedID = pet.petID!
+                
                 itemPetIDs.append([])
                 toDoItemTaskIds.append([])
                 if let fetchedToDoItems = appDelegate.getToDoItems(){
                     for toDoItem in fetchedToDoItems{
                         if toDoItem.petID == pet.petID{
+                            
                             itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
                             toDoItems.append(toDoItem.instruction!)
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
-                            toDoItemsComplete.append(toDoItem.complete!)
+                            //toDoItemsComplete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                            let selectedTaskID = toDoItem.itemID?.integerValue
+                            //petisSat.append(toDoItem.isSat)
+                            
+                            //pullPets(selectedID)
                         }
                     }
                 }
                 i += 1
             }
+            print ("About to print pets")
+            print (pets)
+            print ("About to print petID")
+            print (petID)
+           // pullPets(petID)
         }
         
         
@@ -136,7 +150,8 @@ class SitterToDoListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print(toDoItems)
-        return toDoItems.count
+        // return toDoItems.count
+        return itemPetIDs[section].count
         //return dailyTaskLists.count
         
     }
@@ -145,6 +160,22 @@ class SitterToDoListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
+        
+        var selectedID = itemPetIDs[indexPath.section][indexPath.row]
+        var selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
+        print("printing selectedID then seleted task Id")
+        print(selectedID)
+        print(selectedTaskID)
+        var i = 0
+        
+        
+        if let fetchedToDoItem = appDelegate.getItemWithID(selectedTaskID){
+            
+            cell.textLabel?.text = fetchedToDoItem.instruction
+            cell.detailTextLabel?.text = fetchedToDoItem.instructionDetail
+            
+        }
+        
         //cell.textLabel?.text = itemPetIDs[indexPath.section][indexPath.row]
         //cell.detailTextLabel?.text = itemPetIDs[indexPath.section][indexPath.row]
         
@@ -157,6 +188,7 @@ class SitterToDoListTableViewController: UITableViewController {
         
         return cell
     }
+        
     
     //Configure "header cells" with title text
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -222,6 +254,7 @@ class SitterToDoListTableViewController: UITableViewController {
         }
     
     
+
 
 
     /*
