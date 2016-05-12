@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WLj-7p-njg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WLj-7p-njg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1379,7 +1379,7 @@
                                                 <constraint firstAttribute="width" constant="100" id="hMI-KT-EVe"/>
                                             </constraints>
                                             <state key="normal">
-                                                <color key="titleColor" red="0.93738991019999995" green="1" blue="0.96602720019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.93738991019999995" green="1" blue="0.96602720019999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <segue destination="hh8-J6-g0Y" kind="show" identifier="toPet" id="Gac-Ez-T76"/>
@@ -2307,7 +2307,7 @@
                     <navigationItem key="navigationItem" title="To Do" id="bn2-dk-rJP">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="eHz-R8-8ho">
                             <connections>
-                                <segue destination="3mN-Zl-mQJ" kind="show" id="EYU-Ok-X8B">
+                                <segue destination="3mN-Zl-mQJ" kind="show" identifier="toAddTask" id="EYU-Ok-X8B">
                                     <nil key="action"/>
                                 </segue>
                             </connections>

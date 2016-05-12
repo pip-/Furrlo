@@ -31,6 +31,7 @@ class OwnerToDoTableViewController: UITableViewController{
    // var selectedTaskID: Int
     var taskDone = true;
     
+    var tripCount = 0
     
     //var pets : [String] = ["Mira"]
     
@@ -93,7 +94,7 @@ class OwnerToDoTableViewController: UITableViewController{
         }
         
        */
-        
+
     
         if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -109,30 +110,37 @@ class OwnerToDoTableViewController: UITableViewController{
         toDoItemTaskIds.removeAll()
         toDoItemsDetails.removeAll()
         petIds.removeAll()
+        tripCount = 0
         
         print("View Will Appear")
         
-        
-        
+    
+    
         var i = 0
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                if(pet.isSat == false){
                 //print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
                 petIds.append(pet.petID!)
+                if(pet.tripID != nil){
+                    tripCount++
+                }
                 itemPetIDs.append([])
-                toDoItemTaskIds.append([])
+                    toDoItemTaskIds.append([])}
                 if let fetchedToDoItems = appDelegate.getToDoItems(){
                     for toDoItem in fetchedToDoItems{
-                        if toDoItem.petID == pet.petID{
+                        if (toDoItem.petID == pet.petID && toDoItem.isSat == false){
                             itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
                             toDoItems.append(toDoItem.instruction!)
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
                             complete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
                             let selectedTaskID = toDoItem.itemID?.integerValue
+                            print("CHECKING IF COMPLETE!!")
                             getComplete(selectedTaskID!)
+                            print("Get Completed")
                             if (toDoItem.complete! == 1){
                                 print(toDoItemTaskIds[i])
                                 print("Is complete")
@@ -143,6 +151,8 @@ class OwnerToDoTableViewController: UITableViewController{
                 i += 1
             }
         }
+        
+     
         
         
     
@@ -249,7 +259,7 @@ class OwnerToDoTableViewController: UITableViewController{
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
         
-        
+       print(toDoItemTaskIds)
         cell.textLabel?.text = pets[section]
         
         return cell
@@ -388,13 +398,15 @@ class OwnerToDoTableViewController: UITableViewController{
 
             let dict = itemDicts.last
             //print(String(dict["tripName"]))
-           // print("complete YO: "+String(dict!["Complete"]))
+           print("complete YO: ")
             var iscomplete = (dict!["Complete"])
             let myInt: Int! = Int(iscomplete!)
                 if(myInt == 1){
                     self.appDelegate.updateIsComplete(selectedTaskID, isComplete: myInt)
                 }
             }
+            
+            print("Checked if complete")
             self.taskComplete()
         }
         
@@ -407,7 +419,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
     func taskComplete(){
         NSOperationQueue.mainQueue().addOperationWithBlock{
+            print("ViewWillAPPear Task Complete")
             self.viewWillAppear(true)
+            
         }
     }
     
@@ -488,7 +502,28 @@ class OwnerToDoTableViewController: UITableViewController{
         
     }
 
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "toAddTask"){
+
+                if(tripCount == 0){
+                    let alert = UIAlertController(title: "Oops!", message: "Please create a trip before adding tasks", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
+                        (alertAction) -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }else{
+                    
+                    let viewController = segue.destinationViewController as! OwnerAddListViewController
+                 
+                 
+                }
+
+                
+            }}
+    }
     
     
     /*
@@ -514,4 +549,3 @@ class OwnerToDoTableViewController: UITableViewController{
      }
      */
     
-}
