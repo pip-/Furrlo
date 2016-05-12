@@ -15,9 +15,9 @@ class OwnerToDoTableViewController: UITableViewController{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
+    //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
     
-     var dayTitles = ["Today","Tomorrow","Later"]
+   //  var dayTitles = ["Today","Tomorrow","Later"]
     
     //var dailyTaskLists: [String] = []
     //var dayTitles: [String] = []
@@ -88,7 +88,7 @@ class OwnerToDoTableViewController: UITableViewController{
        */
         
     
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
     
@@ -98,6 +98,10 @@ class OwnerToDoTableViewController: UITableViewController{
     override func viewWillAppear(animated: Bool) {
         toDoItems.removeAll()
         pets.removeAll()
+        itemPetIDs.removeAll()
+        toDoItemTaskIds.removeAll()
+        toDoItemsDetails.removeAll()
+        petIds.removeAll()
         
         print("View Will Appear")
         
@@ -154,7 +158,7 @@ class OwnerToDoTableViewController: UITableViewController{
         */
         
         
-        if(dailyTaskLists.count > 0){
+        if(toDoItemTaskIds.count > 0){
             self.navigationItem.rightBarButtonItem = self.editButtonItem()
         }
         
@@ -177,7 +181,10 @@ class OwnerToDoTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of rows
         //return dailyTaskLists[section].count
         //let toDoItem = pets[section]
-        return itemPetIDs[section].count
+        
+        //print(toDoItemTaskIds)
+        //print(itemPetIDs)
+        return toDoItemTaskIds[section].count
     }
     
     
@@ -185,32 +192,45 @@ class OwnerToDoTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell",forIndexPath: indexPath)
     
         //print("itemPetIds")
-        //print(itemPetIDs)
+        //print("itemPetIds at index path row")
         //print(itemPetIDs[indexPath.row])
-        //print("ItemPetIDs Section Index path")
-        //print(itemPetIDs[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
+        //print(toDoItems[indexPath.row])
+       
+       var selectedID = itemPetIDs[indexPath.section][indexPath.row]
+        var selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
+        //print("Selected ID")
+        //print(selectedID)
+        //var i = 0
+        
+       // print(toDoItems)
+        //print("itemPetIds[i]")
+        //print(itemPetIDs[i])
+        //print(toDoItems[indexPath.row])
         //print("petIds Section index path")
         //print(petIds[indexPath.section])
        
-       var selectedID = itemPetIDs[indexPath.section][indexPath.row]
+        if let fetchedToDoItem = appDelegate.getItemWithID(selectedTaskID){
         
-        var i = 0
-        
-        
-        
-        
-        //cell.textLabel?.text = toDoItem[indexPath.row]
-       // cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
-        
-        
-        if (complete[indexPath.row] == 1){
+         cell.textLabel?.text = fetchedToDoItem.instruction
+         cell.detailTextLabel?.text = fetchedToDoItem.instructionDetail
+            
+        //cell.textLabel?.text = toDoItems[indexPath.row]
+        //cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+      
+            
+        //i += 1
+        if (fetchedToDoItem.complete! == 1){
             cell.accessoryType = .Checkmark
         }
+            }
         
         return cell
-        }
+            }
     
-    
+
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
         
@@ -233,20 +253,65 @@ class OwnerToDoTableViewController: UITableViewController{
     
   //Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
+     
     // Delete the row from the data source
         //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
         
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+        let selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
+           // appDelegate.deleteToDoItem(selectedTaskID)
         
-        toDoItems.removeAtIndex(indexPath.row)
-        toDoItemsDetails.removeAtIndex(indexPath.row)
-        complete.removeAtIndex(indexPath.row)
+        //toDoItems.removeAtIndex(indexPath.row)
+        //toDoItemsDetails.removeAtIndex(indexPath.row)
+        //complete.removeAtIndex(indexPath.row)
         
             //tripIds.removeAtIndex(indexPath.row - 1)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        
+        
+
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            if(appDelegate.deleteToDoItem(toDoItemTaskIds[indexPath.section][indexPath.row])){
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+                toDoItems.removeAtIndex(indexPath.row )
+                //let itemID=toDoItemTaskIds[indexPath.row-1]
+                toDoItemTaskIds[indexPath.section].removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+             viewWillAppear(true)
+                
+            }
+                ///////DB Delete///////////
+                /*
+                let user = appDelegate.getUser()
+                let userID=user!.userID
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removeTask.php")!)
+                
+                request.HTTPMethod = "POST"
+                let postString = "a=\(userID!)&b=\(selectedTaskID)"
+                //&i=\(imageView.image?)
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil {
+                        print("error=\(error)")
+                        return
+                    }
+                    
+                    print("responseFromAddToDB = \(response)")
+                    
+                    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("responseStringFromAddToDB = \(responseString)")
+                    
+                }
+                task.resume()
+*/
         }
-     } //else if editingStyle == .Insert {
+    }
+     //else if editingStyle == .Insert {
         //// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
        // }
     
