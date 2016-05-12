@@ -188,6 +188,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func deletePetsWithTripID(tripID: Int){
+        let pets = getPets()
+        if let pets = pets{
+            for pet in pets{
+                if pet.tripID == tripID{
+                    deletePet(Int(pet.petID!))
+                }
+            }
+        }
+    }
+    
+    /*func deleteToDoItemWithTripID(tripID: Int){
+        let tasks = getToDoItems()
+        if let tasks = tasks{
+            for task in tasks{
+                if task.tripID == tripID{
+                    deletePet(Int(task.itemID!))
+                }
+            }
+        }
+    }*/
+    
     func updateTripID(oldID: Int, newID: Int){
         do{
         let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
@@ -324,6 +346,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         catch{
             print("Could not delete this trip")
+        }
+        return false
+    }
+    
+    func deleteToDoItem(taskID: Int) -> Bool{
+        do{
+            let fetchedTasks = getToDoItems()
+            if let fetchedTasks = fetchedTasks{
+            for task in fetchedTasks{
+                if task.itemID == taskID{
+                    //print("Trying to delete trip: " + trip.tripName!)
+                    self.managedObjectContext.deleteObject(task)
+                    self.saveContext()
+                    return true
+                }
+                }
+            }
         }
         return false
     }
