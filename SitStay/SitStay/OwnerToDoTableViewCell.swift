@@ -199,7 +199,7 @@ class OwnerToDoTableViewController: UITableViewController{
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         //return dayTitles.count
-        return pets.count
+        return toDoItemTaskIds.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -420,7 +420,7 @@ class OwnerToDoTableViewController: UITableViewController{
     func taskComplete(){
         NSOperationQueue.mainQueue().addOperationWithBlock{
             print("ViewWillAPPear Task Complete")
-            self.viewWillAppear(true)
+            self.tableView.reloadData()
             
         }
     }
