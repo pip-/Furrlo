@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let alreadyLaunched = NSUserDefaults.standardUserDefaults().boolForKey("alreadyLaunched")
         if(!alreadyLaunched){
-            //print("BOOPBOOP!")
             //Do First Launch stuff
             
             //Creating an instance of 'User'-----------------------------------------
@@ -141,6 +140,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         } catch {
             fatalError("Failed to fetch users: \(error)")
+        }
+    }
+    
+    func getTrips() -> [Trip?]{
+        do {
+            let fetchedTrips = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Trip")) as! [Trip]
+            return fetchedTrips
+        } catch {
+            fatalError("Failed to fetch trips: \(error)")
         }
     }
 
