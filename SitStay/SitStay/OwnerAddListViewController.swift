@@ -138,7 +138,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             if pets.count == 0 {
                 return "Not trips"
             } else {
-                return tripNames[row]
+              return tripNames[row]
             }
         }
       //  return pets[row]
