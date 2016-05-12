@@ -422,14 +422,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
  
-  /*
-    func deleteToDoItem(itemID: NSNumber) -> Bool{
+  
+    func deleteToDoItem(itemID: Int) -> Bool{
         do {
            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
             for toDoItem in fetchedToDoItems{
-                if ToDoItem.itemId == itemID{
-                    print("Trying to delete To Do Item: "+ toDoItem.itemID!)
-                    self.managedObjectContext.deletedObject(toDoItem)
+                if toDoItem.itemID == itemID{
+                    print("Trying to delete To Do Item: ")
+                    //self.managedObjectContext.deletedObject(toDoItem)
                     self.saveContext()
                     return true
                 }
@@ -441,7 +441,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
  
-    */
+    
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
         //var petPicture: UIImage
