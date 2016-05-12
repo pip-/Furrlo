@@ -84,6 +84,12 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             selectedID = (petID?.integerValue)!
         }
         
+        if(tripIDs.count == 0){
+            selectedTripID = 0
+        } else {
+            selectedTripID = tripIDs[0]
+            pickerView.selectRow(0, inComponent: 0, animated: false)
+        }
         
         submitButton.enabled = false
         
