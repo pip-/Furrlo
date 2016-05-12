@@ -3,7 +3,7 @@
 //  SitStay
 //
 //  Created by MU IT Program on 4/10/16.
-//  Copyright © 2016 GroupA. All rights reserved.
+//  Copyright © 2016 Megan Cochran. All rights reserved.
 //
 
 import UIKit
