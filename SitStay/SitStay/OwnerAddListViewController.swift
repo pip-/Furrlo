@@ -206,12 +206,14 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 if let instruction = instructionField.text{
                     if(instruction.characters.count > 0)
                     {
+                        if self.tripIDs.count > 0{
                         //print(instructionDetail)
                         if let instructionDetail = instructionDetailsField.text{
                             if(instructionDetail.characters.count > 0){
                                 submitButton.enabled = true
                                 return
                             }
+                        }
                         }
                     }
                 }
@@ -246,7 +248,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)"
+        let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)&e=\(selectedTripID)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         

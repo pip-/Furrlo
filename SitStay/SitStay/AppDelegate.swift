@@ -459,26 +459,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return
     }
-    
- 
-  
-    func deleteToDoItem(itemID: Int) -> Bool{
-        do {
-           let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
-            for toDoItem in fetchedToDoItems{
-                if toDoItem.itemID == itemID{
-                    print("Trying to delete To Do Item: ")
-                    //self.managedObjectContext.deletedObject(toDoItem)
-                    self.saveContext()
-                    return true
-                }
-            }
-        }
-        catch {
-            print("Could not delete this Task")
-        }
-        return false
-    }
  
     
     func pickPetPicture(petSpecies: String) -> UIImage {
