@@ -25,9 +25,9 @@ class TripTabOwnerMain: UITableViewController {
         if let fetchedTrips = appDelegate.getTrips(){
             for trip in fetchedTrips{
                     if(trip.isSitting!.boolValue == false){
-                        if(trip.endDate <= NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(3600 * 24 * 2))){
+                        if(trip.endDate >= NSDate.init(timeIntervalSinceNow: NSTimeInterval.init(3600 * 24 * 2))){
                             print("Deleting a trip that is too old.")
-                            appDelegate.deletePetsAndToDoItemsWithTripID(Int(trip.tripID!))
+                            //appDelegate.deletePetsAndToDoItemsWithTripID(Int(trip.tripID!))  //Don't delete owner's pets...
                             appDelegate.deleteTrip(Int(trip.tripID!))
                         } else {
                             tripNames.append(trip.tripName!)
