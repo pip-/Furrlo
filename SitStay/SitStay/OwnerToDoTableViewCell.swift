@@ -28,7 +28,7 @@ class OwnerToDoTableViewController: UITableViewController{
     var complete: [NSNumber] = []
     var petIds: [NSNumber] = []
     var toDoItemTaskIds: [[Int]] = [[]]
-
+   // var selectedTaskID: Int
     var taskDone = true;
     
     
@@ -59,6 +59,13 @@ class OwnerToDoTableViewController: UITableViewController{
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
                             complete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                            let selectedTaskID = toDoItem.itemID?.integerValue
+                            getComplete(selectedTaskID!)
+                            if (toDoItem.complete! == 1){
+                                print(toDoItemTaskIds[i])
+                                print("Is complete")
+                                //cell.accessoryType = .Checkmark
+                            }
                         }
                     }
                 }
@@ -124,6 +131,12 @@ class OwnerToDoTableViewController: UITableViewController{
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
                             complete.append(toDoItem.complete!)
                             toDoItemTaskIds[i].append((toDoItem.itemID?.integerValue)!)
+                            let selectedTaskID = toDoItem.itemID?.integerValue
+                            getComplete(selectedTaskID!)
+                            if (toDoItem.complete! == 1){
+                                print(toDoItemTaskIds[i])
+                                print("Is complete")
+                            }
                         }
                     }
                 }
@@ -131,6 +144,8 @@ class OwnerToDoTableViewController: UITableViewController{
             }
         }
         
+        
+    
         /*
         if let fetchedToDoItems = appDelegate.getToDoItems(){
             print("Called GetToDoItems in viewWillAppear")
@@ -184,7 +199,7 @@ class OwnerToDoTableViewController: UITableViewController{
         
         //print(toDoItemTaskIds)
         //print(itemPetIDs)
-        return itemPetIDs[section].count
+        return toDoItemTaskIds[section].count
     }
     
     
@@ -196,20 +211,20 @@ class OwnerToDoTableViewController: UITableViewController{
         //print(itemPetIDs[indexPath.row])
         //print("petIds Section index path")
         //print(petIds[indexPath.section])
-        print(toDoItems[indexPath.row])
+        //print(toDoItems[indexPath.row])
        
        var selectedID = itemPetIDs[indexPath.section][indexPath.row]
         var selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
         //print("Selected ID")
         //print(selectedID)
-        var i = 0
+        //var i = 0
         
-        print(toDoItems)
-        print("itemPetIds[i]")
-        print(itemPetIDs[i])
+       // print(toDoItems)
+        //print("itemPetIds[i]")
+        //print(itemPetIDs[i])
         //print(toDoItems[indexPath.row])
-        print("petIds Section index path")
-        print(petIds[indexPath.section])
+        //print("petIds Section index path")
+        //print(petIds[indexPath.section])
        
         if let fetchedToDoItem = appDelegate.getItemWithID(selectedTaskID){
         
@@ -253,26 +268,148 @@ class OwnerToDoTableViewController: UITableViewController{
     
   //Override to support editing the table view.
      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
+     
     // Delete the row from the data source
         //if(appDelegate.deleteToDoTask(dailyTaskLists[indexPath.row - 1])){
         
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+        let selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
+           // appDelegate.deleteToDoItem(selectedTaskID)
         
-        toDoItems.removeAtIndex(indexPath.row)
-        toDoItemsDetails.removeAtIndex(indexPath.row)
-        complete.removeAtIndex(indexPath.row)
+        //toDoItems.removeAtIndex(indexPath.row)
+        //toDoItemsDetails.removeAtIndex(indexPath.row)
+        //complete.removeAtIndex(indexPath.row)
         
             //tripIds.removeAtIndex(indexPath.row - 1)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        
+        
+
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            if(appDelegate.deleteToDoItem(toDoItemTaskIds[indexPath.section][indexPath.row])){
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "editing")
+                toDoItems.removeAtIndex(indexPath.row )
+                //let itemID=toDoItemTaskIds[indexPath.row-1]
+                toDoItemTaskIds[indexPath.section].removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+             viewWillAppear(true)
+                
+            }
+                ///////DB Delete///////////
+            
+                //let user = appDelegate.getUser()
+                //let userID=user!.userID
+                
+                
+                let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/removeTask.php")!)
+                
+                request.HTTPMethod = "POST"
+                let postString = "a=\(selectedTaskID)"
+                //&i=\(imageView.image?)
+                request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil {
+                        print("error=\(error)")
+                        return
+                    }
+                    
+                    print("responseFromAddToDB = \(response)")
+                    
+                    let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("responseStringFromAddToDB = \(responseString)")
+                    
+                }
+                task.resume()
+
         }
-     } //else if editingStyle == .Insert {
+    }
+     //else if editingStyle == .Insert {
         //// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
        // }
     
-    
-    
+    func getComplete(selectedTaskID: Int){
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/getTaskComplete.php")!)
 
+        request.HTTPMethod = "POST"
+        let postString = "a=\(selectedTaskID)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("responseFromAddToDB = \(response)")
+            
+            var responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseStringFromAddToDB = \(responseString)")
+            
+            //Strip Escape Characters-------------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\n", withString: "")
+            responseString = responseString?.stringByReplacingOccurrencesOfString("\r", withString: "")
+            //------------------------------------------
+            
+            //Change to easier delimiters---------------
+            responseString = responseString?.stringByReplacingOccurrencesOfString("},{", withString: "}&{")
+            //------------------------------------------
+            if let responseString = responseString{
+                let s = String(responseString)
+                
+                //Remove beginning stuff--------------------
+                //let junkSeparator: [String] = s.characters.split(";").map(String.init)
+                //let jsonStuff = junkSeparator[1]
+                //------------------------------------------
+                
+                //Convert to String/Drop Garbage------------
+                //let s = String(responseString)
+                var parsedJsonString = String(s.characters.dropLast(147))
+                parsedJsonString = String(parsedJsonString.characters.dropFirst())
+                //------------------------------------------
+                
+                
+                //Put into array----------------------------
+                let itemStrings: [String] = parsedJsonString.characters.split("&").map(String.init)
+                //------------------------------------------
+                
+                //Parse each string into dictionary---------
+                var itemDicts: [[String: String]] = []
+                for string in itemStrings{
+                    if let dict = string.convertToDictionary(){
+                        itemDicts.append(dict)
+                    }
+                }
+            
+
+            let dict = itemDicts.last
+            //print(String(dict["tripName"]))
+           // print("complete YO: "+String(dict!["Complete"]))
+            var iscomplete = (dict!["Complete"])
+            let myInt: Int! = Int(iscomplete!)
+                if(myInt == 1){
+                    self.appDelegate.updateIsComplete(selectedTaskID, isComplete: myInt)
+                }
+            }
+            self.taskComplete()
+        }
+        
+        task.resume()
+        //return x
+    
+      
+    // x
+    }
+    
+    func taskComplete(){
+        NSOperationQueue.mainQueue().addOperationWithBlock{
+            self.viewWillAppear(true)
+        }
+    }
     
     func getTaskAddTask(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -351,6 +488,7 @@ class OwnerToDoTableViewController: UITableViewController{
         
     }
 
+    
     
     
     /*

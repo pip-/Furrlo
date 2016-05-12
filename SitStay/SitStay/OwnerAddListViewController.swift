@@ -17,7 +17,12 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     @IBOutlet weak var instructionField: UITextField!
     @IBOutlet weak var instructionDetailsField: UITextField!
     
+
+    @IBOutlet weak var pickerView2: UIPickerView!
+    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var selectedTripID: Int = 0
     
     var complete: NSNumber?
     var instruction: String?
@@ -31,7 +36,8 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     var selectedID: Int = 0
     
     var petIDs: [Int] = []
-    
+    var tripIDs: [Int] = []
+    var tripNames: [String] = []
     
     let keyboardVerticalSpacing: CGFloat = 30
     
@@ -41,12 +47,24 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         pickerView.delegate = self
         pickerView.dataSource = self
         
+        pickerView2.delegate = self
+        pickerView2.dataSource = self
+        
+
         pets.removeAll()
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
                 pets.append(pet.name!)
                 petIDs.append(pet.petID!.integerValue)
+                
+            }
+        }
+        
+        if let fetchedTrips = appDelegate.getTrips(){
+            for trip in fetchedTrips{
+                tripIDs.append(Int(trip.tripID!))
+                tripNames.append(trip.tripName!)
                 
             }
         }
@@ -66,6 +84,12 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
             selectedID = (petID?.integerValue)!
         }
         
+        if(tripIDs.count == 0){
+            selectedTripID = 0
+        } else {
+            selectedTripID = tripIDs[0]
+            pickerView.selectRow(0, inComponent: 0, animated: false)
+        }
         
         submitButton.enabled = false
         
@@ -90,6 +114,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == self.pickerView{
         if(pets.count == 0)
         {
             return 1
@@ -97,20 +122,36 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         {
             return pets.count
         }
+        } else {
+            if(tripNames.count == 0)
+            {
+                return 1
+            } else {
+                return tripNames.count
+            }
+        }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == self.pickerView{
         if (pets.count == 0)
         {
             return "No pets"
         } else {
             return pets[row]
         }
+        } else {
+            if pets.count == 0 {
+                return "Not trips"
+            } else {
+              return tripNames[row]
+            }
+        }
       //  return pets[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        if pickerView == self.pickerView{
         if(pets.count == 0)
         {
         selectionLabel.text = "No pets"
@@ -119,6 +160,13 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         let petID = petIDs[row]
         print(petID)
         selectedID = petID
+        }
+        } else {
+            if(tripNames.count == 0){
+                selectedTripID = 0
+            } else {
+                selectedTripID = tripIDs[row]
+            }
         }
         
         
@@ -164,12 +212,14 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
                 if let instruction = instructionField.text{
                     if(instruction.characters.count > 0)
                     {
+                        if self.tripIDs.count > 0{
                         //print(instructionDetail)
                         if let instructionDetail = instructionDetailsField.text{
                             if(instructionDetail.characters.count > 0){
                                 submitButton.enabled = true
                                 return
                             }
+                        }
                         }
                     }
                 }
@@ -204,7 +254,7 @@ class OwnerAddListViewController: UIViewController, UIPickerViewDelegate,UIPicke
         
         
         request.HTTPMethod = "POST"
-        let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)"
+        let postString = "a=\(petID)&b=\(petName)&c=\(instruction)&d=\(instructionDetail)&e=\(selectedTripID)"
         //&i=\(imageView.image?)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
