@@ -420,6 +420,7 @@ class OwnerToDoTableViewController: UITableViewController{
         NSOperationQueue.mainQueue().addOperationWithBlock{
             print("ViewWillAPPear Task Complete")
             self.viewWillAppear(true)
+            
         }
     }
     
