@@ -500,7 +500,7 @@ class OwnerToDoTableViewController: UITableViewController{
         if(segue.identifier == "toAddTask"){
 
                 if(tripCount == 0){
-                    let alert = UIAlertController(title: "You need to create a trip!", message: "Please create a trip before adding tasks", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Oops!", message: "Please create a trip before adding tasks", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {
                         (alertAction) -> Void in
                         self.navigationController?.popViewControllerAnimated(true)
