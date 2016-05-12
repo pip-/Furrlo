@@ -214,6 +214,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func getItemWithID(itemID: Int) ->  ToDoItem? {
+        do {
+            print("Do in getItemWithID")
+            if let fetchedItems = getToDoItems(){
+            for ToDoItem in fetchedItems{
+                print(itemID)
+                print(ToDoItem.itemID?.integerValue)
+                if (itemID == ToDoItem.itemID?.integerValue ){
+                print(ToDoItem)
+                    return ToDoItem
+                }
+            }
+            }
+            
+        } catch {
+            print("Failed to fetch item")
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+        return nil
+    }
 
     func getPets() -> [Pet]?{
         do {
@@ -348,11 +368,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-    func deletePet(petName: String) -> Bool{
+    func deletePet(petID: Int) -> Bool{
         do{
             let fetchedPets = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "Pet")) as! [Pet]
             for pet in fetchedPets{
-                if pet.name == petName{
+                if pet.petID == petID{
                     print("Trying to delete pet: " + pet.name!)
                     self.managedObjectContext.deleteObject(pet)
                     self.saveContext()

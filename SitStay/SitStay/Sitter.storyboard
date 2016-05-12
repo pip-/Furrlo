@@ -377,7 +377,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="foodHeader" destination="dhU-gK-H0e" id="vAr-iZ-9Ge"/>
                         <outlet property="imageView" destination="Fml-97-c5x" id="fay-He-Dvx"/>
+                        <outlet property="noteHeader" destination="QbG-wZ-DSo" id="Xnw-Jj-EV4"/>
+                        <outlet property="personalityHeader" destination="DV6-cH-uHB" id="WZf-eb-Kjj"/>
                         <outlet property="petAge" destination="1Y5-UG-Dey" id="Q7a-20-pqg"/>
                         <outlet property="petBreedLabel" destination="SeW-yK-ZUQ" id="8ce-MA-nzx"/>
                         <outlet property="petFoodLabel" destination="zhp-ED-u9c" id="Q3Y-N2-HHY"/>
