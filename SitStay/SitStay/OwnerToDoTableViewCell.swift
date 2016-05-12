@@ -415,6 +415,7 @@ class OwnerToDoTableViewController: UITableViewController{
     func taskComplete(){
         NSOperationQueue.mainQueue().addOperationWithBlock{
             self.viewWillAppear(true)
+            
         }
     }
     
