@@ -120,6 +120,7 @@ class OwnerToDoTableViewController: UITableViewController{
         
         if let fetchedPets = appDelegate.getPets(){
             for pet in fetchedPets{
+                if(pet.isSat == false){
                 //print("Fetched Pets in ViewDidLoad")
                 pets.append(pet.name!)
                 petIds.append(pet.petID!)
@@ -127,10 +128,10 @@ class OwnerToDoTableViewController: UITableViewController{
                     tripCount++
                 }
                 itemPetIDs.append([])
-                toDoItemTaskIds.append([])
+                    toDoItemTaskIds.append([])}
                 if let fetchedToDoItems = appDelegate.getToDoItems(){
                     for toDoItem in fetchedToDoItems{
-                        if toDoItem.petID == pet.petID{
+                        if (toDoItem.petID == pet.petID && toDoItem.isSat == false){
                             itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
                             toDoItems.append(toDoItem.instruction!)
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
@@ -420,6 +421,7 @@ class OwnerToDoTableViewController: UITableViewController{
         NSOperationQueue.mainQueue().addOperationWithBlock{
             print("ViewWillAPPear Task Complete")
             self.viewWillAppear(true)
+            
         }
     }
     

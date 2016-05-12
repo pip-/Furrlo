@@ -27,6 +27,8 @@ class SitterToDoListTableViewController: UITableViewController {
     var toDoItemTaskIds: [[Int]] = [[]]
     var selectedID: Int = 0
     var selectedTaskID: Int = 0
+    var checkedStatus: [Int] = []
+    //var tripCount = 0
     
     //Filler text for task list
     //var dailyTaskLists = [["Today Food","Today Water","Today Exercise"],["Tomorrow Food","Tomorrow Water","Tomorrow Exercise"],["Later Food","Later Water","Later Exercise"]]
@@ -54,10 +56,11 @@ class SitterToDoListTableViewController: UITableViewController {
                 
                 itemPetIDs.append([])
                 toDoItemTaskIds.append([])
+            
                 if let fetchedToDoItems = appDelegate.getToDoItems(){
                     for toDoItem in fetchedToDoItems{
                         if toDoItem.petID == pet.petID{
-                            
+                           // checkedStatus.append(toDoItem.complete?.integerValue)
                             itemPetIDs[i].append((toDoItem.petID?.integerValue)!)
                             toDoItems.append(toDoItem.instruction!)
                             toDoItemsDetails.append(toDoItem.instructionDetail!)
@@ -72,6 +75,9 @@ class SitterToDoListTableViewController: UITableViewController {
                 }
                 i += 1
             }
+           
+            
+            
             print ("About to print pets")
             print (pets)
             print ("About to print petID")
@@ -132,6 +138,9 @@ class SitterToDoListTableViewController: UITableViewController {
     //END VIEW DID LOAD
     }
 
+    override func viewWillAppear(animated: Bool) {
+    
+    }
     
     
 
@@ -161,8 +170,8 @@ class SitterToDoListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("dataCell", forIndexPath: indexPath)
 
         
-        var selectedID = itemPetIDs[indexPath.section][indexPath.row]
-        var selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
+        let selectedID = itemPetIDs[indexPath.section][indexPath.row]
+        let selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
         print("printing selectedID then seleted task Id")
         print(selectedID)
         print(selectedTaskID)
@@ -170,7 +179,10 @@ class SitterToDoListTableViewController: UITableViewController {
         
         
         if let fetchedToDoItem = appDelegate.getItemWithID(selectedTaskID){
-            
+            print("ITEM WITH ID: " + String(fetchedToDoItem.itemID!) + " IS COMPLETE? " + String(fetchedToDoItem.complete!))
+            if (fetchedToDoItem.complete!.boolValue == true){
+                cell.accessoryType = .Checkmark
+            }
             cell.textLabel?.text = fetchedToDoItem.instruction
             cell.detailTextLabel?.text = fetchedToDoItem.instructionDetail
             
@@ -224,11 +236,20 @@ class SitterToDoListTableViewController: UITableViewController {
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell?.accessoryType = .Checkmark
             
+            
+
             //add functionality to save task that have been marked as done
             //print("To do items complete",self.toDoItemsComplete)
             
             self.appDelegate.setToDoItemComplete(1, toDoItemID: self.toDoItemTaskIds[indexPath.section][indexPath.row])
             
+            print("IS THIS DONE??")
+            if let item = self.appDelegate.getItemWithID(self.toDoItemTaskIds[indexPath.section][indexPath.row]){
+                print(item.itemID!)
+            }
+            
+            self.setDBTaskComplete(self.toDoItemTaskIds[indexPath.section][indexPath.row], complete: 1)
+        
         })
         
         alert.addAction(markDone)
@@ -238,6 +259,8 @@ class SitterToDoListTableViewController: UITableViewController {
             (action:UIAlertAction!) -> Void in
             
             self.appDelegate.setToDoItemComplete(0, toDoItemID: self.toDoItemTaskIds[indexPath.section][indexPath.row])
+            
+            self.setDBTaskComplete(self.toDoItemTaskIds[indexPath.section][indexPath.row], complete: 0)
             
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             cell?.accessoryType = .DisclosureIndicator
@@ -253,7 +276,41 @@ class SitterToDoListTableViewController: UITableViewController {
         
         }
     
-    
+    func setDBTaskComplete(taskID : Int, complete: Int){
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.petsitterz.netau.net/setTaskComplete.php")!)
+        request.HTTPMethod = "POST"
+            let postString = "a=\(taskID)&b=\(complete)"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            print("Getting Pets---------------------------------------")
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                
+                
+                if error != nil {
+                    print("error=\(error)")
+                    return
+                }
+                
+                print("response = \(response)")
+                
+                let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                
+                print("responseString = \(responseString)")
+                
+           
+                    
+                    print("------------------------------------------------")
+                    
+                    //self.taskComplete()
+                    
+                }
+            
+            task.resume()
+        }
+    }
 
 
 
@@ -302,4 +359,4 @@ class SitterToDoListTableViewController: UITableViewController {
     }
     */
 
-}
+
