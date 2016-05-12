@@ -456,6 +456,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        self.saveContext()
         
         return
     }
