@@ -461,7 +461,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
  
-  
+  /*
     func deleteToDoItem(itemID: Int) -> Bool{
         do {
            let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
@@ -479,7 +479,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
- 
+ */
     
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
