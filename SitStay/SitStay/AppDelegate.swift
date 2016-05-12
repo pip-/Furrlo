@@ -460,7 +460,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return
     }
     
- 
+    
+    
+    func updateIsComplete(TaskID: Int,isComplete: Int){
+        do {
+            print("Do in getItemWithID")
+            if let fetchedItems = getToDoItems(){
+                for ToDoItem in fetchedItems{
+                    if ToDoItem.itemID == TaskID{
+                        ToDoItem.complete = 1
+                    }
+                }
+            }
+            
+        } catch {
+            print("Failed to fetch item")
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+        
+    }
   /*
     func deleteToDoItem(itemID: Int) -> Bool{
         do {
