@@ -199,6 +199,7 @@ class OwnerToDoTableViewController: UITableViewController{
         print(toDoItems[indexPath.row])
        
        var selectedID = itemPetIDs[indexPath.section][indexPath.row]
+        var selectedTaskID = toDoItemTaskIds[indexPath.section][indexPath.row]
         //print("Selected ID")
         //print(selectedID)
         var i = 0
@@ -210,25 +211,26 @@ class OwnerToDoTableViewController: UITableViewController{
         print("petIds Section index path")
         print(petIds[indexPath.section])
        
-        if let fetchedToDoItem = appDelegate.getItemWithID(selectedID){
+        if let fetchedToDoItem = appDelegate.getItemWithID(selectedTaskID){
         
+         cell.textLabel?.text = fetchedToDoItem.instruction
+         cell.detailTextLabel?.text = fetchedToDoItem.instructionDetail
             
-        cell.textLabel?.text = toDoItems[indexPath.row]
-        cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
+        //cell.textLabel?.text = toDoItems[indexPath.row]
+        //cell.detailTextLabel?.text = toDoItemsDetails[indexPath.row]
       
-
-        i += 1
-        if (complete[indexPath.row] == 1){
+            
+        //i += 1
+        if (fetchedToDoItem.complete! == 1){
             cell.accessoryType = .Checkmark
         }
             }
         
-            
         return cell
             }
     
-    
-    
+
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! DayTableViewCell
         
