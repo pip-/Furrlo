@@ -459,7 +459,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return
     }
- 
+    
+    
+    
+    func updateIsComplete(TaskID: Int,isComplete: Int){
+        do {
+            print("Do in getItemWithID")
+            if let fetchedItems = getToDoItems(){
+                for ToDoItem in fetchedItems{
+                    if ToDoItem.itemID == TaskID{
+                        ToDoItem.complete = 1
+                    }
+                }
+            }
+            
+        } catch {
+            print("Failed to fetch item")
+            fatalError("Failed to fetch To Do items: \(error)")
+        }
+        
+    }
+  /*
+    func deleteToDoItem(itemID: Int) -> Bool{
+        do {
+           let fetchedToDoItems = try self.managedObjectContext.executeFetchRequest(NSFetchRequest(entityName: "ToDoItem")) as! [ToDoItem]
+            for toDoItem in fetchedToDoItems{
+                if toDoItem.itemID == itemID{
+                    print("Trying to delete To Do Item: ")
+                    //self.managedObjectContext.deletedObject(toDoItem)
+                    self.saveContext()
+                    return true
+                }
+            }
+        }
+        catch {
+            print("Could not delete this Task")
+        }
+        return false
+    }
+ */
     
     func pickPetPicture(petSpecies: String) -> UIImage {
         let lowercaseSpecies = petSpecies.lowercaseString
